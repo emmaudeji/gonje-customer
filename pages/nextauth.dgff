@@ -82,3 +82,75 @@
 //     }),
 //   ],
 // });
+
+edited============================
+
+import NextAuth from "next-auth";
+import AppleProvider from "next-auth/providers/apple";
+import GoogleProvider from "next-auth/providers/google";
+import EmailProvider from "next-auth/providers/email";
+import CredentialsProvider from "next-auth/providers/credentials";
+
+export default NextAuth({
+  secret: process.env.SECRET,
+  providers: [
+    // OAuth authentication providers
+    AppleProvider({
+      clientId: process.env.APPLE_ID,
+      clientSecret: process.env.APPLE_SECRET,
+    }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_ID,
+      clientSecret: process.env.GOOGLE_SECRET,
+    }),
+    // Sign in with passwordless email link
+    EmailProvider({
+      server: process.env.MAIL_SERVER,
+      from: "<no-reply@example.com>",
+    }),
+    CredentialsProvider({
+      // The name to display on the sign-in form (e.g., 'Sign in with...')
+      id: "credentialsLogin", // Use "id" instead of "name"
+      credentials: {
+        username: { label: "Username", type: "text", placeholder: "jsmith" },
+        password: { label: "Password", type: "password" },
+      },
+      async authorize(credentials, req) {
+        try {
+          // Add logic here to look up the user from the credentials supplied
+          const apiResponse = await userService.login(
+            credentials.username, // Use username instead of email
+            credentials.password
+          );
+
+          if (apiResponse) {
+            if (apiResponse.responseStatus === 200) {
+              if (apiResponse.user.emailNotify === true) {
+                const user = { id: apiResponse.user._id, name: apiResponse.user.name }; // Correct the user object structure
+                return Promise.resolve(user); // Resolve with the user object
+              } else {
+                throw new Error(
+                  'User needs to verify email.&userId=' + apiResponse.user._id
+                );
+              }
+            } else {
+              return null;
+            }
+          } else {
+            return null;
+          }
+        } catch (e) {
+          const errorMessage = e.message; // Use e.message to get the error message
+          // Redirecting to the login page with error message in the URL
+          throw new Error(
+            errorMessage +
+              '&username=' +
+              credentials.username + // Use username instead of email
+              '&password=' +
+              credentials.password
+          );
+        }
+      },
+    }),
+  ],
+});

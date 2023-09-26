@@ -3,7 +3,7 @@ import GooglePlacesAutocomplete, {
   geocodeByPlaceId,
   geocodeByLatLng,
 } from "react-google-places-autocomplete";
-import { GOOGLE_ADDRESS_API_KEY } from "../../util";
+import { GOOGLE_ADDRESS_API_KEY } from "../util";
 // import { Libraries } from "@react-google-maps/api/dist/utils/make-load-script-url";
 import {
   Autocomplete,
