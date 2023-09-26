@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>carbon:search</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.717476 0 0 0 0 0.717476 0 0 0 0 0.717476 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="carbon:search" transform="translate(-278.000000, -33.000000)" filter="url(#filter-1)">
+            <g transform="translate(278.000000, 33.000000)">
+                <rect id="ViewBox" x="0" y="0" width="25" height="25"></rect>
+                <path d="M22.65625,21.5515625 L16.75625,15.6515625 C19.7015885,12.1156323 19.3447838,6.88846095 15.946281,3.78555905 C12.5477782,0.682657153 7.30979525,0.80167397 4.05573461,4.05573461 C0.80167397,7.30979525 0.682657153,12.5477782 3.78555905,15.946281 C6.88846095,19.3447838 12.1156323,19.7015885 15.6515625,16.75625 L21.5515625,22.65625 L22.65625,21.5515625 Z M3.125,10.15625 C3.125,6.27299785 6.27299785,3.125 10.15625,3.125 C14.0395021,3.125 17.1875,6.27299785 17.1875,10.15625 C17.1875,14.0395021 14.0395021,17.1875 10.15625,17.1875 C6.27478268,17.1831944 3.12930557,14.0377173 3.125,10.15625 L3.125,10.15625 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>

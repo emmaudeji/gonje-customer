@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="18px" viewBox="0 0 20 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>bx:bxs-cart</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dashboard-products" transform="translate(-424.000000, -739.000000)">
+            <g id="bx:bxs-cart" transform="translate(304.750000, 729.277274)" filter="url(#filter-1)">
+                <g transform="translate(119.602199, 9.750000)">
+                    <path d="M18.6398,4.6879 C18.4717719,4.44506018 18.1953043,4.30009968 17.9,4.3 L5.5997,4.3 L4.5611,1.807 C4.28259585,1.13558521 3.62658381,0.698480765 2.8997,0.699996052 L0.8,0.699996052 L0.8,2.5 L2.8997,2.5 L7.1693,12.7465 C7.30914032,13.0817233 7.63677838,13.3 8,13.3 L15.2,13.3 C15.5753,13.3 15.911,13.0669 16.0433,12.7168 L18.7433,5.5168 C18.8468788,5.24025262 18.8082002,4.93048692 18.6398,4.6879 Z" id="Path" fill="#000000" fill-rule="nonzero"></path>
+                    <circle id="Oval" fill="#000000" fill-rule="nonzero" cx="8.45" cy="15.55" r="1.35"></circle>
+                    <circle id="Oval" fill="#000000" fill-rule="nonzero" cx="14.75" cy="15.55" r="1.35"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

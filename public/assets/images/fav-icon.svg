@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="15px" viewBox="0 0 17 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>Path</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dashboard-Recipes" transform="translate(-478.000000, -571.000000)" fill="#DADADA" fill-rule="nonzero">
+            <g id="Group-4" transform="translate(280.375000, 556.360937)">
+                <g id="bx:bxs-heart" transform="translate(197.268692, 14.339063)">
+                    <path d="M15.36605,1.88071 C14.4639878,0.972276503 13.2369814,0.460950946 11.95676,0.45997 C10.7578198,0.460165987 9.60266033,0.910550987 8.72,1.72195 C7.83742489,0.910414327 6.68220996,0.45997 5.48324,0.45997 C4.20149983,0.461304487 2.97323434,0.973834922 2.07071,1.88395 C0.16478,3.79798 0.16559,6.79174 2.07233,8.69767 L8.72,15.34534 L15.36767,8.69767 C17.27441,6.79174 17.27522,3.79798 15.36605,1.88071 Z" id="Path"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

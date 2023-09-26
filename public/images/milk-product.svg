@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="77px" height="77px" viewBox="0 0 77 77" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 19</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dashboard-products" transform="translate(-1062.000000, -165.000000)">
+            <g id="Group-19" transform="translate(1062.076967, 165.533125)">
+                <circle id="Oval" fill="#F8F8F8" cx="38" cy="38" r="38"></circle>
+                <g id="milk-pack" transform="translate(25.000000, 21.500000)" fill-rule="nonzero" stroke="#5F363A" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.755">
+                    <path d="M16.87725,32.5845 L16.87725,11.115 L21.06,4.4343 L25.11405,10.9044 C25.1963993,11.042506 25.2407976,11.199918 25.24275,11.3607 L25.24275,31.9995 C25.24275,32.3225866 24.9808366,32.5845 24.65775,32.5845 L16.87725,32.5845 Z" id="Path" fill="#FFFAF0"></path>
+                    <rect id="Rectangle" fill="#EFD3B4" transform="translate(21.060000, 18.915975) rotate(-180.000000) translate(-21.060000, -18.915975) " x="16.87725" y="11.115" width="8.3655" height="15.60195"></rect>
+                    <path d="M4.68,4.4343 L0.6318,10.9044 C0.545223521,11.0409529 0.49861389,11.1990203 0.49725,11.3607 L0.49725,31.9995 C0.49725,32.3225866 0.759163421,32.5845 1.08225,32.5845 L16.87725,32.5845 L16.87725,11.115 L21.06,4.4343 L4.68,4.4343 Z" id="Path" fill="#FFFAF0"></path>
+                    <path d="M5.85,0.1755 L19.89,0.1755 C20.5361732,0.1755 21.06,0.699326843 21.06,1.3455 L21.06,4.44015 L4.68,4.44015 L4.68,1.3455 C4.68,0.699326843 5.20382684,0.1755 5.85,0.1755 Z" id="Path" fill="#FFFAF0"></path>
+                    <rect id="Rectangle" fill="#EFD3B4" x="0.49725" y="11.115" width="16.38" height="15.60195"></rect>
+                    <path d="M0.49725,26.71695 L16.87725,26.71695 L16.87725,32.56695 L1.08225,32.56695 C0.759163421,32.56695 0.49725,32.3050366 0.49725,31.98195 L0.49725,26.71695 Z M16.87725,26.71695 L25.24275,26.71695 L25.24275,31.98195 C25.24275,32.3050366 24.9808366,32.56695 24.65775,32.56695 L16.87725,32.56695 L16.87725,26.71695 Z" id="Shape" fill="#FFFAF0"></path>
+                    <circle id="Oval" fill="#FFDD7D" cx="8.68725" cy="18.91305" r="3.9429"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

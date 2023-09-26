@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="16px" viewBox="0 0 17 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Path</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="raffle-details" transform="translate(-1175.000000, -653.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="fav-icon" transform="translate(1175.000000, 653.393683)">
+                <path d="M15.009742,1.58071 C14.1076798,0.672276503 12.8806734,0.160950946 11.600452,0.15997 C10.4015118,0.160165987 9.24635233,0.610550987 8.363692,1.42195 C7.48111689,0.610414327 6.32590196,0.15997 5.126932,0.15997 C3.84519183,0.161304487 2.61692634,0.673834922 1.714402,1.58395 C-0.191528,3.49798 -0.190718,6.49174 1.716022,8.39767 L8.363692,15.04534 L15.011362,8.39767 C16.918102,6.49174 16.918912,3.49798 15.009742,1.58071 Z" id="Path"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,25 @@
+.marquee_outer{
+    display: flex;
+}
+.marquee_inner{
+    float: left;
+    font-size: 26px;
+    font-weight: 700;
+    position: relative;
+    padding-left: 42px;
+ 
+}
+.marquee_inner:after{
+    content: '';
+    position: absolute;
+    height: 8px;
+    width: 8px;
+    background: #8C5812;
+    border-radius: 50%;
+    top: 17px;
+    left: 19px;}
+
+    .marquee-container{   background: #FFA723;
+    height: 99px;
+  
+}

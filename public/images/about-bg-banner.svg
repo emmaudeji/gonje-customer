@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1602px" height="715px" viewBox="0 0 1602 715" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 5</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.968627 0 0 0 0 0.968627 0 0 0 0 0.968627 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="About-us" transform="translate(1.000000, -430.000000)">
+            <g id="Group-5" transform="translate(-0.415379, 430.500000)">
+                <rect id="Rectangle" fill="#FBDDA2" x="0.415378549" y="0.5" width="1600" height="711"></rect>
+                <g filter="url(#filter-1)" id="MM_home-LIP-benefits-top-desktop2">
+                    <g transform="translate(9.415379, 621.500000)">
+                        <path d="M302.626983,0 C178.041739,0 48.9651242,45.1237657 0,67.6857143 L0,92 L1591,92 L1591,87.4 C1561.14665,87.4 1472.23848,59.7993429 1323.712,49.9428571 C1155.38641,38.7714286 963.930552,87.4 793.841603,78.2 C629.102392,69.2894057 458.358261,0 302.626983,0 Z" id="Path" fill="#FFFFFF" fill-rule="nonzero" transform="translate(795.500000, 46.000000) scale(-1, 1) translate(-795.500000, -46.000000) "></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>bx:bxs-down-arrow</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.694492 0 0 0 0 0.521100 0 0 0 0 0.185877 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="bx:bxs-down-arrow" transform="translate(-621.000000, -407.000000)" filter="url(#filter-1)">
+            <g transform="translate(621.000000, 405.000000)">
+                <rect id="ViewBox" x="0" y="0" width="9.6" height="9.6"></rect>
+                <path d="M4.4712,7.8276 C4.54569284,7.9357918 4.66864305,8.00041272 4.8,8.00041272 C4.93135695,8.00041272 5.05430716,7.9357918 5.1288,7.8276 L8.7288,2.6276 C8.81373596,2.50534814 8.82367647,2.34601796 8.75459445,2.21415702 C8.68551242,2.08229608 8.54886094,1.99976553 8.4,1.9999995 L1.2,1.9999995 C1.05151456,2.00061333 0.915535792,2.08326793 0.846627526,2.21479721 C0.77771926,2.34632649 0.787174821,2.50517423 0.8712,2.6276 L4.4712,7.8276 Z" id="Path" fill="#000000" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>

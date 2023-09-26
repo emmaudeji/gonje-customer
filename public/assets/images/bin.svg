@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="16px" viewBox="0 0 12 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>ic:outline-delete-outline</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="My-cart" transform="translate(-1367.000000, -176.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="ic:outline-delete-outline" transform="translate(1367.000000, 176.286009)">
+                <path d="M1.26,13.59 C1.26,14.481 1.989,15.21 2.88,15.21 L9.36,15.21 C10.251,15.21 10.98,14.481 10.98,13.59 L10.98,3.87 L1.26,3.87 L1.26,13.59 Z M2.88,5.49 L9.36,5.49 L9.36,13.59 L2.88,13.59 L2.88,5.49 Z M8.955,1.44 L8.145,0.63 L4.095,0.63 L3.285,1.44 L0.45,1.44 L0.45,3.06 L11.79,3.06 L11.79,1.44 L8.955,1.44 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

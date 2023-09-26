@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23px" height="29px" viewBox="0 0 23 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>milk-pack</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Dashboard-products" transform="translate(-975.000000, -373.000000)" fill-rule="nonzero" stroke="#5F363A" stroke-width="1.404">
+            <g id="milk-pack" transform="translate(976.370890, 374.332812)">
+                <path d="M13.5018,26.0676 L13.5018,8.892 L16.848,3.54744 L20.09124,8.72352 C20.1571195,8.83400477 20.1926381,8.95993438 20.1942,9.08856 L20.1942,25.5996 C20.1942,25.8580693 19.9846693,26.0676 19.7262,26.0676 L13.5018,26.0676 Z" id="Path" fill="#FFFAF0"></path>
+                <rect id="Rectangle" fill="#EFD3B4" transform="translate(16.848000, 15.132780) rotate(-180.000000) translate(-16.848000, -15.132780) " x="13.5018" y="8.892" width="6.6924" height="12.48156"></rect>
+                <path d="M3.744,3.54744 L0.50544,8.72352 C0.436178817,8.83276231 0.398891112,8.95921626 0.3978,9.08856 L0.3978,25.5996 C0.3978,25.8580693 0.607330737,26.0676 0.8658,26.0676 L13.5018,26.0676 L13.5018,8.892 L16.848,3.54744 L3.744,3.54744 Z" id="Path" fill="#FFFAF0"></path>
+                <path d="M4.68,0.1404 L15.912,0.1404 C16.4289385,0.1404 16.848,0.559461474 16.848,1.0764 L16.848,3.55212 L3.744,3.55212 L3.744,1.0764 C3.744,0.559461474 4.16306147,0.1404 4.68,0.1404 Z" id="Path" fill="#FFFAF0"></path>
+                <rect id="Rectangle" fill="#EFD3B4" x="0.3978" y="8.892" width="13.104" height="12.48156"></rect>
+                <path d="M0.3978,21.37356 L13.5018,21.37356 L13.5018,26.05356 L0.8658,26.05356 C0.607330737,26.05356 0.3978,25.8440293 0.3978,25.58556 L0.3978,21.37356 Z M13.5018,21.37356 L20.1942,21.37356 L20.1942,25.58556 C20.1942,25.8440293 19.9846693,26.05356 19.7262,26.05356 L13.5018,26.05356 L13.5018,21.37356 Z" id="Shape" fill="#FFFAF0"></path>
+                <circle id="Oval" fill="#FFDD7D" cx="6.9498" cy="15.13044" r="3.15432"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,73 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+/* 17 feb css changes */
+
+
+.my-schedule .btn-light{
+  margin-left: 6px;
+  margin-bottom: 31px;
+}
+.my-schedule form {
+  max-width: 554px;
+  width: 100%;
+  margin: 0 auto;
+}
+.modal-body .item-wrap{
+  height: 50px;
+}
+.buy-item .add-del{
+  max-width: 478px;
+  width: 100%;
+}
+.buy-item .price{
+  max-width: 91px;
+  width: 100%;
+}
+.green svg {
+  margin-right: 5px;
+}
+.manage-account .account-info .my-schedule {
+  padding-bottom: 22px;
+}
+.col-xl-6.col-lg-12.card_information form .form {
+  margin-bottom: 10px;
+}
+.col-xl-6.col-lg-12.card_information button {
+  max-width: 460px;
+  width: 100%;
+  margin: 17px 36px;
+}
+
+.history .list{
+  align-items: center !important;
+}
+.history .user-content.d-flex {
+  align-items: center;
+}
+.transac-detail .add-mony button {
+  padding: 8px 21px;
+  max-width: 166px;
+  width: 100%;
+}
+.transac-detail .add-mony button img {
+  margin-right: 5px !important;
+}
+
+/* 17 end feb css changes */

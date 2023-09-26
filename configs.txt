@@ -1,0 +1,237 @@
+# Secrets like the one below should go into `.env.local` instead to avoid pushing
+# them to a repository.
+NEXT_PUBLIC_GRAPHQL_API_ENDPOINT="http://localhost/graphql"
+NEXT_PUBLIC_SHOP_URL="http://localhost:3001"
+NEXT_PUBLIC_GOOGLE_MAP_API_KEY=
+
+const withPWA = require("next-pwa");
+const runtimeCaching = require("next-pwa/cache");
+const { i18n } = require("./next-i18next.config");
+
+module.exports = withPWA({
+  i18n,
+  pwa: {
+    disable: process.env.NODE_ENV === "development",
+    dest: "public",
+    runtimeCaching,
+  },
+
+  images: {
+    domains: [
+      "via.placeholder.com",
+      "res.cloudinary.com",
+      "s3.amazonaws.com",
+      "18.141.64.26",
+      "127.0.0.1",
+      "localhost",
+      "picsum.photos",
+      "pickbazarlaravel.s3.ap-southeast-1.amazonaws.com",
+      "lh3.googleusercontent.com",
+    ],
+  },
+
+  webpack(config, options) {
+    config.module.rules.push({
+      test: /\.graphql$/,
+      exclude: /node_modules/,
+      use: [options.defaultLoaders.babel, { loader: "graphql-let/loader" }],
+    });
+
+    config.module.rules.push({
+      test: /\.graphqls$/,
+      exclude: /node_modules/,
+      use: ["graphql-let/schema/loader"],
+    });
+
+    config.module.rules.push({
+      test: /\.ya?ml$/,
+      type: "json",
+      use: "yaml-loader",
+    });
+
+    return config;
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+});
+   
+
+//////////////
+
+# Secrets like the one below should go into `.env.local` instead to avoid pushing
+# them to a repository.
+NEXT_PUBLIC_REST_API_ENDPOINT="http://127.0.0.1:8000/"
+NEXT_PUBLIC_SHOP_URL="http://localhost:3003"
+NEXT_PUBLIC_GOOGLE_MAP_API_KEY=
+
+const withPWA = require("next-pwa");
+const runtimeCaching = require("next-pwa/cache");
+const { i18n } = require("./next-i18next.config");
+
+module.exports = withPWA({
+  i18n,
+  pwa: {
+    disable: process.env.NODE_ENV === "development",
+    dest: "public",
+    runtimeCaching,
+  },
+
+  images: {
+    domains: [
+      "via.placeholder.com",
+      "res.cloudinary.com",
+      "s3.amazonaws.com",
+      "18.141.64.26",
+      "127.0.0.1",
+      "localhost",
+      "picsum.photos",
+      "pickbazar-sail.test",
+      "pickbazarlaravel.s3.ap-southeast-1.amazonaws.com",
+      "lh3.googleusercontent.com",
+    ],
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+});
+
+//////////////////////
+# Secrets like the one below should go into `.env.local` instead to avoid pushing
+# them to a repository.
+NEXT_PUBLIC_GRAPHQL_API_ENDPOINT="http://localhost/graphql"
+
+NEXTAUTH_URL=http://localhost:3001
+SECRET= # Linux: `openssl rand -hex 32` or go to https://generate-secret.now.sh/32
+
+GOOGLE_ID=
+GOOGLE_SECRET=
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_12345
+
+
+const withPWA = require("next-pwa");
+const runtimeCaching = require("next-pwa/cache");
+const { i18n } = require("./next-i18next.config");
+
+module.exports = withPWA({
+  i18n,
+  pwa: {
+    disable: process.env.NODE_ENV === "development",
+    dest: "public",
+    runtimeCaching,
+  },
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/grocery",
+        permanent: false,
+      },
+    ];
+  },
+
+  images: {
+    domains: [
+      "googleusercontent.com",
+      "graph.facebook.com",
+      "res.cloudinary.com",
+      "s3.amazonaws.com",
+      "18.141.64.26",
+      "via.placeholder.com",
+      "pickbazarlaravel.s3.ap-southeast-1.amazonaws.com",
+      "picsum.photos",
+      "localhost",
+      "lh3.googleusercontent.com",
+    ],
+  },
+
+  webpack(config, options) {
+    config.module.rules.push({
+      test: /\.graphql$/,
+      exclude: /node_modules/,
+      use: [options.defaultLoaders.babel, { loader: "graphql-let/loader" }],
+    });
+
+    config.module.rules.push({
+      test: /\.graphqls$/,
+      exclude: /node_modules/,
+      use: ["graphql-let/schema/loader"],
+    });
+
+    config.module.rules.push({
+      test: /\.ya?ml$/,
+      type: "json",
+      use: "yaml-loader",
+    });
+
+    return config;
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+});
+
+
+//////////////////////////
+
+
+# Secrets like the one below should go into `.env.local` instead to avoid pushing
+# them to a repository.
+NEXT_PUBLIC_REST_API_ENDPOINT="http://127.0.0.1:8000/"
+
+NEXTAUTH_URL="http://localhost:3003"
+SECRET= # Linux: `openssl rand -hex 32` or go to https://generate-secret.now.sh/32
+
+GOOGLE_ID=
+GOOGLE_SECRET=
+
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
+
+
+
+
+const withPWA = require("next-pwa");
+const runtimeCaching = require("next-pwa/cache");
+const { i18n } = require("./next-i18next.config");
+
+module.exports = withPWA({
+  i18n,
+  pwa: {
+    disable: process.env.NODE_ENV === "development",
+    dest: "public",
+    runtimeCaching,
+  },
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/grocery",
+        permanent: false,
+      },
+    ];
+  },
+  images: {
+    domains: [
+      "googleusercontent.com",
+      "graph.facebook.com",
+      "res.cloudinary.com",
+      "s3.amazonaws.com",
+      "18.141.64.26",
+      "via.placeholder.com",
+      "pickbazarlaravel.s3.ap-southeast-1.amazonaws.com",
+      "picsum.photos",
+      "lh3.googleusercontent.com",
+      "127.0.0.1",
+      "localhost",
+    ],
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+});
+
+
+
+
+
+

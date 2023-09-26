@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="14px" viewBox="0 0 19 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>bi:check-lg</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="bi:check-lg" transform="translate(-529.000000, -206.000000)" filter="url(#filter-1)">
+            <g transform="translate(529.413923, 206.000000)">
+                <g id="Group" transform="translate(0.500000, 0.500000)" fill="#000000" fill-rule="nonzero" stroke="#FFFFFF">
+                    <path d="M14.604,0.455 C14.810796,0.24399847 15.0938076,0.125099043 15.38925,0.125099043 C15.6846924,0.125099043 15.967704,0.24399847 16.1745,0.455 C16.6035,0.8885 16.6095,1.589 16.1895,2.03 L7.32,12.515 C7.11648001,12.7384893 6.82992817,12.8683344 6.52771028,12.8740099 C6.22549239,12.8796853 5.9342675,12.7606905 5.7225,12.545 L0.3255,7.076 C-0.107483811,6.63443159 -0.107483811,5.92756841 0.3255,5.486 C0.532296021,5.27499847 0.815307552,5.15609904 1.11075,5.15609904 C1.40619245,5.15609904 1.68920398,5.27499847 1.896,5.486 L6.474,10.1255 L14.574,0.488 C14.5833283,0.476407569 14.5933464,0.465387609 14.604,0.455 Z" id="Path"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

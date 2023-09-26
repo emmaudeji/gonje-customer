@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1617px" height="92px" viewBox="0 0 1617 92" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>MM_home-LIP-benefits-top-desktop2</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.968627 0 0 0 0 0.968627 0 0 0 0 0.968627 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g filter="url(#filter-1)" id="MM_home-LIP-benefits-top-desktop2">
+            <g transform="translate(0.500000, 0.000000)">
+                <path d="M307.382278,0 C180.839378,0 49.7345322,45.1237657 0,67.6857143 L0,92 L1616,92 L1616,87.4 C1585.67756,87.4 1495.37233,59.7993429 1344.512,49.9428571 C1173.54144,38.7714286 979.077167,87.4 806.315544,78.2 C638.987722,69.2894057 465.560622,0 307.382278,0 Z" id="Path" fill="#FFFFFF" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>

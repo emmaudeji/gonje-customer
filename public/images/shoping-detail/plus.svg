@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>bi:plus</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Payment-details" transform="translate(-519.000000, -544.000000)" fill="#7CB340" fill-rule="nonzero" stroke="#76A713" stroke-width="0.5">
+            <g id="bi:plus" transform="translate(519.500000, 544.690000)">
+                <g id="Group" transform="translate(0.200000, 0.200000)">
+                    <path d="M5.2,0 C5.55898509,0 5.85,0.291014913 5.85,0.65 L5.85,4.55 L9.75,4.55 C10.1089851,4.55 10.4,4.84101491 10.4,5.2 C10.4,5.55898509 10.1089851,5.85 9.75,5.85 L5.85,5.85 L5.85,9.75 C5.85,10.1089851 5.55898509,10.4 5.2,10.4 C4.84101491,10.4 4.55,10.1089851 4.55,9.75 L4.55,5.85 L0.65,5.85 C0.291014913,5.85 0,5.55898509 0,5.2 C0,4.84101491 0.291014913,4.55 0.65,4.55 L4.55,4.55 L4.55,0.65 C4.55,0.291014913 4.84101491,0 5.2,0 Z" id="Path"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

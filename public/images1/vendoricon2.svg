@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="38px" height="29px" viewBox="0 0 38 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>tabler:truck-delivery</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="home" transform="translate(-159.000000, -4036.000000)">
+            <g id="tabler:truck-delivery" transform="translate(137.500000, 4008.593796)" filter="url(#filter-1)">
+                <g transform="translate(20.500000, 20.953333)">
+                    <rect id="ViewBox" x="0" y="0" width="42.24" height="42.24"></rect>
+                    <g id="Group" stroke-linecap="round" stroke-linejoin="round" transform="translate(3.520000, 8.800000)" stroke="#000000" stroke-width="3.52">
+                        <circle id="Oval" cx="8.8" cy="21.12" r="3.52"></circle>
+                        <circle id="Oval" cx="26.4" cy="21.12" r="3.52"></circle>
+                        <path d="M5.28,21.12 L1.76,21.12 L1.76,14.08 M0,0 L19.36,0 L19.36,21.12 M12.32,21.12 L22.88,21.12 M29.92,21.12 L33.44,21.12 L33.44,10.56 L19.36,10.56 M19.36,1.76 L28.16,1.76 L33.44,10.56" id="Shape"></path>
+                        <line x1="1.76" y1="7.04" x2="8.8" y2="7.04" id="Path"></line>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
