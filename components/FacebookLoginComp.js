@@ -31,9 +31,9 @@ export default function FacebookLoginComp() {
         fields="name,email,picture"
         callback={responseFacebook}
         render={(renders) => (
-          <button type="button" onClick={renders.onClick} className="flex items-center justify-center w-full p-2 space-x-4 border rounded-md focus:ri focus:ri bg-gray-100 focus:ri text-sm">
-			      <FaFacebookF size={20} color="blue"/>
-            <p>CONTINUE WITH FACEBOOK</p>
+          <button type="button" onClick={renders.onClick} className="">
+			      <FaFacebookF size={28} color="blue"/>
+            {/* <p>CONTINUE WITH FACEBOOK</p> */}
           </button>
     
         )}

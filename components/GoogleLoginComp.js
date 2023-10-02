@@ -33,9 +33,9 @@ export default function GoogleLoginComp() {
         onFailure={onFailure}
         cookiePolicy={"single_host_origin"}
         render={(renderProps) => (
-          <button type="button" onClick={renderProps.onClick} className="flex items-center justify-center w-full p-2 space-x-4 border rounded-md focus:ri focus:ri bg-gray-100 focus:ri text-sm">
-			      <FaGoogle size={20} color="red"/>
-            <p>CONTINUE WITH FACEBOOK</p>
+          <button type="button" onClick={renderProps.onClick} className="">
+			      <FaGoogle size={28} color="red"/>
+            {/* <p>CONTINUE WITH GOOGLE</p> */}
           </button>
     
         )}

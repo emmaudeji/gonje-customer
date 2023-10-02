@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { login } from '../Api/Api'; 
 import { SelectRoute } from './selectRoute';
-// import FacebookLoginComp from '../FacebookLoginComp';
-// import GoogleLoginComp from "../GoogleLoginComp";
+import FacebookLoginComp from '../FacebookLoginComp';
+import GoogleLoginComp from "../GoogleLoginComp";
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 
 
@@ -81,15 +81,15 @@ const CustomerLoginForm = () => {
   return (
     <div className="w-full rounded-md space-y-4 gonje-auth-form">
       
-      {/* <div className="space-y-2">
+      <div className="space-y- flex gap-4 justify-center items-center">
         <GoogleLoginComp />
         <FacebookLoginComp />
-      </div> */}
+      </div>
 
-      <div className="flex items-center w-full">
-        <hr className="w-full dark:text-gray-400" />
-        <p className="px-3 dark:text-gray-400 w-full text-center">or use email</p>
-        <hr className="w-full dark:text-gray-400" />
+      <div className="flex items-center w-full gap-4 justify-between">
+        <hr className="w-full border-2 text-gray-400" />
+        <p className="flex-shrink-0 text-gray-400 text-center">or use email</p>
+        <hr className="w-full border-2 text-gray-400" />
       </div>
 
 	  {error && <p className="text-red-500">{error}</p>}

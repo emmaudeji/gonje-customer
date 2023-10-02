@@ -4,8 +4,8 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 
 
 import { register } from '../Api/Api';
-// import FacebookLoginComp from '../FacebookLoginComp';
-// import GoogleLoginComp from "../GoogleLoginComp";
+import FacebookLoginComp from '../FacebookLoginComp';
+import GoogleLoginComp from "../GoogleLoginComp";
 import Image from "next/image";
 import { useRouter } from 'next/router';
 import { selectRoute } from './selectRoute';
@@ -161,10 +161,11 @@ const CustomerSignupForm = () => {
   return (
     <div className="w-full rounded-md  text-sm pb-6">
 
-	{/* <div className=" space-y-2">
-		<GoogleLoginComp/>
-		<FacebookLoginComp/>
-	</div> */}
+<div className="space-y- flex gap-4 justify-center items-center">
+        <GoogleLoginComp />
+        <FacebookLoginComp />
+      </div>
+
 	
 	<div className="flex items-center w-full my-3">
 		<hr className="w-full  text-gray-400"/>
