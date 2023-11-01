@@ -2,7 +2,7 @@ import DeliverySchedule from "../../../components/dashboard/DeliverySchedule";
 import { useRouter } from "next/router";
 const Deliveryschedule = () => {
   const router = useRouter();
-  console.log(router.query.shopId);
+  // console.log(router.query.shopId);
 
   return (
     <>

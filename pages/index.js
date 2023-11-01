@@ -12,7 +12,10 @@ import Blog from "../components/Blog";
 import Newsletter from "../components/Newsletter";
 // import Script from "../components/Script";
 import MailChimp from "../components/MailChimp";
+import WorldSection from "../components/landing/WorldSection";
+
 import { useState } from "react";
+import Tables from "../components/tables";
 
 const Home = () => {
   const [isOpenGetStarted, setOpenGetStarted] = useState(false);
@@ -24,28 +27,27 @@ const Home = () => {
     <>
       <Header></Header>
       <div className="body-wrapper">
-        
         <div className="headerbg">
           <BannerSlider
             isOpenGetStarted={isOpenGetStarted}
             toggleGetStarted={toggleGetStarted}
           ></BannerSlider>
         </div>
-{/*          */}
         <TrendingProducts
           toggleGetStarted={toggleGetStarted}
         ></TrendingProducts>
         <Recepies></Recepies>
-        <UsersSection
+        {/* <UsersSection
           toggleGetStarted={toggleGetStarted}
-        ></UsersSection>
-        <VisionSection></VisionSection>
-        <Brands toggleGetStarted={toggleGetStarted}></Brands>
+        /> */}
+        {/* <WorldSection /> */}
+        <VisionSection />
+        <Brands toggleGetStarted={toggleGetStarted} /> 
         <Vendor></Vendor>
         <Blog></Blog>
         <Newsletter></Newsletter>
+        {/* <Tables/> */}
         <Footer toggleGetStarted={toggleGetStarted}></Footer>
-        {/* <Script></Script> */}
         <MailChimp></MailChimp>
       </div>
     </>
