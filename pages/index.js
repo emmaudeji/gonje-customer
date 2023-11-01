@@ -37,16 +37,15 @@ const Home = () => {
           toggleGetStarted={toggleGetStarted}
         ></TrendingProducts>
         <Recepies></Recepies>
-        {/* <UsersSection
+        <UsersSection
           toggleGetStarted={toggleGetStarted}
-        /> */}
+        />
         {/* <WorldSection /> */}
         <VisionSection />
         <Brands toggleGetStarted={toggleGetStarted} /> 
         <Vendor></Vendor>
         <Blog></Blog>
         <Newsletter></Newsletter>
-        {/* <Tables/> */}
         <Footer toggleGetStarted={toggleGetStarted}></Footer>
         <MailChimp></MailChimp>
       </div>
