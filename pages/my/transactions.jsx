@@ -1,26 +1,31 @@
 import React from "react";
-import DashboardLayout from "../../components/layout/DashboardLayout";
-import { Button } from "@/components/ui/button";
 import { AiOutlinePlus } from "react-icons/ai";
-
+import useSWR from "swr";
+//file import
+import DashboardLayout from "@/components/layout/DashboardLayout";
+import { Button } from "@/components/ui/button";
 const Transactions = () => {
-    
+  const { data, error } = useSWR("my/transactions", fetcher);
+  console.log(data);
+
   return (
     <DashboardLayout>
       <section className="py-24">
-        <section className="px-24 flex flex-col lg:flex-row gap-4">
+        <section className="px-4 lg:px-24 flex flex-col lg:flex-row gap-4">
           <div className="lg:w-1/3">
             <div className="flex flex-col items-center justify-center gap-y-6 bg-white rounded-md py-12 ">
               <h3 className="font-bold text-xl">Total Points</h3>
               <div className="w-20 h-20 rounded-full text-center py-4 bg-[#dcd9fa]">
                 <p className="text-[#7269d2]">1000</p>
               </div>
-              <Button variant="secondary" className="bg-[#7269d2] text-white">send points to wallet</Button>
+              <Button variant="secondary" className="bg-[#7269d2] text-white">
+                send points to wallet
+              </Button>
             </div>
           </div>
           <section className=" lg:w-4/6">
             <section className=" w-full">
-              <div className="px-8 py-3 bg-gonje">
+              <div className="px-8 py-3 bg-gonje rounded-md">
                 <div className="flex justify-between text-lg font-medium items-center">
                   <div className="space-y-2">
                     <p className="font-bold">$1500</p>
@@ -36,13 +41,13 @@ const Transactions = () => {
                   </Button>
                 </div>
               </div>
-              <section className="bg-white">
+              <section className="bg-white shadow rounded-md">
                 <div className="py-4 text-center">
                   <h2 className="text-lg font-semibold">
                     All transaction details
                   </h2>
                 </div>
-                <TableDemo/>
+                <TableDemo />
               </section>
             </section>
           </section>
@@ -61,6 +66,7 @@ import {
   TableCell,
   TableRow,
 } from "@/components/ui/table";
+import { fetcher } from "../../util/fetcher";
 
 const invoices = [
   {
@@ -68,30 +74,6 @@ const invoices = [
     paymentStatus: "Paid",
     totalAmount: "$250.00",
     paymentMethod: "Credit Card",
-  },
-  {
-    invoice: "INV002",
-    paymentStatus: "Pending",
-    totalAmount: "$150.00",
-    paymentMethod: "PayPal",
-  },
-  {
-    invoice: "INV003",
-    paymentStatus: "Unpaid",
-    totalAmount: "$350.00",
-    paymentMethod: "Bank Transfer",
-  },
-  {
-    invoice: "INV004",
-    paymentStatus: "Paid",
-    totalAmount: "$450.00",
-    paymentMethod: "Credit Card",
-  },
-  {
-    invoice: "INV005",
-    paymentStatus: "Paid",
-    totalAmount: "$550.00",
-    paymentMethod: "PayPal",
   },
   {
     invoice: "INV006",
@@ -107,7 +89,7 @@ const invoices = [
   },
 ];
 
-const TableDemo= ()=> {
+const TableDemo = () => {
   return (
     <Table>
       <TableCaption>A list of your recent invoices.</TableCaption>
@@ -120,17 +102,21 @@ const TableDemo= ()=> {
               </div>
             </TableCell>
             <TableCell>
-                <div className="space-y-2">
-                    <p className="font-semibold text-lg">Grocery Shop</p>
-                    <p>Transaction Id</p>
-                    <p className="font-semibold">Oct 22, 2023</p>
-                </div>
+              <div className="space-y-2">
+                <p className="font-semibold text-lg">Grocery Shop</p>
+                <p>Transaction Id</p>
+                <p className="font-semibold">Oct 22, 2023</p>
+              </div>
             </TableCell>
-            <TableCell className="font-semibold">{invoice.paymentMethod}</TableCell>
-            <TableCell className="font-semibold">{invoice.totalAmount}</TableCell>
+            <TableCell className="font-semibold">
+              {invoice.paymentMethod}
+            </TableCell>
+            <TableCell className="font-semibold">
+              {invoice.totalAmount}
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>
     </Table>
   );
-}
+};
