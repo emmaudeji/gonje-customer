@@ -4,14 +4,15 @@ import useSWR from "swr";
 //file import
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Button } from "@/components/ui/button";
-const Transactions = () => {
-  const { data, error } = useSWR("my/transactions", fetcher);
-  console.log(data);
+import { TableDemo } from "@/components/dashboard/transactions/table";
+import { fetcher } from "@/util/fetcher";
 
+const Transactions = () => {
+  const { data:transactions, error:transactionsError } = useSWR("my/transactions", fetcher);
   return (
     <DashboardLayout>
       <section className="py-24">
-        <section className="px-4 lg:px-24 flex flex-col lg:flex-row gap-4">
+        <section className="px-4 lg:px-36 flex flex-col lg:flex-row gap-4">
           <div className="lg:w-1/3">
             <div className="flex flex-col items-center justify-center gap-y-6 bg-white rounded-md py-12 ">
               <h3 className="font-bold text-xl">Total Points</h3>
@@ -47,7 +48,7 @@ const Transactions = () => {
                     All transaction details
                   </h2>
                 </div>
-                <TableDemo />
+                <TableDemo transactions={transactions}/>
               </section>
             </section>
           </section>
@@ -59,64 +60,4 @@ const Transactions = () => {
 
 export default Transactions;
 
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableRow,
-} from "@/components/ui/table";
-import { fetcher } from "../../util/fetcher";
 
-const invoices = [
-  {
-    invoice: "INV001",
-    paymentStatus: "Paid",
-    totalAmount: "$250.00",
-    paymentMethod: "Credit Card",
-  },
-  {
-    invoice: "INV006",
-    paymentStatus: "Pending",
-    totalAmount: "$200.00",
-    paymentMethod: "Bank Transfer",
-  },
-  {
-    invoice: "INV007",
-    paymentStatus: "Unpaid",
-    totalAmount: "$300.00",
-    paymentMethod: "Credit Card",
-  },
-];
-
-const TableDemo = () => {
-  return (
-    <Table>
-      <TableCaption>A list of your recent invoices.</TableCaption>
-      <TableBody>
-        {invoices.map((invoice) => (
-          <TableRow key={invoice.invoice}>
-            <TableCell>
-              <div className="w-16 h-16 rounded-full bg-gray-400 flex items-center justify-center">
-                <p className="text-white font-bold">Circle</p>
-              </div>
-            </TableCell>
-            <TableCell>
-              <div className="space-y-2">
-                <p className="font-semibold text-lg">Grocery Shop</p>
-                <p>Transaction Id</p>
-                <p className="font-semibold">Oct 22, 2023</p>
-              </div>
-            </TableCell>
-            <TableCell className="font-semibold">
-              {invoice.paymentMethod}
-            </TableCell>
-            <TableCell className="font-semibold">
-              {invoice.totalAmount}
-            </TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
-  );
-};

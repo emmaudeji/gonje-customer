@@ -1,14 +1,12 @@
 import axios from "axios";
 import authHeader from "@/components/Api/auth-header";
 
-let baseURL = "https://backendapi.gonje.com/"
+let baseURL = "https://backendapi.gonje.com/";
 
 export const fetcher = (url) => {
-  axios({
+  return axios({
     method: "get",
     headers: authHeader(),
     url: baseURL + url,
-  })
-    .get(url)
-    .then((res) => res.data);
+  }).then((response) => response.data);
 };
