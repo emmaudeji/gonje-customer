@@ -9,9 +9,10 @@ import Recipes from "./Recipes";
 import ProductDetail from "./ProductDetail";
 import Loader from "../Loader";
 import Image from "next/image";
-
+import {BsCartFill} from "react-icons/bs"
 
 export default function Product({ shopId }) {
+  console.log(shopId)
   const [loading, setLoading] = useState(false);
 
   const [apires, setApires] = useState("");
@@ -132,7 +133,7 @@ export default function Product({ shopId }) {
                         <Image
                           src={result.banners[0].image.thumbnail}//{result.gallery.thumbnail}
                           className="d-block"
-                          alt="..."
+                          alt=""
                           height={150}
                           width={150}
                         />
@@ -185,7 +186,15 @@ export default function Product({ shopId }) {
               })}
           </Carousel>
         </div>
-
+<section>
+  <section className="flex">
+<Products/>
+<Products/>
+<Products/>
+<Products/>
+<Products/>
+  </section>
+</section>
         <div className="main"></div>
         <div className="categories pt-3">
           <div className="fruits row">
@@ -199,4 +208,34 @@ export default function Product({ shopId }) {
       </div>
     </>
   );
+}
+const Products =()=>{
+  return (
+    <div className="bg-white px-4 py-3 rounded-md shadow max-w-xs">
+    <div className="flex flex-col gap-y-2 items-center justify-center text-center">
+      <div className="relative w-36 h-52">
+        <Image
+          src={`/images/trending-001.png`}
+          alt=""
+          fill={true}
+        />
+      </div>
+      <div>
+        <p className="font-semibold text-lg">Potatoes</p>
+        <p>Fresh foods from our store</p>
+      </div>
+      <p className="text-red-600 text-lg font-bold">$20</p>
+      <div className="flex gap-x-4">
+        <div className="flex ">
+          <p className="bg-gray-300 p-3 rounded-md">Qty</p>
+          <input className="bg-gray-100 p-3 rounded-md"/>
+        </div>
+        <button className="text-lg font-bold bg-gonje-green rounded-md flex items-center justify-center">
+          <BsCartFill/>
+          <span className="text-white">Add</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  )
 }

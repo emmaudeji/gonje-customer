@@ -8,7 +8,10 @@ import { TableDemo } from "@/components/dashboard/transactions/table";
 import { fetcher } from "@/util/fetcher";
 
 const Transactions = () => {
-  const { data:transactions, error:transactionsError } = useSWR("my/transactions", fetcher);
+  const { data: transactions, error: transactionsError } = useSWR(
+    "my/transactions",
+    fetcher
+  );
   return (
     <DashboardLayout>
       <section className="py-24">
@@ -32,14 +35,7 @@ const Transactions = () => {
                     <p className="font-bold">$1500</p>
                     <p>Current Wallet Balance</p>
                   </div>
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    className="bg-gonje-green text-white"
-                  >
-                    <AiOutlinePlus className="mr-2 h-4 w-4 text-black" />
-                    Add Money
-                  </Button>
+                  {DialogDemo()}
                 </div>
               </div>
               <section className="bg-white shadow rounded-md">
@@ -48,7 +44,10 @@ const Transactions = () => {
                     All transaction details
                   </h2>
                 </div>
-                <TableDemo transactions={transactions}/>
+                <TableDemo
+                  transactions={transactions}
+                  transactionsError={transactionsError}
+                />
               </section>
             </section>
           </section>
@@ -60,4 +59,59 @@ const Transactions = () => {
 
 export default Transactions;
 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
+export function DialogDemo() {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button
+          size="lg"
+          variant="secondary"
+          className="bg-gonje-green text-white"
+        >
+          <AiOutlinePlus className="mr-2 h-4 w-4 text-black" />
+          Add Money
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Edit profile</DialogTitle>
+        </DialogHeader>
+        <div className="grid gap-4 py-4">
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="cardNumber" className="text-right">
+              Card Number
+            </Label>
+            <Input id="number" className="col-span-3" />
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="cvv" className="text-right">
+              CVV
+            </Label>
+            <Input id="cvv" className="col-span-3" />
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="date" className="text-right">
+              Expiry Date
+            </Label>
+            <Input id="date" className="col-span-3" />
+          </div>
+        </div>
+        <DialogFooter>
+          <Button type="submit">Submit</Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+}

@@ -8,7 +8,10 @@ import {
 import moment from "moment";
 import { currencyFormatter } from "@/util/currencyFormatter";
 
-export const TableDemo = ({ transactions }) => {
+export const TableDemo = ({ transactions,transactionsError }) => {
+    if(transactionsError){
+        return <div>Error loading transaction, try again.</div>
+    }
   return (
     <Table>
       <TableCaption>A list of your recent transactions.</TableCaption>
@@ -22,7 +25,7 @@ export const TableDemo = ({ transactions }) => {
               </TableCell> */}
             <TableCell>
               <div className="space-y-2">
-                <p className="font-semibold text-lg">Grocery Shop</p>
+                {/* <p className="font-semibold text-lg">Grocery Shop</p> */}
                 <p>Transaction Id {transaction.trx_reference}</p>
                 <p className="font-semibold">
                   {moment(
@@ -38,9 +41,14 @@ export const TableDemo = ({ transactions }) => {
             <TableCell className="font-semibold">
               {currencyFormatter(transaction.currency, transaction.amount)}
             </TableCell>
+            <TableCell className="font-semibold text-gonje-green">
+              {transaction.transaction_status}
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>
     </Table>
   );
 };
+
+
