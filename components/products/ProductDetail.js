@@ -4,6 +4,7 @@ import AddToCartBtn from "./AddToCartBtn";
 import { Modal } from "react-responsive-modal";
 import ProductPop from "./productPopup";
 import Image from "next/image";
+import { BsCartFill } from "react-icons/bs";
 
 export default function ProductDeatil({ shopId, apicategoryid }) {
   //product getting here
@@ -36,77 +37,85 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
   }, [apicategoryid, shopId]);
   return (
     <>
-      <div className="categories pt-3">
-        <div className="fruits row">
+      <div className="xl:px-16 lg:px-10 px-8 pt-3">
+        <div className="grid gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[repeat(auto-fill,minmax(270px,1fr))]">
           {apiproduct.length ? (
             apiproduct.map((productresult, productindex) => (
-              <a
+              <div
                 href="#"
                 onClick={() => {
                   productSlugs(productresult.slug);
                   onOpenProductModal();
                 }}
-                className="fruit-price"
+                className="group relative block overflow-hidden bg-white"
                 key={productindex}
               >
-                <div className="item-img" key={productindex}>
-                  {productresult.image &&
-                  productresult.image.hasOwnProperty("thumbnail") ? (
-                    <Image
-                      src={productresult.image.thumbnail}
-                      alt=""
-                      height={80}
-                      width={80}
-                    />
-                  ) : (
-                    ""
-                  )}
-
-                  {/* <img src={productresult.image.thumbnail} alt="" /> */}
-                  <br />
-                </div>
-                <strong>{productresult.name}</strong>
-                <p className="info">
-                  {productresult.description.substring(0, 100)}
-                </p>
-                {productresult.sale_price ? (
-                  <p className="price">
-                    <strike>${productresult.price}</strike>
-                    {productresult.sale_price}
-                  </p>
-                ) : (
-                  <p className="price">{productresult.price}</p>
-                )}
-                <div className="quantity d-flex">
-                  <div className="items d-flex">
-                    <p>Qty</p>
-                    <strong>{productresult.quantity}</strong>
-                  </div>
-                  {/* <AddToCartBtn slug={productresult.slug}></AddToCartBtn> */}
-
-                  <button
-                    onClick={() => {
-                      productSlugs(productresult.slug);
-                      onOpenProductModal();
-                    }}
-                    type="button"
-                    className="btn btn-light"
-                  >
-                    <Image
-                      height={18}
-                      width={20}
-                      src="/assets/images/cart-1.svg"
-                      alt=""
-                    />
-                    ADD
-                  </button>
-                </div>
                 {productresult.discount != 0 ? (
-                  <div className="offer">-{productresult.discount}%</div>
+                  <button className="absolute left-0 top-2 rounded-full bg-white p-1.5 transition">
+                    <span className="sr-only">Discount</span>
+                    <div className="text-sm bg-red-900 text-center w-20 text-white py-1">
+                      <p className="text-white">- {productresult.discount}%</p>
+                    </div>
+                  </button>
                 ) : (
                   ""
                 )}
-              </a>
+                <div className="mt-10" key={productindex}>
+                  {productresult.image &&
+                  productresult.image.hasOwnProperty("thumbnail") ? (
+                    <div className="relative w-36 h-44 mx-auto">
+                      <Image
+                        src={productresult.image.thumbnail}
+                        alt=""
+                        fill={true}
+                      />
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  <br />
+                </div>
+                <div className="relative border border-gray-100 text-center p-6">
+                  <div>
+                    <p className="mt-4 text-lg font-medium text-gray-900">
+                      {productresult.name}
+                    </p>
+                    <p className="text-sm text-gray-700">
+                      {productresult.description.substring(0, 70)}
+                    </p>
+                  </div>
+                  {productresult.sale_price ? (
+                    <p className="price">
+                      <strike>${productresult.price}</strike>
+                      <span className="text-red-600 text-lg font-bold">
+                        ${productresult.sale_price}
+                      </span>
+                    </p>
+                  ) : (
+                    <p className="text-red-600 text-lg font-bold">
+                      ${productresult.price}
+                    </p>
+                  )}
+                  <div className="">
+                    {/* <div className="items d-flex">
+                      <p>Qty</p>
+                      <strong>{productresult.quantity}</strong>
+                    </div> */}
+                    <div className="mt-4">
+                      <button
+                        onClick={() => {
+                          productSlugs(productresult.slug);
+                          onOpenProductModal();
+                        }}
+                        className="flex items-center justify-center gap-x-4 w-full h-12 font-bold bg-gonje-green rounded-md px-4 text-sm md:text-base transition hover:scale-105"
+                      >
+                        <BsCartFill />
+                        <span className="text-white">Add</span>{" "}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             ))
           ) : (
             <div className="side-rght-inr">

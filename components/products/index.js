@@ -192,15 +192,6 @@ export default function Product({ shopId }) {
               })}
           </Carousel>
         </div>
-        <section className="xl:px-16 lg:px-10 px-8">
-          <section className="grid gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-            <Products />
-            <Products />
-            <Products />
-            <Products />
-            <Products />
-          </section>
-        </section>
         <div className="main"></div>
         <div className="categories pt-3">
           <div className="fruits row">
