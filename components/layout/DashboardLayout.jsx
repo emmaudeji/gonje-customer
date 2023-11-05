@@ -9,7 +9,7 @@ const DashboardLayout = ({ children }) => {
       <Header />
       <Menu />
       <section className="md:ml-[227px] relative transition duration-400 ease-linear ml-0">
-        <Topbar />
+        <Topbar/>
         {children}
       </section>
     </main>

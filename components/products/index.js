@@ -9,17 +9,16 @@ import Recipes from "./Recipes";
 import ProductDetail from "./ProductDetail";
 import Loader from "../Loader";
 import Image from "next/image";
-import {BsCartFill} from "react-icons/bs"
+import { BsCartFill } from "react-icons/bs";
 
 export default function Product({ shopId }) {
-  console.log(shopId)
+  console.log(shopId);
   const [loading, setLoading] = useState(false);
 
   const [apires, setApires] = useState("");
   const [apicategory, setApiCategory] = useState("");
   const [categoryindex, setcategoryindex] = useState(0);
   const [apicategoryid, setapiCategoryId] = useState("");
-
 
   const responsive = {
     superLargeDesktop: {
@@ -56,7 +55,7 @@ export default function Product({ shopId }) {
       items: 8,
       slidesToSlide: 8, // optional, default to 1.
     },
-    
+
     tablet: {
       breakpoint: { max: 1024, min: 568 },
       items: 4,
@@ -86,7 +85,7 @@ export default function Product({ shopId }) {
         // console.log('resssss', response.data.data)
       })
       .catch((e) => {
-        console.log('product display error', e);
+        console.log("product display error", e);
       });
   };
   const getProductData = (catindex) => {
@@ -101,13 +100,12 @@ export default function Product({ shopId }) {
   return (
     <>
       <Header></Header>
-      <Menu></Menu>
+      <Menu />
       <div className="pro side-body">
         {loading && <Loader />}
         <div className="producttop top-head">
-          <SearchTopbar></SearchTopbar>
-
-          <div className="categories p-0 food-category top-head-cat">
+          <SearchTopbar />
+          <div className="xl:px-16 lg:px-10 p-8 top-head-cat">
             <Carousel
               responsive={responsive}
               // removeArrowOnDeviceType={["desktop","tablet", "mobile"]}
@@ -116,29 +114,36 @@ export default function Product({ shopId }) {
             >
               {apires.length > 0 &&
                 apires.map((result, index) => {
-                  console.log('RRR', result)
+                  // console.log("RRR", result);
                   return (
-                    <div className={`top-product-sliders ${categoryindex === index ? "p_active" : ""}`} key={index}>
-                      {/* hello  {index} */}
-                      <a
-                        className={`wrap ${
-                          result.categories[0].id === apicategoryid
-                            ? "product_active"
-                            : ""
-                        } `}
-                        onClick={() => {
-                          getCategoryData(index);
-                        }}
-                      >
-                        <Image
-                          src={result.banners[0].image.thumbnail}//{result.gallery.thumbnail}
-                          className="d-block"
-                          alt=""
-                          height={150}
-                          width={150}
-                        />
-                      </a>
-                      <p>{result.name}</p>
+                    <div
+                      className={`${
+                        result.categories[0].id === apicategoryid
+                          ? "border-2 border-[#f7d594]"
+                          : ""
+                      } block py-4 px-3 bg-white mx- space-y-4 mx-2`}
+                      key={index}
+                      onClick={() => {
+                        getCategoryData(index);
+                      }}
+                    >
+                      <div className="flex flex-col items-center justify-center">
+                        <div>
+                          <Image
+                            src={result?.gallery.thumbnail} //{result.gallery.thumbnail}
+                            className="object-cover rounded-full h-32 w-32"
+                            alt=""
+                            height={150}
+                            width={150}
+                          />
+                        </div>
+
+                        <div className="mt-3">
+                          <h3 className="font-medium text-lg text-gray-900">
+                            {result.name}{" "}
+                          </h3>
+                        </div>
+                      </div>
                     </div>
                   );
                 })}
@@ -158,7 +163,8 @@ export default function Product({ shopId }) {
             {apicategory.length > 0 &&
               apicategory.map((catresult, catindex) => {
                 return (
-                  <a className="product_activee"
+                  <div
+                    className="product_activee"
                     onClick={() => {
                       getProductData(catindex);
                     }}
@@ -168,12 +174,12 @@ export default function Product({ shopId }) {
                       className={`subcat_items ${
                         catresult.id === apicategoryid ? "product_active" : ""
                       } `}
-                    > 
+                    >
                       <p className="wrap mb-0">
                         <Image
                           height={100}
                           width={100}
-                          src= "/apple-popup.png"   
+                          src={catresult?.image?.thumbnail}
                           // {catresult.image.thumbnail}
                           className="d-block w-100"
                           alt="..."
@@ -181,27 +187,27 @@ export default function Product({ shopId }) {
                       </p>
                       <p> {catresult.name.substring(0, 50)}</p>
                     </div>
-                  </a>
+                  </div>
                 );
               })}
           </Carousel>
         </div>
-<section>
-  <section className="flex">
-<Products/>
-<Products/>
-<Products/>
-<Products/>
-<Products/>
-  </section>
-</section>
+        <section className="xl:px-16 lg:px-10 px-8">
+          <section className="grid gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            <Products />
+            <Products />
+            <Products />
+            <Products />
+            <Products />
+          </section>
+        </section>
         <div className="main"></div>
         <div className="categories pt-3">
           <div className="fruits row">
             <ProductDetail
               shopId={shopId}
               apicategoryid={apicategoryid}
-            ></ProductDetail>
+            />
           </div>
           <Recipes shopId={shopId} apicategoryid={apicategoryid}></Recipes>
         </div>
@@ -209,33 +215,32 @@ export default function Product({ shopId }) {
     </>
   );
 }
-const Products =()=>{
+const Products = () => {
   return (
-    <div className="bg-white px-4 py-3 rounded-md shadow max-w-xs">
-    <div className="flex flex-col gap-y-2 items-center justify-center text-center">
-      <div className="relative w-36 h-52">
-        <Image
-          src={`/images/trending-001.png`}
-          alt=""
-          fill={true}
-        />
-      </div>
-      <div>
-        <p className="font-semibold text-lg">Potatoes</p>
-        <p>Fresh foods from our store</p>
-      </div>
-      <p className="text-red-600 text-lg font-bold">$20</p>
-      <div className="flex gap-x-4">
-        <div className="flex ">
-          <p className="bg-gray-300 p-3 rounded-md">Qty</p>
-          <input className="bg-gray-100 p-3 rounded-md"/>
+    <div className="group relative block overflow-hidden bg-white">
+      <button className="absolute left-4 top-4 rounded-full bg-white p-1.5 transition">
+        <span className="sr-only">Discount</span>
+        <div className="text-sm bg-red-900 text-center w-24 text-white py-1">
+          <p className="text-white">- 40%</p>
         </div>
-        <button className="text-lg font-bold bg-gonje-green rounded-md flex items-center justify-center">
-          <BsCartFill/>
-          <span className="text-white">Add</span>
-        </button>
+      </button>
+      <div className="relative w-36 h-52 mx-auto">
+        <Image src={`/images/trending-001.png`} alt="" fill={true} />
+      </div>
+
+      <div className="relative border border-gray-100 text-center p-6">
+        <div>
+          <p className="mt-4 text-lg font-medium text-gray-900">Potatoes</p>
+          <p className="text-sm text-gray-700">Fresh foods from our store</p>
+        </div>
+        <p className="text-red-600 text-lg font-bold">$20</p>
+        <div className="mt-4">
+          <button className="flex items-center justify-center gap-x-4 w-full h-12 font-bold bg-gonje-green rounded-md px-4 text-sm md:text-base transition hover:scale-105">
+            <BsCartFill />
+            <span className="text-white">Add</span>{" "}
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-  )
-}
+  );
+};
