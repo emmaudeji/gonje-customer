@@ -22,7 +22,7 @@ pipeline {
 
         stage('Checkout SCM') {
             steps {
-                git credentialsId: 'github', url: 'https://github.com/gonjeshops/vendor-frontend.git', branch: 'cicd'
+                git credentialsId: 'github', url: 'https://github.com/gonjeshops/customer-frontend.git', branch: 'cicd'
             }
         }
 
