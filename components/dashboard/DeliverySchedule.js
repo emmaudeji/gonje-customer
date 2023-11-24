@@ -8,6 +8,7 @@ import { retrieveDeliveryDate } from "../../actions/deliverydates";
 import { useRouter } from "next/router";
 import StartShopping from "./StartShopping";
 import moment from "moment";
+import Link from "next/link";
 export default function DeliverySchedule({ shopId }) {
   const [cday, setcday] = useState();
   const [cdate, setcdate] = useState();
@@ -127,6 +128,23 @@ export default function DeliverySchedule({ shopId }) {
                   </strong>
                   <p>$50 Order Minimum</p>
                   <StartShopping shopId={shopId}></StartShopping>
+                </div>
+              </div>
+            </div>
+            <div className="py-4">
+              <h3 className="another-head">Check out our products</h3>
+              <p className="text-center sub-head">
+                Check your preffered product
+              </p>
+              <div className="row justify-content-center mt-5">
+                <div className="col-lg-6 col-md-12">
+                  <div className="start-shop text-center py-8">
+                    <Link href={`/product/${shopId}`}>
+                      <button className="text-black linear rounded-md bg-white px-4 py-2 text-center text-base font-medium transition duration-200 hover:!bg-white/80 active:!bg-white/70">
+                        Discover now
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

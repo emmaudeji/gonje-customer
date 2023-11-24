@@ -15,6 +15,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import UpdateBillingInfo from "../../components/Card/UpdateBillingInfo";
 import Loader from "../Loader";
 import Image from "next/image";
+import DashboardLayout from "@/components/layout/DashboardLayout";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -135,38 +136,38 @@ export default function Dashboard() {
   );
 
   return (
-    <>
-      <Header></Header>
-      <Menu></Menu>
-      <div className="side-body">
-        <Topbar></Topbar>
-        {loading && <Loader />}
-        {/* <div className={`main ${classToggle ? "main-content" : ""}`}></div> */}
-        <div className="all-shops">
-          <div className="top-heading">
-            <h3>All Shops</h3>
-            <div className="row mb-4 mt-5">
-              {apires.length ? (
-                apires.map((result, index) => {
-                  return (
-                    <div
-                      className="col-xl-3 col-md-6 col-sm-6 col-xs-12"
-                      key={index}
-                    >
-                      <a onClick={() => delivery_schedule(result.id)}>
-                        <div className="shop-name">
+    <DashboardLayout>
+      {/* <div className={`main ${classToggle ? "main-content" : ""}`}></div> */}
+      <section className="py-24">
+        <div className="container">
+          <div className="bg-white rounded-md shadow">
+            <div className="top-heading">
+              <h3>All Shops</h3>
+              <div className="grid md:grid-cols-3 xl:grid-cols-4 gap-8 mb-4 mt-5">
+                {apires.length ? (
+                  apires.map((result, index) => {
+                    return (
+                      <div
+                        onClick={() => delivery_schedule(result.id)}
+                        className="px-4 py-8 bg-[#f8f8f8] rounded-md hover:bg-gonje transition-all"
+                        key={index}
+                      >
+                        <div className="flex flex-col gap-y-4 items-center justify-center">
                           {result?.logo && !Array.isArray(result?.logo) ? (
                             <Image
                               height={100}
                               width={100}
                               src={result?.logo?.thumbnail}
                               alt=""
+                              className="rounded-full"
                             />
-                          ) : null}
+                          ) : (
+                            <div className="w-20 h-20 rounded-full bg-gonje flex items-center justify-center"></div>
+                          )}
 
-                          <div className="content">
-                            <h4>{result.name}</h4>
-                            <p>
+                          <div className="max-w-[250px] text-center space-y-4 text-lg">
+                            <h2 className="font-bold">{result.name}</h2>
+                            <p className="text-sm">
                               {result.settings &&
                               result.settings.hasOwnProperty("location")
                                 ? result.settings.location.formattedAddress
@@ -179,61 +180,61 @@ export default function Dashboard() {
                             </p>
                           </div>
                         </div>
-                      </a>
-                    </div>
-                  );
-                })
-              ) : (
-                <div className="side-rght-inr">
-                  <div className="empty-txt">Shops not found.</div>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-        <Modal
-          open={openSubscription}
-          showCloseIcon={true}
-          center
-          onClose={() => {
-            onCloseSubscriptionModal();
-          }}
-          classNames={{ modal: "subscriptionModal" }}
-          closeIcon={closeIcon}
-        >
-          <div className="col-lg-12 subscription">
-            <div className="col-xl-6 col-lg-12">
-              <div className="my-schedule  billing-information shipping-address">
-                <div className="shipping-checkoutt ">
-                  <div className="message_product">
-                    <p>Your cart will be clear, if you change the shop</p>
+                      </div>
+                    );
+                  })
+                ) : (
+                  <div className="side-rght-inr">
+                    <div className="empty-txt">Shops not found.</div>
                   </div>
-                </div>
-                <div className="d-flex message_butn">
-                  <button
-                    type="button"
-                    className="btn btn-outline-primary"
-                    onClick={() => {
-                      onCloseSubscriptionModal();
-                    }}
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-primary"
-                    onClick={() => {
-                      redirect();
-                    }}
-                  >
-                    okay
-                  </button>
-                </div>
+                )}
               </div>
             </div>
           </div>
-        </Modal>
-      </div>
-    </>
+          <Modal
+            open={openSubscription}
+            showCloseIcon={true}
+            center
+            onClose={() => {
+              onCloseSubscriptionModal();
+            }}
+            classNames={{ modal: "subscriptionModal" }}
+            closeIcon={closeIcon}
+          >
+            <div className="col-lg-12 subscription">
+              <div className="col-xl-6 col-lg-12">
+                <div className="my-schedule  billing-information shipping-address">
+                  <div className="shipping-checkoutt ">
+                    <div className="message_product">
+                      <p>Your cart will be clear, if you change the shop</p>
+                    </div>
+                  </div>
+                  <div className="d-flex message_butn">
+                    <button
+                      type="button"
+                      className="btn btn-outline-primary"
+                      onClick={() => {
+                        onCloseSubscriptionModal();
+                      }}
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      onClick={() => {
+                        redirect();
+                      }}
+                    >
+                      okay
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Modal>
+        </div>
+      </section>
+    </DashboardLayout>
   );
 }
