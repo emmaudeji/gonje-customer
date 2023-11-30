@@ -5,6 +5,7 @@ import { Modal } from "react-responsive-modal";
 import ProductPop from "./productPopup";
 import Image from "next/image";
 import { BsCartFill } from "react-icons/bs";
+import { Plus, PlusCircle } from "lucide-react";
 
 export default function ProductDeatil({ shopId, apicategoryid }) {
   //product getting here
@@ -37,8 +38,8 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
   }, [apicategoryid, shopId]);
   return (
     <>
-      <div className="xl:px-16 lg:px-10 px-8 pt-3">
-        <div className="grid gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[repeat(auto-fill,minmax(270px,1fr))]">
+      <div className="p-8 xl:px-16 md:px-8 pt-3">
+        <div className="grid gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
           {apiproduct.length ? (
             apiproduct.map((productresult, productindex) => (
               <div
@@ -47,43 +48,48 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
                   productSlugs(productresult.slug);
                   onOpenProductModal();
                 }}
-                className="group relative block overflow-hidden bg-white"
+                className="group relative block overflow-hidden"
                 key={productindex}
               >
                 {productresult.discount != 0 ? (
-                  <button className="absolute left-0 top-2 rounded-full bg-white p-1.5 transition">
+                  <button className="absolute left-0 top-2 rounded-md bg-white p-1.5 transition z-10">
                     <span className="sr-only">Discount</span>
-                    <div className="text-sm bg-red-900 text-center w-20 text-white py-1">
+                    <div className="text-sm bg-red-900  rounded-md text-center w-20 text-white py-1">
                       <p className="text-white">- {productresult.discount}%</p>
                     </div>
                   </button>
                 ) : (
                   ""
                 )}
-                <div className="mt-10" key={productindex}>
+                <div className="mt-4 px-6" key={productindex}>
                   {productresult.image &&
                   productresult.image.hasOwnProperty("thumbnail") ? (
-                    <div className="relative w-36 h-44 mx-auto">
+                    <div className="relative w-44 h-32">
                       <Image
                         src={productresult.image.thumbnail}
                         alt=""
                         fill={true}
+                        className="rounded-md"
                       />
+                      <div className="absolute right-0 top-0 xl:right-1 xl:top-1 rounded-full bg-gonje-green z-10">
+                        <div
+                          className="flex justify-center items-center gap-x-1 px-[9.5px] py-2 font-medium cursor-pointer z-10"
+                          onClick={() => {
+                            productSlugs(productresult.slug);
+                            onOpenProductModal();
+                          }}
+                        >
+                          <Plus color="#fff" size={20} />
+                          <p className="text-base text-white">Add</p>
+                        </div>
+                      </div>
                     </div>
                   ) : (
                     ""
                   )}
                   <br />
                 </div>
-                <div className="relative border border-gray-100 text-center p-6">
-                  <div>
-                    <p className="mt-4 text-lg font-medium text-gray-900">
-                      {productresult.name}
-                    </p>
-                    <p className="text-sm text-gray-700">
-                      {productresult.description.substring(0, 70)}
-                    </p>
-                  </div>
+                <div className="px-6">
                   {productresult.sale_price ? (
                     <p className="price">
                       <strike>${productresult.price}</strike>
@@ -96,12 +102,23 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
                       ${productresult.price}
                     </p>
                   )}
+                </div>
+
+                <div className="relative text-left px-6">
+                  <div>
+                    <p className="mt-2 text-sm font-medium text-gray-700">
+                      {productresult.name}
+                    </p>
+                    <p className="text-sm font-light text-gray-500">
+                      {productresult.description.substring(0, 70)}
+                    </p>
+                  </div>
                   <div className="">
                     {/* <div className="items d-flex">
                       <p>Qty</p>
                       <strong>{productresult.quantity}</strong>
                     </div> */}
-                    <div className="mt-4">
+                    {/* <div className="mt-2">
                       <button
                         onClick={() => {
                           productSlugs(productresult.slug);
@@ -112,7 +129,7 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
                         <BsCartFill />
                         <span className="text-white">Add</span>{" "}
                       </button>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
