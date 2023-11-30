@@ -12,7 +12,7 @@ import Image from "next/image";
 import { BsCartFill } from "react-icons/bs";
 
 export default function Product({ shopId }) {
-  console.log(shopId);
+  // console.log(shopId);
   const [loading, setLoading] = useState(false);
 
   const [apires, setApires] = useState("");
@@ -105,7 +105,7 @@ export default function Product({ shopId }) {
         {loading && <Loader />}
         <div className="producttop top-head">
           <SearchTopbar />
-          <div className="xl:px-16 lg:px-10 p-8 top-head-cat">
+          <div className="xl:px-16 lg:px-8 p-8 top-head-cat">
             <Carousel
               responsive={responsive}
               // removeArrowOnDeviceType={["desktop","tablet", "mobile"]}
@@ -118,28 +118,25 @@ export default function Product({ shopId }) {
                   return (
                     <div
                       className={`${
-                        result.categories[0].id === apicategoryid
-                          ? "border-2 border-[#f7d594]"
-                          : ""
-                      } block py-4 px-3 bg-white mx- space-y-4 mx-2`}
+                        result.categories[0].id === apicategoryid ? "" : ""
+                      } block py-2 px-3 bg- mx- space-y-4 mx-2`}
                       key={index}
                       onClick={() => {
                         getCategoryData(index);
                       }}
                     >
                       <div className="flex flex-col items-center justify-center">
-                        <div>
+                        <div className="relative rounded-full h-20 w-20">
                           <Image
                             src={result?.gallery.thumbnail} //{result.gallery.thumbnail}
-                            className="object-cover rounded-full h-32 w-32"
+                            className="object-cover rounded-full"
                             alt=""
-                            height={150}
-                            width={150}
+                            fill={true}
                           />
                         </div>
 
                         <div className="mt-3">
-                          <h3 className="font-medium text-lg text-gray-900">
+                          <h3 className="font-medium text-base text-gray-900">
                             {result.name}{" "}
                           </h3>
                         </div>
@@ -153,7 +150,7 @@ export default function Product({ shopId }) {
         </div>
         <hr className="category-divider" />
 
-        <div className="food-category sub-cat">
+        <div className="food-category px-4 md:px-8 xl:px-16 sub-cat">
           <Carousel
             responsive={responsive1}
             // removeArrowOnDeviceType={["desktop","tablet", "mobile"]}
@@ -162,6 +159,7 @@ export default function Product({ shopId }) {
           >
             {apicategory.length > 0 &&
               apicategory.map((catresult, catindex) => {
+                // console.log(apires)
                 return (
                   <div
                     className="product_activee"
@@ -191,14 +189,25 @@ export default function Product({ shopId }) {
                 );
               })}
           </Carousel>
+          {/* {apicategory.length > 0 &&
+            apicategory.map((catresult, catindex) => {
+              return (
+                <div key={catindex}>
+                  <CategoryBox
+                    catindex={catindex}
+                    apicategoryid={apicategoryid}
+                    shopId={shopId}
+                    name={catresult.name.substring(0, 50)}
+                    getCategoryData={getCategoryData}
+                  />
+                </div>
+              );
+            })} */}
         </div>
         <div className="main"></div>
         <div className="categories pt-3">
           <div className="fruits row">
-            <ProductDetail
-              shopId={shopId}
-              apicategoryid={apicategoryid}
-            />
+            <ProductDetail shopId={shopId} apicategoryid={apicategoryid} />
           </div>
           <Recipes shopId={shopId} apicategoryid={apicategoryid}></Recipes>
         </div>
@@ -206,6 +215,24 @@ export default function Product({ shopId }) {
     </>
   );
 }
+const CategoryBox = ({
+  getCategoryData,
+  catindex,
+  shopId,
+  apicategoryid,
+  name,
+}) => {
+  useEffect(() => {
+    console.log(catindex)
+    getCategoryData(catindex);
+  }, []);
+  return (
+    <section>
+      <h2>{name}</h2>
+      <ProductDetail shopId={shopId} apicategoryid={apicategoryid} />
+    </section>
+  );
+};
 const Products = () => {
   return (
     <div className="group relative block overflow-hidden bg-white">
