@@ -12,7 +12,7 @@ import Image from "next/image";
 import { BsCartFill } from "react-icons/bs";
 
 export default function Product({ shopId }) {
-  console.log(shopId);
+  // console.log(shopId);
   const [loading, setLoading] = useState(false);
 
   const [apires, setApires] = useState("");
@@ -118,9 +118,7 @@ export default function Product({ shopId }) {
                   return (
                     <div
                       className={`${
-                        result.categories[0].id === apicategoryid
-                          ? ""
-                          : ""
+                        result.categories[0].id === apicategoryid ? "" : ""
                       } block py-2 px-3 bg- mx- space-y-4 mx-2`}
                       key={index}
                       onClick={() => {
@@ -161,6 +159,7 @@ export default function Product({ shopId }) {
           >
             {apicategory.length > 0 &&
               apicategory.map((catresult, catindex) => {
+                // console.log(apires)
                 return (
                   <div
                     className="product_activee"
@@ -190,14 +189,25 @@ export default function Product({ shopId }) {
                 );
               })}
           </Carousel>
+          {/* {apicategory.length > 0 &&
+            apicategory.map((catresult, catindex) => {
+              return (
+                <div key={catindex}>
+                  <CategoryBox
+                    catindex={catindex}
+                    apicategoryid={apicategoryid}
+                    shopId={shopId}
+                    name={catresult.name.substring(0, 50)}
+                    getCategoryData={getCategoryData}
+                  />
+                </div>
+              );
+            })} */}
         </div>
         <div className="main"></div>
         <div className="categories pt-3">
           <div className="fruits row">
-            <ProductDetail
-              shopId={shopId}
-              apicategoryid={apicategoryid}
-            />
+            <ProductDetail shopId={shopId} apicategoryid={apicategoryid} />
           </div>
           <Recipes shopId={shopId} apicategoryid={apicategoryid}></Recipes>
         </div>
@@ -205,6 +215,24 @@ export default function Product({ shopId }) {
     </>
   );
 }
+const CategoryBox = ({
+  getCategoryData,
+  catindex,
+  shopId,
+  apicategoryid,
+  name,
+}) => {
+  useEffect(() => {
+    console.log(catindex)
+    getCategoryData(catindex);
+  }, []);
+  return (
+    <section>
+      <h2>{name}</h2>
+      <ProductDetail shopId={shopId} apicategoryid={apicategoryid} />
+    </section>
+  );
+};
 const Products = () => {
   return (
     <div className="group relative block overflow-hidden bg-white">
