@@ -48,7 +48,7 @@ export default function Topbar() {
     });
 
     return () => {
-      console.log("heeeeee clear set up");
+      // console.log("heeeeee clear set up");
       socketInit.emit("disconnectCustomerRoom", { id: user_detail.user_id });
     };
   }, []);
