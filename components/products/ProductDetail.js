@@ -38,8 +38,8 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
   }, [apicategoryid, shopId]);
   return (
     <>
-      <div className="p-8 xl:px-16 md:px-8 pt-3">
-        <div className="grid gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
+      <div className="py-8 xl:px-16 md:px-8 pt-3">
+        <div className="grid gap-x-2 gap-y-4 mt-8 grid-cols-2 md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
           {apiproduct.length ? (
             apiproduct.map((productresult, productindex) => (
               <div
@@ -48,7 +48,7 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
                   productSlugs(productresult.slug);
                   onOpenProductModal();
                 }}
-                className="group relative block overflow-hidden"
+                className="group relative block overflow-hidden w-[130px] md:w-auto"
                 key={productindex}
               >
                 {productresult.discount != 0 ? (
@@ -61,7 +61,7 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
                 ) : (
                   ""
                 )}
-                <div className="mt-4 px-6" key={productindex}>
+                <div className="mt-4 md:px-6" key={productindex}>
                   {productresult.image &&
                   productresult.image.hasOwnProperty("thumbnail") ? (
                     <div className="relative w-44 h-32">
@@ -69,7 +69,7 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
                         src={productresult.image.thumbnail}
                         alt=""
                         fill={true}
-                        className="rounded-md"
+                        className="rounded-md bg-cover"
                       />
                       <div className="absolute right-0 top-0 xl:right-1 xl:top-1 rounded-full bg-gonje-green z-10">
                         <div
@@ -89,7 +89,7 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
                   )}
                   <br />
                 </div>
-                <div className="px-6">
+                <div className="md:px-6">
                   {productresult.sale_price ? (
                     <p className="price">
                       <strike>${productresult.price}</strike>
@@ -104,12 +104,12 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
                   )}
                 </div>
 
-                <div className="relative text-left px-6">
+                <div className="relative text-left md:px-6">
                   <div>
-                    <p className="mt-2 text-sm font-medium text-gray-700">
+                    <p className="mt-2 text-xs md:text-sm font-medium text-gray-700">
                       {productresult.name}
                     </p>
-                    <p className="text-sm font-light text-gray-500">
+                    <p className="text-xs md:text-sm font-light text-gray-500">
                       {productresult.description.substring(0, 70)}
                     </p>
                   </div>

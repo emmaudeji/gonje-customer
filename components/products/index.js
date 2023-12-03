@@ -114,12 +114,12 @@ export default function Product({ shopId }) {
             >
               {apires.length > 0 &&
                 apires.map((result, index) => {
-                  // console.log("RRR", result);
+                  console.log("RRR", result);
                   return (
                     <div
                       className={`${
                         result.categories[0].id === apicategoryid ? "" : ""
-                      } block py-2 px-3 bg- mx- space-y-4 mx-2`}
+                      } block py-2 px-3 bg- mx- space-y-4 mx-2 cursor-pointer`}
                       key={index}
                       onClick={() => {
                         getCategoryData(index);
