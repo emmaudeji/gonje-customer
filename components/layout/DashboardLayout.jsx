@@ -5,7 +5,7 @@ import Topbar from "./Topbar";
 
 const DashboardLayout = ({ children }) => {
   return (
-    <main>
+    <main className="bg-white">
       <Header />
       <Menu />
       <section className="md:ml-[227px] relative transition duration-400 ease-linear ml-0">

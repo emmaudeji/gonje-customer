@@ -24,7 +24,6 @@ export default function ProductPop({ productslug, DialogClose }) {
     //open pop show  product's detail
     ProductService.getproduct(productslug)
       .then((response) => {
-        console.log(productslug)
         apiReasponse(response.data.data);
         setProductImage(response.data.data.image.original);
       })
