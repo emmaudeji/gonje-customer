@@ -1,11 +1,18 @@
 import { useEffect, React, useState } from "react";
-import productService from "../../services/ProductService";
-import AddToCartBtn from "./AddToCartBtn";
-import { Modal } from "react-responsive-modal";
-import ProductPop from "./productPopup";
 import Image from "next/image";
+import { Modal } from "react-responsive-modal";
 import { BsCartFill } from "react-icons/bs";
 import { Plus, PlusCircle } from "lucide-react";
+//
+import productService from "../../services/ProductService";
+import AddToCartBtn from "./AddToCartBtn";
+import ProductPop from "./productPopup";
+import {
+  Dialog,
+  DialogContent,
+  DialogClose,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export default function ProductDeatil({ shopId, apicategoryid }) {
   //product getting here
@@ -38,8 +45,8 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
   }, [apicategoryid, shopId]);
   return (
     <>
-      <div className="py-8 xl:px-16 md:px-8 pt-3">
-        <div className="grid gap-x-2 gap-y-4 mt-8 grid-cols-2 md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
+      <div className="py-8 xl:px-16 md:px-8 md:pt-3">
+        <div className="grid gap-x-4 gap-y-4 mt-8 grid-cols-2 md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
           {apiproduct.length ? (
             apiproduct.map((productresult, productindex) => (
               <div
@@ -48,7 +55,7 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
                   productSlugs(productresult.slug);
                   onOpenProductModal();
                 }}
-                className="group relative block overflow-hidden w-[130px] md:w-auto"
+                className="group relative block overflow-hidden w-[150px] md:w-auto"
                 key={productindex}
               >
                 {productresult.discount != 0 ? (
@@ -64,24 +71,19 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
                 <div className="mt-4 md:px-6" key={productindex}>
                   {productresult.image &&
                   productresult.image.hasOwnProperty("thumbnail") ? (
-                    <div className="relative w-44 h-32">
+                    <div className="relative w-36 h-36 md:w-44 md:h-32">
                       <Image
                         src={productresult.image.thumbnail}
                         alt=""
                         fill={true}
                         className="rounded-md bg-cover"
                       />
-                      <div className="absolute right-0 top-0 xl:right-1 xl:top-1 rounded-full bg-gonje-green z-10">
-                        <div
-                          className="flex justify-center items-center gap-x-1 px-[9.5px] py-2 font-medium cursor-pointer z-10"
-                          onClick={() => {
-                            productSlugs(productresult.slug);
-                            onOpenProductModal();
-                          }}
-                        >
-                          <Plus color="#fff" size={20} />
-                          <p className="text-base text-white">Add</p>
-                        </div>
+                      <div className="hidden md:block absolute right-0 top-0 xl:right-1 xl:top-1 rounded-full bg-gonje-green z-10">
+                        <ProductDialog
+                          slug={productresult.slug}
+                          productSlugs={productSlugs}
+                          productslug={productslug}
+                        />
                       </div>
                     </div>
                   ) : (
@@ -114,21 +116,16 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
                     </p>
                   </div>
                   <div className="">
+                    <div className="mt-2 block md:hidden">
+                      <ProductDialog
+                        slug={productresult.slug}
+                        productSlugs={productSlugs}
+                        productslug={productslug}
+                      />
+                    </div>
                     {/* <div className="items d-flex">
                       <p>Qty</p>
                       <strong>{productresult.quantity}</strong>
-                    </div> */}
-                    {/* <div className="mt-2">
-                      <button
-                        onClick={() => {
-                          productSlugs(productresult.slug);
-                          onOpenProductModal();
-                        }}
-                        className="flex items-center justify-center gap-x-4 w-full h-12 font-bold bg-gonje-green rounded-md px-4 text-sm md:text-base transition hover:scale-105"
-                      >
-                        <BsCartFill />
-                        <span className="text-white">Add</span>{" "}
-                      </button>
                     </div> */}
                   </div>
                 </div>
@@ -141,7 +138,7 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
           )}
         </div>
 
-        <Modal
+        {/* <Modal
           open={openproduct}
           showCloseIcon={false}
           center
@@ -152,8 +149,47 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
             CloseProductModal={onCloseProductModal}
             productslug={productslug}
           ></ProductPop>
-        </Modal>
+        </Modal> */}
       </div>
     </>
   );
 }
+const ProductDialog = ({ productSlugs, slug, productslug }) => {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <div>
+          <div className="hidden md:block absolute right-0 top-0 xl:right-1 xl:top-1 rounded-full bg-gonje-green z-10">
+            <div
+              className="flex justify-center items-center gap-x-1 px-[9.5px] py-2 font-medium cursor-pointer z-10"
+              onClick={() => {
+                productSlugs(slug);
+                // onOpenProductModal();
+              }}
+            >
+              <Plus color="#fff" size={20} />
+              <p className="text-base text-white">Add</p>
+            </div>
+          </div>
+          <button
+            onClick={() => {
+              productSlugs(slug);
+              // onOpenProductModal();
+            }}
+            className="md:hidden flex  items-center justify-center gap-x-4 w-full h-8 font-bold bg-gonje-green rounded-md px-4 text-sm md:text-base transition hover:scale-105"
+          >
+            <BsCartFill color="#fff" />
+            <span className="text-white">Add</span>
+          </button>
+        </div>
+      </DialogTrigger>
+      <DialogContent showClose={false}>
+        <ProductPop
+          // CloseProductModal={onCloseProductModal}
+          DialogClose={DialogClose}
+          productslug={productslug}
+        ></ProductPop>
+      </DialogContent>
+    </Dialog>
+  );
+};
