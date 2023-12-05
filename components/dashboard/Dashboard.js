@@ -1,21 +1,35 @@
-import Header from "../layout/Header";
-import Menu from "../layout/Menu";
 import { useEffect, React, useState } from "react";
-import { shoplist } from "../Api/Api.js";
-import Topbar from "../layout/Topbar";
+import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import Router from "next/router";
-import { listingCartProduct } from "../../actions/addcarts.js";
-import CartService from "../../services/CartService";
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
-import Register from "../../components/Register";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import {
+  ShoppingBag,
+  Wine,
+  Shirt,
+  WalletCards,
+  Pill,
+  Bed,
+  Scroll,
+  Backpack,
+  PercentSquare,
+} from "lucide-react";
+
+////
+import { shoplist } from "../Api/Api.js";
+import Topbar from "../layout/Topbar";
+import Header from "../layout/Header";
+import Menu from "../layout/Menu";
+import { listingCartProduct } from "../../actions/addcarts.js";
+import CartService from "../../services/CartService";
+import Register from "../../components/Register";
 import UpdateBillingInfo from "../../components/Card/UpdateBillingInfo";
 import Loader from "../Loader";
-import Image from "next/image";
 import DashboardLayout from "@/components/layout/DashboardLayout";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -66,6 +80,7 @@ export default function Dashboard() {
       if (json) {
         setLoading(false);
         apiReasponse(json.data);
+        console.log(json.data);
       }
     })();
   }, []);
@@ -134,40 +149,65 @@ export default function Dashboard() {
       </g>
     </svg>
   );
+  const iconsArray = [
+    { name: "for you", icon: ShoppingBag },
+    { name: "Alcohol", icon: Wine },
+    { name: "Clothes", icon: Shirt },
+    { name: "Pickup", icon: WalletCards },
+    { name: "Pharmacy", icon: Pill },
+    { name: "Furniture", icon: Bed },
+    { name: "Wholesale", icon: Scroll },
+    { name: "Retail", icon: Backpack },
+    { name: "Deals", icon: PercentSquare },
+  ];
 
   return (
     <DashboardLayout>
       {/* <div className={`main ${classToggle ? "main-content" : ""}`}></div> */}
-      <section className="py-24">
-        <div className="container">
-          <div className="bg-white rounded-md shadow">
+      <section className="">
+        <ScrollArea className="block md:hidden h-32 w-full py-4">
+          <div className="flex justify-between">
+            {iconsArray.map((item, index) => (
+              <div className="flex-shrink-0 min-h-34 cursor-pointer bg-transparent relative rounded-8 max-w-104 py-4 px-8 pb-10 pt-4 pl-8 pr-8 text-[#242529] border-0 min-w-70 flex flex-col items-center justify-center">
+                <item.icon key={index} size={32} />
+                <p className="text-sm">{item.name}</p>
+              </div>
+            ))}
+          </div>
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
+        <div className="md:container lg:py-16">
+          <div className="mt-1">
             <div className="top-heading">
               <h3>All Shops</h3>
-              <div className="grid md:grid-cols-3 xl:grid-cols-4 gap-8 mb-4 mt-5">
+              <div className="m-0 p-0 list-none pt-6 flex flex-wrap gap-2 md:gap-0 md:grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 md:grid-rows-none gap-y-11 md:gap-y-0 lg:gap-y-0 md:-mx-10 lg:-mx-10 justify-between">
                 {apires.length ? (
                   apires.map((result, index) => {
                     return (
                       <div
                         onClick={() => delivery_schedule(result.id)}
-                        className="px-4 py-8 bg-[#f8f8f8] rounded-md hover:bg-gonje transition-all"
+                        className="px-2 py-8 w-[90px] md:w-[116px] transition-all"
                         key={index}
                       >
-                        <div className="flex flex-col gap-y-4 items-center justify-center">
+                        <div className="px-3">
+                        <div className="flex flex-col gap-y-2 items-center justify-center">
                           {result?.logo && !Array.isArray(result?.logo) ? (
+                            <div className="relative w-[84px] md:w-[110px] h-[84px] rounded-lg">
                             <Image
-                              height={100}
-                              width={100}
+                              fill={true}
                               src={result?.logo?.thumbnail}
                               alt=""
-                              className="rounded-full"
-                            />
+                              className="bg-cover rounded-lg"
+                            />                              
+                            </div>
+
                           ) : (
-                            <div className="w-20 h-20 rounded-full bg-gonje flex items-center justify-center"></div>
+                            <div className="w-[84px] md:w-[110px] h-[85px] rounded-lg bg-gonje flex items-center justify-center"></div>
                           )}
 
-                          <div className="max-w-[250px] text-center space-y-4 text-lg">
+                          <div className="space-y-2 text-sm">
                             <h2 className="font-bold">{result.name}</h2>
-                            <p className="text-sm">
+                            {/* <p className="text-xs">
                               {result.settings &&
                               result.settings.hasOwnProperty("location")
                                 ? result.settings.location.formattedAddress
@@ -177,9 +217,9 @@ export default function Dashboard() {
                               result.settings.hasOwnProperty("location")
                                 ? result.settings.location.country
                                 : ""}
-                            </p>
+                            </p> */}
                           </div>
-                        </div>
+                        </div></div>
                       </div>
                     );
                   })
