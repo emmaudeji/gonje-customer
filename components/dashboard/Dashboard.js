@@ -176,8 +176,8 @@ export default function Dashboard() {
           </div>
           <ScrollBar orientation="horizontal" />
         </ScrollArea>
-        <div className="md:container lg:py-24">
-          <div className="md:bg-white md:rounded-md shadow mt-1">
+        <div className="md:container lg:py-16">
+          <div className="mt-1">
             <div className="top-heading">
               <h3>All Shops</h3>
               <div className="m-0 p-0 list-none pt-6 flex flex-wrap gap-2 md:gap-0 md:grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 md:grid-rows-none gap-y-11 md:gap-y-0 lg:gap-y-0 md:-mx-10 lg:-mx-10 justify-between">
