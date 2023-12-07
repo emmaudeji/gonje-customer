@@ -7,7 +7,7 @@ export default function CartCount() {
 
   return (
     <>
-      <span className="badge bg-secondary">{cart}</span>
+      <span className="text-gray-600 font-semibold">{cart}</span>
     </>
   );
 }
