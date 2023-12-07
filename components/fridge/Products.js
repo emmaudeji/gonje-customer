@@ -55,11 +55,12 @@ const Products = ({ shopId, categoryId }) => {
                   </div>
                   <AddToCartBtn slug={productresult.slug}></AddToCartBtn>
                 </div>
+                
               </a>
             ))
           ) : (
-            <div className="side-rght-inr">
-              <div className="empty-txt">product&apos;s not found.</div>
+            <div className="">
+              <EmptyState errorName={`Products's not found.`} />
             </div>
           )}
         </div>

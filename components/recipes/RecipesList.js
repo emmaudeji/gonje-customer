@@ -4,6 +4,7 @@ import Router from "next/router";
 import AddToWishlist from "./AddToWishlist";
 import Loader from "../Loader";
 import Image from "next/image";
+import { EmptyState } from "../dashboard/EmptyState";
 
 const RecipesList = () => {
   const [loading, setLoading] = useState(false);
@@ -71,16 +72,18 @@ const RecipesList = () => {
                   </div>
                 ))
               ) : (
-                <div className="side-rght-inr">
-                  <div className="empty-txt">recipe&apos;s not found.</div>
+                <div>
+                  <EmptyState errorName={`Recipe's not found.`} />
                 </div>
               )}
             </div>
           </Fragment>
         ))
       ) : (
-        <div className="side-rght-inr">
-          <div className="empty-txt">recipe &apos;s not found.</div>
+        <div className="container">
+          <div>
+            <EmptyState errorName={`Recipe's not found.`} />
+          </div>
         </div>
       )}
     </>

@@ -10,6 +10,8 @@ export const EmptyState =({errorName})=>{
           width={600}
           height={500}
           alt="gonje mascot"
+          priority={true}
+          quality={50}
         />
         <div className="text-center space-y-3 flex flex-col justify-center items-center">
           <p className="text-3xl">Oops, looks like this is empty</p>
