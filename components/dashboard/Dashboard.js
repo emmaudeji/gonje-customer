@@ -16,6 +16,7 @@ import {
   Scroll,
   Backpack,
   PercentSquare,
+  ChevronLeft,
 } from "lucide-react";
 
 ////
@@ -30,6 +31,7 @@ import UpdateBillingInfo from "../../components/Card/UpdateBillingInfo";
 import Loader from "../Loader";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { EmptyState } from "./EmptyState.jsx";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -178,54 +180,53 @@ export default function Dashboard() {
         </ScrollArea>
         <div className="md:container lg:py-16">
           <div className="mt-1">
-            <div className="top-heading">
-              <h3>All Shops</h3>
-              <div className="m-0 p-0 list-none pt-6 flex flex-wrap gap-2 md:gap-0 md:grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 md:grid-rows-none gap-y-11 md:gap-y-0 lg:gap-y-0 md:-mx-10 lg:-mx-10 justify-between">
+            <div className="">
+              <h3 className="text-2xl font-semibold text-center my-6">
+                All Shops
+              </h3>
+              <div className="m-0 p-0 list-none pt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-y-6 gap-x-12 md:gap-y-8 md:grid-rows-none justify-between">
                 {apires.length ? (
                   apires.map((result, index) => {
                     return (
                       <div
                         onClick={() => delivery_schedule(result.id)}
-                        className="px-2 py-8 w-[90px] md:w-[116px] transition-all"
+                        className="h-full flex flex-row gap-3 md:gap-8 text-decoration-none md:border md:border-solid md:border-gray-300 md:py-4 px-4 md:px-12 rounded-lg items-center cursor-pointer"
                         key={index}
                       >
-                        <div className="px-3">
                         <div className="flex flex-col gap-y-2 items-center justify-center">
                           {result?.logo && !Array.isArray(result?.logo) ? (
-                            <div className="relative w-[84px] md:w-[110px] h-[84px] rounded-lg">
-                            <Image
-                              fill={true}
-                              src={result?.logo?.thumbnail}
-                              alt=""
-                              className="bg-cover rounded-lg"
-                            />                              
+                            <div className="relative w-[64px] h-[48px] md:w-[72px] md:h-[64px] rounded-lg">
+                              <Image
+                                fill={true}
+                                src={result?.logo?.thumbnail}
+                                alt=""
+                                className="bg-cover rounded-lg"
+                              />
                             </div>
-
                           ) : (
-                            <div className="w-[84px] md:w-[110px] h-[85px] rounded-lg bg-gonje flex items-center justify-center"></div>
+                            <div className="w-[64px] h-[48px] md:w-[72px] md:h-[64px] rounded-lg bg-gonje flex items-center justify-center"></div>
                           )}
-
-                          <div className="space-y-2 text-sm">
-                            <h2 className="font-bold">{result.name}</h2>
-                            {/* <p className="text-xs">
-                              {result.settings &&
-                              result.settings.hasOwnProperty("location")
-                                ? result.settings.location.formattedAddress
-                                : ""}
-                              <br />
-                              {result.settings &&
-                              result.settings.hasOwnProperty("location")
-                                ? result.settings.location.country
-                                : ""}
-                            </p> */}
-                          </div>
-                        </div></div>
+                        </div>
+                        <div className="space-y-1">
+                          <h2 className="font-bold text-sm">{result.name}</h2>
+                          <p className="text-xs">
+                            {result.settings &&
+                            result.settings.hasOwnProperty("location")
+                              ? result.settings.location.formattedAddress
+                              : ""}
+                            <br />
+                            {result.settings &&
+                            result.settings.hasOwnProperty("location")
+                              ? result.settings.location.country
+                              : ""}
+                          </p>
+                        </div>
                       </div>
                     );
                   })
                 ) : (
-                  <div className="side-rght-inr">
-                    <div className="empty-txt">Shops not found.</div>
+                  <div className="">
+                    <EmptyState errorName={`Shops not found.`}/>
                   </div>
                 )}
               </div>
@@ -278,3 +279,4 @@ export default function Dashboard() {
     </DashboardLayout>
   );
 }
+

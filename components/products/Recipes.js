@@ -10,6 +10,7 @@ export default function Recipes(props) {
   useEffect(() => {
     CategoryService.getRecipe(props.shopId)
       .then((response) => {
+        console.log(response.data.data.data)
         setRecipe(response.data.data.data);
       })
       .catch((e) => {
@@ -40,7 +41,7 @@ export default function Recipes(props) {
 
   return (
     <>
-      <div className="row recipe">
+      <div className="row recipe container">
         <div className="top-heading">
           {recipe.length == 0 ? "" : <h3>Recipes</h3>}
         </div>
@@ -65,11 +66,11 @@ export default function Recipes(props) {
                     key={index}
                   >
                     {/* hello  {index} */}
-                    {/* <img
-                  src={result.banner.original}
+                    <img
+                  src={result.banner.thumbnail}
                   className="d-block w-100"
                   alt="..."
-                /> */}
+                />
                     <div className="carousel-caption d-none d-md-block">
                       <h5>{result.name}</h5>
                       <div className="dish row">

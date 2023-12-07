@@ -45,8 +45,8 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
   }, [apicategoryid, shopId]);
   return (
     <>
-      <div className="py-8 xl:px-16 md:px-8 md:pt-3">
-        <div className="grid gap-x-4 gap-y-4 mt-8 grid-cols-2 md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
+      <div className="container">
+        <div className="grid gap-x-4 gap-y-4 lg:mt-8 grid-cols-2 md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
           {apiproduct.length ? (
             apiproduct.map((productresult, productindex) => (
               <div

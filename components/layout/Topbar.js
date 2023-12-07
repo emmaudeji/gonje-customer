@@ -9,6 +9,7 @@ import { getNotifications } from "../../actions/getNotifications";
 import AppConfig from "../../configs/AppConfig";
 import { toast } from "react-toastify";
 import NotificationToast from "../NotificationToast";
+import { Bell, ChevronDown } from "lucide-react";
 
 export default function Topbar() {
   const dispatch = useDispatch();
@@ -98,13 +99,7 @@ export default function Topbar() {
                 Router.push("/notifications");
               }}
             >
-              {" "}
-              <Image
-                src="/assets/images/notifications.svg"
-                width={20}
-                height={20}
-                alt=""
-              />
+              <Bell fill="#f7d594"/>
             </a>
             <p>{unreadNotificationCount}</p>
           </div>
@@ -120,61 +115,22 @@ export default function Topbar() {
           <div className="profile">
             <div className="dropdown d-flex">
               <Image
-                height={50}
-                width={50}
+                height={60}
+                width={60}
                 src="/assets/images/user.png"
                 alt=""
               />
-              <a
-                className={`btn btn-secondary user-icon dropdown-toggle ${
+              <div
+                className={`btn btn-secondary user-icon dropdown-toggle flex items-center gap-x-2 ${
                   is_toggle ? "show" : ""
                 }`}
-                href="#"
                 role="button"
                 id="dropdownMenuLink"
                 onClick={toggleDropdown}
               >
-                {user.name}{" "}
-                <svg
-                  width="12px"
-                  height="7px"
-                  viewBox="0 0 12 7"
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlnsXlink="http://www.w3.org/1999/xlink"
-                >
-                  <title>drop down</title>
-                  <g
-                    id="Page-1"
-                    stroke="none"
-                    strokeWidth="1"
-                    fill="none"
-                    fillRule="evenodd"
-                  >
-                    <g
-                      id="Dashboard-shop"
-                      transform="translate(-1527.000000, -42.000000)"
-                      fill="#000000"
-                      fillRule="nonzero"
-                    >
-                      <g
-                        id="Group-2"
-                        transform="translate(1379.000000, 19.000000)"
-                      >
-                        <g
-                          id="ic:round-keyboard-arrow-down"
-                          transform="translate(148.000000, 23.000000)"
-                        >
-                          <path
-                            d="M2.12,0.29 L6,4.17 L9.88,0.29 C10.1318722,0.0381277529 10.498984,-0.0602395593 10.8430479,0.0319520785 C11.1871118,0.124143716 11.4558563,0.392888201 11.5480479,0.736952085 C11.6402396,1.08101597 11.5418722,1.44812776 11.29,1.7 L6.7,6.29 C6.51315541,6.47722809 6.25950947,6.58244403 5.995,6.58244403 C5.73049053,6.58244403 5.47684459,6.47722809 5.29,6.29 L0.7,1.7 C0.512771911,1.51315541 0.407555968,1.25950947 0.407555968,0.995 C0.407555968,0.73049053 0.512771911,0.476844595 0.7,0.29 C1.09,-0.09 1.73,-0.1 2.12,0.29 Z"
-                            id="Path"
-                          ></path>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </svg>
-              </a>
+                <span>{user.name}</span>
+                <ChevronDown />
+              </div>
 
               <ul
                 className={`dropdown-menu ${is_toggle ? "show" : ""}`}
