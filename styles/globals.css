@@ -538,10 +538,10 @@ hr.category-divider {
   margin: 5px 0 11px 0;
 }
 
-.food-category .slider {
+/* .food-category .slider {
   padding-bottom: 10px;
   padding-left: 35px;
-}
+} */
 .slider .item {
   background-color: #fff;
   border-radius: 10px;
@@ -693,10 +693,10 @@ p.price strike {
   max-height: 135px;
   height: 100%;
 }
-.food-category {
+/* .food-category {
   margin-bottom: 35px;
   margin-left: 14px;
-}
+} */
 .food-category .owl-dots {
   display: none;
 }
@@ -1908,9 +1908,9 @@ hr.category-divider {
   background-color: unset;
 }
 
-.food-category .slider {
+/* .food-category .slider {
   padding-left: 35px;
-}
+} */
 .slider .item {
   background-color: #fff;
   border-radius: 10px;
@@ -2065,10 +2065,10 @@ p.price strike {
   max-height: 135px;
   height: 100%;
 }
-.food-category {
+/* .food-category {
   margin-bottom: 20px;
   margin-left: 14px;
-}
+} */
 .food-category .owl-dots {
   display: none;
 }
@@ -4036,9 +4036,9 @@ p.wallett-points {
   .top-product-sliders{
     max-width: 141px;
   }
-  .food-category {
+  /* .food-category {
     margin-left: 28px;
-  }
+  } */
   .top-product-sliders {
     width: 100%;
     margin: 19px 15px;

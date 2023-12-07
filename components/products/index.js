@@ -10,6 +10,7 @@ import ProductDetail from "./ProductDetail";
 import Loader from "../Loader";
 import Image from "next/image";
 import { BsCartFill } from "react-icons/bs";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 export default function Product({ shopId }) {
   // console.log(shopId);
@@ -101,11 +102,11 @@ export default function Product({ shopId }) {
     <>
       <Header></Header>
       <Menu />
-      <div className="pro side-body">
+      <div className="pro side-body bg-white">
         {loading && <Loader />}
-        <div className="producttop top-head">
+        <div className="producttop top-head mx-2">
           <SearchTopbar />
-          <div className="xl:px-16 lg:px-8 p-8 top-head-cat">
+          <div className="container border-t py-4">
             <Carousel
               responsive={responsive}
               // removeArrowOnDeviceType={["desktop","tablet", "mobile"]}
@@ -117,29 +118,26 @@ export default function Product({ shopId }) {
                   // console.log("RRR", result);
                   return (
                     <div
-                      className={`${
+                      className={`border-none bg-none p-0 text-xs leading-4 w-[76px] font-semibold cursor-pointer text-center ${
                         result.categories[0].id === apicategoryid ? "" : ""
-                      } block py-2 px-3 bg- mx- space-y-4 mx-2 cursor-pointer`}
+                      }`}
                       key={index}
                       onClick={() => {
                         getCategoryData(index);
                       }}
                     >
-                      <div className="flex flex-col items-center justify-center">
-                        <div className="relative rounded-full h-20 w-20">
-                          <Image
-                            src={result?.gallery.thumbnail} //{result.gallery.thumbnail}
-                            className="object-cover rounded-full"
-                            alt=""
-                            fill={true}
-                          />
-                        </div>
-
-                        <div className="mt-3">
-                          <h3 className="font-medium text-base text-gray-900">
-                            {result.name}{" "}
-                          </h3>
-                        </div>
+                      <div className="relative flex items-center justify-center border-2 rounded-lg border-transparent bg-gray-200 w-[76px] h-[76px]">
+                        <Image
+                          src={result?.gallery.thumbnail} //{result.gallery.thumbnail}
+                          className="object-cover"
+                          alt=""
+                          fill={true}
+                        />
+                      </div>
+                      <div className="mt-1">
+                        <h3 className="text-xs text-gray-900">
+                          {result.name}{" "}
+                        </h3>
                       </div>
                     </div>
                   );
@@ -150,7 +148,7 @@ export default function Product({ shopId }) {
         </div>
         <hr className="category-divider" />
 
-        <div className="food-category px-4 md:px-8 xl:px-16 sub-cat">
+        <div className="container sub-cat">
           <Carousel
             responsive={responsive1}
             // removeArrowOnDeviceType={["desktop","tablet", "mobile"]}
@@ -204,8 +202,7 @@ export default function Product({ shopId }) {
               );
             })} */}
         </div>
-        <div className="main"></div>
-        <div className="categories pt-3">
+        <div className="categories md:pt-3">
           <div className="fruits row">
             <ProductDetail shopId={shopId} apicategoryid={apicategoryid} />
           </div>
@@ -215,4 +212,3 @@ export default function Product({ shopId }) {
     </>
   );
 }
-

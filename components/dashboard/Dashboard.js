@@ -16,6 +16,7 @@ import {
   Scroll,
   Backpack,
   PercentSquare,
+  ChevronLeft,
 } from "lucide-react";
 
 ////
@@ -30,6 +31,7 @@ import UpdateBillingInfo from "../../components/Card/UpdateBillingInfo";
 import Loader from "../Loader";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { EmptyState } from "./EmptyState.jsx";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -179,7 +181,9 @@ export default function Dashboard() {
         <div className="md:container lg:py-16">
           <div className="mt-1">
             <div className="">
-              <h3 className="text-2xl font-semibold text-center my-6">All Shops</h3>
+              <h3 className="text-2xl font-semibold text-center my-6">
+                All Shops
+              </h3>
               <div className="m-0 p-0 list-none pt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-y-6 gap-x-12 md:gap-y-8 md:grid-rows-none justify-between">
                 {apires.length ? (
                   apires.map((result, index) => {
@@ -206,23 +210,23 @@ export default function Dashboard() {
                         <div className="space-y-1">
                           <h2 className="font-bold text-sm">{result.name}</h2>
                           <p className="text-xs">
-                              {result.settings &&
-                              result.settings.hasOwnProperty("location")
-                                ? result.settings.location.formattedAddress
-                                : ""}
-                              <br />
-                              {result.settings &&
-                              result.settings.hasOwnProperty("location")
-                                ? result.settings.location.country
-                                : ""}
-                            </p>
+                            {result.settings &&
+                            result.settings.hasOwnProperty("location")
+                              ? result.settings.location.formattedAddress
+                              : ""}
+                            <br />
+                            {result.settings &&
+                            result.settings.hasOwnProperty("location")
+                              ? result.settings.location.country
+                              : ""}
+                          </p>
                         </div>
                       </div>
                     );
                   })
                 ) : (
-                  <div className="side-rght-inr">
-                    <div className="empty-txt">Shops not found.</div>
+                  <div className="">
+                    <EmptyState errorName={`Shops not found.`}/>
                   </div>
                 )}
               </div>
@@ -275,3 +279,4 @@ export default function Dashboard() {
     </DashboardLayout>
   );
 }
+
