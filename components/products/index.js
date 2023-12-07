@@ -114,7 +114,7 @@ export default function Product({ shopId }) {
             >
               {apires.length > 0 &&
                 apires.map((result, index) => {
-                  console.log("RRR", result);
+                  // console.log("RRR", result);
                   return (
                     <div
                       className={`${
@@ -215,50 +215,4 @@ export default function Product({ shopId }) {
     </>
   );
 }
-const CategoryBox = ({
-  getCategoryData,
-  catindex,
-  shopId,
-  apicategoryid,
-  name,
-}) => {
-  useEffect(() => {
-    console.log(catindex)
-    getCategoryData(catindex);
-  }, []);
-  return (
-    <section>
-      <h2>{name}</h2>
-      <ProductDetail shopId={shopId} apicategoryid={apicategoryid} />
-    </section>
-  );
-};
-const Products = () => {
-  return (
-    <div className="group relative block overflow-hidden bg-white">
-      <button className="absolute left-4 top-4 rounded-full bg-white p-1.5 transition">
-        <span className="sr-only">Discount</span>
-        <div className="text-sm bg-red-900 text-center w-24 text-white py-1">
-          <p className="text-white">- 40%</p>
-        </div>
-      </button>
-      <div className="relative w-36 h-52 mx-auto">
-        <Image src={`/images/trending-001.png`} alt="" fill={true} />
-      </div>
 
-      <div className="relative border border-gray-100 text-center p-6">
-        <div>
-          <p className="mt-4 text-lg font-medium text-gray-900">Potatoes</p>
-          <p className="text-sm text-gray-700">Fresh foods from our store</p>
-        </div>
-        <p className="text-red-600 text-lg font-bold">$20</p>
-        <div className="mt-4">
-          <button className="flex items-center justify-center gap-x-4 w-full h-12 font-bold bg-gonje-green rounded-md px-4 text-sm md:text-base transition hover:scale-105">
-            <BsCartFill />
-            <span className="text-white">Add</span>{" "}
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
