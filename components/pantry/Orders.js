@@ -8,6 +8,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { zipPayCheckout } from "../Api/Api.js";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { EmptyState } from "../dashboard/EmptyState.jsx";
 
 export default function Orders() {
   const [apires, apiReasponse] = useState([]);
@@ -142,8 +143,8 @@ export default function Orders() {
               </div>
             ))
           ) : (
-            <div className="side-rght-inr">
-              <div className="empty-txt">product&apos;s not found.</div>
+            <div className="">
+              <EmptyState errorName={`Product's not found.`} />
             </div>
           )}
         </InfiniteScroll>

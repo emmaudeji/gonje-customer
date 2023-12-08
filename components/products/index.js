@@ -146,61 +146,37 @@ export default function Product({ shopId }) {
             <div className="owl-nav disabled"></div>
           </div>
         </div>
-        <hr className="category-divider" />
+        <hr className="my-2" />
 
-        <div className="container sub-cat">
-          <Carousel
-            responsive={responsive1}
-            // removeArrowOnDeviceType={["desktop","tablet", "mobile"]}
-            showDots={false}
-            draggable={true}
-          >
-            {apicategory.length > 0 &&
+        <div className="container py-3">
+        <ScrollArea className="h w-full py-4">
+          <div className="flex justify-between gap-x-8">
+          {apicategory.length > 0 &&
               apicategory.map((catresult, catindex) => {
                 // console.log(apires)
                 return (
                   <div
-                    className="product_activee"
+                    className=""
                     onClick={() => {
                       getProductData(catindex);
                     }}
                     key={catindex}
                   >
-                    <div
-                      className={`subcat_items ${
+                    <button
+                      className={`border border-transparent rounded-[16px]  py-[3px] px-3 whitespace-nowrap text-sm font-medium text-gray-700 bg-gray-200 ${
                         catresult.id === apicategoryid ? "product_active" : ""
                       } `}
                     >
-                      <p className="wrap mb-0">
-                        <Image
-                          height={100}
-                          width={100}
-                          src={catresult?.image?.thumbnail}
-                          // {catresult.image.thumbnail}
-                          className="d-block w-100"
-                          alt="..."
-                        />
-                      </p>
                       <p> {catresult.name.substring(0, 50)}</p>
-                    </div>
+                    </button>
                   </div>
                 );
               })}
-          </Carousel>
-          {/* {apicategory.length > 0 &&
-            apicategory.map((catresult, catindex) => {
-              return (
-                <div key={catindex}>
-                  <CategoryBox
-                    catindex={catindex}
-                    apicategoryid={apicategoryid}
-                    shopId={shopId}
-                    name={catresult.name.substring(0, 50)}
-                    getCategoryData={getCategoryData}
-                  />
-                </div>
-              );
-            })} */}
+          </div>
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
+
+
         </div>
         <div className="categories md:pt-3">
           <div className="fruits row">

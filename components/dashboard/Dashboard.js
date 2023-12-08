@@ -82,7 +82,7 @@ export default function Dashboard() {
       if (json) {
         setLoading(false);
         apiReasponse(json.data);
-        console.log(json.data);
+        // console.log(json.data);
       }
     })();
   }, []);
@@ -179,14 +179,14 @@ export default function Dashboard() {
           <ScrollBar orientation="horizontal" />
         </ScrollArea>
         <div className="md:container lg:py-16">
-          <div className="mt-1">
-            <div className="">
-              <h3 className="text-2xl font-semibold text-center my-6">
-                All Shops
-              </h3>
-              <div className="m-0 p-0 list-none pt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-y-6 gap-x-12 md:gap-y-8 md:grid-rows-none justify-between">
-                {apires.length ? (
-                  apires.map((result, index) => {
+          {apires.length ? (
+            <div className="mt-1">
+              <div className="">
+                <h3 className="text-2xl font-semibold text-center my-6">
+                  All Shops
+                </h3>
+                <div className="m-0 p-0 list-none pt-6 grid md:grid-cols-2 xl:grid-cols-3 gap-y-6 gap-x-12 md:gap-y-8 md:grid-rows-none justify-between">
+                  {apires.map((result, index) => {
                     return (
                       <div
                         onClick={() => delivery_schedule(result.id)}
@@ -223,15 +223,14 @@ export default function Dashboard() {
                         </div>
                       </div>
                     );
-                  })
-                ) : (
-                  <div className="">
-                    <EmptyState errorName={`Shops not found.`}/>
-                  </div>
-                )}
+                  })}
+                </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <EmptyState errorName={`Shops not found.`} />
+          )}
+
           <Modal
             open={openSubscription}
             showCloseIcon={true}
@@ -279,4 +278,3 @@ export default function Dashboard() {
     </DashboardLayout>
   );
 }
-
