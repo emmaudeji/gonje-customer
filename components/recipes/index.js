@@ -7,6 +7,7 @@ import RecipesList from "./RecipesList.js";
 import BirthdayRecipes from "./BirthdayRecipes.js";
 import { retrieveRecipes } from "../../actions/recipes.js";
 import { useDispatch, useSelector } from "react-redux";
+import Image from "next/image.js";
 
 const Recipes = ({ shopId }) => {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ const Recipes = ({ shopId }) => {
         <div className="favourite-recipe">
           <FavoriteRecipes></FavoriteRecipes>
           <RecipesList></RecipesList>
+         
           {/* <BirthdayRecipes></BirthdayRecipes> */}
         </div>
       </div>

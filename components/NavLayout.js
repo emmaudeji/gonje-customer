@@ -294,7 +294,7 @@ export default function NavLayout({ isOpenGetStarted, toggleGetStarted }) {
                         // onClick={onOpenSigninModal}
                         onClick={() => Router.push('/signin/customer')}
                       >
-                        sign in
+                        Sign in
                       </a>
                       {/* <Modal
                         open={opensignin}

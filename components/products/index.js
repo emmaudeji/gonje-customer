@@ -9,16 +9,17 @@ import Recipes from "./Recipes";
 import ProductDetail from "./ProductDetail";
 import Loader from "../Loader";
 import Image from "next/image";
-
+import { BsCartFill } from "react-icons/bs";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 export default function Product({ shopId }) {
+  // console.log(shopId);
   const [loading, setLoading] = useState(false);
 
   const [apires, setApires] = useState("");
   const [apicategory, setApiCategory] = useState("");
   const [categoryindex, setcategoryindex] = useState(0);
   const [apicategoryid, setapiCategoryId] = useState("");
-
 
   const responsive = {
     superLargeDesktop: {
@@ -55,7 +56,7 @@ export default function Product({ shopId }) {
       items: 8,
       slidesToSlide: 8, // optional, default to 1.
     },
-    
+
     tablet: {
       breakpoint: { max: 1024, min: 568 },
       items: 4,
@@ -85,7 +86,7 @@ export default function Product({ shopId }) {
         // console.log('resssss', response.data.data)
       })
       .catch((e) => {
-        console.log('product display error', e);
+        console.log("product display error", e);
       });
   };
   const getProductData = (catindex) => {
@@ -100,13 +101,12 @@ export default function Product({ shopId }) {
   return (
     <>
       <Header></Header>
-      <Menu></Menu>
-      <div className="pro side-body">
+      <Menu />
+      <div className="pro side-body bg-white">
         {loading && <Loader />}
-        <div className="producttop top-head">
-          <SearchTopbar></SearchTopbar>
-
-          <div className="categories p-0 food-category top-head-cat">
+        <div className="producttop top-head mx-2">
+          <SearchTopbar />
+          <div className="container border-t py-4">
             <Carousel
               responsive={responsive}
               // removeArrowOnDeviceType={["desktop","tablet", "mobile"]}
@@ -115,29 +115,30 @@ export default function Product({ shopId }) {
             >
               {apires.length > 0 &&
                 apires.map((result, index) => {
-                  console.log('RRR', result)
+                  // console.log("RRR", result);
                   return (
-                    <div className={`top-product-sliders ${categoryindex === index ? "p_active" : ""}`} key={index}>
-                      {/* hello  {index} */}
-                      <a
-                        className={`wrap ${
-                          result.categories[0].id === apicategoryid
-                            ? "product_active"
-                            : ""
-                        } `}
-                        onClick={() => {
-                          getCategoryData(index);
-                        }}
-                      >
+                    <div
+                      className={`border-none bg-none p-0 text-xs leading-4 w-[76px] font-semibold cursor-pointer text-center ${
+                        result.categories[0].id === apicategoryid ? "" : ""
+                      }`}
+                      key={index}
+                      onClick={() => {
+                        getCategoryData(index);
+                      }}
+                    >
+                      <div className="relative flex items-center justify-center border-2 rounded-lg border-transparent bg-gray-200 w-[76px] h-[76px]">
                         <Image
-                          src={result.banners[0].image.thumbnail}//{result.gallery.thumbnail}
-                          className="d-block"
-                          alt="..."
-                          height={150}
-                          width={150}
+                          src={result?.gallery.thumbnail} //{result.gallery.thumbnail}
+                          className="object-cover"
+                          alt=""
+                          fill={true}
                         />
-                      </a>
-                      <p>{result.name}</p>
+                      </div>
+                      <div className="mt-1">
+                        <h3 className="text-xs text-gray-900">
+                          {result.name}{" "}
+                        </h3>
+                      </div>
                     </div>
                   );
                 })}
@@ -147,7 +148,7 @@ export default function Product({ shopId }) {
         </div>
         <hr className="category-divider" />
 
-        <div className="food-category sub-cat">
+        <div className="container sub-cat">
           <Carousel
             responsive={responsive1}
             // removeArrowOnDeviceType={["desktop","tablet", "mobile"]}
@@ -156,8 +157,10 @@ export default function Product({ shopId }) {
           >
             {apicategory.length > 0 &&
               apicategory.map((catresult, catindex) => {
+                // console.log(apires)
                 return (
-                  <a className="product_activee"
+                  <div
+                    className="product_activee"
                     onClick={() => {
                       getProductData(catindex);
                     }}
@@ -167,12 +170,12 @@ export default function Product({ shopId }) {
                       className={`subcat_items ${
                         catresult.id === apicategoryid ? "product_active" : ""
                       } `}
-                    > 
+                    >
                       <p className="wrap mb-0">
                         <Image
                           height={100}
                           width={100}
-                          src= "/apple-popup.png"   
+                          src={catresult?.image?.thumbnail}
                           // {catresult.image.thumbnail}
                           className="d-block w-100"
                           alt="..."
@@ -180,19 +183,28 @@ export default function Product({ shopId }) {
                       </p>
                       <p> {catresult.name.substring(0, 50)}</p>
                     </div>
-                  </a>
+                  </div>
                 );
               })}
           </Carousel>
+          {/* {apicategory.length > 0 &&
+            apicategory.map((catresult, catindex) => {
+              return (
+                <div key={catindex}>
+                  <CategoryBox
+                    catindex={catindex}
+                    apicategoryid={apicategoryid}
+                    shopId={shopId}
+                    name={catresult.name.substring(0, 50)}
+                    getCategoryData={getCategoryData}
+                  />
+                </div>
+              );
+            })} */}
         </div>
-
-        <div className="main"></div>
-        <div className="categories pt-3">
+        <div className="categories md:pt-3">
           <div className="fruits row">
-            <ProductDetail
-              shopId={shopId}
-              apicategoryid={apicategoryid}
-            ></ProductDetail>
+            <ProductDetail shopId={shopId} apicategoryid={apicategoryid} />
           </div>
           <Recipes shopId={shopId} apicategoryid={apicategoryid}></Recipes>
         </div>
