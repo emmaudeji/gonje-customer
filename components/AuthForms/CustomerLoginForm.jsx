@@ -62,18 +62,18 @@ const CustomerLoginForm = () => {
         setSuccessMessage(json.message)
 
         localStorage.setItem("user_detail", JSON.stringify(json));
-        console.log('API DATA==',json)
+        // console.log('API DATA==',json)
         router.push('/dashboard')
         // SelectRoute(json.permissions)
       } else {
 
         setError(json.message);
         setLoading(false);
-		console.log('login error= ', json.message)
+		// console.log('login error= ', json.message)
       }
     } catch (error) {
       setError('Server error, try again.');
-	  console.log('catch error', error)
+	  // console.log('catch error', error)
       setLoading(false);
     }
   };

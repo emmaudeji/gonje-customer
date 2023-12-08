@@ -13,6 +13,7 @@ module.exports = {
       "localhost",
       "gonje.com.au",
       "127.0.0.1",
+      "backendapi.gonje.com"
     ],
   },
 };

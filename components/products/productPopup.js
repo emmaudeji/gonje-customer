@@ -5,10 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { retrieveCount } from "../../actions/carts.js";
 import toasts from "../shared/toast.js";
 import Image from "next/image";
-export default function ProductPop({ CloseProductModal, productslug }) {
+import { Minus, Plus } from "lucide-react";
+export default function ProductPop({ productslug, DialogClose }) {
   const [apires, apiReasponse] = useState("");
   const [ToggleDescription, isToggleDescription] = useState(false);
   const [ToggleNutritional, isToggleNutritional] = useState(true);
+  const [quantity, setQuantity] = useState(1);
   const [setimage, setProductImage] = useState("");
   const userId = useSelector((state) => state.userdetails);
   const dispatch = useDispatch();
@@ -34,7 +36,14 @@ export default function ProductPop({ CloseProductModal, productslug }) {
   const productImageSet = (index) => {
     setProductImage(apires.image.original);
   };
-
+  const AddQuantity = () => {
+    setQuantity((prev) => prev + 1);
+  };
+  const ReduceQuantity = () => {
+    if (quantity >1) {
+      setQuantity((prev) => prev - 1);
+    }
+  };
   useEffect(() => {
     getProduct(productslug);
   }, [productslug]);
@@ -45,7 +54,7 @@ export default function ProductPop({ CloseProductModal, productslug }) {
         user_id: userId,
         product_id: apires.id,
         shop_id: apires.shop_id,
-        product_quantity: 1,
+        product_quantity: quantity,
       })
     )
       .then((data) => {
@@ -65,7 +74,7 @@ export default function ProductPop({ CloseProductModal, productslug }) {
 
   return (
     <>
-      <div className="modal1 fade1" id="product" onClick={CloseProductModal}>
+      <div className="modal1 fade1" id="product">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-body">
@@ -110,21 +119,23 @@ export default function ProductPop({ CloseProductModal, productslug }) {
                   <div className="orangic-apple">
                     <div className="top-heading d-flex">
                       <h3>{apires.name}</h3>
-                      <button
-                        type="button"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      >
-                        <Image
-                          src="/assets/images/close-popup.svg"
-                          alt=""
-                          // onClick={() => {
-                          //   CloseProductModal();
-                          // }}
-                          height={50}
-                          width={50}
-                        />
-                      </button>
+                      <DialogClose asChild>
+                        <button
+                          type="button"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        >
+                          <Image
+                            src="/assets/images/close-popup.svg"
+                            alt=""
+                            // onClick={() => {
+                            //   CloseProductModal();
+                            // }}
+                            height={50}
+                            width={50}
+                          />
+                        </button>
+                      </DialogClose>
                     </div>
                     <div className="price d-flex pt-4 pb-2">
                       {apires.sale_price ? (
@@ -138,7 +149,14 @@ export default function ProductPop({ CloseProductModal, productslug }) {
 
                       {/* <p> 40% Off Market Price</p> */}
                     </div>
-                    <p className="fruit-info">{apires.description}</p>
+                    <p className="fruit-info my-4">{apires.description}</p>
+                    <div className="flex gap-x-4 my-4 items-center">
+                      <Minus onClick={ReduceQuantity} />
+                      <span className="text-sm border rounded-md px-3 border-gonje-green">
+                        {quantity}
+                      </span>
+                      <Plus onClick={AddQuantity} />
+                    </div>
 
                     <button
                       type="button"

@@ -116,7 +116,7 @@ export default function CartPopup({ onCloseCartModal }) {
             e.stopPropagation();
           }}
         >
-          <div className="modal-content">
+          <div className="modal-content bg-white px-2 py-5">
             <div className="modal-header">
               <button
                 type="button"

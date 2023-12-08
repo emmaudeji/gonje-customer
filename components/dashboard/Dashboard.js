@@ -1,20 +1,37 @@
-import Header from "../layout/Header";
-import Menu from "../layout/Menu";
 import { useEffect, React, useState } from "react";
-import { shoplist } from "../Api/Api.js";
-import Topbar from "../layout/Topbar";
+import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import Router from "next/router";
-import { listingCartProduct } from "../../actions/addcarts.js";
-import CartService from "../../services/CartService";
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
-import Register from "../../components/Register";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import {
+  ShoppingBag,
+  Wine,
+  Shirt,
+  WalletCards,
+  Pill,
+  Bed,
+  Scroll,
+  Backpack,
+  PercentSquare,
+  ChevronLeft,
+} from "lucide-react";
+
+////
+import { shoplist } from "../Api/Api.js";
+import Topbar from "../layout/Topbar";
+import Header from "../layout/Header";
+import Menu from "../layout/Menu";
+import { listingCartProduct } from "../../actions/addcarts.js";
+import CartService from "../../services/CartService";
+import Register from "../../components/Register";
 import UpdateBillingInfo from "../../components/Card/UpdateBillingInfo";
 import Loader from "../Loader";
-import Image from "next/image";
+import DashboardLayout from "@/components/layout/DashboardLayout";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { EmptyState } from "./EmptyState.jsx";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -65,6 +82,7 @@ export default function Dashboard() {
       if (json) {
         setLoading(false);
         apiReasponse(json.data);
+        // console.log(json.data);
       }
     })();
   }, []);
@@ -133,107 +151,130 @@ export default function Dashboard() {
       </g>
     </svg>
   );
+  const iconsArray = [
+    { name: "for you", icon: ShoppingBag },
+    { name: "Alcohol", icon: Wine },
+    { name: "Clothes", icon: Shirt },
+    { name: "Pickup", icon: WalletCards },
+    { name: "Pharmacy", icon: Pill },
+    { name: "Furniture", icon: Bed },
+    { name: "Wholesale", icon: Scroll },
+    { name: "Retail", icon: Backpack },
+    { name: "Deals", icon: PercentSquare },
+  ];
 
   return (
-    <>
-      <Header></Header>
-      <Menu></Menu>
-      <div className="side-body">
-        <Topbar></Topbar>
-        {loading && <Loader />}
-        {/* <div className={`main ${classToggle ? "main-content" : ""}`}></div> */}
-        <div className="all-shops">
-          <div className="top-heading">
-            <h3>All Shops</h3>
-            <div className="row mb-4 mt-5">
-              {apires.length ? (
-                apires.map((result, index) => {
-                  return (
-                    <div
-                      className="col-xl-3 col-md-6 col-sm-6 col-xs-12"
-                      key={index}
-                    >
-                      <a onClick={() => delivery_schedule(result.id)}>
-                        <div className="shop-name">
-                          {result?.logo && !Array.isArray(result?.logo) ? (
-                            <Image
-                              height={100}
-                              width={100}
-                              src={result?.logo?.thumbnail}
-                              alt=""
-                            />
-                          ) : null}
-
-                          <div className="content">
-                            <h4>{result.name}</h4>
-                            <p>
-                              {result.settings &&
-                              result.settings.hasOwnProperty("location")
-                                ? result.settings.location.formattedAddress
-                                : ""}
-                              <br />
-                              {result.settings &&
-                              result.settings.hasOwnProperty("location")
-                                ? result.settings.location.country
-                                : ""}
-                            </p>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
-                  );
-                })
-              ) : (
-                <div className="side-rght-inr">
-                  <div className="empty-txt">Shops not found.</div>
-                </div>
-              )}
-            </div>
+    <DashboardLayout>
+      {/* <div className={`main ${classToggle ? "main-content" : ""}`}></div> */}
+      <section className="">
+        <ScrollArea className="block md:hidden h-32 w-full py-4">
+          <div className="flex justify-between">
+            {iconsArray.map((item, index) => (
+              <div className="flex-shrink-0 min-h-34 cursor-pointer bg-transparent relative rounded-8 max-w-104 py-4 px-8 pb-10 pt-4 pl-8 pr-8 text-[#242529] border-0 min-w-70 flex flex-col items-center justify-center">
+                <item.icon key={index} size={32} />
+                <p className="text-sm">{item.name}</p>
+              </div>
+            ))}
           </div>
-        </div>
-        <Modal
-          open={openSubscription}
-          showCloseIcon={true}
-          center
-          onClose={() => {
-            onCloseSubscriptionModal();
-          }}
-          classNames={{ modal: "subscriptionModal" }}
-          closeIcon={closeIcon}
-        >
-          <div className="col-lg-12 subscription">
-            <div className="col-xl-6 col-lg-12">
-              <div className="my-schedule  billing-information shipping-address">
-                <div className="shipping-checkoutt ">
-                  <div className="message_product">
-                    <p>Your cart will be clear, if you change the shop</p>
-                  </div>
-                </div>
-                <div className="d-flex message_butn">
-                  <button
-                    type="button"
-                    className="btn btn-outline-primary"
-                    onClick={() => {
-                      onCloseSubscriptionModal();
-                    }}
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-primary"
-                    onClick={() => {
-                      redirect();
-                    }}
-                  >
-                    okay
-                  </button>
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
+        <div className="md:container lg:py-16">
+          {apires.length ? (
+            <div className="mt-1">
+              <div className="">
+                <h3 className="text-2xl font-semibold text-center my-6">
+                  All Shops
+                </h3>
+                <div className="m-0 p-0 list-none pt-6 grid md:grid-cols-2 xl:grid-cols-3 gap-y-6 gap-x-12 md:gap-y-8 md:grid-rows-none justify-between">
+                  {apires.map((result, index) => {
+                    return (
+                      <div
+                        onClick={() => delivery_schedule(result.id)}
+                        className="h-full flex flex-row gap-3 md:gap-8 text-decoration-none md:border md:border-solid md:border-gray-300 md:py-4 px-4 md:px-12 rounded-lg items-center cursor-pointer"
+                        key={index}
+                      >
+                        <div className="flex flex-col gap-y-2 items-center justify-center">
+                          {result?.logo && !Array.isArray(result?.logo) ? (
+                            <div className="relative w-[64px] h-[48px] md:w-[72px] md:h-[64px] rounded-lg">
+                              <Image
+                                fill={true}
+                                src={result?.logo?.thumbnail}
+                                alt=""
+                                className="bg-cover rounded-lg"
+                              />
+                            </div>
+                          ) : (
+                            <div className="w-[64px] h-[48px] md:w-[72px] md:h-[64px] rounded-lg bg-gonje flex items-center justify-center"></div>
+                          )}
+                        </div>
+                        <div className="space-y-1">
+                          <h2 className="font-bold text-sm">{result.name}</h2>
+                          <p className="text-xs">
+                            {result.settings &&
+                            result.settings.hasOwnProperty("location")
+                              ? result.settings.location.formattedAddress
+                              : ""}
+                            <br />
+                            {result.settings &&
+                            result.settings.hasOwnProperty("location")
+                              ? result.settings.location.country
+                              : ""}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
-          </div>
-        </Modal>
-      </div>
-    </>
+          ) : (
+            <EmptyState errorName={`Shops not found.`} />
+          )}
+
+          <Modal
+            open={openSubscription}
+            showCloseIcon={true}
+            center
+            onClose={() => {
+              onCloseSubscriptionModal();
+            }}
+            classNames={{ modal: "subscriptionModal" }}
+            closeIcon={closeIcon}
+          >
+            <div className="col-lg-12 subscription">
+              <div className="col-xl-6 col-lg-12">
+                <div className="my-schedule  billing-information shipping-address">
+                  <div className="shipping-checkoutt ">
+                    <div className="message_product">
+                      <p>Your cart will be clear, if you change the shop</p>
+                    </div>
+                  </div>
+                  <div className="d-flex message_butn">
+                    <button
+                      type="button"
+                      className="btn btn-outline-primary"
+                      onClick={() => {
+                        onCloseSubscriptionModal();
+                      }}
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      onClick={() => {
+                        redirect();
+                      }}
+                    >
+                      okay
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Modal>
+        </div>
+      </section>
+    </DashboardLayout>
   );
 }
