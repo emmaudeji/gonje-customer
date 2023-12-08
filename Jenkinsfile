@@ -6,11 +6,12 @@ pipeline {
         APP_NAME = "customer-frontend"
         IMAGE_TAG = "${BUILD_NUMBER}"
         IMAGE_NAME = "${DOCKERHUB_USERNAME}/${APP_NAME}"
-        REGISTRY_CREDS = 'dockerhub' #
+        REGISTRY_CREDS = 'dockerhub' 
     }
 
     tools {
-        nodejs "nodejs" //name in "" should be similar to name used for installer in the global tool configuration.
+        nodejs "nodejs" // name in "" should be similar to name used for installer in the global tool configuration.
+
     }  
 
     stages {
@@ -22,7 +23,10 @@ pipeline {
 
         stage('Checkout SCM') {
             steps {
-                git credentialsId: 'github', url: 'https://github.com/gonjeshops/vendor-frontend.git', branch: 'cicd'
+
+
+                git credentialsId: 'github', url: 'https://github.com/gonjeshops/customer-frontend.git', branch: 'cicd'
+
             }
         }
 
@@ -32,8 +36,10 @@ pipeline {
                     // Change directory to your Node.js application's directory
                     dir('./') {
                         // Install dependencies and build the application
-                        sh 'npm install'
-                     
+
+                        sh 'npm install --legacy-peer-deps'  
+                        // Add any additional build steps if necessary
+
                     }
                 }
             }
@@ -42,7 +48,11 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                    docker_image = docker.build("${IMAGE_NAME}:${IMAGE_TAG}")
+
+
+                    // Build Docker image
+                    dockerImage = docker.build("${IMAGE_NAME}:${IMAGE_TAG}")
+
                 }
             }
         }
@@ -50,18 +60,29 @@ pipeline {
         stage('Push Image') {
             steps {
                 script {
-                    docker.withRegistry('',REGISTRY_CREDS){
-                        docker_image.push("$BUILD_NUMBER")
-                        docker_image.push('latest')
+                    // Push Docker image to the registry
+                    docker.withRegistry('', REGISTRY_CREDS) {
+                        dockerImage.push("${IMAGE_TAG}")
+                        dockerImage.push('latest')
                     }
                 }
             }
         }
 
-        stage('Remove Images'){
-            steps{
+        stage('Remove Images') {
+            steps {
+                // Remove local Docker images
+
                 sh "docker rmi ${IMAGE_NAME}:${IMAGE_TAG}"
                 sh "docker rmi ${IMAGE_NAME}:latest"
+            }
+        }
+
+
+        stage('Cleanup github repo on Jenkins Server') {
+            steps {
+                // Clean up files on the Jenkins server
+                sh 'rm -rf ./*'
             }
         }
 
