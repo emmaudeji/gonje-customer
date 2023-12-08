@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { retrieveCount } from "../../actions/carts.js";
 import toasts from "../shared/toast.js";
 import Image from "next/image";
-export default function ProductPop({ CloseProductModal, productslug }) {
+export default function ProductPop({ productslug, DialogClose }) {
   const [apires, apiReasponse] = useState("");
   const [ToggleDescription, isToggleDescription] = useState(false);
   const [ToggleNutritional, isToggleNutritional] = useState(true);
@@ -65,7 +65,8 @@ export default function ProductPop({ CloseProductModal, productslug }) {
 
   return (
     <>
-      <div className="modal1 fade1" id="product" onClick={CloseProductModal}>
+      <div className="modal1 fade1" id="product">
+        
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-body">
@@ -110,6 +111,7 @@ export default function ProductPop({ CloseProductModal, productslug }) {
                   <div className="orangic-apple">
                     <div className="top-heading d-flex">
                       <h3>{apires.name}</h3>
+                      <DialogClose asChild>
                       <button
                         type="button"
                         data-bs-dismiss="modal"
@@ -124,7 +126,9 @@ export default function ProductPop({ CloseProductModal, productslug }) {
                           height={50}
                           width={50}
                         />
-                      </button>
+                      </button>                        
+                      </DialogClose>
+
                     </div>
                     <div className="price d-flex pt-4 pb-2">
                       {apires.sale_price ? (
