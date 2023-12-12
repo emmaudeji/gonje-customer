@@ -6,8 +6,8 @@ import { retrieveCount } from "../../actions/carts.js";
 import toasts from "../shared/toast.js";
 import Image from "next/image";
 import { Minus, Plus } from "lucide-react";
-export default function ProductPop({ productslug, DialogClose }) {
-  const [apires, apiReasponse] = useState("");
+export default function ProductPop({ apires, DialogClose }) {
+  // const [apires, apiReasponse] = useState("");
   const [ToggleDescription, isToggleDescription] = useState(false);
   const [ToggleNutritional, isToggleNutritional] = useState(true);
   const [quantity, setQuantity] = useState(1);
@@ -22,17 +22,17 @@ export default function ProductPop({ productslug, DialogClose }) {
     isToggleDescription(false);
     isToggleNutritional(true);
   };
-  const getProduct = (productslug) => {
-    //open pop show  product's detail
-    ProductService.getproduct(productslug)
-      .then((response) => {
-        apiReasponse(response.data.data);
-        setProductImage(response.data.data.image.original);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  };
+  // const getProduct = (productslug) => {
+  //   //open pop show  product's detail
+  //   ProductService.getproduct(productslug)
+  //     .then((response) => {
+  //       apiReasponse(response.data.data);
+  //       setProductImage(response.data.data.image.original);
+  //     })
+  //     .catch((e) => {
+  //       console.log(e);
+  //     });
+  // };
   const productImageSet = (index) => {
     setProductImage(apires.image.original);
   };
@@ -44,9 +44,7 @@ export default function ProductPop({ productslug, DialogClose }) {
       setQuantity((prev) => prev - 1);
     }
   };
-  useEffect(() => {
-    getProduct(productslug);
-  }, [productslug]);
+
 
   const addToCart = () => {
     dispatch(

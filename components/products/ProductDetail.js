@@ -175,7 +175,7 @@ const SingleProduct = ({
           <Button
             className="bg-gonje-green flex gap-x-2 items-center w-[150px] md:w-auto h-9"
             onClick={() => {
-              console.log("click", productresult);
+              // console.log("click", productresult);
               addToCart();
             }}
           >
@@ -188,7 +188,8 @@ const SingleProduct = ({
         <ProductPop
           // CloseProductModal={onCloseProductModal}
           DialogClose={DialogClose}
-          productslug={productslug}
+          // productslug={productslug}
+          apires={productresult}
         ></ProductPop>
       </DialogContent>
     </Dialog>
