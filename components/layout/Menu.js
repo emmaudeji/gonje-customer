@@ -127,15 +127,15 @@ export default function Menu() {
               <span className="ms-2">My Pantry</span>{" "}
             </Link>{" "}
           </li>
-          <MenuGrocery/>
-          <MenuFridge/>
-          <MenuRecipe/>
+          <MenuGrocery storeData={storeData}/>
+          <MenuFridge storeData={storeData}/>
+          <MenuRecipe storeData={storeData}/>
 
           {isSubscription == 1 && (
             <>
-              <MenuTopDeals></MenuTopDeals>
-              <MenuWhatsNew></MenuWhatsNew>
-              <MenuTodaySale></MenuTodaySale>
+              <MenuTopDeals storeData={storeData}/>
+              <MenuWhatsNew storeData={storeData}/>
+              <MenuTodaySale storeData={storeData}/>
               <hr className="side-menu-divider" />
             </>
           )}
@@ -163,16 +163,6 @@ export default function Menu() {
               <span className="ms-2">Gift Card</span>{" "}
             </Link>{" "}
           </li>
-          {/* <li>
-            {" "}
-            <a href="#" className="d-flex nav-link text-whitee">
-              {" "}
-              <div className="icon text-center">
-                <img src="/assets/images/transfer.svg" alt="" />
-              </div>
-              <span className="ms-2">Refferals</span>{" "}
-            </a>{" "}
-          </li> */}
           <li>
             {" "}
             <Link

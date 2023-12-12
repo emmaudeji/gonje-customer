@@ -77,6 +77,7 @@ const NotificationsContainer = () => {
             >
               {notification && notification.length > 0 ? (
                 notification?.map((item, index) => {
+                  console.log(notification)
                   return (
                     <div
                       className="slice d-flex justify-content-between align-items-center"

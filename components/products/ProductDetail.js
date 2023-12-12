@@ -55,7 +55,7 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
   }, [apicategoryid, shopId]);
   return (
     <>
-      <div className="container">
+      <div className="md:container">
         <div className="grid gap-x-6 gap-y-4 lg:mt-8 grid-cols-2 md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
           {apiproduct.length ? (
             apiproduct.map((productresult, productindex) => (
@@ -162,9 +162,6 @@ const SingleProduct = ({
               <div>
                 <p className="mt-2 text-xs md:text-sm font-medium text-gray-700">
                   {productresult.name}
-                </p>
-                <p className="text-xs md:text-sm font-light text-gray-500">
-                  {productresult.description.substring(0, 70)}
                 </p>
               </div>
               <div className="">
