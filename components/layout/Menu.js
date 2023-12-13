@@ -52,7 +52,7 @@ export default function Menu() {
         }}
       />
       <div
-        className={`aside flex-column vh-100 flex-shrink-0 text-white ${
+        className={`aside flex-column z-20 vh-100 flex-shrink-0 text-white ${
           classToggle ? "aside-show" : ""
         }`}
         // isSubscription

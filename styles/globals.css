@@ -3961,7 +3961,7 @@ p.wallett-points {
   margin-left: 227px;
 }
 .aside {
-  z-index: 4;
+  z-index: 20;
   height: 100% !important;
   width: 227px !important;
   position: fixed;
