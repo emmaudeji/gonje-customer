@@ -44,7 +44,7 @@ export default function Menu() {
   }, [user12s]);
 
   return (
-    <>
+    <div>
       <div
         className={`main ${classToggle ? "main-content" : ""}`}
         onClick={() => {
@@ -188,6 +188,6 @@ export default function Menu() {
           </li>
         </ul>
       </div>
-    </>
+    </div>
   );
 }

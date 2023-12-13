@@ -4,11 +4,12 @@ import Image from "next/image";
 import { Minus, Plus } from "lucide-react";
 ///
 import { useToast } from "@/components/ui/use-toast";
-
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { addCartProduct } from "../../actions/addcarts.js";
 import { useDispatch, useSelector } from "react-redux";
 import { retrieveCount } from "../../actions/carts.js";
 import toasts from "../shared/toast.js";
+
 export default function ProductPop({ apires, DialogClose, setOpen }) {
   const { toast } = useToast();
 
@@ -56,14 +57,15 @@ export default function ProductPop({ apires, DialogClose, setOpen }) {
               quantity > 1 ? "items" : "item"
             } to cart`,
             description: data.message,
-            className:'bg-gonje-green'
+            className: "bg-gonje-green",
           });
         } else {
           toast({
             title: `Failed to add item to cart`,
             description: data.message,
-            variant:'destructive'
-          });        }
+            variant: "destructive",
+          });
+        }
       })
       .catch((e) => {
         console.log(e);
@@ -76,7 +78,7 @@ export default function ProductPop({ apires, DialogClose, setOpen }) {
   return (
     <>
       <div className="modal1 fade1" id="product">
-        <div className="modal-dialog">
+        <div className="modal-dialog py-4 md:py-8">
           <div className="modal-content">
             <div className="modal-body">
               <div className="modal-header"></div>
@@ -170,101 +172,43 @@ export default function ProductPop({ apires, DialogClose, setOpen }) {
                   </div>
                 </div>
               </div>
-              <div className="review">
-                <ul className="nav nav-tabs" id="myTab" role="tablist">
-                  <li className="nav-item" role="presentation">
-                    <button
-                      onClick={() => {
-                        nutritional();
-                      }}
-                      className={`nav-link ${
-                        ToggleNutritional ? "active" : ""
-                      }`}
-                      id="home-tab"
-                      data-bs-toggle="tab"
-                      data-bs-target="#home"
-                      type="button"
-                      role="tab"
-                      aria-controls="home"
-                      aria-selected="true"
+              <div className="bg-[#f5f5f5] rounded-md px-1 md:px-5 py-4 min-h-[200px] min-w-[360px]">
+                <Tabs defaultValue="account" className="w-full">
+                  <TabsList className="flex mb-3">
+                    <TabsTrigger
+                      value="nutritional_info"
+                      className=" data-[state=active]:text-gonje-green bg-transparent shadow-none py-2 md:text-lg"
                     >
-                      Nutritional information
-                    </button>
-                  </li>
-                  <li className="nav-item" role="presentation">
-                    <button
-                      onClick={() => {
-                        description();
-                      }}
-                      className={`nav-link ${
-                        ToggleDescription ? "active" : ""
-                      }`}
-                      id="profile-tab"
-                      data-bs-toggle="tab"
-                      data-bs-target="#profile"
-                      type="button"
-                      role="tab"
-                      aria-controls="profile"
-                      aria-selected="false"
+                      Nutritional Info
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="description"
+                      className="data-[state=active]:text-gonje-green bg-transparent shadow-none  py-2 md:text-lg"
                     >
                       Description
-                    </button>
-                  </li>
-                  <li className="nav-item" role="presentation">
-                    <button
-                      className="nav-link"
-                      id="contact-tab"
-                      data-bs-toggle="tab"
-                      data-bs-target="#contact"
-                      type="button"
-                      role="tab"
-                      aria-controls="contact"
-                      aria-selected="false"
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="review"
+                      className="data-[state=active]:text-gonje-green bg-transparent shadow-none  py-2 md:text-lg"
                     >
                       Review
-                    </button>
-                  </li>
-                </ul>
-                <div className="tab-content" id="myTabContent">
-                  <div
-                    className={`tab-pane fade  ${
-                      ToggleNutritional ? "show active" : ""
-                    }`}
-                    id="home"
-                    role="tabpanel"
-                    aria-labelledby="home-tab"
-                  >
-                    It is a long established fact that a reader will be
-                    distracted by the readable content of a page when looking at
-                    its layout. The point of using Lorem Ipsum is that it has a
-                    more-or-less normal distribution of letters, as opposed to
-                    using
+                    </TabsTrigger>
+                  </TabsList>
+                  <div className="px-3">
+
+                  <TabsContent value="nutritional_info">
+                    <p className="text-xs md:text-sm">{apires.nutritional_info}</p>
+                  </TabsContent>
+                  <TabsContent value="description">
+                    <p className="text-xs md:text-sm">{apires?.description}</p>
+                  </TabsContent>
+                  <TabsContent value="review">
+                    <p className="text-xs md:text-sm">{apires?.review ?? ""}</p>
+                  </TabsContent>                    
                   </div>
-                  <div
-                    className={`tab-pane fade  ${
-                      ToggleDescription ? "show active" : ""
-                    }`}
-                    id="profile"
-                    role="tabpanel"
-                    aria-labelledby="profile-tab"
-                  >
-                    {apires.description}
-                  </div>
-                  <div
-                    className="tab-pane fade"
-                    id="contact"
-                    role="tabpanel"
-                    aria-labelledby="contact-tab"
-                  >
-                    looking at its layout. The point of using Lorem Ipsum is
-                    that it has a more-or-less normal distribution of letters,
-                    as opposed to using It is a long established fact that a
-                    reader will be distracted by the readable content of a page
-                    when looking at its layout. The point of using Lorem Ipsum
-                    is that it has a more-or-less normal distribution of
-                    letters, as opposed to using
-                  </div>
-                </div>
+
+
+                </Tabs>
               </div>
             </div>
             <div className="modal-footer1"></div>
