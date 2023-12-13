@@ -36,23 +36,7 @@ export default function Topbar() {
         });
     }
   }, [dispatch]);
-  useEffect(() => {
-    const baseURL = AppConfig.socket_url;
-    const socketInit = io(baseURL);
-    const user_detail = JSON.parse(localStorage.getItem("user_detail"));
-    socketInit.emit("connectCustomerRoom", { id: user_detail.user_id });
-    socketInit.on("connectCustomerRoom", (data) => {
-      console.log("heeeeee", data);
-    });
-    socketInit.on("statusChange", function (msg) {
-      toast.success(<NotificationToast body={msg} />);
-    });
 
-    return () => {
-      // console.log("heeeeee clear set up");
-      socketInit.emit("disconnectCustomerRoom", { id: user_detail.user_id });
-    };
-  }, []);
 
   const logout = () => {
     localStorage.clear("user_detail");

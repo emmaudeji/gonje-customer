@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import "react-responsive-modal/styles.css";
 import Fade from 'react-reveal/Fade';
 
@@ -144,16 +145,14 @@ export default function Brands({ toggleGetStarted }) {
               </div>
 
               <div className="brandbtn">
-                <a
+                <Link
                   className="bttn wow fadeInUp"
                   data-wow-duration="1s"
                   data-wow-delay="0.8s"
-                  onClick={() => {
-                    toggleGetStarted(true);
-                  }}
+                  href={`/signin/customer`}
                 >
                   Get Started
-                </a>
+                </Link>
               </div>
             </div>        </Fade>
            

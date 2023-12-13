@@ -1,65 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getNotifications,
-  updateNotificationCount,
-} from "../../actions/getNotifications";
-import InfiniteScroll from "react-infinite-scroll-component";
-import Loader from "../Loader";
+import Image from "next/image";
+import useSWRInfinite from "swr/infinite";
+
+///
+import { fetcher } from "@/util/fetcher";
+import { EmptyState } from "@/components/dashboard/EmptyState";
+import { Button } from "@/components/ui/button";
+
+
+
 import moment from "moment";
 import NotificationInfoModal from "./NotificationInfoModal";
-import Image from "next/image";
 const NotificationsContainer = () => {
   const dispatch = useDispatch();
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [notificationData, setNotification] = useState();
-
-  const notification = useSelector((state) => {
-    return state.notificationReducer.notification;
-  });
-
-  useEffect(async () => {
-    await dispatch(updateNotificationCount());
-
-    dispatch(
-      getNotifications({
-        page,
-      })
-    )
-      .then((res) => {
-        if (res.data.data.length === 0) {
-          setHasMore(false);
-        }
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }, [dispatch]);
-
-  const fetchMoreData = () => {
-    setPage((page) => {
-      return page + 1;
-    });
-    dispatch(
-      getNotifications({
-        page: page + 1,
-      })
-    )
-      .then((res) => {
-        if (res.data.data.length === 0) {
-          setHasMore(false);
-        }
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  };
-
-  const toggleModal = () => {
-    setIsOpen(!isOpen);
-  };
 
   return (
     <div className="notifications">
@@ -69,67 +27,70 @@ const NotificationsContainer = () => {
             <div className="top-heading">
               <h3>Notifications</h3>
             </div>
-            <InfiniteScroll
-              dataLength={notification?.length || 0}
-              next={fetchMoreData}
-              hasMore={hasMore}
-              loader={<Loader />}
-            >
-              {notification && notification.length > 0 ? (
-                notification?.map((item, index) => {
-                  return (
-                    <div
-                      className="slice d-flex justify-content-between align-items-center"
-                      key={`key_${index}`}
-                      onClick={() => {
-                        setNotification(item);
-                        toggleModal();
-                      }}
-                    >
-                      <div className="who-post d-flex align-items-center">
-                        <div>
-                          <Image
-                            src="/assets/images/G.svg"
-                            height={50}
-                            width={50}
-                            alt=""
-                          />
-                        </div>
-                        <div className="posted-time">
-                          <strong>{item.message}</strong>
-                          <p className="pt-1">{item.orders.tracking_number}</p>
-                          <p className="pt-1">
-                            {item.orders.updated_at
-                              ? moment(item.orders.updated_at).format(
-                                  "DD-MM-YYYY"
-                                )
-                              : ""}{" "}
-                          </p>
-                        </div>
-                      </div>
-                      <div className="recipe-img">
-                        <strong>{item.orders.total}</strong>
-                        <p style={{ color: item.orders.status.color }}>
-                          {item.message}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })
-              ) : (
-                <p>No Data</p>
-              )}
-            </InfiniteScroll>
+            <NotificationComponent />
           </div>
         </div>
       </div>
-      <NotificationInfoModal
-        isOpen={isOpen}
-        toggleModal={toggleModal}
-        data={notificationData}
-      />
     </div>
   );
 };
 
 export default NotificationsContainer;
+
+const getKey = (pageIndex, previousPageData) => {
+  if (previousPageData && !previousPageData.length) return null; // reached the end
+  console.log("pageindex:", pageIndex, "prev page data", previousPageData);
+  return `my/notifications?limit=${pageIndex + 9}`; // SWR key
+};
+const NotificationComponent = () => {
+  const PAGE_SIZE = 6;
+  // const [pagesize, setPagesize] =useState(5)
+  const { data, error, size, setSize } = useSWRInfinite(getKey, fetcher);
+  if (!data) return "loading";
+  ///flatten what the fetcher returns
+  const notifications = data?.[0]?.data?.notifications;
+  console.log(data[0]?.data?.notifications);
+  const isEmpty = data?.[0]?.length === 0;
+  // We can now calculate the number of all notifications
+  let totalNotifications = 0;
+  for (let i = 0; i < data.length; i++) {
+    totalNotifications += data[i].length;
+  }
+
+  return (
+    <div>
+      {notifications.map((item, index) => (
+        <div
+          className="slice d-flex justify-content-between align-items-center"
+          key={`key_${index}`}
+        >
+          <div className="who-post d-flex align-items-center">
+            <div className="md:block hidden">
+              <Image src="/assets/images/G.svg" height={50} width={50} alt="" />
+            </div>
+            <div className="posted-time">
+              <strong>{item.message}</strong>
+              {/* <p className="pt-1">{item.orders.tracking_number}</p> */}
+              <p className="pt-1">
+                {item.updated_at
+                  ? moment(item.updated_at).format("DD-MM-YYYY")
+                  : ""}{" "}
+              </p>
+            </div>
+          </div>
+          <div className="recipe-img">
+            <strong>{item.total}</strong>
+            <p>{item.message}</p>
+          </div>
+        </div>
+      ))}
+      <div className="flex items-center justify-center">
+        <Button className="bg-gonje-green" onClick={() => setSize(size + 1)}>
+          Load more
+        </Button>
+      </div>
+
+      {isEmpty && <EmptyState errorName={`No Notification Found`} />}
+    </div>
+  );
+};

@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Router from "next/router";
 import { storePageName } from "../../actions/setpage.js";
 import Image from "next/image";
-export default function MenuTopDeals() {
+export default function MenuTopDeals({storeData}) {
   const shopID = useSelector((state) => state.shops);
   const router = useRouter();
   const dispatch = useDispatch();
@@ -13,8 +13,10 @@ export default function MenuTopDeals() {
     const shopID = localStorage.getItem("shop_id");
     if (!shopID || shopID == 0) {
       Router.push("/dashboard");
+      storeData()
     } else {
       Router.push("/topdeals/" + shopID);
+      storeData()
     }
   };
   return (
