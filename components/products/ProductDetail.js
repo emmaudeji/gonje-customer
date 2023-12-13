@@ -64,6 +64,7 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
                 productresult={productresult}
                 productslug={productslug}
                 handleProductDialogClick={handleProductDialogClick}
+                key={productindex}
               />
             ))
           ) : (
@@ -85,6 +86,8 @@ const SingleProduct = ({
 }) => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.userdetails);
+  //for the dialog
+  const [open, setOpen] = useState(false);
 
   const addToCart = () => {
     dispatch(
@@ -109,7 +112,7 @@ const SingleProduct = ({
       });
   };
   return (
-    <Dialog key={productindex}>
+    <Dialog key={productindex} open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <div className="flex flex-col gap-y-2">
           <div
@@ -188,7 +191,7 @@ const SingleProduct = ({
         <ProductPop
           // CloseProductModal={onCloseProductModal}
           DialogClose={DialogClose}
-          // productslug={productslug}
+          setOpen={setOpen}
           apires={productresult}
         ></ProductPop>
       </DialogContent>

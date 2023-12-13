@@ -1,13 +1,17 @@
 import ProductService from "../../services/ProductService";
 import { useEffect, React, useState } from "react";
+import Image from "next/image";
+import { Minus, Plus } from "lucide-react";
+///
+import { useToast } from "@/components/ui/use-toast";
+
 import { addCartProduct } from "../../actions/addcarts.js";
 import { useDispatch, useSelector } from "react-redux";
 import { retrieveCount } from "../../actions/carts.js";
 import toasts from "../shared/toast.js";
-import Image from "next/image";
-import { Minus, Plus } from "lucide-react";
-export default function ProductPop({ apires, DialogClose }) {
-  // const [apires, apiReasponse] = useState("");
+export default function ProductPop({ apires, DialogClose, setOpen }) {
+  const { toast } = useToast();
+
   const [ToggleDescription, isToggleDescription] = useState(false);
   const [ToggleNutritional, isToggleNutritional] = useState(true);
   const [quantity, setQuantity] = useState(1);
@@ -22,17 +26,7 @@ export default function ProductPop({ apires, DialogClose }) {
     isToggleDescription(false);
     isToggleNutritional(true);
   };
-  // const getProduct = (productslug) => {
-  //   //open pop show  product's detail
-  //   ProductService.getproduct(productslug)
-  //     .then((response) => {
-  //       apiReasponse(response.data.data);
-  //       setProductImage(response.data.data.image.original);
-  //     })
-  //     .catch((e) => {
-  //       console.log(e);
-  //     });
-  // };
+
   const productImageSet = (index) => {
     setProductImage(apires.image.original);
   };
@@ -40,11 +34,10 @@ export default function ProductPop({ apires, DialogClose }) {
     setQuantity((prev) => prev + 1);
   };
   const ReduceQuantity = () => {
-    if (quantity >1) {
+    if (quantity > 1) {
       setQuantity((prev) => prev - 1);
     }
   };
-
 
   const addToCart = () => {
     dispatch(
@@ -57,16 +50,26 @@ export default function ProductPop({ apires, DialogClose }) {
     )
       .then((data) => {
         if (data.status === true) {
-          // toasts.notifySucces("Product Added to Cart Successfully.");
-
           dispatch(retrieveCount(data.cart_count));
+          toast({
+            title: `Added ${quantity} ${
+              quantity > 1 ? "items" : "item"
+            } to cart`,
+            description: data.message,
+            className:'bg-gonje-green'
+          });
         } else {
-          toasts.notifyError(data.message);
-        }
-        CloseProductModal();
+          toast({
+            title: `Failed to add item to cart`,
+            description: data.message,
+            variant:'destructive'
+          });        }
       })
       .catch((e) => {
         console.log(e);
+      })
+      .finally(() => {
+        setOpen(false);
       });
   };
 
@@ -115,8 +118,10 @@ export default function ProductPop({ apires, DialogClose }) {
                 </div>
                 <div className="col-lg-6 col-md-12">
                   <div className="orangic-apple">
-                    <div className="top-heading d-flex">
-                      <h3>{apires.name}</h3>
+                    <div className="flex items-center gap-x-4">
+                      <h3 className="md:text-lg lg:text-xl font-bold">
+                        {apires.name}
+                      </h3>
                       <DialogClose asChild>
                         <button
                           type="button"
@@ -125,10 +130,7 @@ export default function ProductPop({ apires, DialogClose }) {
                         >
                           <Image
                             src="/assets/images/close-popup.svg"
-                            alt=""
-                            // onClick={() => {
-                            //   CloseProductModal();
-                            // }}
+                            alt="close-modal"
                             height={50}
                             width={50}
                           />
