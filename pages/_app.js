@@ -3,7 +3,7 @@ import "../public/css/style.css";
 import "react-toastify/dist/ReactToastify.css";
 
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
-import "@stripe/stripe-js"
+import "@stripe/stripe-js";
 
 import "bootstrap/dist/css/bootstrap.css";
 import { Provider } from "react-redux";
@@ -12,8 +12,10 @@ import Common from "../components/shared/Common";
 import "../styles/globals.css";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-// import "../styles/Home.module.css"
+import { Toaster } from "@/components/ui/toaster";
 
+// import "../styles/Home.module.css"
+//TODO://Put the toaster in a layout component
 export const publicPaths = [
   "/",
   "/howItworks",
@@ -35,15 +37,16 @@ export const publicPaths = [
   "/terms",
 ];
 
-
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const [localData, setLocalData] = useState();
-  
-  
-  useEffect( ()=> {
+
+  useEffect(() => {
     const user_detail = JSON.parse(localStorage.getItem("user_detail"));
-    const isPublic = publicPaths.includes(router.asPath) ||  router.asPath.startsWith("/signup") || router.asPath.startsWith("/signin");
+    const isPublic =
+      publicPaths.includes(router.asPath) ||
+      router.asPath.startsWith("/signup") ||
+      router.asPath.startsWith("/signin");
 
     setLocalData({
       isPublic: isPublic,
@@ -53,7 +56,6 @@ function MyApp({ Component, pageProps }) {
     if (!isPublic && !user_detail) {
       router.push("/");
     }
-
   }, [router.asPath]);
 
   if (!localData) {
@@ -65,6 +67,7 @@ function MyApp({ Component, pageProps }) {
         <>
           <Common>
             <Component {...pageProps} />
+            <Toaster />
           </Common>
         </>
       ) : null}

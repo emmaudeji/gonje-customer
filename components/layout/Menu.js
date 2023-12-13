@@ -44,7 +44,7 @@ export default function Menu() {
   }, [user12s]);
 
   return (
-    <>
+    <div>
       <div
         className={`main ${classToggle ? "main-content" : ""}`}
         onClick={() => {
@@ -52,7 +52,7 @@ export default function Menu() {
         }}
       />
       <div
-        className={`aside flex-column vh-100 flex-shrink-0 text-white ${
+        className={`aside flex-column z-20 vh-100 flex-shrink-0 text-white ${
           classToggle ? "aside-show" : ""
         }`}
         // isSubscription
@@ -127,15 +127,15 @@ export default function Menu() {
               <span className="ms-2">My Pantry</span>{" "}
             </Link>{" "}
           </li>
-          <MenuGrocery/>
-          <MenuFridge/>
-          <MenuRecipe/>
+          <MenuGrocery storeData={storeData}/>
+          <MenuFridge storeData={storeData}/>
+          <MenuRecipe storeData={storeData}/>
 
           {isSubscription == 1 && (
             <>
-              <MenuTopDeals></MenuTopDeals>
-              <MenuWhatsNew></MenuWhatsNew>
-              <MenuTodaySale></MenuTodaySale>
+              <MenuTopDeals storeData={storeData}/>
+              <MenuWhatsNew storeData={storeData}/>
+              <MenuTodaySale storeData={storeData}/>
               <hr className="side-menu-divider" />
             </>
           )}
@@ -163,16 +163,6 @@ export default function Menu() {
               <span className="ms-2">Gift Card</span>{" "}
             </Link>{" "}
           </li>
-          {/* <li>
-            {" "}
-            <a href="#" className="d-flex nav-link text-whitee">
-              {" "}
-              <div className="icon text-center">
-                <img src="/assets/images/transfer.svg" alt="" />
-              </div>
-              <span className="ms-2">Refferals</span>{" "}
-            </a>{" "}
-          </li> */}
           <li>
             {" "}
             <Link
@@ -198,6 +188,6 @@ export default function Menu() {
           </li>
         </ul>
       </div>
-    </>
+    </div>
   );
 }

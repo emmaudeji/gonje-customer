@@ -10,7 +10,7 @@ export default function Recipes(props) {
   useEffect(() => {
     CategoryService.getRecipe(props.shopId)
       .then((response) => {
-        console.log(response.data.data.data)
+        // console.log(response.data.data.data)
         setRecipe(response.data.data.data);
       })
       .catch((e) => {
@@ -58,7 +58,7 @@ export default function Recipes(props) {
                   <div
                     className="recipe_banner"
                     style={{
-                      backgroundImage: "url(" + result.banner.original + ")",
+                      backgroundImage: "url(" + result.banner.thumbnail + ")",
                     }}
                     onClick={() => {
                       recipeRedirect(result.id);

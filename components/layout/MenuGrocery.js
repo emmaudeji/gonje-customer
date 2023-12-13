@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Router from "next/router";
 import { storePageName } from "../../actions/setpage.js";
 import Image from "next/image";
-export default function MenuGrocery() {
+export default function MenuGrocery({storeData}) {
   const shopID = useSelector((state) => state.shops);
   const router = useRouter();
   const dispatch = useDispatch();
@@ -12,8 +12,10 @@ export default function MenuGrocery() {
     dispatch(storePageName("/product/"));
     if (!shopID || shopID == 0) {
       Router.push("/dashboard");
+      storeData()
     } else {
       Router.push("/product/" + shopID);
+      storeData()
     }
   };
 

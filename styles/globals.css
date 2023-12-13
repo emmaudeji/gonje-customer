@@ -3961,7 +3961,7 @@ p.wallett-points {
   margin-left: 227px;
 }
 .aside {
-  z-index: 4;
+  z-index: 20;
   height: 100% !important;
   width: 227px !important;
   position: fixed;
@@ -4620,12 +4620,7 @@ input[type="file" i] {
 .side-body{
   background-color: #f2f2f2;
 }
-.sub-cat .react-multi-carousel-item--active {
-  border: 1px solid #d0d0d0;
-  margin: 0 6px;
-  border-radius: 7px;
-  background-color: #fff;
-}
+
 .sub-cat {
   background-color: transparent;
 }
