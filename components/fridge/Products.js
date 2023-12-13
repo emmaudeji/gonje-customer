@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { useEffect, React, useState } from "react";
+///file imports
+import { EmptyState } from "@/components/dashboard/EmptyState";
 import productService from "../../services/ProductService";
 import AddToCartBtn from "./AddToCartBtn";
 const Products = ({ shopId, categoryId }) => {

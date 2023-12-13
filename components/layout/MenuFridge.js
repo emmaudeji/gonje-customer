@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import Router from "next/router";
 import { storePageName } from "../../actions/setpage.js";
 import Image from "next/image";
-export default function MenuFridge() {
+export default function MenuFridge({storeData}) {
   // const shopID = useSelector((state) => state.shops);
   // const shopID = useSelector((state) => state.shops);
   const router = useRouter();
@@ -14,8 +14,10 @@ export default function MenuFridge() {
     dispatch(storePageName("/fridge/"));
     if (!shopID || shopID == 0) {
       Router.push("/dashboard");
+      storeData()
     } else {
       Router.push("/fridge/" + shopID);
+      storeData()
     }
   };
 

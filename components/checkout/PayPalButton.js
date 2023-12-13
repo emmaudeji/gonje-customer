@@ -147,6 +147,7 @@ const ButtonWrapper = ({ currency, showSpinner, callOrderApi, walletBalance, del
                 forceReRender={[amount, currency, style]}
                 fundingSource={undefined}
                 createOrder={(data, actions) => {
+                    console.log(data)
                     return actions.order
                         .create({
                             purchase_units: [
@@ -164,8 +165,10 @@ const ButtonWrapper = ({ currency, showSpinner, callOrderApi, walletBalance, del
                         });
                 }}
                 onApprove={function (data, actions) {
+                    console.log(data)
                     return actions.order.capture().then(function () {
                         // Your code here after capture the order
+                        console.log(data)
                     });
                 }}
             />

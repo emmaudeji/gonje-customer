@@ -106,7 +106,7 @@ export default function Product({ shopId }) {
         {loading && <Loader />}
         <div className="producttop top-head mx-2">
           <SearchTopbar />
-          <div className="container border-t py-4">
+          <div className="px-4 md:container border-t py-4 z-20">
             <Carousel
               responsive={responsive}
               // removeArrowOnDeviceType={["desktop","tablet", "mobile"]}
@@ -148,7 +148,7 @@ export default function Product({ shopId }) {
         </div>
         <hr className="my-2" />
 
-        <div className="container py-3">
+        <div className="px-4 md:container py-3">
         <ScrollArea className="h w-full py-4">
           <div className="flex justify-between gap-x-8">
           {apicategory.length > 0 &&

@@ -15,10 +15,9 @@ import VerifyOtp from "./VerifyOtp";
 // import Loader from "./Loader";
 import GifLoader from "./GifLoader";
 import Image from "next/image";
-
+import Link from "next/link.js";
 
 export default function NavLayout({ isOpenGetStarted, toggleGetStarted }) {
-
   const [apimsgs, apiSetmsgs] = useState({});
   const [classes, setclasses] = useState();
   // const [open, setOpen] = useState(isOpenGetStarted); Router
@@ -253,314 +252,28 @@ export default function NavLayout({ isOpenGetStarted, toggleGetStarted }) {
                   />
                 </a>
               </div>
-                
 
               {/*desktopnav  */}
 
               <div className="hidden md:flex  rightmenus">
-                <div
-                  className={`navbar-collapse`}
-                  id="collapsibleNavbar"
-                >
+                <div className={`navbar-collapse`} id="collapsibleNavbar">
                   <ul className="navbar-nav  z-50">
-                    <li className="nav-item">
-                      <a
-                        className="nav-link"
-                        onClick={() => {
-                          Router.push("/howItworks");
-                        }}
-                      >
-                        How it works
-                        {/* <img src="images/arrow1.svg" /> */}
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a
-                        className="nav-link"
-                        onClick={() => {
-                          Router.push("/aboutUs");
-                        }}
-                      >
-                        About Us
-                        {/* <img src="images/arrow1.svg" /> */}
-                      </a>
-                    </li>
-                    
-                    <li className="nav-item">
-                      <a
-                        className="nav-link"
-                        type="button"
-                        href="/signin"
-                        // onClick={onOpenSigninModal}
-                        onClick={() => Router.push('/signin/customer')}
-                      >
-                        Sign in
-                      </a>
-                      {/* <Modal
-                        open={opensignin}
-                        showCloseIcon={false}
-                        center
-                        onClose={onCloseSigninModal}
-                      >
-                        <div className="modal1 homepup" id="signin">
-                          <div className="modal-dialog1 modal-lg">
-                            <div className="modal-content1">
-                              <button type="button" data-bs-dismiss="modal">
-                                <Image
-                                  src="/images/vendoricon4.png"
-                                  onClick={onCloseSigninModal}
-                                  height={54}
-                                  width={54}
-                                  alt=""
-                                />
-                              </button>
-                              <form onSubmit={loginformik.handleSubmit}>
-                                <div className="modal-body">
-                                  <div className="popuplogo">
-                                    <Image
-                                      src="/images/logo.svg"
-                                      layout="fixed"
-                                      height={92}
-                                      width={188}
-                                      alt=""
-                                      // blurDataURL="/images/logo.png"
-                                      // placeholder="blur"
-                                    />
-                                  </div>
-                                  <div className="popuptxt">
-                                    <h2>
-                                      Login with <span>Gonje</span>
-                                    </h2>
-                                  </div>
-
-                                  {isLoading ? (
-                                    <CirclesToRhombusesSpinner color="#fff" />
-                                  ) : null}
-                                  <div className="newsletter-oter">
-                                    {apimsgs.msg && (
-                                      <div className={classes}>
-                                        {classes !== "alert-success" ? (
-                                          <Image
-                                            src="/images/error_icon.svg"
-                                            height={20}
-                                            width={20}
-                                            alt=""
-                                          />
-                                        ) : (
-                                          <Image
-                                            src="/images/success.svg"
-                                            height={20}
-                                            width={20}
-                                            alt=""
-                                          />
-                                        )}{" "}
-                                        {apimsgs.msg}
-                                      </div>
-                                    )}
-                                    <input
-                                      onChange={loginformik.handleChange}
-                                      name="email"
-                                      value={loginformik.values.email}
-                                      type="text"
-                                      placeholder="Enter your email"
-                                    />
-
-                                    {loginformik.errors.email ? (
-                                      <div>{loginformik.errors.email}</div>
-                                    ) : null}
-                                    <div className="password_wrapper d-flex">
-                                      <input
-                                        type={`${
-                                          !isVisible ? "password" : "text"
-                                        }`}
-                                        placeholder="Password"
-                                        onChange={loginformik.handleChange}
-                                        name="password"
-                                        value={loginformik.values.password}
-                                      />
-                                      <i
-                                        onClick={() => {
-                                          setVisibility(!isVisible);
-                                        }}
-                                        className={`fa ${
-                                          !isVisible ? "fa-eye" : "fa-eye-slash"
-                                        }`}
-                                      />
-                                    </div>
-                                    {loginformik.errors.password ? (
-                                      <div>{loginformik.errors.password}</div>
-                                    ) : null}
-
-                                    <input
-                                      type="submit"
-                                      className="bttn"
-                                      value="Login"
-                                    />
-                                  </div>
-                                  <div className="or">
-                                    <h4>OR</h4>
-                                  </div>
-                                  <div className="gmail-iphone">
-                                    <ul>
-                                      <li className="gmalbtn">
-                                        <GoogleLoginComp></GoogleLoginComp>
-                                        <a>
-                                          <Image
-                                            height={19}
-                                            width={30}
-                                            src="/images/googleicon.svg"
-                                            alt=""
-                                          />
-                                        </a>
-                                      </li>
-
-                                      <li className="facebookbtn">
-                                        <FacebookLoginComp></FacebookLoginComp>
-                                      </li>
-
-                                      <li className="phonebtn">
-                                        <a
-                                          onClick={() => {
-                                            closeAllModel();
-                                          }}
-                                        >
-                                          <Image
-                                            height={19}
-                                            width={30}
-                                            src="/images/phoneicon.svg"
-                                            alt=""
-                                          />
-                                        </a>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                  <div className="signuplnk">
-                                    <h4>
-                                      Don&apos;t have any account?
-                                      <a
-                                        onClick={() => {
-                                          onOpenModal();
-                                          onCloseSigninModal();
-                                        }}
-                                      >
-                                        Signup
-                                      </a>
-                                    </h4>
-                                  </div>
-                                </div>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </Modal> */}
-                    </li>
-
-                    <li className="nav-item getstartedbtn bttn">
-                      <a
-                        // onClick={onOpenModal}
-                        onClick={()=>Router.push('/signup/customer')}
-                        className="nav-link bttn"
-                        type="button"
-                      >
-                        Get Started
-                      </a>
-
-                      {/* <Modal
-                        open={open}
-                        showCloseIcon={false}
-                        center
-                        onClose={onCloseModal}
-                      >
-                        <div className="modal1 homepup getstart-popup">
-                          <div className="modal-dialog1 modal-lg">
-                            <div className="modal-content1">
-                              <button type="button" onClick={onCloseModal}>
-                                <Image
-                                  src="/images/vendoricon4.png"
-                                  height={54}
-                                  width={54}
-                                  alt=""
-                                />
-                              </button>
-
-                              <div className="modal-body">
-                                <div className="popupvector">
-                                  <Image
-                                    src="/images/popimg1.png"
-                                    height={201}
-                                    width={228}
-                                    alt=""
-                                  />
-                                </div>
-                                <div className="popuptxt">
-                                  <h2>
-                                    Check if we deliver to
-                                    <br /> your address
-                                  </h2>
-                                  <p>
-                                    We deliver only to certain addresses, To
-                                    check if
-                                    <br />
-                                    we deliver to your area either your ZIP
-                                    below
-                                  </p>
-                                </div>
-                                <form onSubmit={formik.handleSubmit}>
-                                  <div className="newsletter-oter">
-                                    {apimsgs.msg && (
-                                      <div className={classes}>
-                                        {classes ? (
-                                          <Image
-                                            src="/images/error_icon.svg"
-                                            height={20}
-                                            width={20}
-                                            alt=""
-                                          />
-                                        ) : (
-                                          ""
-                                        )}{" "}
-                                        {apimsgs.msg}
-                                      </div>
-                                    )}
-
-                                    <input
-                                      onChange={formik.handleChange}
-                                      name="email"
-                                      value={formik.values.email}
-                                      type="text"
-                                      placeholder="Enter your email"
-                                    />
-                                    {formik.errors.email ? (
-                                      <div>{formik.errors.email}</div>
-                                    ) : null}
-
-                                    <input
-                                      onChange={formik.handleChange}
-                                      name="postcode"
-                                      value={formik.values.postcode}
-                                      type="text"
-                                      placeholder="Zip/Post Code"
-                                    />
-                                    {formik.errors.postcode ? (
-                                      <div>{formik.errors.postcode}</div>
-                                    ) : null}
-                                    <input
-                                      type="submit"
-                                      className="bttn"
-                                      value="Submit"
-                                    />
-                                  </div>
-                                </form>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </Modal> */}
-                    </li>
+                    {[
+                      { href: "/howItworks", label: "How it works" },
+                      { href: "/aboutUs", label: "About Us" },
+                      { href: "/signin/customer", label: "Sign in" },
+                      { href: "/signup/customer", label: "Get Started" },
+                    ].map((link, index) => (
+                      <li className="nav-item" key={index}>
+                        <Link href={link.href} className="nav-link">
+                          {link.label}
+                          {/* <img src="images/arrow1.svg" /> */}
+                        </Link>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
-
 
               {/* mobile */}
               <button
@@ -603,13 +316,13 @@ export default function NavLayout({ isOpenGetStarted, toggleGetStarted }) {
                         {/* <img src="images/arrow1.svg" /> */}
                       </a>
                     </li>
-                    
+
                     <li className="nav-item">
                       <a
                         className="nav-link"
                         type="button"
                         // onClick={onOpenSigninModal}
-                        onClick={()=>Router.push(`/signin/customer`)}
+                        onClick={() => Router.push(`/signin/customer`)}
                       >
                         sign in
                       </a>
@@ -776,7 +489,7 @@ export default function NavLayout({ isOpenGetStarted, toggleGetStarted }) {
                         </div>
                       </Modal> */}
                     </li>
-                    
+
                     <li className="nav-item getstartedbtn bttn">
                       <a
                         onClick={onOpenModal}
@@ -884,8 +597,6 @@ export default function NavLayout({ isOpenGetStarted, toggleGetStarted }) {
             </div>
           </div>
         </nav>
-
-
 
         <Modal
           open={opensignup}

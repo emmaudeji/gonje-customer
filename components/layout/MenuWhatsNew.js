@@ -4,7 +4,7 @@ import Router from "next/router";
 import { storePageName } from "../../actions/setpage.js";
 import Image from "next/image";
 
-export default function MenuWhatsNew() {
+export default function MenuWhatsNew({storeData}) {
   const shopID = useSelector((state) => state.shops);
   const router = useRouter();
   const dispatch = useDispatch();
@@ -13,8 +13,10 @@ export default function MenuWhatsNew() {
     dispatch(storePageName("/whatsnew/"));
     if (!shopID || shopID == 0) {
       Router.push("/dashboard");
+      storeData()
     } else {
       Router.push("/whatsnew/" + shopID);
+      storeData()
     }
   };
 

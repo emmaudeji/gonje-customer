@@ -41,7 +41,7 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
       .get(Collected_data)
       .then((response) => {
         apiProduct(response.data.data.data);
-        // console.log(response.data.data.data);
+        console.log(response.data.data.data);
       })
       .catch((e) => {
         console.log(e);
@@ -55,7 +55,7 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
   }, [apicategoryid, shopId]);
   return (
     <>
-      <div className="container">
+      <div className="md:container">
         <div className="grid gap-x-6 gap-y-4 lg:mt-8 grid-cols-2 md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
           {apiproduct.length ? (
             apiproduct.map((productresult, productindex) => (
@@ -64,6 +64,7 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
                 productresult={productresult}
                 productslug={productslug}
                 handleProductDialogClick={handleProductDialogClick}
+                key={productindex}
               />
             ))
           ) : (
@@ -85,6 +86,8 @@ const SingleProduct = ({
 }) => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.userdetails);
+  //for the dialog
+  const [open, setOpen] = useState(false);
 
   const addToCart = () => {
     dispatch(
@@ -109,7 +112,7 @@ const SingleProduct = ({
       });
   };
   return (
-    <Dialog key={productindex}>
+    <Dialog key={productindex} open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <div className="flex flex-col gap-y-2">
           <div
@@ -163,9 +166,6 @@ const SingleProduct = ({
                 <p className="mt-2 text-xs md:text-sm font-medium text-gray-700">
                   {productresult.name}
                 </p>
-                <p className="text-xs md:text-sm font-light text-gray-500">
-                  {productresult.description.substring(0, 70)}
-                </p>
               </div>
               <div className="">
                 {/* <div className="items d-flex">
@@ -178,7 +178,7 @@ const SingleProduct = ({
           <Button
             className="bg-gonje-green flex gap-x-2 items-center w-[150px] md:w-auto h-9"
             onClick={() => {
-              console.log("click", productresult);
+              // console.log("click", productresult);
               addToCart();
             }}
           >
@@ -191,7 +191,8 @@ const SingleProduct = ({
         <ProductPop
           // CloseProductModal={onCloseProductModal}
           DialogClose={DialogClose}
-          productslug={productslug}
+          setOpen={setOpen}
+          apires={productresult}
         ></ProductPop>
       </DialogContent>
     </Dialog>

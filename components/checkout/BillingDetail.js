@@ -26,7 +26,7 @@ const BillingDetail = (props) => {
 
   // const [clientToken, setClientToken] = useState(null);
 
-  console.log("cartcart=", cart);
+  // console.log("cartcart=", cart);
 
   const handleChange = (event) => {
     setValues({
