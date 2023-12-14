@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
 import { closeIcon } from "../wallet/select-payment-method";
+import { useDispatch, useSelector } from "react-redux";
 
 import Image from "next/image";
 import PayPal from "./PayPalButton";
@@ -16,18 +17,8 @@ const PaymentType = ({
   callOrderApi,
 }) => {
   const [clientToken, setClientToken] = useState(true);
-
-  // useEffect(() => {
-  //   (async () => {
-  //     const response = await (
-  //       await fetch(
-  //         "https://braintree-sdk-demo.herokuapp.com/api/braintree/auth"
-  //       )
-  //     ).json();
-  //     setClientToken(response?.client_token || response?.clientToken);
-  //   })();
-  // }, []);
-
+  const cart = useSelector((state) => state.addcarts);
+  const {user_id} = JSON.parse(localStorage.getItem("user_detail"));
   return (
     <Modal
       open={isOpen}
@@ -58,7 +49,7 @@ const PaymentType = ({
               onClose();
             }}
           >
-           <StripePay className="stripe_button" id="pay" amount={amount} deliveryFee={deliveryFee}/>
+           <StripePay className="stripe_button" id="pay" amount={amount} deliveryFee={deliveryFee} items={cart?.data} user_id={user_id}/>
           </button>
 
                     

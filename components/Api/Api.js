@@ -324,5 +324,19 @@ export const zipPayCheckout = async (id) => {
     });
 };
 
-
+export const createOrder = async (data) => {
+      // Example of making an API call using fetch
+      return axios({
+        method: "post",
+        headers: authHeader(),
+        url: url + "orders",
+        data: {
+          ...data
+        },
+      })
+        .then((response) => response.data)
+        .catch((error) => {
+          console.log("error in api", error);
+        })
+};
 

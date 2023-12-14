@@ -7,7 +7,7 @@ const YourOrder = ({ delivery_fee }) => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.userdetails);
   const cart = useSelector((state) => state.addcarts);
-  console.log("delivery_feedelivery_fee=", delivery_fee);
+  // console.log("delivery_feedelivery_fee=", delivery_fee);
   useEffect(() => {
     const users = JSON.parse(localStorage.getItem("user_detail"));
 
@@ -21,7 +21,7 @@ const YourOrder = ({ delivery_fee }) => {
       });
   }, [dispatch]);
 
-  console.log("delivery_fee", delivery_fee);
+  // console.log("delivery_fee", delivery_fee);
 
   return (
     <>
