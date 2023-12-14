@@ -6,7 +6,8 @@ const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    const { items, user_id, total,token } = await req.body;
+    const { items, user_id, total, token } = await req.body;
+    console.log(items)
     const shop_id = items?.[0]?.shop_id;
     try {
       const params = {
@@ -37,12 +38,23 @@ export default async function handler(req, res) {
           transaction_type: "debit",
           transaction_description: "",
           transaction_title: "customer checkout",
-          "coupon_id": "",
-          "total": total,
-          "payment_gateway": "stripe",
-          "token": token,
-          "latitude": "",
-          "longitude": ""
+          coupon_id: "",
+          total: total,
+          payment_gateway: "stripe",
+          token: token,
+          latitude: "",
+          longitude: "",
+          cart_items: items?.map((item) => {
+            return {
+              price_data: {
+                currency: "aud",
+                name: item.productName,
+                unit_amount: item.productPrice,
+              },
+              product_id:item.productID,
+              quantity: item.productQuantity,
+            };
+          }),
         },
         success_url: `${req.headers.origin}/pantry`,
         cancel_url: `${req.headers.origin}/checkout`,

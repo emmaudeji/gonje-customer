@@ -16,7 +16,7 @@ export default function ProductPop({ apires, DialogClose, setOpen }) {
   const [ToggleDescription, isToggleDescription] = useState(false);
   const [ToggleNutritional, isToggleNutritional] = useState(true);
   const [quantity, setQuantity] = useState(1);
-  const [setimage, setProductImage] = useState("");
+  const [productImage, setProductImage] = useState("");
   const userId = useSelector((state) => state.userdetails);
   const dispatch = useDispatch();
   const description = () => {
@@ -27,7 +27,7 @@ export default function ProductPop({ apires, DialogClose, setOpen }) {
     isToggleDescription(false);
     isToggleNutritional(true);
   };
-
+console.log(apires)
   const productImageSet = (index) => {
     setProductImage(apires.image.original);
   };
@@ -86,9 +86,9 @@ export default function ProductPop({ apires, DialogClose, setOpen }) {
                 <div className="col-lg-6 col-md-12">
                   <div className="product-popup">
                     <div className="main-img">
-                      {setimage && (
+                      {productImage && (
                         <Image
-                          src={setimage}
+                          src={apires.image.original}
                           alt="no image"
                           height={300}
                           width={300}
@@ -173,7 +173,7 @@ export default function ProductPop({ apires, DialogClose, setOpen }) {
                 </div>
               </div>
               <div className="bg-[#f5f5f5] rounded-md px-1 md:px-5 py-4 min-h-[200px] min-w-[360px]">
-                <Tabs defaultValue="account" className="w-full">
+                <Tabs defaultValue="nutritional_info" className="w-full">
                   <TabsList className="flex mb-3">
                     <TabsTrigger
                       value="nutritional_info"

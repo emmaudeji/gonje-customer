@@ -32,12 +32,12 @@ const StripeCheckout = ({ amount, user, items, userShippingDetails }) => {
       console.log("SRIPE ERROR", response.json());
       return;
     }
-    console.log("Stripe data==", data);
+    // console.log("Stripe data==", data);
     const stripe = await getStripe();
     const stripeSession = await stripe.redirectToCheckout({
       sessionId: data.id,
     });
-    console.log("stripeSession", stripeSession);
+    // console.log("stripeSession", stripeSession);
     if (stripeSession.error) setStripError(error.message);
 
     // localStorage.setItem("Stripe_Results", JSON.stringify(g));
