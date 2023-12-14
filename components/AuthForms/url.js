@@ -1,5 +1,8 @@
-export const supplierUrl = 'https://gonje-vendorb2b.vercel.app/'
-export const vendorUrl = 'https://gonjevendors.vercel.app/'
-export const customerUrl = '/'
-// export const customerUrl = 'https://gonje-customer.vercel.app/'
-export const superadminUrl = 'https://gonje-superadmin.vercel.app/'
+
+// export const customerUrl = '/'
+
+
+export const supplierUrl = process.env.NEXT_PUBLIC_SUPPLIER_URL
+export const vendorUrl = process.env.NEXT_PUBLIC_VENDOR_URL
+export const customerUrl = process.env.NEXT_PUBLIC_CUSTOMER_URL
+export const superadminUrl = process.env.NEXT_PUBLIC_SUPERADMIN_URL
