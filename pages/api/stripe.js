@@ -14,8 +14,8 @@ const cancelURL =
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    const {items, user_id} = await req.body;
-    const shop_id= items?.[0]?.shop_id;
+    const { items, user_id } = await req.body;
+    const shop_id = items?.[0]?.shop_id;
     try {
       const params = {
         submit_type: "pay",
@@ -45,8 +45,11 @@ export default async function handler(req, res) {
           };
         }),
         metadata: {
-          user_id:user_id, 
-          shop_id:shop_id
+          user_id: user_id,
+          shop_id: shop_id,
+          transaction_type: "debit",
+          transaction_description: "",
+          transaction_title: "customer checkout",
         },
         success_url: successURL,
         cancel_url: cancelURL,
