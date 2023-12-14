@@ -5,10 +5,10 @@ import axios from "axios";
 import authHeader from "../Api/auth-header";
 import { createOrder } from "../Api/Api";
 
-const StripeCheckout = ({ amount, user_id, items }) => {
+const StripeCheckout = ({ amount, user, items, userShippingDetails }) => {
   const [stripError, setStripError] = useState(false);
   const [loading, setLaoding] = useState(false);
-
+  const { user_id, address: addresses, token } = user;
   // === with serverside and client integration ====\
 
   const redirectToCheckout = async () => {
@@ -19,7 +19,12 @@ const StripeCheckout = ({ amount, user_id, items }) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ items, user_id }),
+      body: JSON.stringify({
+        items,
+        user_id,
+        total: amount,
+        token,
+      }),
     });
 
     const data = await response.json();
@@ -27,9 +32,7 @@ const StripeCheckout = ({ amount, user_id, items }) => {
       console.log("SRIPE ERROR", response.json());
       return;
     }
-    // const order = await createOrder()
-    // console.log("Stripe data==", data);
-    // console.log(process.env.NODE_ENV===`development` ? 'http://localhost:3000/pantry' : 'https://customer.gonje.com.au/pantry')
+    console.log("Stripe data==", data);
     const stripe = await getStripe();
     const stripeSession = await stripe.redirectToCheckout({
       sessionId: data.id,
@@ -37,7 +40,7 @@ const StripeCheckout = ({ amount, user_id, items }) => {
     console.log("stripeSession", stripeSession);
     if (stripeSession.error) setStripError(error.message);
 
-    localStorage.setItem("Stripe_Results", JSON.stringify(g));
+    // localStorage.setItem("Stripe_Results", JSON.stringify(g));
     // localStorage.setItem('user', JSON.stringify({a: 'emmma', s: "udejo"}));
 
     setLaoding(false);

@@ -311,6 +311,7 @@ const BillingDetail = (props) => {
           setOpen(!isOpen);
         }}
         amount={cart.subTotal}
+        userShippingDetails={values}
         isOpen={isOpen}
         callOrderApi={callOrderApi}
       />

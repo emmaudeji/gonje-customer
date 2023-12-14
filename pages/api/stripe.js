@@ -3,18 +3,10 @@
 import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
-const successURL =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:3000/pantry"
-    : "https://customer.gonje.com.au/pantry";
-const cancelURL =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:3000/checkout"
-    : "https://customer.gonje.com.au/checkout";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    const { items, user_id } = await req.body;
+    const { items, user_id, total,token } = await req.body;
     const shop_id = items?.[0]?.shop_id;
     try {
       const params = {
@@ -33,14 +25,9 @@ export default async function handler(req, res) {
               currency: "aud",
               product_data: {
                 name: item.productName,
-                // images: '',
               },
               unit_amount: item.productPrice * 100,
             },
-            // adjustable_quantity: {
-            //   enabled:false,
-            //   minimum: 1,
-            // },
             quantity: item.productQuantity,
           };
         }),
@@ -50,9 +37,15 @@ export default async function handler(req, res) {
           transaction_type: "debit",
           transaction_description: "",
           transaction_title: "customer checkout",
+          "coupon_id": "",
+          "total": total,
+          "payment_gateway": "stripe",
+          "token": token,
+          "latitude": "",
+          "longitude": ""
         },
-        success_url: successURL,
-        cancel_url: cancelURL,
+        success_url: `${req.headers.origin}/pantry`,
+        cancel_url: `${req.headers.origin}/checkout`,
       };
 
       // Create Checkout Sessions from body params.

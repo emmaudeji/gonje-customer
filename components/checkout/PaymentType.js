@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Image from "next/image";
 import PayPal from "./PayPalButton";
-import StripePay  from "./StripeCheckout";
+import StripePay from "./StripeCheckout";
 
 const PaymentType = ({
   isOpen,
@@ -15,10 +15,11 @@ const PaymentType = ({
   deliveryFee,
   amount,
   callOrderApi,
+  userShippingDetails,
 }) => {
   const [clientToken, setClientToken] = useState(true);
   const cart = useSelector((state) => state.addcarts);
-  const {user_id} = JSON.parse(localStorage.getItem("user_detail"));
+  const user = JSON.parse(localStorage.getItem("user_detail"));
   return (
     <Modal
       open={isOpen}
@@ -33,31 +34,35 @@ const PaymentType = ({
           <h3>Select Payment Type</h3>
         </div>
 
-        <div className="amount_name">
-          Wallet Balance Amount : ${amount}
-        </div>
+        <div className="amount_name">Wallet Balance Amount : ${amount}</div>
 
         <div className="grid gap-2">
-
           {/* stripe ===== */}
           <button
             className="text-white font-semibold capitalize text-lg"
             id={"pay"}
-            disabled={walletBalance < (amount + deliveryFee)} 
+            disabled={walletBalance < amount + deliveryFee}
             onClick={() => {
               callOrderApi({ payment: "stripe" });
               onClose();
             }}
           >
-           <StripePay className="stripe_button" id="pay" amount={amount} deliveryFee={deliveryFee} items={cart?.data} user_id={user_id}/>
+            <StripePay
+              className="stripe_button"
+              id="pay"
+              amount={amount}
+              deliveryFee={deliveryFee}
+              items={cart?.data}
+              user={user}
+              userShippingDetails={userShippingDetails}
+            />
           </button>
 
-                    
           {/* Wallet pay ==== */}
           <button
             className="wallet_bttn stripe_button"
             id={"pay"}
-            disabled={walletBalance < (amount + deliveryFee)} 
+            disabled={walletBalance < amount + deliveryFee}
             onClick={() => {
               callOrderApi({ payment: "wallet" });
               onClose();
@@ -66,12 +71,11 @@ const PaymentType = ({
             Wallet
           </button>
 
-
           {/* Zip pay ==== */}
           <button
             className="wallet_bttn stripe_button"
             id={"pay"}
-            disabled={walletBalance < (amount + deliveryFee)} 
+            disabled={walletBalance < amount + deliveryFee}
             onClick={() => {
               callOrderApi({ payment: "zippay" });
               onClose();
@@ -80,14 +84,18 @@ const PaymentType = ({
             Zip Pay
           </button>
 
-            {/* Paypal === */}
-         <button 
-          disabled={walletBalance < (amount + deliveryFee)} 
-          className="h-10">
-             <PayPal callOrderApi={callOrderApi} walletBalance={walletBalance} amount={amount} deliveryFee={deliveryFee}/> 
-         </button>
-
-     
+          {/* Paypal === */}
+          <button
+            disabled={walletBalance < amount + deliveryFee}
+            className="h-10"
+          >
+            <PayPal
+              callOrderApi={callOrderApi}
+              walletBalance={walletBalance}
+              amount={amount}
+              deliveryFee={deliveryFee}
+            />
+          </button>
         </div>
       </div>
     </Modal>
