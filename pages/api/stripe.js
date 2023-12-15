@@ -7,17 +7,17 @@ const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const { items, user_id, total, token } = await req.body;
-    console.log(
-      items?.map((item) => {
-        return {
-          currency: "aud",
-          name: item.productName,
-          unit_amount: item.productPrice,
-          product_id: item.productID,
-          quantity: item.productQuantity,
-        }
-      })
-    );
+    // console.log(
+    //   items?.map((item) => {
+    //     return {
+    //       currency: "aud",
+    //       name: item.productName,
+    //       unit_amount: item.productPrice,
+    //       product_id: item.productID,
+    //       quantity: item.productQuantity,
+    //     }
+    //   })
+    // );
     const shop_id = items?.[0]?.shop_id;
     try {
       const params = {
@@ -54,15 +54,15 @@ export default async function handler(req, res) {
           token: token,
           latitude: "",
           longitude: "",
-          // cart_items: items?.map((item) => {
-          //   return {
-          //     currency: "aud",
-          //     name: item.productName,
-          //     amount: item.productPrice,
-          //     product_id: item.productID,
-          //     quantity: item.productQuantity,
-          //   };
-          // }),
+          cart_items: JSON.stringify(items?.map((item) => {
+            return {
+              currency: "aud",
+              name: item.productName,
+              amount: item.productPrice,
+              product_id: item.productID,
+              quantity: item.productQuantity,
+            };
+          })),
         },
         success_url: `${req.headers.origin}/pantry`,
         cancel_url: `${req.headers.origin}/checkout`,
