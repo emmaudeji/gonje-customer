@@ -1,21 +1,22 @@
 import Router from "next/router";
 import { useEffect, React, useState } from "react";
+import { Bell, ChevronDown, ShoppingCart } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import Image from "next/image";
+
+////file import 
 import CartPopup from "./CartPopup";
 import CartService from "../../services/CartService";
 import MenuToggle from "./MenuToggle";
-import { useDispatch, useSelector } from "react-redux";
 import { storeUserDetail } from "../../actions/userdetails.js";
 import { retrieveUser } from "../../actions/users";
 import { retrieveCount } from "../../actions/carts.js";
 import CartCount from "./CartCount";
 import DropDownMenu from "./DropDownMenu";
-import Image from "next/image";
-import { io } from "socket.io-client";
-import { toast } from "react-toastify";
 import NotificationToast from "../NotificationToast";
 import AppConfig from "../../configs/AppConfig";
 import { getNotifications } from "../../actions/getNotifications";
-import { Bell, ChevronDown, ShoppingCart } from "lucide-react";
+import { CartDrawer } from "./CartDrawer.jsx";
 
 export default function SearchTopbar() {
   const [is_toggle, set_is_toggle] = useState(false);
@@ -121,7 +122,7 @@ export default function SearchTopbar() {
                 ></feColorMatrix>
               </filter>
             </defs>
-            <title>noti wefger</title>
+            <title>notification widget</title>
             <g
               id="Page-1"
               stroke="none"
@@ -182,17 +183,7 @@ export default function SearchTopbar() {
               <option value="3">Three</option>
             </select>
           </div> */}
-          <button
-            type="button"
-            className="py-3 bg-[#f1f1f1] gap-x-3 px-2 flex items-center"
-            data-bs-target="#cart"
-            onClick={() => {
-              onOpenCartModal();
-            }}
-          >
-           <ShoppingCart width={23} height={23} color="#f7d594"/>
-            <CartCount/>
-          </button>
+<CartDrawer/>
 
           <div className="profile">
             <div className="dropdown d-flex">
@@ -246,7 +237,7 @@ export default function SearchTopbar() {
               <option value="3">Three</option>
             </select>
           </div> */}
-          <button
+          {/* <button
             type="button"
             data-bs-target="#cart"
             className="py-3 bg-[#f1f1f1] gap-x-3 px-2 flex items-center"
@@ -256,7 +247,9 @@ export default function SearchTopbar() {
           >
            <ShoppingCart width={23} height={23} color="#f7d594"/>
             <CartCount />
-          </button>
+          </button> */}
+<CartDrawer/>
+
           <div className="profile">
             <div className="dropdown d-flex">
               <Image
@@ -310,3 +303,4 @@ export default function SearchTopbar() {
     </>
   );
 }
+

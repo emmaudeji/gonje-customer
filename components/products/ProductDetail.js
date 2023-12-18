@@ -41,7 +41,7 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
       .get(Collected_data)
       .then((response) => {
         apiProduct(response.data.data.data);
-        console.log(response.data.data.data);
+        // console.log(response.data.data.data);
       })
       .catch((e) => {
         console.log(e);
@@ -114,7 +114,7 @@ const SingleProduct = ({
   return (
     <Dialog key={productindex} open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <div className="flex flex-col gap-y-2">
+        <div className="flex flex-col gap-y-2 h-[297px]">
           <div
             href="#"
             className="group relative block overflow-hidden w-[150px] md:w-auto"

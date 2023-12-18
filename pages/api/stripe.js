@@ -7,17 +7,6 @@ const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const { items, user_id, total, token } = await req.body;
-    // console.log(
-    //   items?.map((item) => {
-    //     return {
-    //       currency: "aud",
-    //       name: item.productName,
-    //       unit_amount: item.productPrice,
-    //       product_id: item.productID,
-    //       quantity: item.productQuantity,
-    //     }
-    //   })
-    // );
     const shop_id = items?.[0]?.shop_id;
     try {
       const params = {

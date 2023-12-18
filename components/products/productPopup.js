@@ -27,7 +27,7 @@ export default function ProductPop({ apires, DialogClose, setOpen }) {
     isToggleDescription(false);
     isToggleNutritional(true);
   };
-console.log(apires)
+// console.log(apires)
   const productImageSet = (index) => {
     setProductImage(apires.image.original);
   };

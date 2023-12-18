@@ -1,12 +1,15 @@
-import { useEffect, React, useState } from "react";
 import { addCartProduct } from "../../actions/addcarts.js";
-import { useDispatch, useSelector } from "react-redux";
 import { retrieveCount } from "../../actions/carts.js";
 import ProductService from "../../services/ProductService";
 import { listingCartProduct } from "../../actions/addcarts.js";
+import { Button } from "@/components/ui/button";
+
+///
+import { useEffect, React, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Router from "next/router";
-import Image from "next/image";
 import { toast } from "react-toastify";
+import { ShoppingCart } from "lucide-react";
 
 export default function Reorder({ order_id }) {
   const [apires, apiReasponse] = useState("");
@@ -33,22 +36,19 @@ export default function Reorder({ order_id }) {
   return (
     <>
       <div className="re-order">
-        <button
+        <Button
           type="button"
-          className="btn btn-light"
+          className="flex gap-x-2 text-sm h-9 w-full"
           onClick={() => {
             reOrder(order_id);
           }}
         >
-          <Image
-            src="/assets/images/cart-1.svg"
-            height={12}
-            width={20}
-            alt=""
-          />
-          Re Order
-        </button>
+          <ShoppingCart size={16}/>
+          <span>Re Order</span>
+        </Button>
       </div>
     </>
   );
 }
+
+
