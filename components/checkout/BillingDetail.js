@@ -288,12 +288,12 @@ const BillingDetail = (props) => {
 
               <button
                 type="submit"
-                // disabled={
-                //   cart.subTotal < 50
-                //   // ||
-                //   // (props.payment == "wallet" &&
-                //   //   users.wallet.current_balance < cart.subTotal)
-                // }
+                disabled={
+                  cart.subTotal < 50
+                  // ||
+                  // (props.payment == "wallet" &&
+                  //   users.wallet.current_balance < cart.subTotal)
+                }
                 className="btn "
               >
                 PLACE ORDER

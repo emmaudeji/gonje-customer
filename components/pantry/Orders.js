@@ -181,18 +181,17 @@ const UpdateDelivery = () => {
       <AlertDialogTrigger>
         <Button type="button" className="flex gap-x-2 text-sm h-9 bg-gonje-green w-full">
           <Plus size={16} />
-          <span>Update</span>
+          <span>Confirm</span>
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogTitle>Update your order</AlertDialogTitle>
           <AlertDialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <AlertDialogFooter>
+        <AlertDialogFooter className="items-center justify-center gap-x-4">
           <AlertDialogCancel className="bg-red-700 text-white">Cancel</AlertDialogCancel>
           <AlertDialogAction className="bg-gonje-green">Continue</AlertDialogAction>
         </AlertDialogFooter>

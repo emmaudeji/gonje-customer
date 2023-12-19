@@ -133,7 +133,7 @@ const SingleProduct = ({
             <div className="mt-4 md:px-6" key={productindex}>
               {productresult.image &&
               productresult.image.hasOwnProperty("thumbnail") ? (
-                <div className="relative w-36 h-36 md:w-44 md:h-32">
+                <div className="relative w-36 h-24 md:w-44 md:h-24">
                   <Image
                     src={productresult.image.thumbnail}
                     alt=""
@@ -163,7 +163,7 @@ const SingleProduct = ({
 
             <div className="relative text-left md:px-6">
               <div>
-                <p className="mt-2 text-xs md:text-sm font-medium text-gray-700">
+                <p className="text-xs md:text-sm font-medium text-gray-700 h-7 md:h-10 text-ellipsis overflow-hidden">
                   {productresult.name}
                 </p>
               </div>

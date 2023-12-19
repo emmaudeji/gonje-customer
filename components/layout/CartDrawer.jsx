@@ -19,7 +19,7 @@ import UserDataService from "../../services/UserService";
 import Countdown from "react-countdown";
 import moment from "moment";
 import Image from "next/image";
-import { Minus, Plus, ShoppingCart, X } from "lucide-react";
+import { CheckCircle2, Minus, Plus, ShoppingCart, X } from "lucide-react";
 import CartCount from "./CartCount.js";
 
 export const CartDrawer = () => {
@@ -42,14 +42,7 @@ export const CartDrawer = () => {
     }
   };
 
-  const updateToCart = (quantity, productID, shop_id, value) => {
-    if (value == 0) {
-      quantity = quantity - 1;
-    } else if (value == 1) {
-      quantity = quantity + 1;
-    } else {
-      quantity = 0;
-    }
+  const updateToCart = (quantity, productID, shop_id) => {
     dispatch(
       addCartProduct({
         user_id: userId,
@@ -90,8 +83,6 @@ export const CartDrawer = () => {
     dispatch(listingCartProduct({ user_id: userId }))
       .then((data) => {
         if (data.status === 1) {
-          // console.log('ddddd', data)
-          // const updatedList = [...data.data, fakedata]
           setApiResponse(data);
           console.log(data);
         }
@@ -151,12 +142,10 @@ export const CartDrawer = () => {
                     <div className="flex gap-x-4 my-4 items-center">
                       <Minus
                         onClick={() => {
-                          ReduceQuantity();
                           updateToCart(
-                            result.productQuantity,
+                            result.productQuantity - 1,
                             result.productID,
-                            result.shop_id,
-                            quantity
+                            result.shop_id
                           );
                         }}
                       />
@@ -165,12 +154,10 @@ export const CartDrawer = () => {
                       </span>
                       <Plus
                         onClick={() => {
-                          AddQuantity();
                           updateToCart(
-                            result.productQuantity,
+                            result.productQuantity + 1,
                             result.productID,
-                            result.shop_id,
-                            quantity
+                            result.shop_id
                           );
                         }}
                       />
@@ -184,6 +171,9 @@ export const CartDrawer = () => {
                     <div className="flex">
                       <button
                         type="button"
+                        onClick={() => {
+                          updateToCart(0, result.productID, result.shop_id);
+                        }}
                         className="font-medium text-red-600 cursor-pointer"
                       >
                         Remove
@@ -199,18 +189,42 @@ export const CartDrawer = () => {
             <p>Subtotal</p>
             <p>${apires.subTotal}</p>
           </div>
-          {/* <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p> */}
-          <Link
-            href={{
-              pathname: "/checkout",
-            }}
-            className="mt-6 flex flex-col justify-center"
-          >
-                       
-            <Button href="#" className="bg-gonje-green w-full">
-              Checkout
-            </Button>
-          </Link>
+          <div className="mt-4 space-y-4">
+            {apires.subTotal <= 49 && (
+              <div className="text-sm flex gap-x-2 text-red-700">
+                <CheckCircle2 className="" />
+                <span>Orders have to be above $49</span>
+              </div>
+            )}
+            {apires.subTotal >= 75 && (
+              <div className="text-sm flex gap-x-2">
+                <CheckCircle2 className="text-gonje-green" />
+                <span>You qualify for a free gift</span>
+              </div>
+            )}
+            {apires.subTotal >= 150 && (
+              <div className="text-sm flex gap-x-2">
+                <CheckCircle2 className="text-gonje-green" />
+                <span>You qualify for free delivery</span>
+              </div>
+            )}
+          </div>
+
+          {apires.subTotal <= 50 ? (
+            ''
+          ) : (
+            <Link
+              href={{
+                pathname: "/checkout",
+              }}
+              className="mt-6 flex flex-col justify-center"
+            >
+              <Button href="#" className="bg-gonje-green w-full">
+                Checkout
+              </Button>
+            </Link>
+          )}
+
           <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
             <p>
               or{" "}

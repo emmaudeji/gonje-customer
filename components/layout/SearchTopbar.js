@@ -293,13 +293,13 @@ export default function SearchTopbar() {
         </div>
       </div>
 
-      {opencart ? (
+      {/* {opencart ? (
         <>
           <CartPopup onCloseCartModal={onCloseCartModal}></CartPopup>
         </>
       ) : (
         ""
-      )}
+      )} */}
     </>
   );
 }
