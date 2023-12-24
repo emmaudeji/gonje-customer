@@ -2,7 +2,7 @@ import { useEffect, React, useState } from "react";
 import Image from "next/image";
 import { Modal } from "react-responsive-modal";
 import { BsCartFill } from "react-icons/bs";
-import { Plus, PlusCircle, ShoppingCart } from "lucide-react";
+import { Plus, ShoppingCart, Minus} from "lucide-react";
 //
 import productService from "../../services/ProductService";
 import AddToCartBtn from "./AddToCartBtn";
@@ -18,6 +18,7 @@ import { retrieveCount } from "../../actions/carts";
 import { addCartProduct } from "../../actions/addcarts";
 import toasts from "../shared/toast";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
 
 export default function ProductDeatil({ shopId, apicategoryid }) {
   //product getting here
@@ -59,13 +60,15 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
         <div className="grid gap-x-6 gap-y-4 lg:mt-8 grid-cols-2 md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
           {apiproduct.length ? (
             apiproduct.map((productresult, productindex) => (
-              <SingleProduct
-                productindex={productindex}
-                productresult={productresult}
-                productslug={productslug}
-                handleProductDialogClick={handleProductDialogClick}
-                key={productindex}
-              />
+              <div>
+                <SingleProduct
+                  productindex={productindex}
+                  productresult={productresult}
+                  productslug={productslug}
+                  handleProductDialogClick={handleProductDialogClick}
+                  key={productindex}
+                />
+              </div>
             ))
           ) : (
             <div className="side-rght-inr">
@@ -85,17 +88,28 @@ const SingleProduct = ({
   handleProductDialogClick,
 }) => {
   const dispatch = useDispatch();
-  const userId = useSelector((state) => state.userdetails);
+  const { toast } = useToast();
+  const [quantity, setQuantity] = useState(1);
+
   //for the dialog
   const [open, setOpen] = useState(false);
-
+  const userId = useSelector((state) => state.userdetails);
+///
+const AddQuantity = () => {
+  setQuantity((prev) => prev + 1);
+};
+const ReduceQuantity = () => {
+  if (quantity > 1) {
+    setQuantity((prev) => prev - 1);
+  }
+};
   const addToCart = () => {
     dispatch(
       addCartProduct({
         user_id: userId,
         product_id: productresult.id,
         shop_id: productresult.shop_id,
-        product_quantity: 1,
+        product_quantity: quantity,
       })
     )
       .then((data) => {
@@ -103,6 +117,13 @@ const SingleProduct = ({
           // toasts.notifySucces("Product Added to Cart Successfully.");
 
           dispatch(retrieveCount(data.cart_count));
+          toast({
+            title: `Added ${quantity} ${
+              quantity > 1 ? "items" : "item"
+            } to cart`,
+            description: data.message,
+            className: "bg-gonje-green",
+          });
         } else {
           toasts.notifyError(data.message);
         }
@@ -113,67 +134,78 @@ const SingleProduct = ({
   };
   return (
     <Dialog key={productindex} open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <div className="flex flex-col gap-y-2 h-[297px]">
-          <div
-            href="#"
-            className="group relative block overflow-hidden w-[150px] md:w-auto"
-            onClick={() => handleProductDialogClick(productresult)}
-          >
-            {productresult.discount != 0 ? (
-              <button className="absolute left-0 top-2 rounded-md bg-white p-1.5 transition z-10">
-                <span className="sr-only">Discount</span>
-                <div className="text-sm bg-red-900  rounded-md text-center w-20 text-white py-1">
-                  <p className="text-white">- {productresult.discount}%</p>
-                </div>
-              </button>
-            ) : (
-              ""
-            )}
-            <div className="mt-4 md:px-6" key={productindex}>
-              {productresult.image &&
-              productresult.image.hasOwnProperty("thumbnail") ? (
-                <div className="relative w-36 h-24 md:w-44 md:h-24">
-                  <Image
-                    src={productresult.image.thumbnail}
-                    alt=""
-                    fill={true}
-                    className="rounded-md bg-cover"
-                  />
-                </div>
+      <div>
+        <DialogTrigger asChild className="h-[210px]">
+          <div className="flex flex-col gap-y-2 h-[297px]">
+            <div
+              href="#"
+              className="group relative block overflow-hidden w-[150px] md:w-auto"
+              onClick={() => handleProductDialogClick(productresult)}
+            >
+              {productresult.discount != 0 ? (
+                <button className="absolute left-0 top-2 rounded-md bg-white p-1.5 transition z-10">
+                  <span className="sr-only">Discount</span>
+                  <div className="text-sm bg-red-900  rounded-md text-center w-20 text-white py-1">
+                    <p className="text-white">- {productresult.discount}%</p>
+                  </div>
+                </button>
               ) : (
                 ""
               )}
-              <br />
-            </div>
-            <div className="md:px-6">
-              {productresult.sale_price ? (
-                <p className="price">
-                  <strike>${productresult.price}</strike>
-                  <span className="text-red-600 text-lg font-bold">
-                    ${productresult.sale_price}
-                  </span>
-                </p>
-              ) : (
-                <p className="text-red-600 text-lg font-bold">
-                  ${productresult.price}
-                </p>
-              )}
-            </div>
-
-            <div className="relative text-left md:px-6">
-              <div>
-                <p className="text-xs md:text-sm font-medium text-gray-700 h-7 md:h-10 text-ellipsis overflow-hidden">
-                  {productresult.name}
-                </p>
+              <div className="mt-4 md:px-6" key={productindex}>
+                {productresult.image &&
+                productresult.image.hasOwnProperty("thumbnail") ? (
+                  <div className="relative w-36 h-24 md:w-44 md:h-24">
+                    <Image
+                      src={productresult.image.thumbnail}
+                      alt=""
+                      fill={true}
+                      className="rounded-md bg-cover"
+                    />
+                  </div>
+                ) : (
+                  ""
+                )}
+                <br />
               </div>
-              <div className="">
-                {/* <div className="items d-flex">
+              <div className="md:px-6">
+                {productresult.sale_price ? (
+                  <p className="price">
+                    <strike>${productresult.price}</strike>
+                    <span className="text-red-600 text-lg font-bold">
+                      ${productresult.sale_price}
+                    </span>
+                  </p>
+                ) : (
+                  <p className="text-red-600 text-lg font-bold">
+                    ${productresult.price}
+                  </p>
+                )}
+              </div>
+
+              <div className="relative text-left md:px-6">
+                <div>
+                  <p className="text-xs md:text-sm font-medium text-gray-700 h-7 md:h-10 text-ellipsis overflow-hidden">
+                    {productresult.name}
+                  </p>
+                </div>
+                <div className="">
+                  {/* <div className="items d-flex">
                       <p>Qty</p>
                       <strong>{productresult.quantity}</strong>
                     </div> */}
+                </div>
               </div>
             </div>
+          </div>
+        </DialogTrigger>
+        <div>
+          <div className="flex gap-x-4 my-2 items-center justify-center">
+            <Minus onClick={()=>ReduceQuantity() }/>
+            <span className="text-sm border rounded-md px-3 border-gonje-green">
+              {quantity}
+            </span>
+            <Plus onClick={()=>AddQuantity() } />
           </div>
           <Button
             className="bg-gonje-green flex gap-x-2 items-center w-[150px] md:w-auto h-9"
@@ -186,7 +218,7 @@ const SingleProduct = ({
             Add to Cart
           </Button>
         </div>
-      </DialogTrigger>
+      </div>
       <DialogContent showClose={false}>
         <ProductPop
           // CloseProductModal={onCloseProductModal}
