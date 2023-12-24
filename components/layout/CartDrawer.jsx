@@ -80,17 +80,20 @@ export const CartDrawer = () => {
   }, []);
 
   useEffect(() => {
-    dispatch(listingCartProduct({ user_id: userId }))
-      .then((data) => {
-        if (data.status === 1) {
-          setApiResponse(data);
-          console.log(data);
+    const fetchData = async () => {
+      try {
+        const response = await dispatch(listingCartProduct({ user_id: userId }));
+        if (response.status === 1) {
+          setApiResponse(response);
+          console.log(response);
         }
-        successMsg("");
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+        successMsg(""); // Make sure this function exists
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
   }, [successmsg, dispatch]);
 
   return (
@@ -118,7 +121,7 @@ export const CartDrawer = () => {
             </SheetClose>
           </div>
         </SheetHeader>
-        <ul role="list" className="-my-6 divide-y divide-gray-200 space-y-3">
+        <ul role="list" className="-my-6 divide-y divide-gray-200 space-y-3 px-3 max-h-[70%] overflow-y-scroll">
           {apires.data &&
             apires.data.map((result, index) => (
               <li key={index} className="flex py-6">
