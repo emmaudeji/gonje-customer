@@ -9,15 +9,15 @@ export default function GoogleLoginComp() {
 
 
   const onSuccess = async (response) => {
-    console.log('GOOGLESUCCESS', response, )
+    // console.log('GOOGLESUCCESS', response, )
     const json = await googlelogin(response);
     if (json) {
       localStorage.setItem("user_detail", JSON.stringify(json));
       Router.push("/dashboard");
-      console.log('FEEDBK json', json);
+      // console.log('FEEDBK json', json);
     } else {
       Router.push("/");
-      console.log('FEEDBK error', );
+      // console.log('FEEDBK error', );
     }
   };
   const onFailure = (response) => {

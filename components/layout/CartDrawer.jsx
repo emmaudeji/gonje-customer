@@ -25,6 +25,7 @@ import CartCount from "./CartCount.js";
 export const CartDrawer = () => {
   const [apires, setApiResponse] = useState("");
   const [successmsg, successMsg] = useState("");
+  const [cartResponseMessage, setCartResponseMessage] = useState("");
   const [quantity, setQuantity] = useState(1);
 
   const [timer, setTimer] = useState();
@@ -53,8 +54,9 @@ export const CartDrawer = () => {
     )
       .then((data) => {
         // console.log(data.message);
-        dispatch(retrieveCount(data.cart_count));
         successMsg(data.message);
+        setCartResponseMessage(data.message);
+        dispatch(retrieveCount(data.cart_count));
       })
       .catch((e) => {
         console.log(e);
@@ -78,31 +80,43 @@ export const CartDrawer = () => {
         console.log(e);
       });
   }, []);
+  const fetchData = async () => {
+    try {
+      dispatch(listingCartProduct({ user_id: userId }))
+        .then((response) => {
+          if (response.status === 1) {
+            setApiResponse(response);
+            successMsg(""); // Make sure this function exists
+            setCartResponseMessage("");
+            // console.log("response", response);
+          }
+          else{
+            setApiResponse("")
+            successMsg(""); 
+            setCartResponseMessage("");
+          }
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await dispatch(listingCartProduct({ user_id: userId }));
-        if (response.status === 1) {
-          setApiResponse(response);
-          console.log(response);
-        }
-        successMsg(""); // Make sure this function exists
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
     fetchData();
   }, [successmsg, dispatch]);
-
+  // console.log("cartResponse", cartResponseMessage);
+  // console.log("success message:", successmsg);
   return (
     <Sheet>
-      <SheetTrigger>
+      <SheetTrigger asChild>
         <button
           type="button"
           className="py-3 bg-[#f1f1f1] gap-x-3 px-2 flex items-center"
           data-bs-target="#cart"
+          onClick={() => fetchData()}
         >
           <ShoppingCart width={23} height={23} color="#f7d594" />
           <CartCount />
@@ -121,7 +135,10 @@ export const CartDrawer = () => {
             </SheetClose>
           </div>
         </SheetHeader>
-        <ul role="list" className="-my-6 divide-y divide-gray-200 space-y-3 px-3 max-h-[70%] overflow-y-scroll">
+        <ul
+          role="list"
+          className="-my-6 divide-y divide-gray-200 space-y-3 px-3 max-h-[70%] overflow-y-scroll"
+        >
           {apires.data &&
             apires.data.map((result, index) => (
               <li key={index} className="flex py-6">
@@ -214,7 +231,7 @@ export const CartDrawer = () => {
           </div>
 
           {apires.subTotal <= 50 ? (
-            ''
+            ""
           ) : (
             <Link
               href={{

@@ -2,7 +2,7 @@ import { useEffect, React, useState } from "react";
 import Image from "next/image";
 import { Modal } from "react-responsive-modal";
 import { BsCartFill } from "react-icons/bs";
-import { Plus, ShoppingCart, Minus} from "lucide-react";
+import { Plus, ShoppingCart, Minus } from "lucide-react";
 //
 import productService from "../../services/ProductService";
 import AddToCartBtn from "./AddToCartBtn";
@@ -42,7 +42,7 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
       .get(Collected_data)
       .then((response) => {
         apiProduct(response.data.data.data);
-        // console.log(response.data.data.data);
+        console.log(response.data.data.data);
       })
       .catch((e) => {
         console.log(e);
@@ -94,15 +94,15 @@ const SingleProduct = ({
   //for the dialog
   const [open, setOpen] = useState(false);
   const userId = useSelector((state) => state.userdetails);
-///
-const AddQuantity = () => {
-  setQuantity((prev) => prev + 1);
-};
-const ReduceQuantity = () => {
-  if (quantity > 1) {
-    setQuantity((prev) => prev - 1);
-  }
-};
+  ///
+  const AddQuantity = () => {
+    setQuantity((prev) => prev + 1);
+  };
+  const ReduceQuantity = () => {
+    if (quantity > 1) {
+      setQuantity((prev) => prev - 1);
+    }
+  };
   const addToCart = () => {
     dispatch(
       addCartProduct({
@@ -135,7 +135,7 @@ const ReduceQuantity = () => {
   return (
     <Dialog key={productindex} open={open} onOpenChange={setOpen}>
       <div>
-        <DialogTrigger asChild className="h-[210px]">
+        <DialogTrigger asChild className="h-auto">
           <div className="flex flex-col gap-y-2 h-[297px]">
             <div
               href="#"
@@ -199,13 +199,13 @@ const ReduceQuantity = () => {
             </div>
           </div>
         </DialogTrigger>
-        <div>
-          <div className="flex gap-x-4 my-2 items-center justify-center">
-            <Minus onClick={()=>ReduceQuantity() }/>
+        <div className="mt-6 flex  flex-col items-center justify-center">
+          <div className="flex gap-x-4 mb-2 items-center justify-center">
+            <Minus onClick={() => ReduceQuantity()} />
             <span className="text-sm border rounded-md px-3 border-gonje-green">
               {quantity}
             </span>
-            <Plus onClick={()=>AddQuantity() } />
+            <Plus onClick={() => AddQuantity()} />
           </div>
           <Button
             className="bg-gonje-green flex gap-x-2 items-center w-[150px] md:w-auto h-9"

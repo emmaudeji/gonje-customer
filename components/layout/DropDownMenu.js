@@ -67,19 +67,6 @@ export default function DropDownMenu() {
       </li>
       <hr />
       <li>
-        <a className="dropdown-item" href="/notifications">
-          <Image
-            height={15}
-            width={35}
-            className="me-2"
-            src="/assets/images/notification-drop.svg"
-            alt=""
-          />
-          Notifications
-        </a>
-      </li>
-      <hr />
-      <li>
         <Link href="/my/transactions" className="dropdown-item" >
             <Image
               height={15}
