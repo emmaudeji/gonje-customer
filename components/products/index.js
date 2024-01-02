@@ -83,9 +83,9 @@ export default function Product({ shopId }) {
         setApires(response.data.data);
         setApiCategory(response.data.data[categoryindex].categories);
         setapiCategoryId(response.data.data[categoryindex].categories[0].id);
-        console.log('APIRES', response.data.data)
-        console.log('Api Category', response.data.data[categoryindex].categories)
-        console.log(response.data.data[categoryindex].categories[0].id)
+        // console.log('APIRES', response.data.data)
+        // console.log('Api Category', response.data.data[categoryindex].categories)
+        // console.log(response.data.data[categoryindex].categories[0].id)
       })
       .catch((e) => {
         console.log("product display error", e);
@@ -150,7 +150,7 @@ export default function Product({ shopId }) {
         </div>
         <hr className="my-2" />
 
-        <div className="px-4 md:container py-3">
+        {/* <div className="px-4 md:container py-3">
         <ScrollArea className="h w-full py-4">
           <div className="flex justify-between gap-x-8">
           {apicategory.length > 0 &&
@@ -177,25 +177,24 @@ export default function Product({ shopId }) {
           </div>
           <ScrollBar orientation="horizontal" />
         </ScrollArea>
-
-
-        </div>
+        </div> */}
         <div className="categories md:pt-3">
-        {apicategory.length > 0 &&
-              apicategory.map((catresult, catindex) => {
-                // console.log(apires)
-                return (
-                  <div className="">
-                    <h1
-                      className={`py-[3px] px-3 whitespace-nowrap text-2xl font-semibold  `}
-                    >
-                      <p> {catresult.name.substring(0, 50)}</p>
-                    </h1>
-                  </div>
-                );
-              })}
+          {apicategory.length > 0 &&
+            apicategory.map((catresult, catindex) => {
+              // console.log("category result", catresult);
+              return (
+                <div className="" key={catindex}>
+                  <h1
+                    className={`py-[3px] px-3 whitespace-nowrap text-2xl font-semibold  `}
+                  >
+                    <p> {catresult.name.substring(0, 50)}</p>
+                  </h1>
+                  <ProductDetail shopId={shopId} apicategoryid={catresult.id} />
+                </div>
+              );
+            })}
           <div className="fruits row">
-            <ProductDetail shopId={shopId} apicategoryid={apicategoryid} />
+            {/* <ProductDetail shopId={shopId} apicategoryid={apicategoryid} /> */}
           </div>
           <Recipes shopId={shopId} apicategoryid={apicategoryid}></Recipes>
         </div>

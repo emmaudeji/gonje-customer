@@ -19,9 +19,11 @@ import { addCartProduct } from "../../actions/addcarts";
 import toasts from "../shared/toast";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 export default function ProductDeatil({ shopId, apicategoryid }) {
   //product getting here
+  console.log(shopId, apicategoryid);
   const [apiproduct, apiProduct] = useState({});
   const [productslug, productSlug] = useState("");
   const [openproduct, openProduct] = useState(false);
@@ -56,26 +58,30 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
   }, [apicategoryid, shopId]);
   return (
     <>
-      <div className="md:container">
-        <div className="grid gap-x-6 gap-y-4 lg:mt-8 grid-cols-2 md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
-          {apiproduct.length ? (
-            apiproduct.map((productresult, productindex) => (
-              <div>
-                <SingleProduct
-                  productindex={productindex}
-                  productresult={productresult}
-                  productslug={productslug}
-                  handleProductDialogClick={handleProductDialogClick}
-                  key={productindex}
-                />
+      <div className="pl-6">
+        {/* grid gap-x-6 gap-y-4 lg:mt-8 grid-cols-2 md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))] */}
+        <ScrollArea className="py-4">
+          <div className="flex gap-x-4">
+            {apiproduct.length ? (
+              apiproduct.map((productresult, productindex) => (
+                <div>
+                  <SingleProduct
+                    productindex={productindex}
+                    productresult={productresult}
+                    productslug={productslug}
+                    handleProductDialogClick={handleProductDialogClick}
+                    key={productindex}
+                  />
+                </div>
+              ))
+            ) : (
+              <div className="side-rght-inr">
+                <div className="empty-txt">product not found.</div>
               </div>
-            ))
-          ) : (
-            <div className="side-rght-inr">
-              <div className="empty-txt">product not found.</div>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
       </div>
     </>
   );
@@ -139,7 +145,7 @@ const SingleProduct = ({
           <div className="flex flex-col gap-y-2 h-[297px]">
             <div
               href="#"
-              className="group relative block overflow-hidden w-[150px] md:w-auto"
+              className="group relative block overflow-hidden w-[150px] md:w-[250px]"
               onClick={() => handleProductDialogClick(productresult)}
             >
               {productresult.discount != 0 ? (
