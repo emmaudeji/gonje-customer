@@ -13,17 +13,18 @@ export default function Brands({ toggleGetStarted }) {
           <div className="col-xl-6 col-lg-12 brandbubbls">
               <div className="brandscrcles">
                 <div
-                  className="brandcecleimg brandclecle1 wow fadeInUp flex items-center justify-center"
+                  className="brandcecleimg brandclecle1 wow fadeInUp"
                   data-wow-duration="1s"
                   data-wow-delay="0.2s"
                 >
                   <Image
-                    src="/images/britannia-logo.png"
+                    src="https://backendapi.gonje.com/public/gonje-storage/public/images/britannia-logo.png"
                     layout="fixed"
                     height={80}
                     width={90}
-                    objectFit="scale-down"
-                    alt=""
+                    // objectFit="scale-down"
+                    alt="britannia-logo"
+                    className="h-full flex items-center justify-center object-contain"
                     quality={30}
                   />
                 </div>
@@ -37,8 +38,10 @@ export default function Brands({ toggleGetStarted }) {
                     height={20}
                     width={70}
                     objectFit="scale-down"
-                    src="/images/kelloggs-logo.png"
+                    src="https://backendapi.gonje.com/public/gonje-storage/public/images/kelloggs-logo.png"
                     alt=""
+                    className="h-full flex items-center justify-center object-contain"
+
                   />
                 </div>
                 <div
@@ -50,8 +53,10 @@ export default function Brands({ toggleGetStarted }) {
                     layout="fixed"
                     height={100}
                     width={100}
-                    src="/images/cadbury-logo.png"
+                    src="https://backendapi.gonje.com/public/gonje-storage/public/images/cadbury-logo.png"
                     alt=""
+                    className="h-full flex items-center justify-center object-contain"
+
                   />
                 </div>
                 <div
@@ -64,8 +69,9 @@ export default function Brands({ toggleGetStarted }) {
                     height={40}
                     width={90}
                     objectFit="scale-down"
-                    src="/images/everest-logo.png"
+                    src="https://backendapi.gonje.com/public/gonje-storage/public/images/everest-logo.png"
                     alt=""
+                    className="h-full flex items-center justify-center object-contain mb-4"
                   />
                 </div>
                 <div
@@ -78,8 +84,8 @@ export default function Brands({ toggleGetStarted }) {
                     height={39}
                     width={150}
                     objectFit="scale-down"
-
-                    src="/images/nestle-logo.png"
+                    src="https://backendapi.gonje.com/public/gonje-storage/public/images/nestle-logo.png"
+                    className="h-full flex items-center justify-center object-contain"
                     alt=""
                   />
                 </div>
@@ -95,7 +101,9 @@ export default function Brands({ toggleGetStarted }) {
                     objectFit="scale-down"
 
                     alt=""
-                    src="/images/malta-guiness-1.png"
+                    src="https://backendapi.gonje.com/public/gonje-storage/public/images/malta-guiness-1.png"
+                    className="h-full flex items-center justify-center object-contain"
+
                   />
                 </div>
               </div>
