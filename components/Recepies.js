@@ -79,14 +79,14 @@ export default function Recepies() {
                       data-wow-delay="0.2s"
                     >
                       <Image
-                        src="/images/recepieicon1.1.png"
+                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/recepieicon1.1.png"
                         className="img-show"
                         height={100}
                         width={100}
                         alt=""
                       />
                       <Image
-                        src="/images/recepieicon1.png"
+                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/recepieicon1.png"
                         className="img-none"
                         height={100}
                         width={100}
@@ -109,7 +109,7 @@ export default function Recepies() {
                       style={{ display: isShownImg ? "block" : "none" }}
                     >
                       <Image
-                        src="/images/recepie.png"
+                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/recepie.png"
                         className="recepimg1 wow fadeInUp"
                         data-wow-duration="1s"
                         data-wow-delay="0.2s"
@@ -139,14 +139,14 @@ export default function Recepies() {
                       <Image
                         height={500}
                         width={500}
-                        src="/images/recepieicon2.png"
+                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/recepieicon2.png"
                         className="img-show"
                         alt=""
                       />
                       <Image
                         height={500}
                         width={500}
-                        src="/images/recepieicon3.1.png"
+                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/recepieicon3.1.png"
                         className="img-none"
                         alt=""
                       />
@@ -195,14 +195,14 @@ export default function Recepies() {
                       <Image
                         height={140}
                         width={140}
-                        src="/images/recepieicon3.png"
+                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/recepieicon3.png"
                         className="img-show"
                         alt=""
                       />
                       <Image
                         height={140}
                         width={140}
-                        src="/images/recepieicon2.1.png"
+                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/recepieicon2.1.png"
                         className="img-none"
                         alt=""
                       />
@@ -222,7 +222,7 @@ export default function Recepies() {
                       <Image
                         height={840}
                         width={840}
-                        src="/images/recipe-0002.png"
+                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/recipe-0002.png"
                         alt=""
                       />
                     </div>
@@ -246,14 +246,14 @@ export default function Recepies() {
                       <Image
                         height={140}
                         width={140}
-                        src="/images/recepieicon4.png"
+                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/recepieicon4.png"
                         className="img-show"
                         alt=""
                       />
                       <Image
                         height={140}
                         width={140}
-                        src="/images/recepieicon4.1.png"
+                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/recepieicon4.1.png"
                         className="img-none"
                         alt=""
                       />
@@ -272,8 +272,8 @@ export default function Recepies() {
                       <Image
                         height={800}
                         width={800}
-                        src="/images/recipe-0003.png"
-                        alt=""
+                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/recipe-0003.png"
+                        alt="Gonje Chettinad chicken"
                       />
                     </div>
                   </div>
