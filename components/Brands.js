@@ -13,7 +13,7 @@ export default function Brands({ toggleGetStarted }) {
           <div className="col-xl-6 col-lg-12 brandbubbls">
               <div className="brandscrcles">
                 <div
-                  className="brandcecleimg brandclecle1 wow fadeInUp"
+                  className="brandcecleimg brandclecle1 wow fadeInUp flex items-center justify-center"
                   data-wow-duration="1s"
                   data-wow-delay="0.2s"
                 >
@@ -24,6 +24,7 @@ export default function Brands({ toggleGetStarted }) {
                     width={90}
                     objectFit="scale-down"
                     alt=""
+                    quality={30}
                   />
                 </div>
                 <div

@@ -31,7 +31,7 @@ export default function Recepies() {
        
         <Marquee direction="left" gradient={false}>
           {/* <marquee width="100%" direction="fadeInLeft" scrollamount="10">  */}
-          <div className="marquee_outer">
+          <div className="marquee_outer bg-[#ffa723] py-4">
             <div className="marquee_inner">Coffee & Tea</div>
             <div className="marquee_inner">Herbs & Spices</div>
             <div className="marquee_inner">Oils, Sauces & Condiments</div>
