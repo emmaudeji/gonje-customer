@@ -91,7 +91,8 @@ const Home = () => {
                 ].map(({ name: continent, color }, index) => (
                   <p
                     key={index}
-                    className={`text-[${color}] font-medium text-xs md:text-base`}
+                    style={{ color: color }}
+                    className={`font-medium text-xs md:text-base`}
                   >
                     {continent}
                   </p>
@@ -144,8 +145,8 @@ const Home = () => {
             />
           </div>
         </section>
-        <section className="bg-[#fbdda2] h-full bg-center bg-cover md:h-[860px] relative">
-          <section className="px-12 lg:px-24 py-20 md:py-24">
+        <section className="relative h-full bg-center bg-cover md:h-[860px]">
+          <section className="bg-[#fbdda2] px-12 lg:px-[0px] py-20 md:py-24">
             <section className="space-y-6 grid grid-cols-1 lg:grid-cols-3 justify-between">
               <div>
                 <Image
@@ -224,7 +225,7 @@ const Home = () => {
         <Recepies/>
         {/* <WorldSection /> */}
         <Brands toggleGetStarted={toggleGetStarted} />
-        <Vendor></Vendor>
+        <Vendor/>
         <Blog></Blog>
         <Newsletter></Newsletter>
         <Footer toggleGetStarted={toggleGetStarted}></Footer>

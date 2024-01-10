@@ -2,7 +2,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import NavLayout from "./NavLayout";
 import Image from "next/image";
-import Fade from 'react-reveal/Fade';
+import Fade from "react-reveal/Fade";
 
 const responsive = {
   superLargeDesktop: {
@@ -33,35 +33,34 @@ export default function BannerSlider({ isOpenGetStarted, toggleGetStarted }) {
       <div className="bannersec">
         <div className="container">
           <div className="bannerslider slider">
-         
-
-              <div className="row justify-content-between align-items-center">
+            <div className="row justify-content-between align-items-center">
               <Fade left>
-              <div className="col-md-6 col-xs-12">
+                <div className="col-md-6 col-xs-12">
                   <div className="bannerslider-text">
                     <h3
-                      className="wow fadeInUp"
+                      className="text-gonje-green font-semibold"
                       data-wow-duration="1s"
                       data-wow-delay="0.2s"
                     >
-                      Gonje - The best online grocery store
+                      Welcome to Gonje
                     </h3>
                     <h2
                       className="wow fadeInUp"
                       data-wow-duration="1s"
                       data-wow-delay="0.4s"
                     >
-                      Grocery deliveries and Food stores.
+                      Explore, Shop and{" "}
+                      <span className="gonje-green">Savor</span>{" "} with Gonje
                     </h2>
                     <p
-                      className="wow fadeInUp"
+                      className="text-sm text-[#42482b] font-semibold max-w-xl"
                       data-wow-duration="1s"
                       data-wow-delay="0.5s"
                     >
-                      Shop Groceries Online with Your Local Brand.
-                      <br />
-                      {/* We bring whopping thousands plus products with a wide
-                      selection of grocery stores to customers. */}
+                      Welcome to Gonje where your doorstep meets the world's
+                      most xquisite groceries. Gonje marketplace is your
+                      singular destination for unparalleled quality and diverse
+                      selections <br />
                     </p>
                     {/* <a
                       className="bttn wow fadeInUp"
@@ -75,9 +74,9 @@ export default function BannerSlider({ isOpenGetStarted, toggleGetStarted }) {
                     </a> */}
                   </div>
                 </div>
-        </Fade>
-        <Fade right>
-        <div className="col-md-6 col-xs-12">
+              </Fade>
+              <Fade right>
+                <div className="col-md-6 col-xs-12">
                   <div
                     className="bannerslider-image wow fadeInUp"
                     data-wow-duration="1s"
@@ -91,10 +90,9 @@ export default function BannerSlider({ isOpenGetStarted, toggleGetStarted }) {
                       alt=""
                     />
                   </div>
-                </div>        </Fade>
-                
-                
-              </div>
+                </div>{" "}
+              </Fade>
+            </div>
             {/* </Carousel> */}
           </div>
         </div>
