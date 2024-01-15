@@ -140,8 +140,8 @@ export default function NavLayout() {
                   <Image
                     layout="fixed"
                     height={75}
-                    width={154}
-                    src="/images/logo.png"
+                    width={100}
+                    src="/images/logo-transparent.png"
                     alt=""
                   />
                 </a>
