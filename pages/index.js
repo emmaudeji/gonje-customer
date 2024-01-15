@@ -145,14 +145,14 @@ const Home = () => {
             />
           </div>
         </section>
-        <section className="relative h-full bg-center bg-cover md:h-[700px]">
+        <section className="h-full bg-center bg-cover md:h-[700px] overflow-hidden">
           <section className="bg-[#fbdda2] px-12 lg:px-[0px] py-20 md:py-24">
-            <section className="space-y-6 grid grid-cols-1 lg:grid-cols-3 justify-between">
+            <section className="space-y-6 grid grid-cols-1 lg:grid-cols-3 justify-between relative">
               <div>
                 <Image
                   src={`/images/product-service-1.png`}
                   width={500}
-                  height={500}
+                  height={800}
                   alt="gonje basket"
                 />
                 <Image
@@ -162,13 +162,7 @@ const Home = () => {
                   alt="gonje basket"
                 />
               </div>
-              <div className="hidden md:flex flex-col items-center justify-center">
-                <Image
-                  src={`/images/product-service-head.png`}
-                  width={500}
-                  height={500}
-                  alt="gonje basket"
-                />
+              <div className="hidden md:flex flex-col items-center justify-center mt-6">
                 <Image
                   src={`/images/1.png`}
                   width={200}
@@ -191,6 +185,14 @@ const Home = () => {
                   alt="gonje basket"
                 />
               </div>
+              <div className="absolute top-[-20%] xl:top-[-28%] lg:top-[-46%] lg:left-[25%] xl:left-[35%]">
+              <Image
+                  src={`/images/product-service-head.png`}
+                  width={500}
+                  height={500}
+                  alt="gonje basket"
+                />
+              </div>
             </section>
           </section>
         </section>
@@ -206,7 +208,7 @@ const Home = () => {
                 {contentArray.map((item, index) => (
                   <div
                     key={index}
-                    className="text-[#40705c] flex gap-x-2 font-medium text-sm"
+                    className="text-[#40705c] flex gap-x-2 font-medium text-sm md:text-base"
                   >
                     <div className="p-2 h-8 w-8 shrink-0 bg-gonje rounded-full flex flex-col items-center justify-center">
                       <Check />

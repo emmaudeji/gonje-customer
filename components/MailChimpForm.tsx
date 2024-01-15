@@ -101,7 +101,7 @@ export function ProfileForm({ onValidated, status, message, setOpen }:FormProps)
               </FormItem>
             )}
           />
-          <Button type="submit" className="bg-gonje-green">
+          <Button type="submit" className="bg-gonje-green mt-4">
             Submit
           </Button>
         </form>

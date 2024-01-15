@@ -45,7 +45,7 @@ export function FormDialog({ subscribe, status, message }) {
       <DialogTrigger asChild>
         <Button className="bg-gonje-green">Get Started</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md h-[55%]">
+      <DialogContent className="sm:max-w-md h-[58%]">
         <DialogHeader>
           <DialogTitle>Subscribe to our mailing list</DialogTitle>
           <DialogDescription>
