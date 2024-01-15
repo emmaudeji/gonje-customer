@@ -37,7 +37,7 @@ import { ProfileForm } from "@/components/MailChimpForm";
 import { useState } from "react";
 
 export function FormDialog({ subscribe, status, message }) {
-  console.log(subscribe, status, message);
+  // console.log(subscribe, status, message);
   const [open, setOpen] = useState(false);
 
   return (

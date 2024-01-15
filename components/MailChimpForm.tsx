@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -25,8 +27,14 @@ const formSchema = z.object({
     message: "Email must be at least 2 characters.",
   }),
 });
+type FormProps = {
+  status: string;
+  message: string;
+  onValidated: (formData: any) => void;
+  setOpen: (value:boolean) => void;
+};
 
-export function ProfileForm({ onValidated, status, message, setOpen }) {
+export function ProfileForm({ onValidated, status, message, setOpen }:FormProps) {
   const { toast } = useToast();
 
   // 1. Define your form.
