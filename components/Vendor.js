@@ -24,18 +24,11 @@ export default function Vendor() {
                   </div>
                   <div className="vendortxt">
                     <div
-                      className="vendorinr wow fadeInUp"
+                      className="vendorinr wow fadeInUp flex flex-row md:flex-col gap-x-4 gap-y-3 items-center md:justify-start justify-center"
                       data-wow-duration="1s"
                       data-wow-delay="0.2s"
                     >
-                      <div className="vendoricn">
-                        <Image
-                          src="/images/vendorbg1.png"
-                          className="vendorbg"
-                          height={100}
-                          width={100}
-                          alt=""
-                        />
+                      <div className="relative h-20 w-20 bg-center bg-cover bg-[url('/images/vendorbg1.png')]">
                         <Image
                           src="/images/vendoricon1.svg"
                           className="vendoricn"
@@ -53,18 +46,11 @@ export default function Vendor() {
                       </div>
                     </div>
                     <div
-                      className="vendorinr wow fadeInUp"
+                      className="vendorinr wow fadeInUp flex flex-row md:flex-col gap-x-4 gap-y-3 items-center md:justify-start justify-center"
                       data-wow-duration="1s"
                       data-wow-delay="0.4s"
                     >
-                      <div className="vendoricn">
-                        <Image
-                          src="/images/vendorbg2.png"
-                          className="vendorbg"
-                          height={100}
-                          width={100}
-                          alt=""
-                        />
+                      <div className="relative h-20 w-20 bg-center bg-cover bg-[url('/images/vendorbg2.png')]">
                         <Image
                           src="/images/vendoricon2.svg"
                           className="vendoricn"
@@ -73,6 +59,7 @@ export default function Vendor() {
                           alt=""
                         />
                       </div>
+
                       <div className="vendorcont">
                         <h4>Fast Delivery.</h4>
                         <p>
@@ -82,18 +69,11 @@ export default function Vendor() {
                       </div>
                     </div>
                     <div
-                      className="vendorinr wow fadeInUp"
+                      className="vendorinr wow fadeInUp flex flex-row md:flex-col gap-x-4 gap-y-3 items-center md:justify-start justify-center"
                       data-wow-duration="1s"
                       data-wow-delay="0.6s"
                     >
-                      <div className="vendoricn">
-                        <Image
-                          src="/images/vendorbg3.png"
-                          className="vendorbg"
-                          height={100}
-                          width={100}
-                          alt=""
-                        />
+                      <div className="relative h-20 w-20 bg-center bg-cover bg-[url('/images/vendorbg3.png')]">
                         <Image
                           src="/images/vendoricon3.svg"
                           className="vendoricn"
@@ -102,6 +82,7 @@ export default function Vendor() {
                           alt=""
                         />
                       </div>
+
                       <div className="vendorcont">
                         <h4>Completly 100% Fresh & Organic Food</h4>
                         <p>
@@ -111,18 +92,11 @@ export default function Vendor() {
                       </div>
                     </div>
                     <div
-                      className="vendorinr wow fadeInUp"
+                      className="vendorinr wow fadeInUp flex flex-row md:flex-col gap-x-4 gap-y-3 items-center md:justify-start justify-center"
                       data-wow-duration="1s"
                       data-wow-delay="0.8s"
                     >
-                      <div className="vendoricn">
-                        <Image
-                          src="/images/vendorbg4.png"
-                          className="vendorbg"
-                          height={100}
-                          width={100}
-                          alt=""
-                        />
+                      <div className="relative h-20 w-20 bg-center bg-cover bg-[url('/images/vendorbg4.png')]">
                         <Image
                           src="/images/vendoricon4.svg"
                           className="vendoricn"
@@ -131,6 +105,7 @@ export default function Vendor() {
                           alt=""
                         />
                       </div>
+
                       <div className="vendorcont">
                         <h4>Skip or Cancel Anytime</h4>
                         <p>
@@ -143,16 +118,16 @@ export default function Vendor() {
                 </div>
               </Fade>
               <Fade right>
-                <div className="col-lg-6 col-md-12">
+                <div className="col-lg-6 col-md-12 shrink-0">
                   <div
                     className="vendorimg wow fadeInUp"
                     data-wow-duration="1s"
                     data-wow-delay="0.2s"
                   >
                     <Image
-                      src="https://backendapi.gonje.com/public/gonje-storage/public/images/mascot_bg.png"
+                      src="https://backendapi.gonje.com/public/gonje-storage/public/images/vendorimg2.png"
                       layout="fixed"
-                      height={600}
+                      height={1000}
                       width={500}
                       alt=""
                     />

@@ -98,7 +98,7 @@ const Home = () => {
                   </p>
                 ))}
               </div>
-              <Button className="bg-gonje-green">Get Started</Button>
+              <MailChimp />
             </section>
             <section>
               <Image
@@ -123,7 +123,7 @@ const Home = () => {
                 />
               </div>
               <div className="flex items-center justify-center">
-                <Button className="bg-gonje-green">Get Started</Button>
+                <MailChimp />
               </div>
             </section>
             <section>
@@ -145,7 +145,7 @@ const Home = () => {
             />
           </div>
         </section>
-        <section className="relative h-full bg-center bg-cover md:h-[860px]">
+        <section className="relative h-full bg-center bg-cover md:h-[700px]">
           <section className="bg-[#fbdda2] px-12 lg:px-[0px] py-20 md:py-24">
             <section className="space-y-6 grid grid-cols-1 lg:grid-cols-3 justify-between">
               <div>
@@ -175,7 +175,7 @@ const Home = () => {
                   height={200}
                   alt="gonje basket"
                 />
-                <Button className="bg-gonje-green">Get Started</Button>
+                <MailChimp />
               </div>
               <div>
                 <Image
@@ -194,13 +194,15 @@ const Home = () => {
             </section>
           </section>
         </section>
-        <UsersSection toggleGetStarted={toggleGetStarted} />
+        {/* <UsersSection toggleGetStarted={toggleGetStarted} /> */}
 
         <section className="relative bg-[#fbdda2] py-6">
           <section className="bg-[url('/images/why-gonje-bg.png')] bg-bottom bg-cover px-12 lg:px-24 md:py-32 flex flex-col lg:flex-row  justify-between items-center gap-y-6">
             <section className="space-y-6">
               <div className="space-y-2 max-w-2xl text-[#40705c]">
-                <h2 className="text-2xl font-semibold">Why choose our services?</h2>
+                <h2 className="text-2xl font-semibold">
+                  Why choose our services?
+                </h2>
                 {contentArray.map((item, index) => (
                   <div
                     key={index}
@@ -214,7 +216,7 @@ const Home = () => {
                 ))}
               </div>
               <div className="flex items-center justify-center">
-                <Button className="bg-gonje-green">Get Started</Button>
+                <MailChimp />
               </div>
             </section>
           </section>
@@ -222,14 +224,13 @@ const Home = () => {
         <TrendingProducts
           toggleGetStarted={toggleGetStarted}
         ></TrendingProducts>
-        <Recepies/>
+        <Recepies />
         {/* <WorldSection /> */}
         <Brands toggleGetStarted={toggleGetStarted} />
-        <Vendor/>
+        <Vendor />
         <Blog></Blog>
         <Newsletter></Newsletter>
         <Footer toggleGetStarted={toggleGetStarted}></Footer>
-        <MailChimp></MailChimp>
       </div>
     </>
   );

@@ -3,6 +3,7 @@ import "react-multi-carousel/lib/styles.css";
 import NavLayout from "./NavLayout";
 import Image from "next/image";
 import Fade from "react-reveal/Fade";
+import MailChimp from "./MailChimp";
 
 const responsive = {
   superLargeDesktop: {
@@ -53,7 +54,7 @@ export default function BannerSlider({ isOpenGetStarted, toggleGetStarted }) {
                       <span className="gonje-green">Savor</span>{" "} with Gonje
                     </h2>
                     <p
-                      className="text-sm text-[#42482b] font-semibold max-w-xl"
+                      className="text-sm text-[#42482b] font-semibold max-w-xl mb-2 lg:mb-3"
                       data-wow-duration="1s"
                       data-wow-delay="0.5s"
                     >
@@ -62,16 +63,7 @@ export default function BannerSlider({ isOpenGetStarted, toggleGetStarted }) {
                       singular destination for unparalleled quality and diverse
                       selections <br />
                     </p>
-                    {/* <a
-                      className="bttn wow fadeInUp"
-                      data-wow-duration="1s"
-                      data-wow-delay="0.6s"
-                      onClick={() => {
-                        toggleGetStarted(true);
-                      }}
-                    >
-                      Get Started
-                    </a> */}
+                    <MailChimp/>
                   </div>
                 </div>
               </Fade>
@@ -88,6 +80,7 @@ export default function BannerSlider({ isOpenGetStarted, toggleGetStarted }) {
                       height={320}
                       width={440}
                       alt=""
+                      quality={40}
                     />
                   </div>
                 </div>{" "}

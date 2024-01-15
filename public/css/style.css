@@ -3553,7 +3553,7 @@ ul.footerlinks li a {
 }
 /* vision css */
 .our-vision {
-  background-image: url("../images/vision.png");
+  background-image: url("https://backendapi.gonje.com/public/gonje-storage/public/images/vision.png");
   height: auto;
   background-position: center;
   background-repeat: no-repeat;
