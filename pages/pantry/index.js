@@ -3,7 +3,7 @@ import "react-toastify/dist/ReactToastify.css";
 const PantryPage = () => {
   return (
     <>
-      <Pantry></Pantry>
+      <Pantry/>
     </>
   );
 };

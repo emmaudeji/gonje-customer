@@ -4,7 +4,7 @@ import Checkout from "../../components/checkout";
 const checkout = () => {
   return (
     <>
-    <Checkout></Checkout> 
+    <Checkout/>
     </>
   );
 };

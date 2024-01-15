@@ -5,6 +5,7 @@ import {
     usePayPalScriptReducer,
     BraintreePayPalButtons
 } from "@paypal/react-paypal-js";
+import { useRouter } from "next/router";
 
 
 // import {
@@ -119,8 +120,9 @@ import {
 
 // Custom component to wrap the PayPalButtons and handle currency changes
 const ButtonWrapper = ({ currency, showSpinner, callOrderApi, walletBalance, deliveryFee, amount }) => {
+    const router = useRouter();
 
-    console.log('=====c', amount, deliveryFee)
+    // console.log('=====c', amount, deliveryFee)
     // const amount = amount
     // const currency = currency;
     const style = {"layout":"horizontal"};
@@ -169,6 +171,8 @@ const ButtonWrapper = ({ currency, showSpinner, callOrderApi, walletBalance, del
                     return actions.order.capture().then(function () {
                         // Your code here after capture the order
                         console.log(data)
+                        router.push("/pantry");
+
                     });
                 }}
             />

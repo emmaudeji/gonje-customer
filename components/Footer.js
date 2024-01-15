@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import moment from "moment";
+import Link from "next/link";
 export default function Footer({ toggleGetStarted }) {
   const route = useRouter();
   return (
@@ -40,12 +41,6 @@ export default function Footer({ toggleGetStarted }) {
               <div className="footeinr">
                 <h3>The Company</h3>
                 <ul className="footerlinks">
-                  {/* <li>
-                    <a>Sign Up</a>
-                  </li>
-                  <li>
-                    <a>Our Process</a>
-                  </li> */}
                   <li>
                     <a>About</a>
                   </li>
@@ -58,12 +53,6 @@ export default function Footer({ toggleGetStarted }) {
                       Terms & Conditions
                     </a>
                   </li>
-                  {/* <li>
-                    <a>Shopes</a>
-                  </li>
-                  <li>
-                    <a>Blog</a>
-                  </li> */}
                 </ul>
               </div>
             </div>
@@ -85,22 +74,6 @@ export default function Footer({ toggleGetStarted }) {
                       Help & Contact Us
                     </a>
                   </li>
-                 
-                  {/* <li>
-                    <a>Return & Refund</a>
-                  </li>
-                  <li>
-                    <a  <a
-                      onClick={() => {
-                        route.push("/terms");
-                      }}
-                    >
-                      Help & Contact Us
-                    </a>>Terms & Condition</a>
-                  </li>
-                  <li>
-                    <a>Refer Friends</a>
-                  </li> */}
                   <li>
                     <a
                       onClick={() => {
@@ -125,33 +98,39 @@ export default function Footer({ toggleGetStarted }) {
                   Suite 227, 139 Cardigan St, Carlton Vic 3053
                 </p>
                 <p>
-                  Parcel Collect 10143 43082, 341 Barry Road,
-                  Campbellfield VIC 3061
+                  Parcel Collect 10143 43082, 341 Barry Road, Campbellfield VIC
+                  3061
                 </p>
                 <p>Tel – 1800 749 277</p>
                 <p>Email – info@onjegroup.com.au</p>
                 <ul className="footersocial-icons">
                   <li>
-                    <a>
+                    <Link
+                      href={`https://www.facebook.com/profile.php?id=100071509825420`}
+                      target="_blank"
+                    >
                       <Image
                         layout="fixed"
                         height={47}
                         width={47}
-                        src="/images/fb.svg"
+                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/fb.svg"
                         alt=""
                       />
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a>
+                    <Link
+                      href={`https://instagram.com/gonjeapp`}
+                      target="_blank"
+                    >
                       <Image
                         layout="fixed"
                         height={47}
                         width={47}
-                        src="/images/twitter.svg"
+                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/instagram.svg"
                         alt=""
                       />
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <a>

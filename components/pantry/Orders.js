@@ -1,14 +1,30 @@
 import { useEffect, React, useState } from "react";
 import Moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import InfiniteScroll from "react-infinite-scroll-component";
+
+///
 import { retrieveOrder } from "../../actions/pantry.js";
 import Reorder from "./Reorder.js";
 import Loader from "../Loader.js";
-import Image from "next/image";
-import { useRouter } from "next/router";
 import { zipPayCheckout } from "../Api/Api.js";
-import InfiniteScroll from "react-infinite-scroll-component";
 import { EmptyState } from "../dashboard/EmptyState.jsx";
+import { Button } from "@/components/ui/button";
+
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { Plus } from "lucide-react";
 
 export default function Orders() {
   const [apires, apiReasponse] = useState([]);
@@ -112,8 +128,8 @@ export default function Orders() {
                                 <Image
                                   src={proresult.image.thumbnail}
                                   alt=""
-                                  height={80}
-                                  width={80}
+                                  height={50}
+                                  width={50}
                                 />
                               ) : (
                                 ""
@@ -121,7 +137,6 @@ export default function Orders() {
                             </div>
                             <div className="item-name">
                               <strong>{proresult.name}</strong>
-                              <p>{proresult.description.substring(0, 60)}</p>
                               <div className="p-qty d-flex justify-content-between">
                                 <p>${proresult.pivot.unit_price}</p>
                                 <p>Qty:{proresult.pivot.order_quantity}</p>
@@ -129,14 +144,21 @@ export default function Orders() {
                             </div>
                           </div>
                         ))}
+                      <div className="px-3 flex justify-between border-t py-2">
+                        <div>
+                          <h3>Total:</h3>
+                        </div>
+
+                        <div className="total-items">
+                          <p>X{result.products.length} items</p>
+                          <strong>${result.amount}</strong>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <hr className="second-divider" />
-                  <div className="checkout d-flex justify-content-between">
-                    <div className="total-items">
-                      <p>X{result.products.length} items</p>
-                      <strong>${result.amount}</strong>
-                    </div>
+                  <div className="checkout flex flex-col md:flex-row gap-y-4  justify-content-between px-4 py-2">
+                    <UpdateDelivery />
                     <Reorder order_id={result.id}></Reorder>
                   </div>
                 </div>
@@ -152,3 +174,28 @@ export default function Orders() {
     </>
   );
 }
+
+const UpdateDelivery = () => {
+  return (
+    <AlertDialog>
+      <AlertDialogTrigger>
+        <Button type="button" className="flex gap-x-2 text-sm h-9 bg-gonje-green w-full">
+          <Plus size={16} />
+          <span>Confirm</span>
+        </Button>
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Update your order</AlertDialogTitle>
+          <AlertDialogDescription>
+            
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter className="items-center justify-center gap-x-4">
+          <AlertDialogCancel className="bg-red-700 text-white">Cancel</AlertDialogCancel>
+          <AlertDialogAction className="bg-gonje-green">Continue</AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  );
+};

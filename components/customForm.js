@@ -82,7 +82,7 @@ const CustomForm = ({ status, message, onValidated }) => {
             </button>
 
             <div className="modal-body">
-              <div className="popupvector">
+              <div className="popupvector flex flex-col items-center justify-center">
                 <Image src="/images/logo.svg" height={75} width={154} alt="" />
               </div>
               <div className="popuptxt">

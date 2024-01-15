@@ -57,7 +57,7 @@ export default function CartPopup({ onCloseCartModal }) {
       })
     )
       .then((data) => {
-        console.log(data.message);
+        // console.log(data.message);
         dispatch(retrieveCount(data.cart_count));
         successMsg(data.message);
       })
@@ -89,7 +89,7 @@ export default function CartPopup({ onCloseCartModal }) {
       .then((data) => {
         if (data.status === 1) {
           // console.log('ddddd', data)
-          const updatedList = [...data.data, fakedata]
+          // const updatedList = [...data.data, fakedata]
           apiReasponse(data);
         }
         successMsg("");
@@ -144,7 +144,7 @@ export default function CartPopup({ onCloseCartModal }) {
                     key={index}
                   >
                     <div className="d-flex cart-list-item">
-                    {console.log('cartttt', result) }
+                    {/* {console.log('cartttt', result) } */}
                       <div className="item-wrap">
                         {result?.productImage && (
                           <Image

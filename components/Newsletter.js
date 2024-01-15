@@ -70,7 +70,7 @@ export default function Newsletter() {
             data-wow-duration="1s"
             data-wow-delay="0.2s"
           >
-            <h2>sign up to newsletter</h2>
+            <h2 className="capitalize">sign up to newsletter</h2>
             <p>
               Sign up now to get the exclusive deals and offers, money-saving
               promotions straight to your inbox.

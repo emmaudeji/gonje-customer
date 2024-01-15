@@ -127,10 +127,10 @@ Here at Gonje, we believe in keeping you at the forefront of the ecommerce revol
                   data-wow-delay="0.2s"
                 >
                   <Image
-                    src="/images/phoneimg1.png"
+                    src="https://backendapi.gonje.com/public/gonje-storage/public/images/phoneimg.png"
                     layout="fixed"
-                    height={500}
-                    width={750}
+                    height={900}
+                    width={300}
                     className="availablephoneimg"
                     alt=""
                   />
