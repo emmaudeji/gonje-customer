@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import "react-responsive-modal/styles.css";
 import Fade from "react-reveal/Fade";
+import MailChimp from "./MailChimp";
 
 export default function Brands({ toggleGetStarted }) {
   return (
@@ -155,16 +156,7 @@ export default function Brands({ toggleGetStarted }) {
                 </p> */}
                 </div>
 
-                <div className="brandbtn">
-                  <Link
-                    className="bttn wow fadeInUp"
-                    data-wow-duration="1s"
-                    data-wow-delay="0.8s"
-                    href={`/signin/customer`}
-                  >
-                    Get Started
-                  </Link>
-                </div>
+                <MailChimp />
               </div>{" "}
             </Fade>
           </div>
