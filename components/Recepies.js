@@ -79,7 +79,7 @@ export default function Recepies() {
                       data-wow-delay="0.2s"
                     >
                       <Image
-                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/recepieicon1.1.png"
+                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/recepieicon1.png"
                         className="img-show"
                         height={100}
                         width={100}
@@ -98,9 +98,9 @@ export default function Recepies() {
                       data-wow-duration="1s"
                       data-wow-delay="0.4s"
                     >
-                      <h3>Pasta</h3>
+                      <h3>Eba and Egusi</h3>
                       <p>
-                      Pasta recipe ingredients now available at gonje. Order now!
+                      Eba and Egusi recipe ingredients now available at Gonje. Order now!
                       </p>
                     </div>
 
@@ -109,7 +109,7 @@ export default function Recepies() {
                       style={{ display: isShownImg ? "block" : "none" }}
                     >
                       <Image
-                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/recepie.png"
+                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/eba-n-egusi.png"
                         className="recepimg1 wow fadeInUp"
                         data-wow-duration="1s"
                         data-wow-delay="0.2s"
@@ -156,10 +156,10 @@ export default function Recepies() {
                       data-wow-duration="1s"
                       data-wow-delay="0.4s"
                     >
-                      <h3>Chicken Tikka</h3>
+                      <h3>Jollof Rice</h3>
 
                       <p>
-                      Chicken Tikka recipe ingredients now available at gonje. Order now!
+                      Jollof Rice recipe ingredients now available at Gonje. Order now!
 
                       </p>
                     </div>
@@ -168,7 +168,7 @@ export default function Recepies() {
                         <Image
                           height={840}
                           width={840}
-                          src="/images/recipe-0001.png"
+                          src="https://backendapi.gonje.com/public/gonje-storage/public/images/jollof.png"
                           alt=""
                         />
                       </div>
