@@ -238,9 +238,9 @@ export default function NavLayout({ isOpenGetStarted, toggleGetStarted }) {
             <div className="header-oter">
               <div className="logo">
                 <Link href={`/`} className="navbar-brand">
-                  <div className="relative w-20 h-24">
+                  <div className="relative w-32 h-32">
                     <Image
-                      src="/images/logo-transparent.png"
+                      src="https://backendapi.gonje.com/public/gonje-storage/public/images/dark-green-text-logo.png"
                       alt=""
                       fill={true}
                       className="bg-cover bg-center"
