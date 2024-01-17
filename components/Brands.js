@@ -18,7 +18,7 @@ export default function Brands({ toggleGetStarted }) {
                     data-wow-duration="1s"
                     data-wow-delay="0.2s"
                   >
-                    <div className="relative md:w-32 md:h-24 w-8 h-8 lg:mx-auto mx-3">
+                    <div className="relative md:w-32 md:h-24 w-8 h-8 lg:mx-auto mx-1">
                       <Image
                         src="https://backendapi.gonje.com/public/gonje-storage/public/images/britannia-logo.png"
                         fill={true}
@@ -34,7 +34,7 @@ export default function Brands({ toggleGetStarted }) {
                     data-wow-duration="1s"
                     data-wow-delay="0.4s"
                   >
-                    <div className="relative md:w-32 md:h-24 w-8 h-8 lg:mx-auto mx-3">
+                    <div className="relative md:w-32 md:h-24 w-12 h-12 lg:mx-auto mx-2 mt-4">
                       <Image
                         src="https://backendapi.gonje.com/public/gonje-storage/public/images/kelloggs-logo.png"
                         fill={true}
@@ -66,7 +66,7 @@ export default function Brands({ toggleGetStarted }) {
                     data-wow-duration="1s"
                     data-wow-delay="0.8s"
                   >
-                    <div className="relative md:w-32 md:h-24 w-8 h-8 lg:mx-auto mx-3">
+                    <div className="relative md:w-32 md:h-24 w-16 h-12 lg:mx-auto mx-2 mt-4">
                       <Image
                         src="https://backendapi.gonje.com/public/gonje-storage/public/images/everest-logo.png"
                         fill={true}

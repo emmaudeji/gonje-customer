@@ -1250,6 +1250,25 @@ section.recepies-sec:before {
   background-size: cover;
 }
 
+.wavy-bg:after {
+  content: "";
+  background: url(../images/vendorbottom.png);
+  position: absolute;
+  width: 100%;
+  bottom: -1px;
+  height: 109px;
+  background-size: cover;
+}
+
+.wavy-bg:before {
+  content: "";
+  background: url(../images/vendortop.png);
+  position: absolute;
+  width: 100%;
+  top: 0;
+  height: 114px;
+  background-size: cover;
+}
 section.recepies-sec {
   background: #fbdda2;
   position: relative;
@@ -2390,6 +2409,11 @@ footer{
   section.recepies-sec:before {
     height: 64px;
   }
+
+  
+  .wavy-bg:before {
+    height: 64px;
+  }
   .vendorimg {
     text-align: center;
   }
@@ -2475,6 +2499,10 @@ section.newslettersec{
   section.recepies-sec:after {
     height: 39px;
   }
+  .wavy-bg:after {
+    height: 39px;
+  }
+  
   .shipping-leftimg {
     display: none;
   }
