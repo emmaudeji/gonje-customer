@@ -14,7 +14,7 @@ export default function Blog() {
           >
             <h2>Explore our Blog Section</h2>
             <p>
-              Welcome to Gonje's Blog – Your Source for Ecommerce Insights and Inspiration!
+              Welcome to Gonje's Blog - Your Source for Ecommerce Insights and Inspiration!
 Here at Gonje, we believe in keeping you at the forefront of the ecommerce revolution. Discover easy-to-make recipes, how-tos and stay up to date on all
               Gonje news.
             </p>
@@ -138,7 +138,7 @@ Here at Gonje, we believe in keeping you at the forefront of the ecommerce revol
               </div>        
               </Fade>
         <Fade right>
-        <div className="col-lg-6 col-md-12 col-sm-12 download_app">
+        <div className="col-lg-6 col-md-12 col-sm-12 download_app ">
                 <div
                   className="heading wow fadeInUp"
                   data-wow-duration="1s"

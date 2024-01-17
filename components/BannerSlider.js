@@ -59,7 +59,7 @@ export default function BannerSlider({ isOpenGetStarted, toggleGetStarted }) {
                       data-wow-delay="0.5s"
                     >
                       Welcome to Gonje where your doorstep meets the world's
-                      most xquisite groceries. Gonje marketplace is your
+                      most exquisite groceries. Gonje marketplace is your
                       singular destination for unparalleled quality and diverse
                       selections <br />
                     </p>

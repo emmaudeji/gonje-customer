@@ -2,8 +2,41 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import moment from "moment";
 import Link from "next/link";
+import { Modal } from "react-responsive-modal";
+
+import { useState } from "react";
 export default function Footer({ toggleGetStarted }) {
   const route = useRouter();
+  const [isOpenCustomer, setIsOpenCustomer] = useState(false);
+
+  const openModalCustomer = () => {
+    setIsOpenCustomer(true);
+  };
+
+  // Function to close the modal
+  const closeModalCustomer = () => {
+    setIsOpenCustomer(false);
+  };
+  const [isOpenVendor, setIsOpenVendor] = useState(false);
+
+  const openModalVendor = () => {
+    setIsOpenVendor(true);
+  };
+
+  // Function to close the modal
+  const closeModalVendor = () => {
+    setIsOpenVendor(false);
+  };
+  const [isOpenSupplier, setIsOpenSupplier] = useState(false);
+
+  const openModalSupplier = () => {
+    setIsOpenSupplier(true);
+  };
+
+  // Function to close the modal
+  const closeModalSupplier = () => {
+    setIsOpenSupplier(false);
+  };
   return (
     <>
       <footer>
@@ -40,7 +73,7 @@ export default function Footer({ toggleGetStarted }) {
             >
               <div className="footeinr">
                 <h3>The Company</h3>
-                <ul className="footerlinks">
+                <ul className="footerlinks text-white">
                   <li>
                     <a>About</a>
                   </li>
@@ -53,6 +86,9 @@ export default function Footer({ toggleGetStarted }) {
                       Terms & Conditions
                     </a>
                   </li>
+                  <li onClick={openModalVendor} className="text-white">Become a Vendor</li>
+                  <li onClick={openModalSupplier} className="text-white">Become a Supplier</li>
+                  <li onClick={openModalCustomer} className="text-white">Become a Customer</li>
                 </ul>
               </div>
             </div>
@@ -158,6 +194,164 @@ export default function Footer({ toggleGetStarted }) {
           </div>
         </div>
       </footer>
+
+      {/* Modal Section */}
+      <Modal open={isOpenCustomer} onClose={closeModalCustomer} center>
+          <div className="modal1 homepup getstart-popup">
+            <div className="modal-dialog1 modal-lg">
+              <div className="modal-content1">
+                <button type="button" onClick={closeModalCustomer}>
+                  <Image
+                    src="/images/vendoricon4.png"
+                    height={54}
+                    width={54}
+                    alt=""
+                  />
+                </button>
+
+                <div className="modal-body px-5">
+                  <div className="popupvector mx-auto">
+                    <Image
+                      src="/images/img-customer-white.png"
+                      height={402}
+                      width={426}
+                      alt=""
+                    />
+                  </div>
+                  <div className="popuptxt fw-bold">
+                    <h2>
+                      Start now!
+                      <br />
+                    </h2>
+                    <p>
+                      As a customer, joining Gonje means gaining access to an
+                      extensive selection of top-quality products from trusted
+                      vendors. Begin the gonje experience
+                    </p>
+
+                    <a
+                      className="btnsecondary"
+                      onClick={() => {
+                        route.push("/howItworks");
+                      }}
+                    >
+                      Learn more
+                    </a>
+                    {/* <a
+                        className="btnprimary"
+                        onClick={openModalCustomer}
+                      >
+                       Get started
+                      </a> */}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Modal>
+
+        <Modal open={isOpenVendor} onClose={closeModalVendor} center>
+          <div className="modal1 homepup getstart-popup">
+            <div className="modal-dialog1 modal-lg">
+              <div className="modal-content1">
+                <button type="button" onClick={closeModalVendor}>
+                  <Image
+                    src="/images/vendoricon4.png"
+                    height={54}
+                    width={54}
+                    alt=""
+                  />
+                </button>
+
+                <div className="modal-body px-5">
+                  <div className="popupvector mx-auto">
+                    <Image
+                      src="/images/img-vendor-white.png"
+                      height={201}
+                      width={228}
+                      alt=""
+                    />
+                  </div>
+                  <div className="popuptxt fw-bold">
+                    <h2>
+                      Start now!
+                      <br />
+                    </h2>
+                    <p>
+                      For vendors, becoming a member of Gonje opens doors to
+                      limitless opportunities. Showcase your products to a broad
+                      customer base, expand your reach, connect with suppliers
+                      and boost your sales. Begin the gonje experience
+                    </p>
+
+                    <a
+                      className="btnsecondary"
+                      onClick={() => {
+                        route.push("/vendors");
+                      }}
+                    >
+                      Learn more
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Modal>
+        <Modal open={isOpenSupplier} onClose={closeModalSupplier} center>
+          <div className="modal1 homepup getstart-popup">
+            <div className="modal-dialog1 modal-lg">
+              <div className="modal-content1">
+                <button type="button" onClick={closeModalSupplier}>
+                  <Image
+                    src="/images/vendoricon4.png"
+                    height={54}
+                    width={54}
+                    alt=""
+                  />
+                </button>
+
+                <div className="modal-body px-5">
+                  <div className="popupvector mx-auto">
+                    <Image
+                      src="/images/img-supplier-white.png"
+                      height={201}
+                      width={228}
+                      alt=""
+                    />
+                  </div>
+                  <div className="popuptxt fw-bold">
+                    <h2>
+                      Start now!
+                      <br />
+                    </h2>
+                    <p>
+                      Suppliers, we invite you to join us on our mission to
+                      connect vendors with reliable product sources. As a member
+                      of Gonje, you gain access to a network of vendors eager to
+                      bring your high-quality products to customers worldwide.
+                      Begin the gonje experience
+                    </p>
+                    <a
+                      className="btnsecondary"
+                      onClick={() => {
+                        route.push("/suppliers");
+                      }}
+                    >
+                      Learn more
+                    </a>
+                    {/* <a
+                        className="btnprimary"
+                        onClick={openModalSupplier}
+                      >
+                       Get started
+                      </a> */}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Modal>
     </>
   );
 }
