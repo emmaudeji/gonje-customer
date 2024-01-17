@@ -125,7 +125,7 @@ export default function Vendor() {
                     data-wow-delay="0.2s"
                   >
                     <Image
-                      src="https://backendapi.gonje.com/public/gonje-storage/public/images/vendorimg2.png"
+                      src="https://backendapi.gonje.com/public/gonje-storage/public/images/mascot_bg.png"
                       layout="fixed"
                       height={1000}
                       width={500}

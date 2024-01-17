@@ -92,7 +92,7 @@ const Home = () => {
                   <p
                     key={index}
                     style={{ color: color }}
-                    className={`font-medium text-xs md:text-base`}
+                    className={`font-semibold text-sm md:text-lg`}
                   >
                     {continent}
                   </p>
@@ -111,7 +111,7 @@ const Home = () => {
           </section>
         </section>
         <VisionSection />
-        <section className="bg-[url('/images/green-bg.png')] bg-center bg-cover h-[860px] relative">
+        <section className="bg-[url('/images/green-bg.png')] bg-center bg-cover h-[860px] relative ">
           <section className="px-12 lg:px-24 py-20 md:py-24 flex flex-col lg:flex-row  justify-between items-center gap-y-6">
             <section className="space-y-6">
               <div className="text-gonje-brown space-y-2">
@@ -145,9 +145,9 @@ const Home = () => {
             />
           </div>
         </section>
-        <section className="h-full bg-center bg-cover md:h-[700px] overflow-hidden">
-          <section className="bg-[#fbdda2] px-12 lg:px-[0px] py-20 md:py-24">
-            <section className="space-y-6 grid grid-cols-1 lg:grid-cols-3 justify-between relative">
+        <section className="bg-[#fbdda2] h-full bg-center bg-cover overflow-hidden relative headerbg">
+          <section className="lg:px-[0px] py-20 md:py-12">
+            <section className="space-y-6 grid grid-cols-1 lg:grid-cols-3 relative">
               <div>
                 <Image
                   src={`/images/product-service-1.png`}
@@ -185,7 +185,7 @@ const Home = () => {
                   alt="gonje basket"
                 />
               </div>
-              <div className="absolute top-[-20%] xl:top-[-28%] lg:top-[-46%] lg:left-[25%] xl:left-[35%]">
+              <div className="absolute top-[-20%] xl:top-[-28%] lg:top-[-46%] lg:left-[25%] xl:left-[34%]">
               <Image
                   src={`/images/product-service-head.png`}
                   width={500}
@@ -198,7 +198,7 @@ const Home = () => {
         </section>
         {/* <UsersSection toggleGetStarted={toggleGetStarted} /> */}
 
-        <section className="relative bg-[#fbdda2] py-6">
+        <section className="relative bg-[#fbdda2] py-20 md:py-6 wavy-bg">
           <section className="bg-[url('/images/why-gonje-bg.png')] bg-bottom bg-cover px-12 lg:px-24 md:py-32 flex flex-col lg:flex-row  justify-between items-center gap-y-6">
             <section className="space-y-6">
               <div className="space-y-2 max-w-2xl text-[#40705c]">

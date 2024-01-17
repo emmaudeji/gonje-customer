@@ -7,6 +7,18 @@ button:focus, input:focus, select:focus {
 }
 a:hover{cursor:pointer;}   
 
+.wavybg:after {
+    content: '';
+    background: url(../images/bannerbottom.png);
+    position: absolute;
+    height: 106px;
+    width: 100%;
+    bottom: 0;
+    background-size: cover;
+    right: 0;
+    background-repeat: no-repeat;
+  }
+  
 .headerbg {
     background: #FBDDA2;
     padding: 0 0 116px;
