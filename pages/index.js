@@ -82,7 +82,7 @@ const Home = () => {
 
               <div className="flex gap-x-2 lg:gap-x-4">
                 {[
-                  { name: "African", color: "#bcdfa6" },
+                  { name: "African", color: "#26580f" },
                   { name: " Asian", color: "#360202" },
                   { name: "Australian", color: "#5b6004" },
                   { name: "European", color: "#011b21" },
@@ -146,7 +146,7 @@ const Home = () => {
           </div>
         </section>
         <section className="bg-[#fbdda2] h-full bg-center bg-cover overflow-hidden relative headerbg">
-          <section className="lg:px-[0px] py-20 md:py-12">
+          <section className=" py-20 md:py-12">
             <section className="space-y-6 grid grid-cols-1 lg:grid-cols-3 relative">
               <div>
                 <Image
@@ -154,6 +154,7 @@ const Home = () => {
                   width={500}
                   height={800}
                   alt="gonje basket"
+                  className="-mx-[15px]"
                 />
                 <Image
                   src={`/images/product-service-2.png`}
