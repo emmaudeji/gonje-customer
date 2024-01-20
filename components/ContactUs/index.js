@@ -25,16 +25,16 @@ const ContactUsPage = () => {
   };
 
   const handleSubmit = async () => {
-    console.log(values)
+    // console.log(values)
     const error = checkContactUsFields();
     setErrors(error);
     const isAnyError = Object.values(error).filter((el) => !!el);
-    console.log(isAnyError)
-    // if (isAnyError.length === 0) {
-    //   const response = await contactUs(values);
-    //   toasts.notifySucces(response.message);
-    //   SetValues(InitialValues);
-    // }
+    // console.log(isAnyError)
+    if (isAnyError.length === 0) {
+      const response = await contactUs(values);
+      toasts.notifySucces(response.message);
+      SetValues(InitialValues);
+    }
   };
 
   const checkContactUsFields = () => {

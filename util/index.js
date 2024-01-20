@@ -11,13 +11,15 @@ export const validateEmail = (email) => {
 
 export const validatePhone = (phone) => {
   if (phone) {
-    const pattern1 = /^(?:\+?61|0)2-478$/;
-    // This regex matches phone numbers that start with 7, 8, or 9, followed by 9 digits
-    const pattern2 = /^([0|\+[0-9]{1,5})?([7-9][0-9]{9})$/;
-    // This regex combines the two patterns with a pipe | character, which indicates alternative matches especially for austiralian numbers
-    const pattern = new RegExp(`(${pattern1.source})|(${pattern2.source})`);
-    // const pattern = new RegExp(/^([0|\+[0-9]{1,5})?([7-9][0-9]{9})$/);
-    if (!pattern1.test(phone)) {
+    // This regex matches landline numbers with area code 02, 03, 07, or 08, followed by 8 digits
+    const pattern1 = /^(?:\+?61|0)(?:2|3|7|8)\d{8}$/;
+    // This regex matches mobile numbers with prefix 04, followed by 8 digits
+    const pattern2 = /^(?:\+?61|0)4\d{8}$/;
+    // This regex matches local rate numbers with prefix 13, followed by 6 digits
+    const pattern3 = /^13\d{6}$/;
+    // This regex combines the three patterns with a pipe | character, which indicates alternative matches
+    const pattern = new RegExp(`(${pattern1.source})|(${pattern2.source})|(${pattern3.source})`);
+    if (!pattern.test(phone)) {
       return "Please enter valid phone number.";
     }
   }
