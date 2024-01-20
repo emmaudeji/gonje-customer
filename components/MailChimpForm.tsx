@@ -54,9 +54,9 @@ export function ProfileForm({ onValidated, status, message, setOpen }:FormProps)
     });
     if (status == "success") {
       toast({
-        title: "Scheduled: Catch up",
+        title: "Success",
         variant: "success",
-        description: "Friday, February 10, 2023 at 5:57 PM",
+        description: "you have joined our waiting list",
       });
       setOpen(false)
     }

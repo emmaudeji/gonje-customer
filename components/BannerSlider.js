@@ -51,19 +51,17 @@ export default function BannerSlider({ isOpenGetStarted, toggleGetStarted }) {
                       data-wow-delay="0.4s"
                     >
                       Explore, Shop and{" "}
-                      <span className="gonje-green">Savor</span>{" "} with Gonje
+                      <span className="gonje-green">Savor</span> with Gonje
                     </h2>
                     <p
                       className="text-sm text-[#42482b] font-semibold max-w-xl mb-2 lg:mb-3"
                       data-wow-duration="1s"
                       data-wow-delay="0.5s"
                     >
-                      Welcome to Gonje where your doorstep meets the world's
-                      most exquisite groceries. Gonje marketplace is your
-                      singular destination for unparalleled quality and diverse
-                      selections <br />
+                      Gonje marketplace is your singular destination for
+                      unparalleled quality and diverse selections <br />
                     </p>
-                    <MailChimp/>
+                    <MailChimp />
                   </div>
                 </div>
               </Fade>

@@ -238,10 +238,10 @@ export default function NavLayout({ isOpenGetStarted, toggleGetStarted }) {
             <div className="header-oter">
               <div className="logo">
                 <Link href={`/`} className="navbar-brand">
-                  <div className="relative w-32 h-32">
+                  <div className="relative w-32 h-20">
                     <Image
-                      src="https://backendapi.gonje.com/public/gonje-storage/public/images/dark-green-text-logo.png"
-                      alt=""
+                      src="https://backendapi.gonje.com/public/gonje-storage/public/images/1_transparent_darkgreen.png"
+                      alt="Gonje Logo"
                       fill={true}
                       className="bg-cover bg-center"
                     />
@@ -258,7 +258,7 @@ export default function NavLayout({ isOpenGetStarted, toggleGetStarted }) {
                       { href: "/howItworks", label: "How it works" },
                       { href: "/aboutUs", label: "About Us" },
                       { href: "/signin/customer", label: "Sign in" },
-                      { href: "/signup/customer", label: "Get Started" },
+                      // { href: "/signup/customer", label: "Get Started" },
                     ].map((link, index) => (
                       <li className="nav-item" key={index}>
                         <Link href={link.href} className="nav-link">
