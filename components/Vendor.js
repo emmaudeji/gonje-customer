@@ -7,7 +7,7 @@ export default function Vendor() {
       <section className="vendorsec">
         <div className="vendorsecinr">
           <div className="container">
-            <div className="row justify-content-between">
+            <div className="row justify-between">
               <Fade left>
                 <div className="col-lg-6 col-md-12">
                   <div

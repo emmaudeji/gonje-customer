@@ -54,17 +54,6 @@ export default function Footer({ toggleGetStarted }) {
                   We connect buyers and sellers of natural, organic,
                   environmentally sound products.{" "}
                 </p>
-                <div className="footermail">
-                  <input type="text" placeholder="Enter email address" />
-                  <a
-                    className="bttn"
-                    onClick={() => {
-                      toggleGetStarted(true);
-                    }}
-                  >
-                    Get Started
-                  </a>
-                </div>
               </div>
             </div>
             <div
@@ -89,21 +78,21 @@ export default function Footer({ toggleGetStarted }) {
                   </li>
                   <li
                     onClick={openModalVendor}
-                    className="text-white flex gap-x-2 items-center"
+                    className="text-white flex gap-x-2 items-center text-sm cursor-pointer"
                   >
                     <CornerDownRight className="shrink-0" />
                     <span>Become a Vendor</span>
                   </li>
                   <li
                     onClick={openModalSupplier}
-                    className="text-white  flex gap-x-2 items-center"
+                    className="text-white  flex gap-x-2 items-center text-sm cursor-pointer"
                   >
                     <CornerDownRight className="shrink-0" />
                     <span>Become a Supplier</span>
                   </li>
                   <li
                     onClick={openModalCustomer}
-                    className="text-white flex gap-x-2 items-center"
+                    className="text-white flex gap-x-2 items-center text-sm cursor-pointer"
                   >
                     <CornerDownRight className="shrink-0" />
                     <span> Become a Customer</span>

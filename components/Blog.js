@@ -113,7 +113,7 @@ export default function Blog() {
               </div>
             </div>
 
-            <div
+            {/* <div
               className="blogbtn wow fadeInUp"
               data-wow-duration="1s"
               data-wow-delay="0.7s"
@@ -121,7 +121,7 @@ export default function Blog() {
               <a className="bttn wow fadeInUp" data-wow-duration="4.5s">
                 Visit Our Blog
               </a>
-            </div>
+            </div> */}
           </Fade>
         </div>
       </section>

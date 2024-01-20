@@ -28,14 +28,14 @@ export default function TrendingProducts({ toggleGetStarted }) {
     "Masala Chai",
     "Sake",
     "Mango Lassi",
-    "Rooibos Tea",
+    " Zobo",
     "Palm Wine",
   ];
   const Fruits = [
     "Jackfruit",
     "Baobab Fruit",
     "Okra",
-    "Amaranth Leaves",
+    "Oranges",
     "Bitter Melon",
     "Durian",
   ];
@@ -48,12 +48,12 @@ export default function TrendingProducts({ toggleGetStarted }) {
     "Lobneh",
   ];
   const PackageFoods = [
-    "Felicios Plantain Chips",
+    "Plantain Chips",
     "Kimchi",
-    "Maggi",
+    "Italian Pasta",
     "Harissa Paste",
     "Miso Paste",
-    "OriNe",
+    "Garri",
   ];
   return (
     <>
