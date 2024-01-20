@@ -106,7 +106,7 @@ const AboutUsPage = () => {
             <div className="col-xl-6">
               <div className="ps-3 content-left">
                 <strong>About Us</strong>
-                <p>
+                <p className="my-3">
                   {" "}
                   {/* Gonje is an innovative e-commerce platform for local suppliers
                   and independent food producers. Established in Melbourne,

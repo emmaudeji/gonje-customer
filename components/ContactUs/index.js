@@ -25,14 +25,16 @@ const ContactUsPage = () => {
   };
 
   const handleSubmit = async () => {
+    console.log(values)
     const error = checkContactUsFields();
     setErrors(error);
     const isAnyError = Object.values(error).filter((el) => !!el);
-    if (isAnyError.length === 0) {
-      const response = await contactUs(values);
-      toasts.notifySucces(response.message);
-      SetValues(InitialValues);
-    }
+    console.log(isAnyError)
+    // if (isAnyError.length === 0) {
+    //   const response = await contactUs(values);
+    //   toasts.notifySucces(response.message);
+    //   SetValues(InitialValues);
+    // }
   };
 
   const checkContactUsFields = () => {
@@ -114,7 +116,7 @@ const ContactUsPage = () => {
                     value={values.name}
                     onChange={handleChange}
                   />
-                  {errors.name && <p>{errors.name}</p>}
+                  {errors.name && <p className="text-red-700 font-medium mb-2">{errors.name}</p>}
                   <input
                     type="email"
                     placeholder="Enter Your email"
@@ -122,7 +124,7 @@ const ContactUsPage = () => {
                     value={values.email}
                     onChange={handleChange}
                   />
-                  {errors.email && <p>{errors.email}</p>}
+                  {errors.email && <p className="text-red-700 font-medium mb-2">{errors.email}</p>}
                   <div className="contact_phone">
                     <PhoneInput
                       international
@@ -131,14 +133,14 @@ const ContactUsPage = () => {
                       value={values.phone}
                     />
                   </div>
-                  {errors.phone && <p>{errors.phone}</p>}
+                  {errors.phone && <p className="text-red-700 font-medium mb-2">{errors.phone}</p>}
                   <textarea
                     type="text"
                     name="message"
                     value={values.message}
                     onChange={handleChange}
                   />
-                  <p>{errors.message}</p>
+                  <p className="text-red-700 font-medium mb-2">{errors.message}</p>
                   <button
                     type="button"
                     className="bttn contact_submit"

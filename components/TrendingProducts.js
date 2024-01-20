@@ -35,7 +35,7 @@ export default function TrendingProducts({ toggleGetStarted }) {
     "Jackfruit",
     "Baobab Fruit",
     "Okra",
-    "Amaranth Leaves",
+    "Ugwu Leaves",
     "Bitter Melon",
     "Durian",
   ];
@@ -48,9 +48,9 @@ export default function TrendingProducts({ toggleGetStarted }) {
     "Lobneh",
   ];
   const PackageFoods = [
-    "Felicios Plantain Chips",
+    "Plantain Chips",
     "Kimchi",
-    "Maggi",
+    "Fufu",
     "Harissa Paste",
     "Miso Paste",
     "OriNe",

@@ -5,9 +5,12 @@ import { resetData } from "./shared/Function.js";
 import { newsletter } from "./Api/Api";
 import Image from "next/image";
 import Fade from 'react-reveal/Fade';
+import { useToast } from "@/components/ui/use-toast";
 
 
 export default function Newsletter() {
+  const { toast } = useToast();
+
   const [apimsgs, apiSetmsgs] = useState({});
   const [classes, setclasses] = useState();
   const formik = useFormik({
@@ -47,6 +50,11 @@ export default function Newsletter() {
         apiSetmsgs({
           msg: json.message,
         });
+        toast({
+          title: "Success",
+          variant: "success",
+          description: "You have signed up for our newsletter",
+        });
       } else {
         setclasses("alert alert-danger");
         apiSetmsgs({
@@ -70,7 +78,7 @@ export default function Newsletter() {
             data-wow-duration="1s"
             data-wow-delay="0.2s"
           >
-            <h2 className="capitalize">sign up to newsletter</h2>
+            <h2 className="capitalize">sign up to our newsletter</h2>
             <p>
               Sign up now to get the exclusive deals and offers, money-saving
               promotions straight to your inbox.
