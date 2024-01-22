@@ -87,10 +87,10 @@ export default function Goclub() {
                 <div className="top-heading">
                   <h3>Free Subscription</h3>
                 </div>
-                <p className="heading">
+                {/* <p className="heading">
                   Lorem ipsumdoller salad has to be made with <br />
                   tomatoes only?
-                </p>
+                </p> */}
                 <hr />
 
                 <div className="options">
@@ -101,7 +101,7 @@ export default function Goclub() {
                         src={require("/public/assets/images/check.svg")}
                       />
                     </div>
-                    <p>Lorem ipsumdoller salad has to be made with</p>
+                    <p>Unlimited Access to products</p>
                   </div>
                   <div className="d-flex justify-content-center align-items-center py-1">
                     <div style={{ marginRight: "10px", paddingTop: "6px" }}>
@@ -110,7 +110,7 @@ export default function Goclub() {
                         src={require("/public/assets/images/check.svg")}
                       />
                     </div>
-                    <p>Lorem ipsumdoller salad has to be made with</p>
+                    <p>Priority Customer Support</p>
                   </div>
                   <div className="d-flex justify-content-center align-items-center py-1">
                     <div style={{ marginRight: "10px", paddingTop: "6px" }}>
@@ -119,7 +119,7 @@ export default function Goclub() {
                         src={require("/public/assets/images/check.svg")}
                       />
                     </div>
-                    <p>Lorem ipsumdoller salad has to be made with</p>
+                    <p>Basic Access to Global Recipes</p>
                   </div>
                   <div className="d-flex justify-content-center align-items-center py-1">
                     <div style={{ marginRight: "10px", paddingTop: "6px" }}>
@@ -128,7 +128,7 @@ export default function Goclub() {
                         src={require("/public/assets/images/check.svg")}
                       />
                     </div>
-                    <p>Lorem ipsumdoller salad has to be made with</p>
+                    <p>Limited-Time Discounts</p>
                   </div>
                   <div className="d-flex justify-content-center align-items-center py-1">
                     <div style={{ marginRight: "10px", paddingTop: "6px" }}>
@@ -137,7 +137,7 @@ export default function Goclub() {
                         src={require("/public/assets/images/check.svg")}
                       />
                     </div>
-                    <p>Lorem ipsumdoller salad has to be made with</p>
+                    <p>Early Access to New Products</p>
                   </div>
                   <div className="d-flex justify-content-center align-items-center py-1">
                     <div style={{ marginRight: "10px", paddingTop: "6px" }}>
@@ -146,7 +146,7 @@ export default function Goclub() {
                         src={require("/public/assets/images/check.svg")}
                       />
                     </div>
-                    <p>Lorem ipsumdoller salad has to be made with</p>
+                    <p>Discounts on Partner Restaurants</p>
                   </div>
                 </div>
                 <button type="button" className="btn btn-light" disabled>
@@ -159,16 +159,24 @@ export default function Goclub() {
                 <div className="top-heading">
                   <h3>Monthly Subscription</h3>
                 </div>
-                <h4>
+                {/* <h4>
                   $50 <span>/month</span>
-                </h4>
+                </h4> */}
                 <p className="heading">
-                  Lorem ipsumdoller salad has to be made with <br />
-                  tomatoes only?
+                  Coming soon
                 </p>
                 <hr />
                 <div className="options">
-                  <div className="d-flex justify-content-center align-items-center py-1">
+                  {/* <div className="d-flex justify-content-center align-items-center py-1">
+                    <div style={{ marginRight: "10px", paddingTop: "6px" }}>
+                      <Image
+                        alt="Check mark"
+                        src={require("/public/assets/images/check.svg")}
+                      />
+                    </div>
+                    <p>Lorem ipsumdoller salad has to be made with</p>
+                  </div> */}
+                  {/* <div className="d-flex justify-content-center align-items-center py-1">
                     <div style={{ marginRight: "10px", paddingTop: "6px" }}>
                       <Image
                         alt="Check mark"
@@ -212,16 +220,7 @@ export default function Goclub() {
                       />
                     </div>
                     <p>Lorem ipsumdoller salad has to be made with</p>
-                  </div>
-                  <div className="d-flex justify-content-center align-items-center py-1">
-                    <div style={{ marginRight: "10px", paddingTop: "6px" }}>
-                      <Image
-                        alt="Check mark"
-                        src={require("/public/assets/images/check.svg")}
-                      />
-                    </div>
-                    <p>Lorem ipsumdoller salad has to be made with</p>
-                  </div>
+                  </div> */}
                 </div>
                 {users.subscription_status === 1 && (
                   <button

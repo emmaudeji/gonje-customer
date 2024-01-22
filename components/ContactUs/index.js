@@ -45,9 +45,10 @@ const ContactUsPage = () => {
         error[key] = `${key} is required`;
       } else if (key == "email") {
         error[key] = validateEmail(item) || "";
-      } else if (key == "phone") {
-        error[key] = validatePhone(item) || "";
-      }
+      } 
+      // else if (key == "phone") {
+      //   error[key] = validatePhone(item) || "";
+      // }
     });
     return error;
   };
@@ -125,7 +126,7 @@ const ContactUsPage = () => {
                     onChange={handleChange}
                   />
                   {errors.email && <p className="text-red-700 font-medium mb-2">{errors.email}</p>}
-                  <div className="contact_phone">
+                  {/* <div className="contact_phone">
                     <PhoneInput
                       international
                       defaultCountry="US"
@@ -133,7 +134,7 @@ const ContactUsPage = () => {
                       value={values.phone}
                     />
                   </div>
-                  {errors.phone && <p className="text-red-700 font-medium mb-2">{errors.phone}</p>}
+                  {errors.phone && <p className="text-red-700 font-medium mb-2">{errors.phone}</p>} */}
                   <textarea
                     type="text"
                     name="message"
