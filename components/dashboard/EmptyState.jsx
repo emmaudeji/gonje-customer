@@ -9,8 +9,8 @@ export const EmptyState = ({ errorName }) => {
         <div className="flex flex-col gap-y-3 justify-center items-center">
           <Image
             src="/images/mascot_gonje.png"
-            width={800}
-            height={800}
+            width={600}
+            height={400}
             alt="gonje mascot"
             priority={true}
           />
