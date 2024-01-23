@@ -9,16 +9,16 @@ export default function Brands({ toggleGetStarted }) {
     <>
       <section className="brandssec">
         <div className="container">
-          <div className="row justify-content-between">
+          <div className="row justify-content-between gap-y-12">
             <Fade left>
               <div className="col-xl-6 col-lg-12 brandbubbls">
-                <div className="brandscrcles">
-                  <div
+                <div className="flex flex-wrap">
+                  {/* <div
                     className="brandcecleimg brandclecle1 wow fadeInUp"
                     data-wow-duration="1s"
                     data-wow-delay="0.2s"
                   >
-                    <div className="relative md:w-32 md:h-24 w-8 h-8 lg:mx-auto mx-1">
+                    <div className="relative md:w-48 md:h-32 w-8 h-8 lg:mx-auto mx-1">
                       <Image
                         src="https://backendapi.gonje.com/public/gonje-storage/public/images/britannia-logo.png"
                         fill={true}
@@ -28,13 +28,13 @@ export default function Brands({ toggleGetStarted }) {
                         quality={30}
                       />
                     </div>
-                  </div>
+                  </div> */}
                   <div
-                    className="brandcecleimg brandclecle2 wow fadeInUp"
+                    className=""
                     data-wow-duration="1s"
                     data-wow-delay="0.4s"
                   >
-                    <div className="relative md:w-32 md:h-24 w-12 h-12 lg:mx-auto mx-2 mt-4">
+                    <div className="relative md:w-48 md:h-32 w-24 h-24 lg:mx-auto mx-2 mt-4">
                       <Image
                         src="https://backendapi.gonje.com/public/gonje-storage/public/images/kelloggs-logo.png"
                         fill={true}
@@ -46,11 +46,11 @@ export default function Brands({ toggleGetStarted }) {
                     </div>
                   </div>
                   <div
-                    className=" brandcecleimg brandclecle3 wow fadeInUp"
+                    className=""
                     data-wow-duration="1s"
                     data-wow-delay="0.6s"
                   >
-                    <div className="relative md:w-32 md:h-24 w-8 h-8 lg:mx-auto mx-3">
+                    <div className="relative md:w-48 md:h-32 w-24 h-24 lg:mx-auto mx-3">
                       <Image
                         src="https://backendapi.gonje.com/public/gonje-storage/public/images/cadbury-logo.png"
                         fill={true}
@@ -62,11 +62,11 @@ export default function Brands({ toggleGetStarted }) {
                     </div>
                   </div>
                   <div
-                    className="brandcecleimg brandclecle4 wow fadeInUp"
+                    className=""
                     data-wow-duration="1s"
                     data-wow-delay="0.8s"
                   >
-                    <div className="relative md:w-28 md:h-24 w-16 h-16 lg:ml-6 mx-2 mt-4">
+                    <div className="relative md:w-28 md:h-32 w-24 h-24 lg:ml-6 mx-2 mt-4">
                       <Image
                         src="https://backendapi.gonje.com/public/gonje-storage/public/images/everest-logo.png"
                         fill={true}
@@ -78,11 +78,11 @@ export default function Brands({ toggleGetStarted }) {
                     </div>
                   </div>
                   <div
-                    className="brandcecleimg brandclecle5 wow fadeInUp pr-5"
+                    className="wow fadeInUp pr-5"
                     data-wow-duration="1s"
                     data-wow-delay="0.9s"
                   >
-                    <div className="relative md:w-32 md:h-24 w-8 h-8 lg:mx-auto mx-3">
+                    <div className="relative md:w-48 md:h-32 w-24 h-24 lg:mx-auto mx-3">
                       <Image
                         src="https://backendapi.gonje.com/public/gonje-storage/public/images/nestle-logo.png"
                         fill={true}
@@ -94,11 +94,11 @@ export default function Brands({ toggleGetStarted }) {
                     </div>
                   </div>
                   <div
-                    className="brandcecleimg brandclecle6 wow fadeInUp"
+                    className="wow fadeInUp"
                     data-wow-duration="1s"
                     data-wow-delay="1.2s"
                   >
-                    <div className="relative md:w-32 md:h-24 w-8 h-8 lg:mx-auto mx-3">
+                    <div className="relative md:w-48 md:h-32 w-24 h-24 lg:mx-auto mx-3">
                       <Image
                         src="https://backendapi.gonje.com/public/gonje-storage/public/images/malta-guiness-1.png"
                         fill={true}

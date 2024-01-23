@@ -16,6 +16,7 @@ import VerifyOtp from "./VerifyOtp";
 import GifLoader from "./GifLoader";
 import Image from "next/image";
 import Link from "next/link.js";
+import { SignupDialog } from "./MailChimp.js";
 
 export default function NavLayout({ isOpenGetStarted, toggleGetStarted }) {
   const [apimsgs, apiSetmsgs] = useState({});
@@ -257,7 +258,7 @@ export default function NavLayout({ isOpenGetStarted, toggleGetStarted }) {
                     {[
                       { href: "/howItworks", label: "How it works" },
                       { href: "/aboutUs", label: "About Us" },
-                      { href: "/signin/customer", label: "Sign in" },
+                      // { href: "/signin/customer", label: "Sign in" },
                       // { href: "/signup/customer", label: "Get Started" },
                     ].map((link, index) => (
                       <li className="nav-item" key={index}>
@@ -267,6 +268,7 @@ export default function NavLayout({ isOpenGetStarted, toggleGetStarted }) {
                         </Link>
                       </li>
                     ))}
+                    <SignupDialog/>
                   </ul>
                 </div>
               </div>

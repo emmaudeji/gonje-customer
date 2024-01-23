@@ -45,7 +45,32 @@ export function FormDialog({ subscribe, status, message }) {
       <DialogTrigger asChild>
         <Button className="bg-gonje-green">Get Started</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md h-[58%]">
+      <DialogContent className="sm:max-w-md h-[58%] !bg-[url('/images/popuptop.png')]">
+        <DialogHeader>
+          <DialogTitle>Subscribe to our mailing list</DialogTitle>
+          <DialogDescription>
+            Join Our Waitlist to receive free delivery, BBQ Grills and many more
+            surprises for the first 500 subscribers.
+          </DialogDescription>
+        </DialogHeader>
+        <ProfileForm
+          {...{ status, message, setOpen }}
+          onValidated={(formData) => subscribe(formData)}
+        />
+      </DialogContent>
+    </Dialog>
+  );
+}
+export function SignupDialog({ subscribe, status, message }) {
+  // console.log(subscribe, status, message);
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <li className="nav-item font-semibold">Sign In</li>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-md h-[58%] !bg-[url('/images/popuptop.png')]">
         <DialogHeader>
           <DialogTitle>Subscribe to our mailing list</DialogTitle>
           <DialogDescription>
