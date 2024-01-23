@@ -64,17 +64,11 @@ export default function Footer({ toggleGetStarted }) {
               <div className="footeinr">
                 <h3>The Company</h3>
                 <ul className="footerlinks text-white">
-                  <li>
-                    <a>About</a>
+                  <li className="cursor-pointer">
+                    <Link href={`/about`}>About</Link>
                   </li>
-                  <li>
-                    <a
-                      onClick={() => {
-                        route.push("/terms");
-                      }}
-                    >
-                      Terms & Conditions
-                    </a>
+                  <li className="cursor-pointer">
+                    <Link href={`/terms`}>Terms & Conditions</Link>
                   </li>
                   <li
                     onClick={openModalVendor}

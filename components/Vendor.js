@@ -120,15 +120,13 @@ export default function Vendor() {
               <Fade right>
                 <div className="col-lg-6 col-md-12 shrink-0">
                   <div
-                    className="vendorimg wow fadeInUp"
+                    className="vendorimg wow fadeInUp relative md:w-[750px] md:h-[600px]"
                     data-wow-duration="1s"
                     data-wow-delay="0.2s"
                   >
                     <Image
                       src="https://backendapi.gonje.com/public/gonje-storage/public/images/mascot_bg.png"
-                      layout="fixed"
-                      height={1000}
-                      width={500}
+                      fill={true}         
                       alt=""
                     />
                   </div>
