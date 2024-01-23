@@ -10,7 +10,7 @@ const InitialValues = {
   name: "",
   email: "",
   message: "",
-  phone: "",
+  // phone: "",
 };
 
 const ContactUsPage = () => {
@@ -28,6 +28,7 @@ const ContactUsPage = () => {
     // console.log(values)
     const error = checkContactUsFields();
     setErrors(error);
+    console.log(error)
     const isAnyError = Object.values(error).filter((el) => !!el);
     // console.log(isAnyError)
     if (isAnyError.length === 0) {
@@ -36,7 +37,9 @@ const ContactUsPage = () => {
       SetValues(InitialValues);
     }
   };
-
+      // else if (key == "phone") {
+      //   error[key] = validatePhone(item) || "";
+      // }
   const checkContactUsFields = () => {
     const error = {};
     Object.keys(values).forEach((key) => {
@@ -46,9 +49,6 @@ const ContactUsPage = () => {
       } else if (key == "email") {
         error[key] = validateEmail(item) || "";
       } 
-      // else if (key == "phone") {
-      //   error[key] = validatePhone(item) || "";
-      // }
     });
     return error;
   };

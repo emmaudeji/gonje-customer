@@ -145,7 +145,6 @@ export default function TrendingProducts({ toggleGetStarted }) {
                 </p>
               </div>
             </Fade>
-
             <div className="trensdingslider slider">
               <Fade left>
                 <Carousel
@@ -179,7 +178,9 @@ export default function TrendingProducts({ toggleGetStarted }) {
                           <h4>new</h4>
                         </div>
                         <div className="off">
-                          <h4>-40%</h4>
+                          <h4 class="text-decoration-line-through">$8.00</h4>
+                          <br></br>
+                          <span class="h5">$4.80</span>
                         </div>
                       </div>
                       <div className="productcontent">
@@ -233,9 +234,14 @@ export default function TrendingProducts({ toggleGetStarted }) {
                           </ul>
                         </div>
                         <h4>Grapes</h4>
-                        <Link className="bttn" href={`/signin/customer`}>
-                          Get Started
-                        </Link>
+                        {/* <a
+                        className="bttn"
+                        onClick={() => {
+                          toggleGetStarted(true);
+                        }}
+                      >
+                        Get Started
+                      </a> */}
                       </div>
                     </div>
                   </div>
@@ -259,7 +265,9 @@ export default function TrendingProducts({ toggleGetStarted }) {
                           <h4>new</h4>
                         </div>
                         <div className="off">
-                          <h4>-40%</h4>
+                          <h4 class="text-decoration-line-through">$6.00</h4>
+                          <br></br>
+                          <span class="h5">$3.60</span>
                         </div>
                       </div>
                       <div className="productcontent">
@@ -313,9 +321,14 @@ export default function TrendingProducts({ toggleGetStarted }) {
                           </ul>
                         </div>
                         <h4>Onions</h4>
-                        <Link className="bttn" href={`/signin/customer`}>
-                          Get Started
-                        </Link>
+                        {/* <a
+                        className="bttn"
+                        onClick={() => {
+                          toggleGetStarted(true);
+                        }}
+                      >
+                        Get Started
+                      </a> */}
                       </div>
                     </div>
                   </div>
@@ -339,7 +352,9 @@ export default function TrendingProducts({ toggleGetStarted }) {
                           <h4>new</h4>
                         </div>
                         <div className="off">
-                          <h4>-40%</h4>
+                          <h4 class="text-decoration-line-through">$5.00</h4>
+                          <br></br>
+                          <span class="h5">$3.00</span>
                         </div>
                       </div>
                       <div className="productcontent">
@@ -393,9 +408,14 @@ export default function TrendingProducts({ toggleGetStarted }) {
                           </ul>
                         </div>
                         <h4>Bananas</h4>
-                        <Link className="bttn" href={`/signin/customer`}>
-                          Get Started
-                        </Link>
+                        {/* <a
+                        className="bttn"
+                        onClick={() => {
+                          toggleGetStarted(true);
+                        }}
+                      >
+                        Get Started
+                      </a> */}
                       </div>
                     </div>
                   </div>
@@ -419,7 +439,9 @@ export default function TrendingProducts({ toggleGetStarted }) {
                           <h4>new</h4>
                         </div>
                         <div className="off">
-                          <h4>-40%</h4>
+                          <h4 class="text-decoration-line-through">$7.00</h4>
+                          <br></br>
+                          <span class="h5">$4.20</span>
                         </div>
                       </div>
                       <div className="productcontent">
@@ -473,9 +495,14 @@ export default function TrendingProducts({ toggleGetStarted }) {
                           </ul>
                         </div>
                         <h4>Tomatoes</h4>
-                        <Link className="bttn" href={`/signin/customer`}>
-                          Get Started
-                        </Link>
+                        {/* <a
+                        className="bttn"
+                        onClick={() => {
+                          toggleGetStarted(true);
+                        }}
+                      >
+                        Get Started
+                      </a> */}
                       </div>
                     </div>
                   </div>
@@ -496,7 +523,9 @@ export default function TrendingProducts({ toggleGetStarted }) {
                           <h4>new</h4>
                         </div>
                         <div className="off">
-                          <h4>-40%</h4>
+                          <h4 class="text-decoration-line-through">$4.00 </h4>
+                          <br></br>
+                          <span class="h5"> $2.40</span>
                         </div>
                       </div>
                       <div className="productcontent">
@@ -550,9 +579,14 @@ export default function TrendingProducts({ toggleGetStarted }) {
                           </ul>
                         </div>
                         <h4>Oranges</h4>
-                        <Link className="bttn" href={`/signin/customer`}>
-                          Get Started
-                        </Link>
+                        {/* <a
+                        className="bttn"
+                        onClick={() => {
+                          toggleGetStarted(true);
+                        }}
+                      >
+                        Get Started
+                      </a> */}
                       </div>
                     </div>
                   </div>
@@ -572,7 +606,9 @@ export default function TrendingProducts({ toggleGetStarted }) {
                           <h4>new</h4>
                         </div>
                         <div className="off">
-                          <h4>-40%</h4>
+                          <h4 class="text-decoration-line-through">$7.50</h4>
+                          <br></br>
+                          <span class="h5">$4.50</span>
                         </div>
                       </div>
                       <div className="productcontent">
@@ -626,9 +662,14 @@ export default function TrendingProducts({ toggleGetStarted }) {
                           </ul>
                         </div>
                         <h4>Eggs</h4>
-                        <Link className="bttn" href={`/signin/customer`}>
-                          Get Started
-                        </Link>
+                        {/* <a
+                        className="bttn"
+                        onClick={() => {
+                          toggleGetStarted(true);
+                        }}
+                      >
+                        Get Started
+                      </a> */}
                       </div>
                     </div>
                   </div>
@@ -648,7 +689,9 @@ export default function TrendingProducts({ toggleGetStarted }) {
                           <h4>new</h4>
                         </div>
                         <div className="off">
-                          <h4>-40%</h4>
+                          <h4 class="text-decoration-line-through">$6.50</h4>
+                          <br></br>
+                          <span class="h5">$4.10</span>
                         </div>
                       </div>
                       <div className="productcontent">
@@ -702,9 +745,14 @@ export default function TrendingProducts({ toggleGetStarted }) {
                           </ul>
                         </div>
                         <h4>Potatoes</h4>
-                        <Link className="bttn" href={`/signin/customer`}>
-                          Get Started
-                        </Link>
+                        {/* <a
+                        className="bttn"
+                        onClick={() => {
+                          toggleGetStarted(true);
+                        }}
+                      >
+                        Get Started
+                      </a> */}
                       </div>
                     </div>
                   </div>
