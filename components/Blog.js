@@ -188,7 +188,7 @@ export default function Blog() {
                         <li>
                           <a>
                             <Image
-                              src="/images/google.png"
+                              src="https://backendapi.gonje.com/public/gonje-storage/public/images/google.png"
                               layout="fixed"
                               height={67}
                               width={218}

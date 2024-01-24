@@ -65,7 +65,7 @@ export default function Footer({ toggleGetStarted }) {
                 <h3>The Company</h3>
                 <ul className="footerlinks text-white">
                   <li className="cursor-pointer">
-                    <Link href={`/about`}>About</Link>
+                    <Link href={`/aboutUs`}>About Us</Link>
                   </li>
                   <li className="cursor-pointer">
                     <Link href={`/terms`}>Terms & Conditions</Link>
