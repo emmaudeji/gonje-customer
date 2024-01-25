@@ -5,6 +5,7 @@ import "react-phone-number-input/style.css";
 import { validateEmail, validatePhone } from "../../util";
 import { contactUs } from "../Api/Api";
 import toasts from "../shared/toast";
+import Link from "next/link";
 
 const InitialValues = {
   name: "",
@@ -28,7 +29,7 @@ const ContactUsPage = () => {
     // console.log(values)
     const error = checkContactUsFields();
     setErrors(error);
-    console.log(error)
+    console.log(error);
     const isAnyError = Object.values(error).filter((el) => !!el);
     // console.log(isAnyError)
     if (isAnyError.length === 0) {
@@ -37,9 +38,9 @@ const ContactUsPage = () => {
       SetValues(InitialValues);
     }
   };
-      // else if (key == "phone") {
-      //   error[key] = validatePhone(item) || "";
-      // }
+  // else if (key == "phone") {
+  //   error[key] = validatePhone(item) || "";
+  // }
   const checkContactUsFields = () => {
     const error = {};
     Object.keys(values).forEach((key) => {
@@ -48,7 +49,7 @@ const ContactUsPage = () => {
         error[key] = `${key} is required`;
       } else if (key == "email") {
         error[key] = validateEmail(item) || "";
-      } 
+      }
     });
     return error;
   };
@@ -63,33 +64,42 @@ const ContactUsPage = () => {
 
       <section className="delivery-door bg-white">
         <div className="container">
-          <div className="row ">
-            <div className="col-xl-6">
+          <div className="flex items-center justify-center">
+            <div className="">
               <div className="img-wrap">
                 <div>
                   <p className="pt-5">
-                  <span className="fw-bold"><br></br><br></br> We&apos;re thrilled to hear from you! Whether you have questions,<br></br> suggestions, or feedback, our team is ready to
-                   assist you. Please feel free to reach out to us.
-                  </span> 
-                   <br></br> <br></br><span className="fw-bold">Customer Support</span><br></br>
-                  Our dedicated customer support team is here to address any <br></br>inquiries or concerns you may have. 
-                  We value your experience with our platform, and our representatives are committed to providing 
-                  prompt and <br></br> helpful assistance.
-
-
-
-                    
+                    <span className="fw-bold">
+                      <br></br>
+                      <br></br> We&apos;re thrilled to hear from you! Whether
+                      you have questions,<br></br> suggestions, or feedback, our
+                      team is ready to assist you. Please feel free to reach out
+                      to us.
+                    </span>
+                    <br></br> <br></br>
+                    <span className="fw-bold">Customer Support</span>
+                    <br></br>
+                    Our dedicated customer support team is here to address any{" "}
+                    <br></br>inquiries or concerns you may have. We value your
+                    experience with our platform, and our representatives are
+                    committed to providing prompt and <br></br> helpful
+                    assistance.
                   </p>
 
-                  <div className="company_detail">
-                    <div className="email d-flex">
+                  <div className="company_detail mt-2">
+                    <div className="email d-flex gap-x-3">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 512 512"
                       >
                         <path d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z" />
                       </svg>
-                      <p className="mb-0 ">info@onjegroup.com.au </p>
+                      <Link
+                        href={`mailto:info@onjegroup.com.au`}
+                        className="font-semibold"
+                      >
+                        info@onjegroup.com.au
+                      </Link>
                     </div>
                     <div className="email d-flex">
                       <svg
@@ -104,7 +114,7 @@ const ContactUsPage = () => {
                 </div>
               </div>
             </div>
-            <div className="col-xl-6">
+            {/* <div className="col-xl-6">
               <div className="heading wow fadeInUp">
                 <h2>Contact Form </h2>
               </div>
@@ -126,7 +136,7 @@ const ContactUsPage = () => {
                     onChange={handleChange}
                   />
                   {errors.email && <p className="text-red-700 font-medium mb-2">{errors.email}</p>}
-                  {/* <div className="contact_phone">
+                  <div className="contact_phone">
                     <PhoneInput
                       international
                       defaultCountry="US"
@@ -134,7 +144,7 @@ const ContactUsPage = () => {
                       value={values.phone}
                     />
                   </div>
-                  {errors.phone && <p className="text-red-700 font-medium mb-2">{errors.phone}</p>} */}
+                  {errors.phone && <p className="text-red-700 font-medium mb-2">{errors.phone}</p>}
                   <textarea
                     type="text"
                     name="message"
@@ -151,7 +161,7 @@ const ContactUsPage = () => {
                   </button>
                 </div>
               </form>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
