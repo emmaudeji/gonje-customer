@@ -15,12 +15,16 @@ const getAllCartItems = (data) => {
 const deleteCart = () => {
   return Httpcommon.post("deleteCart");
 };
+const clearCart = (data) => {
+  return Httpcommon.post("deleteCart", data);
+};
 
 const cartService = {
   getCount,
   addCart,
   getAllCartItems,
   deleteCart,
+  clearCart
 };
 
 export default cartService;
