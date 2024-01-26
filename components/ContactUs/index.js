@@ -64,8 +64,8 @@ const ContactUsPage = () => {
 
       <section className="delivery-door bg-white">
         <div className="container">
-          <div className="flex items-center justify-center">
-            <div className="">
+          <div className="flex items-center justify-between">
+            <div className="col-xl-6">
               <div className="img-wrap">
                 <div>
                   <p className="pt-5">
@@ -114,7 +114,7 @@ const ContactUsPage = () => {
                 </div>
               </div>
             </div>
-            {/* <div className="col-xl-6">
+            <div className="col-xl-6">
               <div className="heading wow fadeInUp">
                 <h2>Contact Form </h2>
               </div>
@@ -136,7 +136,7 @@ const ContactUsPage = () => {
                     onChange={handleChange}
                   />
                   {errors.email && <p className="text-red-700 font-medium mb-2">{errors.email}</p>}
-                  <div className="contact_phone">
+                  {/* <div className="contact_phone">
                     <PhoneInput
                       international
                       defaultCountry="US"
@@ -144,7 +144,7 @@ const ContactUsPage = () => {
                       value={values.phone}
                     />
                   </div>
-                  {errors.phone && <p className="text-red-700 font-medium mb-2">{errors.phone}</p>}
+                  {errors.phone && <p className="text-red-700 font-medium mb-2">{errors.phone}</p>} */}
                   <textarea
                     type="text"
                     name="message"
@@ -161,7 +161,7 @@ const ContactUsPage = () => {
                   </button>
                 </div>
               </form>
-            </div> */}
+            </div>
           </div>
         </div>
       </section>
