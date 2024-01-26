@@ -1,4 +1,4 @@
-import { ADD_CART_PRODUCT, LISTING_CART_PRODUCT } from "./type";
+import { ADD_CART_PRODUCT, LISTING_CART_PRODUCT, CLEAR_CART } from "./type";
 import cartService from "../services/CartService.js";
 export const addCartProduct =
   (user_id, product_id, shop_id, product_quantity) => async (dispatch) => {
@@ -19,7 +19,19 @@ export const addCartProduct =
       return Promise.reject(err);
     }
   };
-
+export const clearCartProduct = (email) => async (dispatch) => {
+  try {
+    const res = await cartService.clearCart();
+    dispatch({
+      type: CLEAR_CART,
+      payload: res.data,
+    });
+    return Promise.resolve(res.data);
+  } catch (err) {
+    console.log(err);
+    return Promise.reject(err);
+  }
+};
 export const listingCartProduct = (user_id) => async (dispatch) => {
   try {
     const res = await cartService.getAllCartItems(user_id);

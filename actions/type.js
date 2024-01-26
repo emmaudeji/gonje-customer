@@ -17,6 +17,7 @@ export const SET_SHOPID = "SET_SHOPID";
 export const SET_USER_DETAIL = "SET_USER_DETAIL";
 
 export const ADD_CART_PRODUCT = "ADD_CART_PRODUCT";
+export const CLEAR_CART = "CLEAR_CART";
 
 export const LISTING_CART_PRODUCT = "LISTING_CART_PRODUCT";
 
