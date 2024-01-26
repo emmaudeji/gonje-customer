@@ -157,8 +157,7 @@ export default function Orders() {
                     </div>
                   </div>
                   <hr className="second-divider" />
-                  <div className="checkout flex flex-col md:flex-row gap-y-4  justify-content-between px-4 py-2">
-                    <UpdateDelivery />
+                  <div className="checkout py-2 px-4">
                     <Reorder order_id={result.id}></Reorder>
                   </div>
                 </div>
@@ -174,28 +173,3 @@ export default function Orders() {
     </>
   );
 }
-
-const UpdateDelivery = () => {
-  return (
-    <AlertDialog>
-      <AlertDialogTrigger>
-        <Button type="button" className="flex gap-x-2 text-sm h-9 bg-gonje-green w-full">
-          <Plus size={16} />
-          <span>Confirm</span>
-        </Button>
-      </AlertDialogTrigger>
-      <AlertDialogContent>
-        <AlertDialogHeader>
-          <AlertDialogTitle>Update your order</AlertDialogTitle>
-          <AlertDialogDescription>
-            
-          </AlertDialogDescription>
-        </AlertDialogHeader>
-        <AlertDialogFooter className="items-center justify-center gap-x-4">
-          <AlertDialogCancel className="bg-red-700 text-white">Cancel</AlertDialogCancel>
-          <AlertDialogAction className="bg-gonje-green">Continue</AlertDialogAction>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
-  );
-};

@@ -25,7 +25,7 @@ const YourOrder = ({ delivery_fee }) => {
 
   return (
     <>
-      <div className="col-xl-6 col-lg-12">
+      <div className="col-xl-6 col-lg-12 bg-white">
         <div className="my-schedule shipping-address checkout">
           <div className="top-heading">
             <h3>Your Order</h3>
@@ -57,14 +57,15 @@ const YourOrder = ({ delivery_fee }) => {
                   <hr className="w-100" />
                 </Fragment>
               ))}
-
-            <div className="total-amount fdfdd">
-              <strong>Delivery Fee</strong>
+          </div>
+          <div className="px-12">
+            <div className="text-lg flex justify-between">
+              <strong className="text-gonje-green">Delivery Fee</strong>
               <span>${delivery_fee ? delivery_fee : 0} </span>
             </div>
 
-            <div className="total-amount fdfdd">
-              <strong>Total</strong>
+            <div className="total-amount flex justify-between">
+              <strong className="text-gonje-green">Total</strong>
               <span>
                 $
                 {cart?.subTotal

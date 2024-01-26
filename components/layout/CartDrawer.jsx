@@ -12,14 +12,24 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { listingCartProduct } from "../../actions/addcarts.js";
+import {
+  clearCartProduct,
+  listingCartProduct,
+} from "../../actions/addcarts.js";
 import { addCartProduct } from "../../actions/addcarts.js";
 import { retrieveCount } from "../../actions/carts.js";
 import UserDataService from "../../services/UserService";
 import Countdown from "react-countdown";
 import moment from "moment";
 import Image from "next/image";
-import { CheckCircle2, Minus, Plus, ShoppingCart, X } from "lucide-react";
+import {
+  CheckCircle2,
+  Minus,
+  Plus,
+  ShoppingCart,
+  Trash,
+  X,
+} from "lucide-react";
 import CartCount from "./CartCount.js";
 
 export const CartDrawer = () => {
@@ -33,7 +43,6 @@ export const CartDrawer = () => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.userdetails);
   const users = useSelector((state) => state.users);
-
   const AddQuantity = () => {
     setQuantity((prev) => prev + 1);
   };
@@ -57,6 +66,16 @@ export const CartDrawer = () => {
         successMsg(data.message);
         setCartResponseMessage(data.message);
         dispatch(retrieveCount(data.cart_count));
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+  const clearCart = () => {
+    dispatch(clearCartProduct())
+      .then((data) => {
+        console.log(data);
+        fetchData()
       })
       .catch((e) => {
         console.log(e);
@@ -89,10 +108,9 @@ export const CartDrawer = () => {
             successMsg(""); // Make sure this function exists
             setCartResponseMessage("");
             // console.log("response", response);
-          }
-          else{
-            setApiResponse("")
-            successMsg(""); 
+          } else {
+            setApiResponse("");
+            successMsg("");
             setCartResponseMessage("");
           }
         })
@@ -139,6 +157,16 @@ export const CartDrawer = () => {
           role="list"
           className="-my-6 divide-y divide-gray-200 space-y-3 px-3 max-h-[70%] overflow-y-scroll"
         >
+          {apires.data && (
+            <button
+              className="flex justify-end items-center gap-x-1 text-red-600"
+              name="clear-cart"
+              onClick={clearCart}
+            >
+              <Trash size={16} />
+              <p>Clear Cart</p>
+            </button>
+          )}
           {apires.data &&
             apires.data.map((result, index) => (
               <li key={index} className="flex py-6">
