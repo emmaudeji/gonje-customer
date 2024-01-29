@@ -162,7 +162,13 @@ export default function Dashboard() {
     { name: "Retail", icon: Backpack },
     { name: "Deals", icon: PercentSquare },
   ];
-
+  const displayImage = (url) => {
+    // Replace backward slashes with forward slashes
+    const adjustedUrl = url.replace(/\\/g, "/");
+    // Check if the URL has a leading slash, add it if missing
+    const finalUrl = adjustedUrl.startsWith("/") ? adjustedUrl : adjustedUrl;
+    return finalUrl;
+  };
   return (
     <DashboardLayout>
       {/* <div className={`main ${classToggle ? "main-content" : ""}`}></div> */}
@@ -196,9 +202,9 @@ export default function Dashboard() {
                         <div className="flex flex-col gap-y-2 items-center justify-center">
                           {result?.logo && !Array.isArray(result?.logo) ? (
                             <div className="relative w-[64px] h-[48px] md:w-[72px] md:h-[64px] rounded-lg">
-                              <Image
+                             <Image
                                 fill={true}
-                                src={result?.logo?.thumbnail}
+                                src={displayImage(result?.logo?.thumbnail)}
                                 alt=""
                                 className="bg-cover rounded-lg"
                               />
