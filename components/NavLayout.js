@@ -268,7 +268,7 @@ export default function NavLayout({ isOpenGetStarted, toggleGetStarted }) {
                         </Link>
                       </li>
                     ))}
-                    <SignupDialog/>
+                    <SignupDialog />
                   </ul>
                 </div>
               </div>
@@ -277,9 +277,7 @@ export default function NavLayout({ isOpenGetStarted, toggleGetStarted }) {
               <button
                 className="navbar-toggler collapsed"
                 type="button"
-                onClick={() => {
-                  navBarToggler();
-                }}
+                onClick={navBarToggler}
               >
                 <span className="navbar-toggler-icon">
                   <i className="fa fa-bars" aria-hidden="true"></i>
@@ -292,49 +290,19 @@ export default function NavLayout({ isOpenGetStarted, toggleGetStarted }) {
                   id="collapsibleNavbar"
                 >
                   <ul className="navbar-nav  z-50">
-                    <li className="nav-item">
-                      <a
-                        className="nav-link"
-                        onClick={() => {
-                          Router.push("/howItworks");
-                        }}
-                      >
-                        How it works
-                        {/* <img src="images/arrow1.svg" /> */}
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a
-                        className="nav-link"
-                        onClick={() => {
-                          Router.push("/aboutUs");
-                        }}
-                      >
-                        About Us
-                        {/* <img src="images/arrow1.svg" /> */}
-                      </a>
-                    </li>
-
-                    <li className="nav-item">
-                      <a
-                        className="nav-link"
-                        type="button"
-                        // onClick={onOpenSigninModal}
-                        onClick={() => Router.push(`/signin/customer`)}
-                      >
-                        sign in
-                      </a>
-                    </li>
-
-                    <li className="nav-item getstartedbtn bttn">
-                      <a
-                        onClick={onOpenModal}
-                        className="nav-link bttn"
-                        type="button"
-                      >
-                        Get Started
-                      </a>
-                    </li>
+                    {[
+                      { href: "/howItworks", label: "How it works" },
+                      { href: "/aboutUs", label: "About Us" },
+                      // { href: "/signin/customer", label: "Sign in" },
+                      // { href: "/signup/customer", label: "Get Started" },
+                    ].map((link, index) => (
+                      <li className="nav-item">
+                        <Link className="nav-link" href={link?.href}>
+                          {link?.label}
+                        </Link>
+                      </li>
+                    ))}
+                    <SignupDialog />
                   </ul>
                 </div>
               </div>
