@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import MailChimp from "../MailChimp";
 
 const HowItWorksPage = () => {
   return (
@@ -159,13 +160,13 @@ const HowItWorksPage = () => {
               <div className="outer-wrap no-2 d-flex">
                 <div className="choose-product">
                   <h4>Product Delivered</h4>
-                  <p>
-                    {" "}
+                  <p className="mb-2">
                     After packing the order, the next step is to deliver it to
                     your doorstep. You can track the order delivery in real-time
                     on the Gonje platform. Orders will be shipped the same day
                     only if you place them before 11 am from Monday to Friday.{" "}
                   </p>
+                  <MailChimp/>
                 </div>
                 <Image
                   layout="fixed"

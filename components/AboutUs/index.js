@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React from "react";
+
+////fileimport 
+import MailChimp from "../MailChimp";
 
 const AboutUsPage = () => {
   const router = useRouter();
@@ -107,16 +109,6 @@ const AboutUsPage = () => {
               <div className="ps-3 content-left">
                 <strong>About Us</strong>
                 <p className="my-3">
-                  {" "}
-                  {/* Gonje is an innovative e-commerce platform for local suppliers
-                  and independent food producers. Established in Melbourne,
-                  Australia 2014, Gonje is focused on bridging the intercultural
-                  gap through food, encouraging local suppliers to be more
-                  competitive in the current disruptive environment. Our goal is
-                  to create opportunities for suppliers whilst providing options
-                  of unique flavors, intercontinental food products, and
-                  ingredients to customers in their locality. Furthermore, we
-                  help users shop from local producers, independent retailers. */}
                   Gonje is an innovative online marketplace for local farmers
                   and independent food producers. Established in 2021 in
                   Australia, Gonje is working on bridging culture through food
@@ -125,15 +117,7 @@ const AboutUsPage = () => {
                   ingredients. Furthermore, we help users shop from local
                   producers, independent retailers in your locality.
                 </p>
-                <button
-                  type="button"
-                  className="btn btn-success main-butn"
-                  onClick={() => {
-                    router.push("/contactUs");
-                  }}
-                >
-                  Contact US
-                </button>
+                <MailChimp/>
               </div>
             </div>
           </div>
