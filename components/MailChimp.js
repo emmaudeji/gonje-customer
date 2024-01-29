@@ -68,7 +68,7 @@ export function SignupDialog({ subscribe, status, message }) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <li className="nav-item font-semibold">Sign In</li>
+        <li className="nav-item font-semibold px-4 py-3">Sign In</li>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md h-[58%] !bg-[url('/images/popuptop.png')]">
         <DialogHeader>

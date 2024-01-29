@@ -18,7 +18,7 @@ const FAQPage = () => {
         <div className="container">
           <div className="col-xl-9">
             <div className="faq-wrap">
-              <div className="accordion" id="accordionExample">
+            <div className="accordion" id="accordionExample">
                 {faqs.map((item, index) => {
                   return (
                     <div className="accordion-item" key={`key_${index}`}>
