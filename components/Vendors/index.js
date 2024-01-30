@@ -2,6 +2,8 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import Fade from "react-reveal/Fade";
 import React from "react";
+import MailChimp from "@/components/MailChimp";
+
 // get started
 const VendorsPage = () => {
   const router = useRouter();
@@ -168,12 +170,12 @@ const VendorsPage = () => {
               <div className="col-xl-6">
                 <div className="ps-3 content-left pt-5 mt-5">
                   <strong>Analytics</strong>
-                  <p>
-                    {" "}
+                  <p className="mb-2">
                     Our data-driven marketing strategies will help you engage
                     customers, boost conversion rates, and establish your brand
                     as a customer favorite.
                   </p>
+                  <MailChimp />
                 </div>
               </div>
             </Fade>
@@ -199,7 +201,7 @@ const VendorsPage = () => {
           <Fade top>
             <div className="upper-head mt-5 text-center">
               <h4>Showcase to a Broad Customer Base</h4>
-              <p>
+              <p className="mb-2">
                 {" "}
                 Gonje offers you an extensive and diverse customer base, giving
                 your products unparalleled exposure to a vast audience of eager
@@ -210,15 +212,8 @@ const VendorsPage = () => {
                 brand will be represented in front of a dynamic customer base
                 actively seeking high-quality products.
               </p>
-              {/* <button
-                  type="button"
-                  className="btn btn-success main-butn"
-                  onClick={() => {
-                    router.push("/contactUs");
-                  }}
-                >
-                  Get Started
-                </button> */}
+              <MailChimp/>
+
             </div>
           </Fade>
         </div>
@@ -228,8 +223,7 @@ const VendorsPage = () => {
           <Fade top>
             <div className="upper-head mt-5 text-center">
               <h4>Boost Your Business and Expand Your Reach</h4>
-              <p>
-                {" "}
+              <p className="mb-2">                
                 Dissolve the barriers of traditional selling and expand your
                 business beyond geographical boundaries. By joining Gonje, you
                 can reach customers from different corners of the globe,
@@ -246,15 +240,7 @@ const VendorsPage = () => {
                 stay informed, and make data-driven decisions to optimize your
                 performance and drive success.
               </p>
-              {/* <button
-                  type="button"
-                  className="btn btn-success main-butn"
-                  onClick={() => {
-                    router.push("/contactUs");
-                  }}
-                >
-                  Get Started
-                </button> */}
+              <MailChimp />
             </div>
           </Fade>
 
