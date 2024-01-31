@@ -98,9 +98,9 @@ export default function Recepies() {
                       data-wow-duration="1s"
                       data-wow-delay="0.4s"
                     >
-                      <h3>Eba and Egusi</h3>
+                      <h3>Fufu and Egusi</h3>
                       <p>
-                      Eba and Egusi recipe ingredients now available at Gonje. Order now!
+                      Fufu and Egusi recipe ingredients now available at Gonje. Order now!
                       </p>
                     </div>
 
@@ -109,7 +109,7 @@ export default function Recepies() {
                       style={{ display: isShownImg ? "block" : "none" }}
                     >
                       <Image
-                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/eba-n-egusi.png"
+                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/fufu2.png"
                         className="recepimg1 wow fadeInUp"
                         data-wow-duration="1s"
                         data-wow-delay="0.2s"
