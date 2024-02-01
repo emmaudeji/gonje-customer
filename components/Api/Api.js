@@ -56,7 +56,57 @@ export const login = (values) => {
       console.log("error in api", error);
     });
 };
-
+export const forgotPassword = async (email) => {
+  // debugger
+  return axios({
+    method: "post",
+    headers: authHeader(),
+    url: url + "forget-password",
+    data: {
+      email: email,
+    },
+  })
+    .then((response) => response.data)
+    .catch((error) => {
+      console.log("error in api", error);
+      return error
+    });
+};
+export const vertifyToken = async (email,token) => {
+  // debugger
+  return axios({
+    method: "post",
+    headers: authHeader(),
+    url: url + "verify-forget-password-token",
+    data: {
+      email: email,
+      token:token
+    },
+  })
+    .then((response) => response.data)
+    .catch((error) => {
+      console.log("error in api", error);
+      return error
+    });
+};
+export const resetPassword = async (email,token,password) => {
+  // debugger
+  return axios({
+    method: "post",
+    headers: authHeader(),
+    url: url + "reset-password",
+    data: {
+      email: email,
+      token:token,
+      password:password
+    },
+  })
+    .then((response) => response.data)
+    .catch((error) => {
+      console.log("error in api", error);
+      return error
+    });
+};
 export const newsletter = (values) => {
   return axios({
     method: "post",

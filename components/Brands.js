@@ -13,22 +13,8 @@ export default function Brands({ toggleGetStarted }) {
             <Fade left>
               <div className="col-xl-6 col-lg-12 brandbubbls">
                 <div className="flex flex-wrap">
-                  {/* <div
-                    className="brandcecleimg brandclecle1 wow fadeInUp"
-                    data-wow-duration="1s"
-                    data-wow-delay="0.2s"
-                  >
-                    <div className="relative md:w-48 md:h-32 w-8 h-8 lg:mx-auto mx-1">
-                      <Image
-                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/britannia-logo.png"
-                        fill={true}
-                        // objectFit="scale-down"
-                        alt="britannia-logo"
-                        className=" object-contain bg-cover lg:mt-1 !mt-12"
-                        quality={30}
-                      />
-                    </div>
-                  </div> */}
+                <div class="grid grid-cols-2 gap-x-4">
+                <div class="col-span-1 row-span-1">
                   <div
                     className=""
                     data-wow-duration="1s"
@@ -45,6 +31,8 @@ export default function Brands({ toggleGetStarted }) {
                       />
                     </div>
                   </div>
+                </div>
+                <div class="col-span-1 row-span-1">
                   <div
                     className=""
                     data-wow-duration="1s"
@@ -61,6 +49,9 @@ export default function Brands({ toggleGetStarted }) {
                       />
                     </div>
                   </div>
+                </div>
+                <div class="col-span-1 row-span-1">
+                  {" "}
                   <div
                     className=""
                     data-wow-duration="1s"
@@ -77,6 +68,9 @@ export default function Brands({ toggleGetStarted }) {
                       />
                     </div>
                   </div>
+                </div>
+                <div class=" col-span-1 row-span-1">
+                  {" "}
                   <div
                     className="wow fadeInUp pr-5"
                     data-wow-duration="1s"
@@ -93,6 +87,9 @@ export default function Brands({ toggleGetStarted }) {
                       />
                     </div>
                   </div>
+                </div>
+                <div class="col-span-1 row-span-1">
+                  {" "}
                   <div
                     className="wow fadeInUp"
                     data-wow-duration="1s"
@@ -109,6 +106,8 @@ export default function Brands({ toggleGetStarted }) {
                       />
                     </div>
                   </div>
+                </div>
+              </div>
                 </div>
               </div>
             </Fade>
