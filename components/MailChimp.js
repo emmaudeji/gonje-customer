@@ -1,5 +1,16 @@
 import MailchimpSubscribe from "react-mailchimp-subscribe";
-import CustomForm from "./customForm";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { ProfileForm } from "@/components/MailChimpForm";
+import { useState } from "react";
 
 export default function MailChimp() {
   const url =
@@ -23,18 +34,6 @@ export default function MailChimp() {
   );
 }
 
-import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-  DialogDescription,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { ProfileForm } from "@/components/MailChimpForm";
-import { useState } from "react";
 
 export function FormDialog({ subscribe, status, message }) {
   // console.log(subscribe, status, message);

@@ -17,14 +17,14 @@ const TermsPage = () => {
            
             <div className="col-xl-12">
               <div className="ps-3 content-left">
-                <h1 class="display-6">Introduction</h1>
-                <p>
+                <h1 class="display-6 font-bold mt-3">Introduction</h1>
+                <p className="py-4 !font-medium !text-base">
               
                 Welcome to Gonje Marketplace! We highly recommend that you carefully review these terms and conditions, 
                 as they hold significant importance. Below, we've highlighted specific terms that we want to draw your attention to:
-                </p><br></br><br></br>
+                </p>
 
-                <ul class="pl-5 gonje-list-disc">
+                <ul class="pl-5 gonje-list-disc !font-normal">
                   <li>
                   We reserve the right to suspend the availability of the Gonje App without prior notice.
                    However, in the event of such suspension, any Orders you've placed won't be affected unless the relevant products become unavailable or circumstances beyond our control prevent us or our partners 
@@ -62,8 +62,8 @@ const TermsPage = () => {
                   Gonje Marketplace has its own returns policy governing products purchased via the App. (See clause 3.7 for specific guidelines).
                   Please be aware that these terms and conditions may undergo changes at any time. However, the terms and conditions in effect at the time of Order acceptance will be applicable. (See clause 4.3 for more information).
                   </li>
-                </ul><br></br>
-                <p>Kindly continue reading for a deeper understanding of our terms and conditions.</p>
+                </ul>
+                <p className="py-4 !font-medium !text-base">Kindly continue reading for a deeper understanding of our terms and conditions.</p>
                 {/* <button
                   type="button"
                   className="btn btn-success main-butn"
@@ -168,7 +168,7 @@ const TermsPage = () => {
              <div className="ps-3 content-left">
                
                <strong><h2>1.4 Responsibilities and Obligations</h2></strong>
-              <p> A{')'} Your Responsibilities:</p>
+              <p className="py-4 !font-medium !text-base"> A{')'} Your Responsibilities:</p>
                <ol class="pl-5 gonje-list-decimal">
                <li>
                Safeguard your LoginID and one-time password used for App access, along with your account information, in a secure manner.               </li>
@@ -194,7 +194,7 @@ const TermsPage = () => {
               </li>
              </ol>
              <br></br>
-             <p> B{')'} Your Prohibited Actions:</p>
+             <p className="py-4 !font-medium !text-base"> B{')'} Your Prohibited Actions:</p>
                <ol class="pl-5 gonje-list-decimal">
                <li>
                Do not use the App for activities that breach laws, infringe on third-party rights, or contradict relevant standards or codes.
@@ -252,7 +252,7 @@ const TermsPage = () => {
                <br></br>
              </ol>
              <strong><h2>1.5 Your Warranties</h2></strong>
-              <p> You assure us that:</p>
+              <p className="py-4 !font-medium !text-base"> You assure us that:</p>
               <ol class="pl-5 gonje-list-decimal">
                <li>
                All information and data provided through the App, including during the customer registration process, is accurate, complete, up to date, and truthful.               
@@ -269,7 +269,7 @@ const TermsPage = () => {
               
              </ol>
              <strong><h2>1.7 Links on the App</h2></strong>
-             <p>The Gonje App might include connections to external websites that are not under our or our affiliated entities' control. These links are offered solely for your convenience, and you acknowledge and agree that:</p>
+             <p className="py-4 !font-medium !text-base">The Gonje App might include connections to external websites that are not under our or our affiliated entities' control. These links are offered solely for your convenience, and you acknowledge and agree that:</p>
               <ol class="pl-5 gonje-list-decimal">
                <li>
                Gonje endeavors to ensure accuracy and makes best efforts to present reliable information from its suppliers, including product descriptions and other content on the App. However, Gonje does not warrant that such information is accurate, complete, reliable, current, or free of errors.              
@@ -290,7 +290,7 @@ const TermsPage = () => {
              </ol>
 
              <strong><h2>1.9 Safety and Refusal or Cancellation of Orders, Delivery, or Your Account</h2></strong>
-              <p>A{')'} We are dedicated to safeguarding the well-being of our staff and delivery partner drivers. Consequently, we reserve the right to:</p>
+              <p className="py-4 !font-medium !text-base">A{')'} We are dedicated to safeguarding the well-being of our staff and delivery partner drivers. Consequently, we reserve the right to:</p>
               <ol class="pl-5 gonje-list-decimal">
                <li>
                Refuse or cancel your Orders.
@@ -309,7 +309,7 @@ const TermsPage = () => {
                 </li>            
                 <br></br>
                 <li>
-               <p>We will exercise these rights when there is a reasonable suspicion of: </p>     
+               <p className="py-4 !font-medium !text-base">We will exercise these rights when there is a reasonable suspicion of: </p>     
                 <ul class="gonje-list-disc pl-4">
                 <li>Verbal assault against our staff or delivery partner drivers (in-store, online, or otherwise).</li>
                 <li>Physical assault or attempted physical assault against our staff or delivery partner drivers.</li>
@@ -321,7 +321,7 @@ const TermsPage = () => {
                
                 </ul>
                 </li>  
-                <p> B{')'} In cases where we take any of the aforementioned actions, we will strive to notify you at the 
+                <p className="py-4 !font-medium !text-base"> B{')'} In cases where we take any of the aforementioned actions, we will strive to notify you at the 
                 time of the Order, delivery, pick up, or within a reasonable period thereafter. 
                 However, you acknowledge that such notification, or the absence thereof, does not affect our rights outlined in this clause 1.9.
                 </p>          
@@ -345,7 +345,7 @@ const TermsPage = () => {
               </li>
               <br></br>
                <li>
-               <p>We will exercise these rights when there is a reasonable suspicion of: </p>     
+               <p className="py-4 !font-medium !text-base">We will exercise these rights when there is a reasonable suspicion of: </p>     
                 <ul class="gonje-list-disc pl-4">
                 <li>Ensuring the quality of products.</li>
                 <li>Presenting accurate information about products on the relevant product detail page within the App.</li>
@@ -362,7 +362,7 @@ const TermsPage = () => {
                </li>
               <li>
              
-              <p> Please be aware of the following minimum order amounts when placing orders through the App: </p>     
+              <p className="py-4 !font-medium !text-base"> Please be aware of the following minimum order amounts when placing orders through the App: </p>     
                 <ul class="gonje-list-disc pl-4">
                 <li>A minimum order value of $50.00, excluding any associated Delivery Fee.</li>
                 <li>These minimum amounts are subject to change by Gonje periodically. Any adjustments will be communicated to you via the App and/or detailed in the terms and conditions.</li>
@@ -372,7 +372,7 @@ const TermsPage = () => {
              </ol>
              <br></br>
              <strong><h2>2.2 Fees and Charges</h2></strong>
-              <p> By placing an order through the Gonje App and having it accepted, you agree to cover the following fees and charges, where applicable:</p>
+              <p className="py-4 !font-medium !text-base"> By placing an order through the Gonje App and having it accepted, you agree to cover the following fees and charges, where applicable:</p>
               <ol class="pl-5 gonje-list-decimal">
                <li>
                The purchase price of each product as indicated in the App.            
@@ -403,7 +403,7 @@ const TermsPage = () => {
                 <br></br>
                 <li>
              
-             <p> Please be mindful of the following:</p>     
+             <p className="py-4 !font-medium !text-base"> Please be mindful of the following:</p>     
                <ul class="gonje-list-disc pl-4">
                <li>There is no obligation for us to match prices for products, even if they are available through the App  supermarkets or vice versa.</li>
                <li>Product pricing displayed within the App may vary based on the postcode you've selected. For instance, the price of a product in Sydney may differ from the price of the same product in Melbourne.</li>
@@ -424,7 +424,7 @@ const TermsPage = () => {
                 </li>
                <br></br>
                <li>
-               <p>You have the convenience of using the following mobile payment services::</p>     
+               <p className="py-4 !font-medium !text-base">You have the convenience of using the following mobile payment services::</p>     
                <ul class="gonje-list-disc pl-4">
                <li>Stripe</li>
                <li>Paypal</li>
@@ -579,10 +579,10 @@ const TermsPage = () => {
                <br></br>
              </ol>
              <strong><h2>3.4 Risk and Ownership</h2></strong>
-             <p>In situations where products are delivered by Gonje or our partners:</p>
+             <p className="py-4 !font-medium !text-base">In situations where products are delivered by Gonje or our partners:</p>
               <ol class="pl-5 gonje-list-decimal">
                <li>
-               <p>Ownership (title) of the products is transferred to you on the later of two occurrences:</p>
+               <p className="py-4 !font-medium !text-base">Ownership (title) of the products is transferred to you on the later of two occurrences:</p>
                <ul class="gonje-list-disc">
                 <li>Payment for the respective products</li>
                 <li>Delivery of the products to the delivery address, including unattended deliveries at the said address.</li>
@@ -598,7 +598,7 @@ const TermsPage = () => {
             
              </ol>
              <strong><h2>3.5 Order Cancellation</h2></strong>
-             <p>A{')'} We hold the right to cancel any order or part of an order (including those already accepted) without incurring any liability if:</p>
+             <p className="py-4 !font-medium !text-base">A{')'} We hold the right to cancel any order or part of an order (including those already accepted) without incurring any liability if:</p>
               <ol class="pl-5 gonje-list-decimal">
               <li>
               <ul class="pl-5 gonje-list-disc">
@@ -642,7 +642,7 @@ const TermsPage = () => {
               In such cases, we might not be able to furnish you with the specified product.</li>
               <ol class="pl-5 gonje-list-decimal">
                <li>
-               <p>Should we encounter a situation where we are unable to provide the product you ordered, and unless you've 
+               <p className="py-4 !font-medium !text-base">Should we encounter a situation where we are unable to provide the product you ordered, and unless you've 
                 chosen not to receive substitutions, we will strive to offer you an alternative product:</p>
                <ul class="gonje-list-disc">
                 <li>When the chosen product is unavailable.</li>
@@ -682,7 +682,7 @@ const TermsPage = () => {
             
               <ol class="pl-5 gonje-list-decimal">
                <li>
-               <p>If you change your mind:</p>
+               <p className="py-4 !font-medium !text-base">If you change your mind:</p>
                <ul class="pl-5 gonje-list-disc">
                 <li>Until further notice, neither Gonje nor  will facilitate refunds or exchanges for 
                   products if you've simply changed your mind after purchasing them on the app.</li>
@@ -691,7 +691,7 @@ const TermsPage = () => {
                </ul>
               </li>
               <li>
-               <p>Faulty Products:</p>
+               <p className="py-4 !font-medium !text-base">Faulty Products:</p>
                <ul class="pl-5 gonje-list-disc">
                 <li>If a product you acquire through the Gonje App is found to be faulty,
                    kindly reach out to our Customer Service Centre at 1800 749 277 during Contact Hours or
@@ -707,7 +707,7 @@ const TermsPage = () => {
                </ul>
               </li>
               <li>
-               <p>Rainchecks:</p>
+               <p className="py-4 !font-medium !text-base">Rainchecks:</p>
                <ul class="pl-5 gonje-list-disc">
                 <li>Rainchecks for advertised stock purchases will not be available until further notice. The term 'advertised stock' 
                   encompasses products that are advertised for sale or are part of a promotion on the Gonje App.</li>
@@ -715,7 +715,7 @@ const TermsPage = () => {
                </ul>
               </li>
               <li>
-               <p>Additional Information:</p>
+               <p className="py-4 !font-medium !text-base">Additional Information:</p>
                <ul class="pl-5 gonje-list-disc">
                 <li>If returning a product is challenging due to factors such as the nature of the fault, the product's size, or its attachment to your premises, please connect with our Customer Service Team at 1800 749 277 during Contact Hours.
                    We will facilitate an assessment of the product and provide an appropriate remedy.</li>
@@ -750,7 +750,7 @@ const TermsPage = () => {
              </ol>
              <h1 class="display-6">4. General</h1><br></br>
              <strong><h2>4.1 Liability</h2></strong>
-             <p>While not excluding, limiting, or altering your rights and remedies under the consumer guarantees provisions of 
+             <p className="py-4 !font-medium !text-base">While not excluding, limiting, or altering your rights and remedies under the consumer guarantees provisions of 
               the Australian Consumer Law or the liabilities of Gonje or  under those provisions:</p>
               <ol class="pl-5 gonje-list-decimal">
                <li>
@@ -779,7 +779,7 @@ const TermsPage = () => {
                <br></br>
                </ol>
                <strong><h2>4.2 Intellectual Property Rights</h2></strong>
-              <p> A{')'} You:</p>
+              <p className="py-4 !font-medium !text-base"> A{')'} You:</p>
               <ol class="pl-5 gonje-list-decimal">
                <li>
                Recognize that the copyright of the Gonje App, including the software, design, text, graphics, layout, content, 
@@ -799,7 +799,7 @@ const TermsPage = () => {
               
              </ol>
     
-             <p> B{')'} You may:</p>
+             <p className="py-4 !font-medium !text-base"> B{')'} You may:</p>
               <ol class="pl-5 gonje-list-decimal">
                <li>
                Print hard copies of content and materials for viewing and purchasing Products, not for any other use, including commercial use.             
@@ -812,7 +812,7 @@ const TermsPage = () => {
              
               
               </ol>
-              <p> C{')'}:</p>
+              <p className="py-4 !font-medium !text-base"> C{')'}:</p>
               <ol class="pl-5 gonje-list-decimal">
                <li>
                This App contains registered trademarks and other trademarks protected by law. You may not use any marks or 
@@ -896,7 +896,7 @@ const TermsPage = () => {
                <br></br>                      
              </ol>
              <h1 class="display-6">5. Definitions</h1><br></br>
-             <p>In these terms and conditions, terms with initial capitalization carry the following meanings:</p>
+             <p className="py-4 !font-medium !text-base">In these terms and conditions, terms with initial capitalization carry the following meanings:</p>
               <ol class="pl-5 gonje-list-decimal">
                <li>
                App: Refers to the Gonje application as defined in clause 1.1(a).        

@@ -165,7 +165,7 @@ export default function Footer({ toggleGetStarted }) {
                         layout="fixed"
                         height={47}
                         width={47}
-                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/instagram.svg"
+                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/insta.png"
                         alt=""
                       />
                     </Link>

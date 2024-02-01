@@ -46,6 +46,7 @@ function MyApp({ Component, pageProps }) {
     const isPublic =
       publicPaths.includes(router.asPath) ||
       router.asPath.startsWith("/signup") ||
+      router.asPath.startsWith("/auth") ||
       router.asPath.startsWith("/signin");
 
     setLocalData({

@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Fade from "react-reveal/Fade";
-
-import React from "react";
+///
+import MailChimp from "@/components/MailChimp";
 // get started
 const SuppliersPage = () => {
   const router = useRouter();
@@ -47,15 +47,7 @@ const SuppliersPage = () => {
                     amplify your brand reputation and increase your market
                     presence.
                   </p>
-                  {/* <button
-                  type="button"
-                  className="btn btn-success main-butn"
-                  onClick={() => {
-                    router.push("/contactUs");
-                  }}
-                >
-                  Get started
-                </button> */}
+
                 </div>
               </div>
             </Fade>
@@ -184,41 +176,27 @@ const SuppliersPage = () => {
             <div className="col-xl-6">
               <div className="ps-3 pt-5 mt-5 content-left">
                 <strong>New Features</strong>
-                <p>
+                <p className="mb-2">
                   {" "}
                   Enjoy the advantages of our innovative marketing features,
                   including personalized recommendations, targeted promotions,
                   and seasonal campaigns.{" "}
                 </p>
-                {/* <button
-                  type="button"
-                  className="btn btn-success main-butn"
-                  onClick={() => {
-                    router.push("/contactUs");
-                  }}
-                >
-                  Get Started
-                </button> */}
+                <MailChimp/>
+
               </div>
             </div>
             <div className="col-xl-6">
               <div className="ps-3 pt-5 mt-5 content-left">
                 <strong>Analytics</strong>
-                <p>
+                <p className="mb-3">
                   {" "}
                   Employing data-driven marketing strategies, we assist you in
                   captivating vendors, increasing conversion rates, and
                   establishing your brand as a customer favorite.{" "}
                 </p>
-                {/* <button
-                  type="button"
-                  className="btn btn-success main-butn"
-                  onClick={() => {
-                    router.push("/contactUs");
-                  }}
-                >
-                  Get Started
-                </button> */}
+                <MailChimp/>
+
               </div>
             </div>
             <div className="col-xl-6 d-none d-sm-none d-md-none d-lg-none d-xl-block">
@@ -243,7 +221,7 @@ const SuppliersPage = () => {
               Gain Access to a Network of Reliable Vendors and Optimize Supply
               Chain Efficiency
             </h4>
-            <p>
+            <p className="mb-2">
               {" "}
               By becoming a supplier on Gonje, you gain access to a vast network
               of reliable vendors eager to collaborate and showcase your
@@ -259,15 +237,8 @@ const SuppliersPage = () => {
               supply chain, you contribute to a seamless shopping experience for
               vendors, boosting customer satisfaction and loyalty.
             </p>
-            {/* <button
-                  type="button"
-                  className="btn btn-success main-butn"
-                  onClick={() => {
-                    router.push("/contactUs");
-                  }}
-                >
-                  Get started
-                </button> */}
+            <MailChimp/>
+
           </div>
         </div>
       </section>
@@ -275,7 +246,7 @@ const SuppliersPage = () => {
         <div className="container">
           <div className="upper-head mt-5 text-center">
             <h4>Seamlessly Manage Quote Requests and Negotiate Deals</h4>
-            <p>
+            <p className="mb-2">
               {" "}
               Gonje streamlines the process of managing quote requests, ensuring
               a hassle-free experience for suppliers. Our intuitive interface
@@ -291,15 +262,8 @@ const SuppliersPage = () => {
               establishing a strong foundation for productive and long-lasting
               partnerships.
             </p>
-            {/* <button
-                  type="button"
-                  className="btn btn-success main-butn"
-                  onClick={() => {
-                    router.push("/contactUs");
-                  }}
-                >
-                  Get started
-                </button> */}
+            <MailChimp/>
+
           </div>
           <div className="row mt-5 ms-0 me-0">
             <div className="col-xl-4 col-lg-6">

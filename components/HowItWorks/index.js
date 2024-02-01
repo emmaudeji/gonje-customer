@@ -24,7 +24,7 @@ const HowItWorksPage = () => {
                 />
                 <div className="choose-product">
                   <h4>choose product</h4>
-                  <p>
+                  <p className="mb-2">
                     Discover food items or products from a pool of retailers.
                     Add products to your virtual basket. Adjust the items by
                     tapping on + or - icons. You can add or remove items from
@@ -33,6 +33,7 @@ const HowItWorksPage = () => {
                     Automatic or Manual Checkout option. Select your payment
                     method, fill in card details, and Submit.
                   </p>
+                  <MailChimp />
                 </div>
               </div>
             </div>
@@ -74,7 +75,7 @@ const HowItWorksPage = () => {
               <div className="outer-wrap no-2 d-flex">
                 <div className="choose-product">
                   <h4>Payment</h4>
-                  <p>
+                  <p className="mb-2">
                     {" "}
                     In the next step, you need to choose the Payment option. We
                     accept different payment methods - all major credit and
@@ -82,6 +83,7 @@ const HowItWorksPage = () => {
                     we accept payment using Google Pay, Apple Pay, Paypal,
                     afterpay, Zip, and Klarna.{" "}
                   </p>
+                  <MailChimp />
                 </div>
                 <Image
                   layout="fixed"
@@ -114,12 +116,13 @@ const HowItWorksPage = () => {
                 />
                 <div className="choose-product">
                   <h4>We Process</h4>
-                  <p>
+                  <p className="mb-2">
                     Once we receive your order request, the details of the order
                     are sent to inventory. Generally, orders are processed
                     within 24 hours. Order is picked, packed, and shipped to
                     your doorstep.{" "}
                   </p>
+                  <MailChimp />
                 </div>
               </div>
             </div>
@@ -166,7 +169,7 @@ const HowItWorksPage = () => {
                     on the Gonje platform. Orders will be shipped the same day
                     only if you place them before 11 am from Monday to Friday.{" "}
                   </p>
-                  <MailChimp/>
+                  <MailChimp />
                 </div>
                 <Image
                   layout="fixed"
