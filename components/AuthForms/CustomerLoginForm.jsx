@@ -116,7 +116,7 @@ const CustomerLoginForm = () => {
             <label htmlFor="password" className="text-sm">
               Password
             </label>
-            <Link href="#" className="text-xs hover:underline text-gray-500">
+            <Link href="/auth/forgotpassword" className="text-xs hover:underline text-gray-500">
               Forgot password?
             </Link>
           </div>
