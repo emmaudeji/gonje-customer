@@ -1,5 +1,13 @@
 import React, { useState } from "react";
+
+////
 import { FAQData } from "./faqData";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const FAQPage = () => {
   const [faqs, setFaqs] = useState(FAQData);
@@ -18,50 +26,25 @@ const FAQPage = () => {
         <div className="container">
           <div className="col-xl-9">
             <div className="faq-wrap">
-            <div className="accordion" id="accordionExample">
+              <Accordion type="single" collapsible className={`space-y-2`}>
                 {faqs.map((item, index) => {
                   return (
-                    <div className="accordion-item" key={`key_${index}`}>
-                      <h2 className="accordion-header" id="headingOne">
-                        <button
-                          className={`accordion-button ${
-                            item.isOpen ? "" : "collapsed"
-                          }`}
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#collapseOne"
-                          aria-expanded={item.isOpen}
-                          aria-controls="collapseOne"
-                          onClick={(e) => {
-                            handleAccordian(index);
-                          }}
-                        >
-                          {item.heading}
-                        </button>
-                      </h2>
-                      <div
-                        id="collapseOne"
-                        className={`accordion-collapse collapse ${
-                          item.isOpen ? "show" : ""
-                        }`}
-                        aria-labelledby="headingOne"
-                        data-bs-parent="#accordionExample"
-                      >
-                        <div className="accordion-body">
-                          {item.queries.map((data, idx) => {
-                            return (
-                              <div key={`${idx}`}>
-                                <strong>{` ${idx + 1}. ${data.query}`}</strong>
-                                <p>{data.answer} </p>
-                              </div>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    </div>
+                    <AccordionItem value={`item-${index}`} key={index} className={`bg-white py-2`}>
+                      <AccordionTrigger className={`border-b px-4 font-semibold text-lg`}> {item.heading}</AccordionTrigger>
+                      <AccordionContent className="px-4 space-y-3 py-4">
+                        {item.queries.map((data, idx) => {
+                          return (
+                            <div key={`${idx}`}>
+                              <strong>{` ${idx + 1}. ${data.query}`}</strong>
+                              <p>{data.answer} </p>
+                            </div>
+                          );
+                        })}{" "}
+                      </AccordionContent>
+                    </AccordionItem>
                   );
                 })}
-              </div>
+              </Accordion>
             </div>
           </div>
         </div>

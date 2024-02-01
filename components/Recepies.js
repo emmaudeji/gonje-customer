@@ -113,7 +113,7 @@ export default function Recepies() {
                         className="recepimg1 wow fadeInUp"
                         data-wow-duration="1s"
                         data-wow-delay="0.2s"
-                        height={500}
+                        height={400}
                         width={500}
                         alt=""
                       />
