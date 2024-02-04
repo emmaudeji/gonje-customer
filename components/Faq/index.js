@@ -30,7 +30,7 @@ const FAQPage = () => {
                 {faqs.map((item, index) => {
                   return (
                     <AccordionItem value={`item-${index}`} key={index} className={`bg-white py-2`}>
-                      <AccordionTrigger className={`border-b px-4 font-semibold text-lg`}> {item.heading}</AccordionTrigger>
+                      <AccordionTrigger className={`border-b px-4 font-semibold text-base md:text-lg`}> {item.heading}</AccordionTrigger>
                       <AccordionContent className="px-4 space-y-3 py-4">
                         {item.queries.map((data, idx) => {
                           return (
