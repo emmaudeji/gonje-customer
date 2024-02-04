@@ -23,7 +23,7 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 export default function ProductDeatil({ shopId, apicategoryid }) {
   //product getting here
-  console.log(shopId, apicategoryid);
+  // console.log(shopId, apicategoryid);
   const [apiproduct, apiProduct] = useState({});
   const [productslug, productSlug] = useState("");
   const [openproduct, openProduct] = useState(false);
@@ -60,8 +60,7 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
     <>
       <div className="pl-6">
         {/* grid gap-x-6 gap-y-4 lg:mt-8 grid-cols-2 md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))] */}
-        <ScrollArea className="py-4">
-          <div className="flex gap-x-4">
+          <div className="flex gap-x-16 md:gap-x-4">
             {apiproduct.length ? (
               apiproduct.map((productresult, productindex) => (
                 <div>
@@ -80,8 +79,6 @@ export default function ProductDeatil({ shopId, apicategoryid }) {
               </div>
             )}
           </div>
-          <ScrollBar orientation="horizontal" />
-        </ScrollArea>
       </div>
     </>
   );
@@ -161,12 +158,12 @@ const SingleProduct = ({
               <div className="mt-4 md:px-6" key={productindex}>
                 {productresult.image &&
                 productresult.image.hasOwnProperty("thumbnail") ? (
-                  <div className="relative w-36 h-24 md:w-44 md:h-24">
+                  <div className="relative w-36 h-24 md:w-44 md:h-32">
                     <Image
                       src={productresult.image.thumbnail}
                       alt=""
                       fill={true}
-                      className="rounded-md bg-cover"
+                      className="rounded-md bg-cover bg-center"
                     />
                   </div>
                 ) : (
@@ -174,6 +171,7 @@ const SingleProduct = ({
                 )}
                 <br />
               </div>
+              <div className="flex justify-between">
               <div className="md:px-6">
                 {productresult.sale_price ? (
                   <p className="price">
@@ -188,6 +186,8 @@ const SingleProduct = ({
                   </p>
                 )}
               </div>
+              </div>
+
 
               <div className="relative text-left md:px-6">
                 <div>
@@ -225,7 +225,7 @@ const SingleProduct = ({
           </Button>
         </div>
       </div>
-      <DialogContent showClose={false}>
+      <DialogContent showClose={false} className="z-[250] px-4">
         <ProductPop
           // CloseProductModal={onCloseProductModal}
           DialogClose={DialogClose}

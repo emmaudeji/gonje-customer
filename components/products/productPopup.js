@@ -19,17 +19,10 @@ export default function ProductPop({ apires, DialogClose, setOpen }) {
   const [productImage, setProductImage] = useState("");
   const userId = useSelector((state) => state.userdetails);
   const dispatch = useDispatch();
-  const description = () => {
-    isToggleDescription(true);
-    isToggleNutritional(false);
-  };
-  const nutritional = () => {
-    isToggleDescription(false);
-    isToggleNutritional(true);
-  };
+
 // console.log(apires)
   const productImageSet = (index) => {
-    setProductImage(apires.image.original);
+    setProductImage(index);
   };
   const AddQuantity = () => {
     setQuantity((prev) => prev + 1);
@@ -86,14 +79,13 @@ export default function ProductPop({ apires, DialogClose, setOpen }) {
                 <div className="col-lg-6 col-md-12">
                   <div className="product-popup">
                     <div className="main-img">
-                      {productImage && (
                         <Image
-                          src={apires.image.original}
-                          alt="no image"
+                          src={productImage|| apires.image.original}
+                          alt=""
                           height={300}
                           width={300}
-                        />
-                      )}
+                          priority={true}
+                        />       
                     </div>
                     <div className="img-mirror">
                       {apires.gallery &&
@@ -102,7 +94,7 @@ export default function ProductPop({ apires, DialogClose, setOpen }) {
                             className="my-2 mx-1"
                             key={proindex}
                             onClick={() => {
-                              productImageSet(proindex);
+                              productImageSet(proresult.thumbnail);
                             }}
                           >
                             {proresult?.thumbnail && (
@@ -120,7 +112,7 @@ export default function ProductPop({ apires, DialogClose, setOpen }) {
                 </div>
                 <div className="col-lg-6 col-md-12">
                   <div className="orangic-apple">
-                    <div className="flex items-center gap-x-4">
+                    <div className="flex items-center justify-between gap-x-4">
                       <h3 className="md:text-lg lg:text-xl font-bold">
                         {apires.name}
                       </h3>
@@ -139,16 +131,16 @@ export default function ProductPop({ apires, DialogClose, setOpen }) {
                         </button>
                       </DialogClose>
                     </div>
-                    <div className="price d-flex pt-4 pb-2">
+                    <div className="text-xl gap-x-6 flex pt-4 pb-2">
                       {apires.sale_price ? (
-                        <p className="price">
+                        <p className="flex gap-x-3">
                           <strong>${apires.sale_price}</strong>
-                          <strike>${apires.price}</strike>
+                         
+                          <strike className="text-red-700">${apires.price}</strike>
                         </p>
                       ) : (
                         <strong>${apires.price} </strong>
                       )}
-
                       {/* <p> 40% Off Market Price</p> */}
                     </div>
                     <p className="fruit-info my-4">{apires.description}</p>
@@ -172,7 +164,7 @@ export default function ProductPop({ apires, DialogClose, setOpen }) {
                   </div>
                 </div>
               </div>
-              <div className="bg-[#f5f5f5] rounded-md px-1 md:px-5 py-4 min-h-[200px] min-w-[360px]">
+              <div className="bg-[#f5f5f5] rounded-md px-1 md:px-5 py-4 min-h-[200px] min-w-[360px] mt-4">
                 <Tabs defaultValue="nutritional_info" className="w-full">
                   <TabsList className="flex mb-3">
                     <TabsTrigger
@@ -187,12 +179,7 @@ export default function ProductPop({ apires, DialogClose, setOpen }) {
                     >
                       Description
                     </TabsTrigger>
-                    <TabsTrigger
-                      value="review"
-                      className="data-[state=active]:text-gonje-green bg-transparent shadow-none  py-2 md:text-lg"
-                    >
-                      Review
-                    </TabsTrigger>
+
                   </TabsList>
                   <div className="px-3">
 
@@ -202,9 +189,7 @@ export default function ProductPop({ apires, DialogClose, setOpen }) {
                   <TabsContent value="description">
                     <p className="text-xs md:text-sm">{apires?.description}</p>
                   </TabsContent>
-                  <TabsContent value="review">
-                    <p className="text-xs md:text-sm">{apires?.review ?? ""}</p>
-                  </TabsContent>                    
+                   
                   </div>
 
 
