@@ -160,8 +160,8 @@ export default function Product({ shopId }) {
             <div className="owl-nav disabled"></div>
           </div>
         </div>
-        <div>
-          <Input placeholder="search"/>
+        <div className="container sticky top-0">
+          <Input placeholder="Search"/>
         </div>
 
         <hr className="my-2" />
@@ -177,14 +177,14 @@ export default function Product({ shopId }) {
                   >
                     {catresult.name.substring(0, 50)}{" "}
                   </h1>
-                  <div className="flex gap-x-6">
+                  {/* <div className="flex gap-x-6">
                     <button onClick={() => handleScroll("left")}>
                       {"<"} back
                     </button>
                     <button onClick={() => handleScroll("right")}>
                       {">"} front
                     </button>
-                  </div>
+                  </div> */}
                   <ScrollArea className="py-4" ref={scrollRef}>
                     <ProductDetail
                       shopId={shopId}
