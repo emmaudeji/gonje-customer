@@ -4517,10 +4517,10 @@ p.text-center.tracking-order-no {
   .nav-link {
     padding: 13px 9px !important;
   }
-  .producttop .profile img {
+  /* .producttop .profile img {
     max-width: 38px !important;
     width: 100% !important;
-  }
+  } */
 }
 
 .profile_dropdown_overlay {
