@@ -1,34 +1,73 @@
 import Marquee from "react-fast-marquee";
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
-import Fade from 'react-reveal/Fade';
+import Fade from "react-reveal/Fade";
 
 export default function Recepies() {
   const [isShown, setIsShown] = useState(false);
   const [isShownImg, setIsShownImg] = useState(true);
+  const [mainImage, setMainImage] = useState(
+    "https://backendapi.gonje.com/public/gonje-storage/public/images/fufu2.png"
+  );
+  const recipie = [
+    {
+      name: "Fufu and Egusi",
+      description:
+        "Fufu and Egusi recipe ingredients now available at Gonje. Order now!",
+      icon: "https://backendapi.gonje.com/public/gonje-storage/public/images/recepieicon1.png",
+      image:
+        "https://backendapi.gonje.com/public/gonje-storage/public/images/fufu2.png",
+    },
+    {
+      name: "Jollof Rice",
+      description:
+        "Jollof Rice recipe ingredients now available at Gonje. Order now!",
+      icon: "https://backendapi.gonje.com/public/gonje-storage/public/images/recepieicon3.1.png",
+      image:
+        "https://backendapi.gonje.com/public/gonje-storage/public/images/jollof.png",
+    },
+  ];
+  const recipie2 = [
+    {
+      name: "Masala Mushroom",
+      description:
+        "Masala Mushroom recipe ingredients now available at gonje. Order now!",
+      icon: "https://backendapi.gonje.com/public/gonje-storage/public/images/recepieicon2.1.png",
+      image:
+        "https://backendapi.gonje.com/public/gonje-storage/public/images/recipe-0002.png",
+    },
+    {
+      name: "Chettinad chicken",
+      description:
+        "Chettinad chicken recipe ingredients now available at gonje. Order now!",
+      icon: "https://backendapi.gonje.com/public/gonje-storage/public/images/recepieicon4.png",
+      image:
+        "https://backendapi.gonje.com/public/gonje-storage/public/images/recipe-0003.png",
+    },
+  ];
   return (
     <>
       <section className="recepies-sec">
-      <Fade top>
-      <div className="container">
-          <div
-            className="heading wow fadeInUp"
-            data-wow-duration="1s"
-            data-wow-delay="0.2s"
-          >
-            <h2>Recipes</h2>
-            <p>
-              Explore and choose recipes from around the world along with fine
-              dining recipes. <br />
-              Your cart will be filled automatically with ingredients for
-              several recipes. <br />
-              Moreover, you can customize or add other ingredients in a few
-              clicks.
-            </p>
+        <Fade top>
+          <div className="container">
+            <div
+              className="heading wow fadeInUp"
+              data-wow-duration="1s"
+              data-wow-delay="0.2s"
+            >
+              <h2>Recipes</h2>
+              <p>
+                Explore and choose recipes from around the world along with fine
+                dining recipes. <br />
+                Your cart will be filled automatically with ingredients for
+                several recipes. <br />
+                Moreover, you can customize or add other ingredients in a few
+                clicks.
+              </p>
+            </div>
           </div>
-        </div>       
-         </Fade>
-       
+        </Fade>
+
         <Marquee direction="left" gradient={false}>
           {/* <marquee width="100%" direction="fadeInLeft" scrollamount="10">  */}
           <div className="marquee_outer bg-[#ffa723] py-4">
@@ -64,226 +103,102 @@ export default function Recepies() {
           {/* </marquee>  */}
         </Marquee>
         <Fade bottom>
-        <div className="foodrecepie-otr">
-          <div className="container">
-            <div className="recepietxtimg">
-              <div className="recipieotr">
-                <div className="receipeinr recepielft">
-                  <div
-                    className="recepieotr recepieotr1"
-                    data-val="images/recepieicon1.1.png	"
-                  >
+          <div className="container py-6 lg:py-20">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 justify-between gap-y-6 gap-x-8">
+              <div className="space-y-8">
+                {recipie.map((item, index) => {
+                  return (
                     <div
-                      className="recepieicn wow hover fadeInUp"
-                      data-wow-duration="1s"
-                      data-wow-delay="0.2s"
+                      key={index}
+                      className="space-y-4"
+                      onClick={() => setMainImage(item.image)}
                     >
-                      <Image
-                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/recepieicon1.png"
-                        className="img-show"
-                        height={100}
-                        width={100}
-                        alt=""
-                      />
-                      <Image
-                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/recepieicon1.png"
-                        className="img-none"
-                        height={100}
-                        width={100}
-                        alt=""
-                      />
-                    </div>
-                    <div
-                      className="recepietxt wow fadeInUp"
-                      data-wow-duration="1s"
-                      data-wow-delay="0.4s"
-                    >
-                      <h3>Fufu and Egusi</h3>
-                      <p>
-                      Fufu and Egusi recipe ingredients now available at Gonje. Order now!
-                      </p>
-                    </div>
-
-                    <div
-                      className="recipeimg"
-                      style={{ display: isShownImg ? "block" : "none" }}
-                    >
-                      <Image
-                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/fufu2.png"
-                        className="recepimg1 wow fadeInUp"
-                        data-wow-duration="1s"
-                        data-wow-delay="0.2s"
-                        height={400}
-                        width={500}
-                        alt=""
-                      />
-                    </div>
-                  </div>
-
-                  <div
-                    className="recepieotr recepieotr2"
-                    onMouseEnter={() => {
-                      setIsShown(true);
-                      setIsShownImg(false);
-                    }}
-                    onMouseLeave={() => {
-                      setIsShown(false);
-                      setIsShownImg(true);
-                    }}
-                  >
-                    <div
-                      className="recepieicn wow fadeInUp"
-                      data-wow-duration="1s"
-                      data-wow-delay="0.2s"
-                    >
-                      <Image
-                        height={500}
-                        width={500}
-                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/recepieicon2.png"
-                        className="img-show"
-                        alt=""
-                      />
-                      <Image
-                        height={500}
-                        width={500}
-                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/recepieicon3.1.png"
-                        className="img-none"
-                        alt=""
-                      />
-                    </div>
-                    <div
-                      className="recepietxt wow fadeInUp"
-                      data-wow-duration="1s"
-                      data-wow-delay="0.4s"
-                    >
-                      <h3>Jollof Rice</h3>
-
-                      <p>
-                      Jollof Rice recipe ingredients now available at Gonje. Order now!
-
-                      </p>
-                    </div>
-                    {isShown && (
-                      <div className="recipeimg">
+                      <div className="flex gap-x-8 ">
+                        <div>
+                          <Image
+                            src={item.icon}
+                            height={100}
+                            width={100}
+                            alt={item.name}
+                            className="shrink-0"
+                          />
+                        </div>
+                        <div className="md:max-w-[220px]">
+                          <h2 className="text-[#020817] text-xl mb-3">
+                            {item.name}
+                          </h2>
+                          <p className="text-[#707070] text-sm">
+                            {item.description}
+                          </p>
+                        </div>
+                      </div>
+                      <div  className="md:hidden block my-4">
                         <Image
-                          height={840}
-                          width={840}
-                          src="https://backendapi.gonje.com/public/gonje-storage/public/images/jollof.png"
-                          alt=""
+                          src={item.image}
+                          height={300}
+                          width={300}
+                          alt={item.name}
+                          className="shrink-0"
                         />
                       </div>
-                    )}
-                  </div>
-                </div>
-                <div className="receipeinr recepierght">
-                  <div
-                    className="recepieotr recepieotr3"
-                    onMouseEnter={() => {
-                      setIsShown(true);
-                      setIsShownImg(false);
-                    }}
-                    onMouseLeave={() => {
-                      setIsShown(false);
-                      setIsShownImg(true);
-                    }}
-                  >
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="lg:flex items-center justify-center hidden">
+                <Image
+                  src={mainImage}
+                  className=""
+                  data-wow-duration="1s"
+                  data-wow-delay="0.2s"
+                  height={400}
+                  width={500}
+                  alt=""
+                />
+              </div>
+              <div className="space-y-8">
+                {recipie2.map((item, index) => {
+                  return (
                     <div
-                      className="recepieicn wow fadeInUp"
-                      data-wow-duration="1s"
-                      data-wow-delay="0.2s"
+                      key={index}
+                      className="space-y-4 cursor-pointer"
+                      onClick={() => setMainImage(item.image)}
                     >
-                      <Image
-                        height={140}
-                        width={140}
-                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/recepieicon3.png"
-                        className="img-show"
-                        alt=""
-                      />
-                      <Image
-                        height={140}
-                        width={140}
-                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/recepieicon2.1.png"
-                        className="img-none"
-                        alt=""
-                      />
+                      <div className="flex gap-x-8 ">
+                        <div>
+                          <Image
+                            src={item.icon}
+                            height={100}
+                            width={100}
+                            alt={item.name}
+                            className="shrink-0"
+                          />
+                        </div>
+                        <div className="md:max-w-[220px]">
+                          <h2 className="text-[#020817] text-xl mb-3">
+                            {item.name}
+                          </h2>
+                          <p className="text-[#707070] text-sm">
+                            {item.description}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="md:hidden block">
+                        <Image
+                          src={item.image}
+                          height={300}
+                          width={300}
+                          alt={item.name}
+                          className="shrink-0  my-4"
+                        />
+                      </div>
                     </div>
-                    <div
-                      className="recepietxt wow fadeInUp"
-                      data-wow-duration="1s"
-                      data-wow-delay="0.4s"
-                    >
-                      <h3>Masala Mushroom</h3>
-                      <p>
-                      Masala Mushroom recipe ingredients now available at gonje. Order now!
-
-                      </p>
-                    </div>
-                    <div className="recipeimg">
-                      <Image
-                        height={840}
-                        width={840}
-                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/recipe-0002.png"
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className="recepieotr recepieotr4"
-                    onMouseEnter={() => {
-                      setIsShown(true);
-                      setIsShownImg(false);
-                    }}
-                    onMouseLeave={() => {
-                      setIsShown(false);
-                      setIsShownImg(true);
-                    }}
-                  >
-                    <div
-                      className="recepieicn wow fadeInUp"
-                      data-wow-duration="1s"
-                      data-wow-delay="0.2s"
-                    >
-                      <Image
-                        height={140}
-                        width={140}
-                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/recepieicon4.png"
-                        className="img-show"
-                        alt=""
-                      />
-                      <Image
-                        height={140}
-                        width={140}
-                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/recepieicon4.1.png"
-                        className="img-none"
-                        alt=""
-                      />
-                    </div>
-                    <div
-                      className="recepietxt wow fadeInUp"
-                      data-wow-duration="1s"
-                      data-wow-delay="0.4s"
-                    >
-                      <h3>Chettinad chicken</h3>
-                      <p>
-                        Chettinad chicken recipe ingredients now available at gonje. Order now!
-                      </p>
-                    </div>
-                    <div className="recipeimg">
-                      <Image
-                        height={800}
-                        width={800}
-                        src="https://backendapi.gonje.com/public/gonje-storage/public/images/recipe-0003.png"
-                        alt="Gonje Chettinad chicken"
-                      />
-                    </div>
-                  </div>
-                </div>
+                  );
+                })}
               </div>
             </div>
           </div>
-        </div>        
         </Fade>
-       
       </section>
     </>
   );
