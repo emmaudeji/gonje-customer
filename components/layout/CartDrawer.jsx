@@ -75,7 +75,7 @@ export const CartDrawer = () => {
     dispatch(clearCartProduct())
       .then((data) => {
         console.log(data);
-        fetchData()
+        fetchData();
       })
       .catch((e) => {
         console.log(e);
@@ -132,7 +132,7 @@ export const CartDrawer = () => {
       <SheetTrigger asChild>
         <button
           type="button"
-          className="py-3 bg-[#f1f1f1] gap-x-3 px-2 flex items-center"
+          className="py-2 lg:py-3 bg-[#f1f1f1] gap-x-3 px-2 flex items-center"
           data-bs-target="#cart"
           onClick={() => fetchData()}
         >
@@ -140,7 +140,7 @@ export const CartDrawer = () => {
           <CartCount />
         </button>
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className="">
         <SheetHeader>
           <div className="flex items-start justify-between mb-5">
             <SheetTitle>Checkout</SheetTitle>
@@ -153,20 +153,22 @@ export const CartDrawer = () => {
             </SheetClose>
           </div>
         </SheetHeader>
+        {apires.data && (
+          <button
+            className="flex justify-end items-center gap-x-1 text-red-600 my-2 sticky top-0"
+            name="clear-cart"
+            title="clear cart"
+            aria-label="clear cart"
+            onClick={clearCart}
+          >
+            <Trash size={16} />
+            <p>Clear Cart</p>
+          </button>
+        )}
         <ul
           role="list"
-          className="-my-6 divide-y divide-gray-200 space-y-3 px-3 max-h-[70%] overflow-y-scroll"
+          className="-my-6 py-4 divide-y divide-gray-200 space-y-3 px-3 max-w-[50%] lg:max-h-[70%] overflow-y-scroll"
         >
-          {apires.data && (
-            <button
-              className="flex justify-end items-center gap-x-1 text-red-600"
-              name="clear-cart"
-              onClick={clearCart}
-            >
-              <Trash size={16} />
-              <p>Clear Cart</p>
-            </button>
-          )}
           {apires.data &&
             apires.data.map((result, index) => (
               <li key={index} className="flex py-6">
@@ -197,7 +199,7 @@ export const CartDrawer = () => {
                           );
                         }}
                       />
-                      <span className="text-sm border rounded-md px-3 border-gonje-green">
+                      <span className="text-sm border rounded-md px-3 py-1 border-gonje-green">
                         {result.productQuantity}
                       </span>
                       <Plus

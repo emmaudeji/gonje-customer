@@ -61,7 +61,7 @@ const Products = ({ shopId, categoryId }) => {
               </a>
             ))
           ) : (
-            <div className="">
+            <div className="container">
               <EmptyState errorName={`Products's not found.`} />
             </div>
           )}

@@ -194,7 +194,6 @@ hr.side-menu-divider {
   margin-left: -29px;
   position: sticky;
   top: 0;
-  z-index: 2;
 }
 .choose-lang select {
   background-color: #f5f5f5;
@@ -1565,7 +1564,6 @@ hr.side-menu-divider {
   margin-left: -29px;
   position: sticky;
   top: 0;
-  z-index: 1;
 }
 .choose-lang select {
   background-color: #f5f5f5;
@@ -4582,9 +4580,7 @@ input[type="file" i] {
   background-color: #fff;
   padding: 10px;
 }
-.top-head {
-  z-index: 2 !important;
-}
+
 .headd .noti {
   margin-right: 10px;
 }
