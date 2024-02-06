@@ -70,10 +70,10 @@ export default function DeliverySchedule({ shopId }) {
                 <div className="outer-wrap d-flex">
                   <div className="next-delivery">
                     <strong>Next Delivery</strong>
-                    <p>
+                    {/* <p>
                       lorem ipsum doller cont <br />
                       dummy text is here
-                    </p>
+                    </p> */}
                   </div>
 
                   <div className="delivery-time">
@@ -93,10 +93,10 @@ export default function DeliverySchedule({ shopId }) {
                 <div className="shop-wrap d-flex">
                   <div className="next-delivery shop-detils">
                     <strong>Shopping Window</strong>
-                    <p>
+                    {/* <p>
                       lorem ipsum doller cont <br />
                       dummy text is here
-                    </p>
+                    </p> */}
                   </div>
                   <div className="delivery-time shop-time">
                     <strong>

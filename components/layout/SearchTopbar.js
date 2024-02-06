@@ -91,7 +91,7 @@ export default function SearchTopbar() {
           }}
         />
       )}
-      <div className="products-head">
+      <div className="products-head z-50">
         <div className="menu">
           <div className="sm-logo">
             <Image
@@ -105,7 +105,7 @@ export default function SearchTopbar() {
           <MenuToggle></MenuToggle>
         </div>
 
-        <div className="wrapper d-flex">
+        <div className="z-20 wrapper d-flex">
           <div className="noti dropdown">
             <Link
               id="dropdownMenuButton1"
@@ -128,7 +128,7 @@ export default function SearchTopbar() {
                 alt=""
               />
               <div
-                className={`btn btn-secondary user-icon dropdown-toggle flex items-center gap-x-2 ${
+                className={`btn btn-secondary user-icon dropdown-toggle flex items-center gap-x-2${
                   is_toggle ? "show" : ""
                 }`}
                 role="button"
@@ -167,13 +167,13 @@ export default function SearchTopbar() {
           <div className="profile">
             <div className="dropdown d-flex">
               <Image
-                height={60}
-                width={60}
+                height={40}
+                width={40}
                 src="/assets/images/user.png"
                 alt=""
               />
               <div
-                className={`btn btn-secondary user-icon dropdown-toggle flex items-center gap-x-2 ${
+                className={`btn btn-secondary user-icon dropdown-toggle flex items-center gap-x-2  ${
                   is_toggle ? "show" : ""
                 }`}
                 role="button"
@@ -190,7 +190,7 @@ export default function SearchTopbar() {
               >
                 <DropDownMenu />
                 <li>
-                  <a className="dropdown-item" onClick={() => logout()}>
+                  <a className="dropdown-item dropdown-item flex gap-x-2 items-center" onClick={() => logout()}>
                     <Image
                       height={15}
                       width={35}

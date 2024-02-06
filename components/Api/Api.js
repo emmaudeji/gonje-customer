@@ -271,11 +271,11 @@ export const googlelogin = (values) => {
     });
 };
 
-export const shoplist = () => {
+export const shoplist = (shopName) => {
   return axios({
     method: "get",
     headers: authHeader(),
-    url: url + "all-shop",
+    url: url + `all-shop?search=${shopName}`,
   })
     .then((response) => response.data)
     .catch((error) => {

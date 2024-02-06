@@ -82,9 +82,9 @@ export default function Menu() {
             {" "}
             <Image
               height={85}
-              width={140}
+              width={100}
               className="p-3 img-fluid logo"
-              src="/images/logo.svg"
+              src="https://backendapi.gonje.com/public/gonje-storage/public/images/1_transparent_darkgreen.png"
               alt="logo"
             />{" "}
           </Link>

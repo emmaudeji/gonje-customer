@@ -72,7 +72,7 @@ const RecipesList = () => {
                   </div>
                 ))
               ) : (
-                <div>
+                <div className="container">
                   <EmptyState errorName={`Recipe's not found.`} />
                 </div>
               )}

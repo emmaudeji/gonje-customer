@@ -65,7 +65,7 @@ const Home = () => {
         </div>
         <section className="bg-[url('/images/world-map.png')] bg-cover">
           <section className="px-12 lg:px-24 flex flex-col lg:flex-row justify-between items-center">
-            <section className="space-y-6">
+            <section className="space-y-6 w-full">
               <div className="text-gonje-brown space-y-2">
                 <h2 className="text-xl md:text-2xl lg:text-4xl font-bold">
                   Intercontinental Groceries:
@@ -199,7 +199,7 @@ const Home = () => {
         </section>
         {/* <UsersSection toggleGetStarted={toggleGetStarted} /> */}
 
-        <section className="relative bg-[#fbdda2] py-20 md:py-6 wavy-bg">
+        <section className="relative bg-[#f3ede1] py-20 md:py-6 wavy-bg">
           <section className="bg-[url('/images/why-gonje-bg.png')] bg-bottom bg-cover px-12 lg:px-24 md:py-32 flex flex-col lg:flex-row  justify-between items-center gap-y-6">
             <section className="space-y-6">
               <div className="space-y-2 max-w-2xl text-[#40705c]">
