@@ -11,9 +11,13 @@ import Recipes from "./Recipes";
 import ProductDetail from "./ProductDetail";
 import Loader from "../Loader";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import {Input} from "@/components/ui/input"
+import { Input } from "@/components/ui/input";
+import { Skeleton } from "@/components/ui/skeleton";
+import { SearchIcon } from "lucide-react";
+
 export default function Product({ shopId }) {
   // console.log(shopId);
+  const [productName, setProductName] = useState("");
   const [loading, setLoading] = useState(false);
   const [apires, setApires] = useState("");
   const [apicategory, setApiCategory] = useState("");
@@ -117,10 +121,10 @@ export default function Product({ shopId }) {
       <Header></Header>
       <Menu />
       <div className="pro side-body bg-white">
-        {loading && <Loader />}
+        {/* {loading && <Loader />} */}
         <div className="producttop top-head mx-2 z-20">
           <SearchTopbar />
-          <div className="px-4 md:container border-t py-4 z-20">
+          {/* <div className="px-4 md:container border-t py-4 z-20">
             <Carousel
               responsive={responsive}
               // removeArrowOnDeviceType={["desktop","tablet", "mobile"]}
@@ -158,10 +162,49 @@ export default function Product({ shopId }) {
                 })}
             </Carousel>
             <div className="owl-nav disabled"></div>
-          </div>
+          </div> */}
         </div>
-        <div className="container sticky top-0">
-          <Input placeholder="Search"/>
+        <div className="container my-4 space-y-4 z-20 py-6">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search"
+              className="w-full py-2 pl-10 pr-4 border rounded-md focus:outline-none focus:border-blue-500"
+              onChange={(e) => setProductName(e.target.value)}
+              value={productName}
+            />
+            <SearchIcon className="absolute top-3 left-3 w-5 h-5 text-gray-400" />
+          </div>
+          <div className="">
+            {loading ? (
+              // Render loading div if loading is true
+              <div className="flex justify-center items-center h-16">
+                <p className="text-gray-500">Loading...</p>
+              </div>
+            ) : (
+              // Render the buttons if loading is false
+              <div className="flex gap-x-4">
+                {apires.length > 0 &&
+                  apires.map((result, index) => {
+                    return (
+                      <button
+                        key={index}
+                        onClick={() => {
+                          getCategoryData(index);
+                        }}
+                        className={`${
+                          result.categories[0].id === apicategoryid
+                            ? "bg-[#0F0F0F] text-gray-200"
+                            : "bg-gray-200 text-[#0F0F0F]"
+                        } p-2 border rounded-lg max-w-[10rem] text-ellipsis`}
+                      >
+                        {result.name}
+                      </button>
+                    );
+                  })}
+              </div>
+            )}
+          </div>
         </div>
 
         <hr className="my-2" />
@@ -189,6 +232,7 @@ export default function Product({ shopId }) {
                     <ProductDetail
                       shopId={shopId}
                       apicategoryid={catresult.id}
+                      productName={productName}
                     />
                     <ScrollBar orientation="horizontal" />
                   </ScrollArea>

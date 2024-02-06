@@ -164,7 +164,7 @@ export default function Orders() {
               </div>
             ))
           ) : (
-            <div className="">
+            <div className="container">
               <EmptyState errorName={`Product's not found.`} />
             </div>
           )}

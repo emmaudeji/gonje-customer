@@ -90,7 +90,7 @@ const NotificationComponent = () => {
         </Button>
       </div>
 
-      {isEmpty && <EmptyState errorName={`No Notification Found`} />}
+      {isEmpty && <div className="w-full"><EmptyState errorName={`No Notification Found`} /></div>}
     </div>
   );
 };

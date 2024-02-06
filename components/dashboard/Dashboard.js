@@ -32,6 +32,7 @@ import Loader from "../Loader";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { EmptyState } from "./EmptyState.jsx";
+import { SearchIcon } from "lucide-react";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -40,6 +41,7 @@ const stripePromise = loadStripe(
 export default function Dashboard() {
   const dispatch = useDispatch();
   const [apires, apiReasponse] = useState("");
+  const [shopName, setShopName] = useState("");
   const [shopId, setShopId] = useState();
   const [newShopId, setNewShopId] = useState();
   const classToggle = useSelector((state) => state.classreducers);
@@ -78,14 +80,14 @@ export default function Dashboard() {
   useEffect(() => {
     // storing input name
     (async function getShopList() {
-      const json = await shoplist();
+      const json = await shoplist(shopName);
       if (json) {
         setLoading(false);
         apiReasponse(json.data);
         // console.log(json.data);
       }
     })();
-  }, []);
+  }, [shopName]);
 
   useEffect(() => {
     const users = JSON.parse(localStorage.getItem("user_detail"));
@@ -173,7 +175,7 @@ export default function Dashboard() {
     <DashboardLayout>
       {/* <div className={`main ${classToggle ? "main-content" : ""}`}></div> */}
       <section className="">
-        <ScrollArea className="block md:hidden h-32 w-full py-4">
+        {/* <ScrollArea className="block md:hidden h-32 w-full py-4">
           <div className="flex justify-between">
             {iconsArray.map((item, index) => (
               <div className="flex-shrink-0 min-h-34 cursor-pointer bg-transparent relative rounded-8 max-w-104 py-4 px-8 pb-10 pt-4 pl-8 pr-8 text-[#242529] border-0 min-w-70 flex flex-col items-center justify-center">
@@ -183,8 +185,20 @@ export default function Dashboard() {
             ))}
           </div>
           <ScrollBar orientation="horizontal" />
-        </ScrollArea>
-        <div className="md:container lg:py-16">
+        </ScrollArea> */}
+        <div className="md:container mt-8">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search"
+              className="w-full py-2 pl-10 pr-4 border rounded-md focus:outline-none focus:border-black"
+              onChange={(e) => setShopName(e.target.value)}
+              value={shopName}
+            />
+            <SearchIcon className="absolute top-3 left-3 w-5 h-5 text-gray-400" />
+          </div>
+        </div>
+        <div className="md:container lg:py-10">
           {apires.length ? (
             <div className="mt-1">
               <div className="">
@@ -202,7 +216,7 @@ export default function Dashboard() {
                         <div className="flex flex-col gap-y-2 items-center justify-center">
                           {result?.logo && !Array.isArray(result?.logo) ? (
                             <div className="relative w-[64px] h-[48px] md:w-[72px] md:h-[64px] rounded-lg">
-                             <Image
+                              <Image
                                 fill={true}
                                 src={displayImage(result?.logo?.thumbnail)}
                                 alt=""
@@ -252,7 +266,7 @@ export default function Dashboard() {
                 <div className="my-schedule  billing-information shipping-address">
                   <div className="shipping-checkoutt ">
                     <div className="message_product">
-                      <p>Your cart will be clear, if you change the shop</p>
+                      <p>Your cart will be cleared, if you change the shop</p>
                     </div>
                   </div>
                   <div className="d-flex message_butn">
