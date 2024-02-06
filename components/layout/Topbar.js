@@ -10,6 +10,7 @@ import AppConfig from "../../configs/AppConfig";
 import { toast } from "react-toastify";
 import NotificationToast from "../NotificationToast";
 import { Bell, ChevronDown } from "lucide-react";
+import Link from "next/link";
 
 export default function Topbar() {
   const dispatch = useDispatch();
@@ -75,27 +76,16 @@ export default function Topbar() {
               </a>
             </div> */}
           <div className="noti dropdown">
-            <a
+            <Link
               id="dropdownMenuButton1"
               data-bs-toggle="dropdown"
               aria-expanded="false"
-              onClick={() => {
-                Router.push("/notifications");
-              }}
+              href="/notifications"
             >
               <Bell fill="#f7d594"/>
-            </a>
+            </Link>
             <p>{unreadNotificationCount}</p>
           </div>
-          {/* <div className="choose-lang">
-            <select className="form-select" aria-label="Default select example">
-              <option value="EN">EN</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-          </div> */}
-
           <div className="profile">
             <div className="dropdown d-flex">
               <Image

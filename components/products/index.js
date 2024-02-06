@@ -1,21 +1,20 @@
+import { useEffect, React, useState, useRef } from "react";
+import Image from "next/image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+////
 import Header from "../layout/Header";
 import SearchTopbar from "../layout/SearchTopbar";
-import { useEffect, React, useState } from "react";
 import CategoryService from "../../services/CategoryService";
 import Menu from "../layout/Menu";
 import Recipes from "./Recipes";
 import ProductDetail from "./ProductDetail";
 import Loader from "../Loader";
-import Image from "next/image";
-import { BsCartFill } from "react-icons/bs";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-
+import {Input} from "@/components/ui/input"
 export default function Product({ shopId }) {
   // console.log(shopId);
   const [loading, setLoading] = useState(false);
-
   const [apires, setApires] = useState("");
   const [apicategory, setApiCategory] = useState("");
   const [categoryindex, setcategoryindex] = useState(0);
@@ -94,7 +93,20 @@ export default function Product({ shopId }) {
   const getProductData = (catindex) => {
     setapiCategoryId(apires[categoryindex].categories[catindex].id);
   };
+  const scrollRef = useRef(null);
 
+  // I added a function to handle the click event on the buttons
+  const handleScroll = (direction) => {
+    // I used the scrollLeft property to change the horizontal position of the scroll area
+    if (direction === "left") {
+      console.log("scroll left ", scrollRef.current.scrollLeft);
+      scrollRef.current.scrollLeft -= 100; // you can adjust this value as you like
+    } else if (direction === "right") {
+      console.log("scroll right ", (scrollRef.current.scrollLeft += 100));
+
+      scrollRef.current.scrollLeft += 100; // you can adjust this value as you like
+    }
+  };
   useEffect(() => {
     setLoading(true);
     getCategory(shopId);
@@ -106,7 +118,7 @@ export default function Product({ shopId }) {
       <Menu />
       <div className="pro side-body bg-white">
         {loading && <Loader />}
-        <div className="producttop top-head mx-2">
+        <div className="producttop top-head mx-2 z-20">
           <SearchTopbar />
           <div className="px-4 md:container border-t py-4 z-20">
             <Carousel
@@ -148,9 +160,53 @@ export default function Product({ shopId }) {
             <div className="owl-nav disabled"></div>
           </div>
         </div>
+        <div className="container sticky top-0">
+          <Input placeholder="Search"/>
+        </div>
+
         <hr className="my-2" />
 
-        {/* <div className="px-4 md:container py-3">
+        <div className="categories md:pt-3 space-y-4">
+          {apicategory.length > 0 &&
+            apicategory.map((catresult, catindex) => {
+              // console.log("category result", catresult);
+              return (
+                <div className="" key={catindex}>
+                  <h1
+                    className={`py-[3px] px-3 whitespace-nowrap text-2xl font-semibold  `}
+                  >
+                    {catresult.name.substring(0, 50)}{" "}
+                  </h1>
+                  {/* <div className="flex gap-x-6">
+                    <button onClick={() => handleScroll("left")}>
+                      {"<"} back
+                    </button>
+                    <button onClick={() => handleScroll("right")}>
+                      {">"} front
+                    </button>
+                  </div> */}
+                  <ScrollArea className="py-4" ref={scrollRef}>
+                    <ProductDetail
+                      shopId={shopId}
+                      apicategoryid={catresult.id}
+                    />
+                    <ScrollBar orientation="horizontal" />
+                  </ScrollArea>
+                </div>
+              );
+            })}
+          <div className="fruits row">
+            {/* <ProductDetail shopId={shopId} apicategoryid={apicategoryid} /> */}
+          </div>
+          <Recipes shopId={shopId} apicategoryid={apicategoryid}></Recipes>
+        </div>
+      </div>
+    </>
+  );
+}
+
+{
+  /* <div className="px-4 md:container py-3">
         <ScrollArea className="h w-full py-4">
           <div className="flex justify-between gap-x-8">
           {apicategory.length > 0 &&
@@ -177,28 +233,5 @@ export default function Product({ shopId }) {
           </div>
           <ScrollBar orientation="horizontal" />
         </ScrollArea>
-        </div> */}
-        <div className="categories md:pt-3">
-          {apicategory.length > 0 &&
-            apicategory.map((catresult, catindex) => {
-              // console.log("category result", catresult);
-              return (
-                <div className="" key={catindex}>
-                  <h1
-                    className={`py-[3px] px-3 whitespace-nowrap text-2xl font-semibold  `}
-                  >
-                    <p> {catresult.name.substring(0, 50)}</p>
-                  </h1>
-                  <ProductDetail shopId={shopId} apicategoryid={catresult.id} />
-                </div>
-              );
-            })}
-          <div className="fruits row">
-            {/* <ProductDetail shopId={shopId} apicategoryid={apicategoryid} /> */}
-          </div>
-          <Recipes shopId={shopId} apicategoryid={apicategoryid}></Recipes>
-        </div>
-      </div>
-    </>
-  );
+        </div> */
 }
