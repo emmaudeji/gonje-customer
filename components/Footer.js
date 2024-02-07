@@ -185,6 +185,15 @@ export default function Footer({ toggleGetStarted }) {
               </div>
             </div>
           </div>
+          <div className="flex justify-center items-center mt-4">
+            <Image
+              layout="fixed"
+              height={100}
+              width={400}
+              src="https://backendapi.gonje.com/public/gonje-storage/public/images/payment-methods.png"
+              alt=""
+            />
+          </div>
         </div>
         <div className="copywrite">
           <div

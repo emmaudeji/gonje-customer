@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export const EmptyState = ({ errorName }) => {
   return (
-    <section className="bg-white w-full h-full">
+    <section className="w-full h-full">
       <section className="container">
         <div className="flex flex-col gap-y-3 justify-center items-center">
           <Image
