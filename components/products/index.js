@@ -72,6 +72,22 @@ export default function Product({ shopId }) {
     },
   };
 
+
+  const scrollRef = useRef(null);
+  
+  const handleScrollLeft = () => {
+    if (scrollRef.current) {
+      console.log(scrollRef.current.scrollLeft)
+      scrollRef.current.scrollLeft -= 100; // Adjust the scroll amount as needed
+    }
+  };
+  
+  const handleScrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft += 100; // Adjust the scroll amount as needed
+    }
+  };
+
   const getCategoryData = (index) => {
     setcategoryindex(index);
     setApiCategory(apires[index].categories);
@@ -97,7 +113,6 @@ export default function Product({ shopId }) {
   const getProductData = (catindex) => {
     setapiCategoryId(apires[categoryindex].categories[catindex].id);
   };
-  const scrollRef = useRef(null);
 
   // I added a function to handle the click event on the buttons
   const handleScroll = (direction) => {
@@ -210,35 +225,29 @@ export default function Product({ shopId }) {
         <hr className="my-2" />
 
         <div className="categories md:pt-3 space-y-4">
-          {apicategory.length > 0 &&
-            apicategory.map((catresult, catindex) => {
-              // console.log("category result", catresult);
-              return (
-                <div className="" key={catindex}>
-                  <h1
-                    className={`py-[3px] px-3 whitespace-nowrap text-2xl font-semibold  `}
-                  >
-                    {catresult.name.substring(0, 50)}{" "}
-                  </h1>
-                  {/* <div className="flex gap-x-6">
-                    <button onClick={() => handleScroll("left")}>
-                      {"<"} back
-                    </button>
-                    <button onClick={() => handleScroll("right")}>
-                      {">"} front
-                    </button>
-                  </div> */}
-                  <ScrollArea className="py-4" ref={scrollRef}>
-                    <ProductDetail
-                      shopId={shopId}
-                      apicategoryid={catresult.id}
-                      productName={productName}
-                    />
-                    <ScrollBar orientation="horizontal" />
-                  </ScrollArea>
-                </div>
-              );
-            })}
+        {apicategory.length > 0 &&
+  apicategory.map((catresult, catindex) => {
+    return (
+      <div className="" key={catindex}>
+        <h1 className="py-[3px] px-3 whitespace-nowrap text-2xl font-semibold">
+          {catresult.name.substring(0, 50)}
+        </h1>
+        <div className="flex items-center">
+          <button onClick={handleScrollLeft}>Scroll Left</button>
+          <div className="overflow-x-auto flex-grow" ref={scrollRef}>
+            <ScrollArea className="py-4">
+              <ProductDetail
+                shopId={shopId}
+                apicategoryid={catresult.id}
+                productName={productName}
+              />
+            </ScrollArea>
+          </div>
+          <button onClick={handleScrollRight}>Scroll Right</button>
+        </div>
+      </div>
+    );
+  })}
           <div className="fruits row">
             {/* <ProductDetail shopId={shopId} apicategoryid={apicategoryid} /> */}
           </div>

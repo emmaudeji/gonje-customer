@@ -167,7 +167,7 @@ export const CartDrawer = () => {
         )}
         <ul
           role="list"
-          className="-my-6 py-4 divide-y divide-gray-200 space-y-3 px-3 max-w-[50%] lg:max-h-[70%] overflow-y-scroll"
+          className="-my-6 py-4 divide-y divide-gray-200 space-y-3 px-3 max-h-[50%] lg:max-h-[70%] overflow-y-scroll"
         >
           {apires.data &&
             apires.data.map((result, index) => (

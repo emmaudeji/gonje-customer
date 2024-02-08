@@ -28,7 +28,27 @@ const getproduct = (slug) => {
     url: url + `products/${slug}`,
   });
 };
-
+const TopDeals = (slug) => {
+  return axios({
+    method: "get",
+    headers: authHeader(),
+    url: url + `topDeals?shop_id=${slug}`,
+  });
+};
+const WhatsNew = (slug) => {
+  return axios({
+    method: "get",
+    headers: authHeader(),
+    url: url + `whatsNew?shop_id=${slug}`,
+  });
+};
+const TodaysSale = (slug) => {
+  return axios({
+    method: "get",
+    headers: authHeader(),
+    url: url + `todaySale?shop_id=${slug}`,
+  });
+};
 const reorderproduct = (data) => {
   // console.log(data,'cart data')
   return Httpcommon.post(`/reorder/${data}`);
@@ -51,6 +71,9 @@ const productService = {
   get,
   getproduct,
   reorderproduct,
+  TopDeals,
+  TodaysSale,
+  WhatsNew,
   getproductdata,
 };
 

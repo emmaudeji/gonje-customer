@@ -3,6 +3,7 @@ import Menu from "../layout/Menu";
 import SearchTopbar from "../layout/SearchTopbar";
 import { useEffect, React, useState } from "react";
 import Products from "../commonProductDeals/Products";
+import TopDeals from "../commonProductDeals/TopDeals";
 
 const TodayDeals = ({ shopId }) => {
   return (
@@ -14,7 +15,7 @@ const TodayDeals = ({ shopId }) => {
           <SearchTopbar></SearchTopbar>
         </div>
         <div className="main"></div>
-        <Products shopId={shopId} action="3"></Products>
+        <TopDeals shopId={shopId} action="3"/>
       </div>
     </>
   );

@@ -25,6 +25,7 @@ const FridgeCarousel = ({ shopId }) => {
       });
   }, [shopId, categoryindex]);
   const getCategoryData = (index) => {
+    console.log(apires[index].id)
     apiCategory(apires[index].id);
   };
 

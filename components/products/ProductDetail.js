@@ -71,8 +71,6 @@ export default function ProductDeatil({ shopId, apicategoryid, productName }) {
                 <SingleProduct
                   productindex={productindex}
                   productresult={productresult}
-                  productslug={productslug}
-                  handleProductDialogClick={handleProductDialogClick}
                   key={productindex}
                 />
               </div>
@@ -88,11 +86,9 @@ export default function ProductDeatil({ shopId, apicategoryid, productName }) {
   );
 }
 ///I returned the product as the trigger of the  dialog then the view product modal as the dialog content
-const SingleProduct = ({
+export const SingleProduct = ({
   productindex,
   productresult,
-  productslug,
-  handleProductDialogClick,
 }) => {
   const dispatch = useDispatch();
   const { toast } = useToast();
@@ -147,7 +143,7 @@ const SingleProduct = ({
             <div
               href="#"
               className="group relative block overflow-hidden w-[150px] md:w-[250px]"
-              onClick={() => handleProductDialogClick(productresult)}
+              // onClick={() => handleProductDialogClick(productresult)}
             >
               {/* {productresult.discount != 0 ? (
                 <button className="absolute left-0 top-2 rounded-md bg-white p-1.5 transition z-10">
