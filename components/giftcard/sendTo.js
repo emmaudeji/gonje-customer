@@ -18,7 +18,7 @@ const SendTo = () => {
                     <p>Gift Card will be emailed to</p>
                     <strong>{email}</strong><br/>
                     <strong>{phone}</strong>
-                    <p>Lorem ipsumdoller salad has to be made with tomatoes only?</p>
+                    {/* <p>Lorem ipsumdoller salad has to be made with tomatoes only?</p> */}
                 </div>
             </div>
 
