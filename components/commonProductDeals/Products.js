@@ -4,6 +4,7 @@ import AddToCartBtn from "./AddToCartBtn";
 import InfiniteScroll from "react-infinite-scroll-component";
 import TimeAgoTag from "./TimeAgoTag";
 import Loader from "../Loader";
+import { EmptyState } from "@/components/dashboard/EmptyState";
 import Image from "next/image";
 
 export default function Products({ shopId, action }) {
@@ -126,8 +127,8 @@ export default function Products({ shopId, action }) {
                 </a>
               ))
             ) : (
-              <div className="side-rght-inr">
-                <div className="empty-txt">product&apos;s not found.</div>
+              <div className="container py-4 h-full">
+                <EmptyState />
               </div>
             )}
           </InfiniteScroll>
