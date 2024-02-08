@@ -37,7 +37,7 @@ export default function TodaysSale({ shopId }) {
         apiProduct((apiproduct) => [...apiproduct, ...response.data.data.data]);
       }
     });
-  }, [shopId, page, action]);
+  }, [shopId, page]);
 
   const handleLoadMore = (e) => {
     setPage((page) => page + 1);

@@ -142,7 +142,7 @@ export const CartDrawer = () => {
       </SheetTrigger>
       <SheetContent className="">
         <SheetHeader>
-          <div className="flex items-start justify-between mb-5">
+          <div className="flex items-start justify-between mb-3">
             <SheetTitle>Checkout</SheetTitle>
             <SheetClose className="ml-3 flex h-7 items-center">
               <button type="button" className="relative -m-2 p-2">
@@ -155,7 +155,7 @@ export const CartDrawer = () => {
         </SheetHeader>
         {apires.data && (
           <button
-            className="flex justify-end items-center gap-x-1 text-red-600 my-2 sticky top-0"
+            className="flex justify-end items-center gap-x-1 text-red-600 my-1"
             name="clear-cart"
             title="clear cart"
             aria-label="clear cart"
@@ -260,9 +260,7 @@ export const CartDrawer = () => {
             )}
           </div>
 
-          {apires.subTotal <= 50 ? (
-            ""
-          ) : (
+          {apires.subTotal >= 50 && !apires?.data?.length < 1 ? (
             <Link
               href={{
                 pathname: "/checkout",
@@ -271,8 +269,11 @@ export const CartDrawer = () => {
             >
               <Button href="#" className="bg-gonje-green w-full">
                 Checkout
+                {console.log(!apires?.data?.length < 1)}
               </Button>
             </Link>
+          ) : (
+            ""
           )}
 
           <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
