@@ -8,7 +8,7 @@ import { EmptyState } from "@/components/dashboard/EmptyState";
 import Image from "next/image";
 import { SingleProduct } from "../products/ProductDetail";
 
-export default function TopDeals({ shopId, action }) {
+export default function TodaysSale({ shopId }) {
   const [loading, setLoading] = useState(false);
 
   const [apiproduct, apiProduct] = useState("");
@@ -17,7 +17,7 @@ export default function TopDeals({ shopId, action }) {
   const [onload, setonload] = useState(true);
   const getProducts = useCallback(() => {
     let Collected_data = "shop_id=" + shopId + "&page=" + page;
-    ProductService.TopDeals(shopId).then((response) => {
+    ProductService.TodaysSale(shopId).then((response) => {
       if (page == 1) {
         setLoading(false);
         apiProduct(response.data.data.data);
