@@ -109,7 +109,81 @@ export function ProfileForm({ onValidated, status, message, setOpen }:FormProps)
     </div>
   );
 }
+export function NewsletterForm({ onValidated, status, message, setOpen }:FormProps) {
+  const { toast } = useToast();
 
+  // 1. Define your form.
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: "",
+      postcode: "",
+    },
+  });
+
+  // 2. Define a submit handler.
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    onValidated({
+      EMAIL: values.email,
+      POSTCODE: values.postcode,
+    });
+    if (status == "success") {
+      toast({
+        title: "Success",
+        variant: "success",
+        description: "you have joined our waiting list",
+      });
+      setOpen(false)
+    }
+  }
+  return (
+    <div className="">
+      {status === "sending" ? (
+        <div className={`${setClassName(status)}`}>sending...</div>
+      ) : (
+        (status === "error" || status === "success") && (
+          <div
+            className={`${setClassName(status)}`}
+            dangerouslySetInnerHTML={{ __html: message }}
+          />
+        )
+      )}
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 px-4 xl:px-72 lg:px-56 md:px-12">
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input {...field} className="bg-gonje foucs:bg-gonje"/>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="postcode"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Postcode</FormLabel>
+                <FormControl>
+                  <Input {...field} className="bg-gonje focus:bg-gonje"/>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button type="submit" className="bg-gonje-green mt-4">
+            Submit
+          </Button>
+        </form>
+      </Form>
+    </div>
+  );
+}
 function setClassName(status: string) {
   let className;
   switch (status) {

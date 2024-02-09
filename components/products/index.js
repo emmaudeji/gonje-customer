@@ -13,7 +13,7 @@ import Loader from "../Loader";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
-import { SearchIcon } from "lucide-react";
+import { ChevronLeft, ChevronRight, SearchIcon } from "lucide-react";
 
 export default function Product({ shopId }) {
   // console.log(shopId);
@@ -72,19 +72,25 @@ export default function Product({ shopId }) {
     },
   };
 
-
   const scrollRef = useRef(null);
-  
-  const handleScrollLeft = () => {
-    if (scrollRef.current) {
-      console.log(scrollRef.current.scrollLeft)
-      scrollRef.current.scrollLeft -= 100; // Adjust the scroll amount as needed
+  const listScrollRef = useRef(null);
+  function getMap() {
+    if (!listScrollRef.current) {
+      // Initialize the Map on first usage.
+      listScrollRef.current = new Map();
     }
-  };
-  
-  const handleScrollRight = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollLeft += 100; // Adjust the scroll amount as needed
+    return listScrollRef.current;
+  }
+  // I added a function to handle the click event on the buttons
+  const handleScroll = (direction, itemId) => {
+    const map = getMap();
+    const node = map.get(itemId);
+    // console.log("items to be scrolled", map, node, itemId);
+    // I used the scrollLeft property to change the horizontal position of the scroll area
+    if (direction === "left") {
+      node.scrollLeft -= 100; // you can adjust this value as you like
+    } else if (direction === "right") {
+      node.scrollLeft += 100; // you can adjust this value as you like
     }
   };
 
@@ -114,18 +120,6 @@ export default function Product({ shopId }) {
     setapiCategoryId(apires[categoryindex].categories[catindex].id);
   };
 
-  // I added a function to handle the click event on the buttons
-  const handleScroll = (direction) => {
-    // I used the scrollLeft property to change the horizontal position of the scroll area
-    if (direction === "left") {
-      console.log("scroll left ", scrollRef.current.scrollLeft);
-      scrollRef.current.scrollLeft -= 100; // you can adjust this value as you like
-    } else if (direction === "right") {
-      console.log("scroll right ", (scrollRef.current.scrollLeft += 100));
-
-      scrollRef.current.scrollLeft += 100; // you can adjust this value as you like
-    }
-  };
   useEffect(() => {
     setLoading(true);
     getCategory(shopId);
@@ -225,29 +219,54 @@ export default function Product({ shopId }) {
         <hr className="my-2" />
 
         <div className="categories md:pt-3 space-y-4">
-        {apicategory.length > 0 &&
-  apicategory.map((catresult, catindex) => {
-    return (
-      <div className="" key={catindex}>
-        <h1 className="py-[3px] px-3 whitespace-nowrap text-2xl font-semibold">
-          {catresult.name.substring(0, 50)}
-        </h1>
-        <div className="flex items-center">
-          <button onClick={handleScrollLeft}>Scroll Left</button>
-          <div className="overflow-x-auto flex-grow" ref={scrollRef}>
-            <ScrollArea className="py-4">
-              <ProductDetail
-                shopId={shopId}
-                apicategoryid={catresult.id}
-                productName={productName}
-              />
-            </ScrollArea>
-          </div>
-          <button onClick={handleScrollRight}>Scroll Right</button>
-        </div>
-      </div>
-    );
-  })}
+          {apicategory.length > 0 &&
+            apicategory.map((catresult, catindex) => {
+              return (
+                <div className="" key={catindex}>
+                  <div className="flex justify-between items-center">
+                    <h1 className="py-[3px] px-3 whitespace-nowrap text-2xl font-semibold">
+                      {catresult.name.substring(0, 50)}
+                    </h1>
+                    <div className="flex gap-x-2">
+                      <button
+                        onClick={() => handleScroll("left", catindex)}
+                        aria-label="scroll right"
+                        title="scroll left"
+                        className="bg-gonje text-gonje-green h-10 w-10 flex items-center justify-center text-lg rounded-full cursor-pointer"
+                      >
+                        <ChevronLeft />
+                      </button>
+                      <button
+                        onClick={() => handleScroll("right", catindex)}
+                        aria-label="scroll right"
+                        title="scroll left"
+                        className="bg-gonje text-gonje-green h-10 w-10 flex items-center justify-center text-lg rounded-full cursor-pointer"
+                      >
+                        <ChevronRight />
+                      </button>
+                    </div>
+                  </div>
+
+                  <div
+                    className="flex overflow-x-hidden space-x-8"
+                    ref={(node) => {
+                      const map = getMap();
+                      if (node) {
+                        map.set(catindex, node);
+                      } else {
+                        map.delete(catindex);
+                      }
+                    }}
+                  >
+                    <ProductDetail
+                      shopId={shopId}
+                      apicategoryid={catresult.id}
+                      productName={productName}
+                    />
+                  </div>
+                </div>
+              );
+            })}
           <div className="fruits row">
             {/* <ProductDetail shopId={shopId} apicategoryid={apicategoryid} /> */}
           </div>

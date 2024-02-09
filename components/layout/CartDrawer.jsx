@@ -269,7 +269,6 @@ export const CartDrawer = () => {
             >
               <Button href="#" className="bg-gonje-green w-full">
                 Checkout
-                {console.log(!apires?.data?.length < 1)}
               </Button>
             </Link>
           ) : (

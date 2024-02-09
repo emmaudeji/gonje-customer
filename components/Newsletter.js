@@ -4,15 +4,21 @@ import { useCallback, useEffect, useState } from "react";
 import { resetData } from "./shared/Function.js";
 import { newsletter } from "./Api/Api";
 import Image from "next/image";
-import Fade from 'react-reveal/Fade';
+import Fade from "react-reveal/Fade";
 import { useToast } from "@/components/ui/use-toast";
-
-
+import MailchimpSubscribe from "react-mailchimp-subscribe";
+import { NewsletterForm } from "./MailChimpForm";
 export default function Newsletter() {
   const { toast } = useToast();
-
+  const url =
+    "https://gonje.us20.list-manage.com/subscribe/post?u=8293c49fe797c04b3b9f52c23&amp;id=b040c42304";
   const [apimsgs, apiSetmsgs] = useState({});
   const [classes, setclasses] = useState();
+
+  const handleSubmit = (e, subscribe, status, message) => {
+    e.preventDefault();
+    console.log(e.target);
+  };
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -42,93 +48,39 @@ export default function Newsletter() {
 
       return errors;
     },
-    onSubmit: async (values) => {
-      const json = await newsletter(values);
-
-      if (json.status == 200) {
-        setclasses("alert-success");
-        apiSetmsgs({
-          msg: json.message,
-        });
-        toast({
-          title: "Success",
-          variant: "success",
-          description: "You have signed up for our newsletter",
-        });
-      } else {
-        setclasses("alert alert-danger");
-        apiSetmsgs({
-          msg: json.message,
-        });
-      }
-      resetData(() =>
-        apiSetmsgs({
-          error: "",
-        })
-      );
-    },
+    onSubmit: async (values, test, test2) => {},
   });
   return (
     <>
       <section className="newslettersec">
-      <Fade top>
-      <div className="container">
-          <div
-            className="heading wow fadeInUp"
-            data-wow-duration="1s"
-            data-wow-delay="0.2s"
-          >
-            <h2 className="capitalize">sign up to our newsletter</h2>
-            <p>
-              Sign up now to get the exclusive deals and offers, money-saving
-              promotions straight to your inbox.
-            </p>
-          </div>
-          <form onSubmit={formik.handleSubmit}>
+        <Fade top>
+          <div className="container">
             <div
-              className="newsletter-oter wow fadeInUp"
+              className="heading wow fadeInUp"
               data-wow-duration="1s"
-              data-wow-delay="0.4s"
+              data-wow-delay="0.2s"
             >
-              {apimsgs.msg && (
-                <div className={classes}>
-                  {classes ? (
-                    <Image
-                      src="/images/error_icon.svg"
-                      height={20}
-                      width={20}
-                      alt=""
-                    />
-                  ) : (
-                    ""
-                  )}{" "}
-                  {apimsgs.msg}
-                </div>
-              )}
-              <input
-                type="text"
-                name="email"
-                value={formik.values.email}
-                placeholder="Enter your email"
-                onChange={formik.handleChange}
-              />
-              {formik.errors.email ? <div>{formik.errors.email}</div> : null}
-              <input
-                type="text"
-                name="postcode"
-                value={formik.values.postcode}
-                placeholder="Post Code"
-                onChange={formik.handleChange}
-              />
-              {formik.errors.postcode ? (
-                <div>{formik.errors.postcode}</div>
-              ) : null}
-              <input type="submit" className="bttn" value="Submit" />
+              <h2 className="capitalize">sign up to our newsletter</h2>
+              <p>
+                Sign up now to get the exclusive deals and offers, money-saving
+                promotions straight to your inbox.
+              </p>
             </div>
-          </form>
-        </div>
+            <MailchimpSubscribe
+              url={url}
+              render={({ subscribe, status, message }) => (
+                <>
+                  <div className="">
+                    <NewsletterForm
+                      {...{ status, message }}
+                      onValidated={(formData) => subscribe(formData)}
+                    />
+                  </div>
+                </>
+              )}
+            />
+          </div>
         </Fade>
-        
       </section>
     </>
   );
