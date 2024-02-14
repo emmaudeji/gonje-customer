@@ -4,6 +4,7 @@ import { useEffect, React, useState } from "react";
 import { EmptyState } from "@/components/dashboard/EmptyState";
 import productService from "../../services/ProductService";
 import AddToCartBtn from "./AddToCartBtn";
+import { SingleProduct } from "@/components/products/ProductDetail";
 const Products = ({ shopId, categoryId }) => {
   //product getting here
   const [apiproduct, apiProduct] = useState("");
@@ -27,38 +28,10 @@ const Products = ({ shopId, categoryId }) => {
   return (
     <>
       <div className="categories">
-        <div className="fruits row justify-content-center">
+        <div className="flex gap-x-16 md:gap-x-4">
           {apiproduct.length ? (
             apiproduct.map((productresult, productindex) => (
-              <a href="#" className="fruit-price" key={productindex}>
-                <div className="item-img" key={productindex}>
-                  {productresult.image &&
-                  productresult.image.hasOwnProperty("thumbnail") ? (
-                    <Image
-                      src={productresult.image.thumbnail}
-                      alt=""
-                      height={80}
-                      width={80}
-                    />
-                  ) : (
-                    ""
-                  )}
-                </div>
-                <br />
-                <strong>{productresult.name}</strong>
-                <p className="info">
-                  {productresult.description.substring(0, 100)}
-                </p>
-                <p className="price">${productresult.sale_price}</p>
-                <div className="quantity d-flex">
-                  <div className="items d-flex">
-                    <p>Qty</p>
-                    <strong>{productresult.quantity}</strong>
-                  </div>
-                  <AddToCartBtn slug={productresult.slug}></AddToCartBtn>
-                </div>
-                
-              </a>
+              <SingleProduct productresult={productresult} productindex={productindex}/>
             ))
           ) : (
             <div className="container">

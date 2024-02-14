@@ -80,7 +80,7 @@ export default function ProductPop({ apires, DialogClose, setOpen }) {
                   <div className="product-popup">
                     <div className="main-img">
                         <Image
-                          src={productImage|| apires.image.original}
+                          src={productImage|| apires?.image?.original}
                           alt=""
                           height={300}
                           width={300}

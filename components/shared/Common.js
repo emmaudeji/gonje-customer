@@ -4,7 +4,7 @@ import Router from "next/router";
 import { publicPaths } from "../../pages/_app";
 
 export default function Common({children}) {
-  const timeout = 300000;
+  const timeout = 500000;
   //const timeout = 3000
   const [lastEvent, setLastEvent] = useState("Events Emitted on Leader");
 

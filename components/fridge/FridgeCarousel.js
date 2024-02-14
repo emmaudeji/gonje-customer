@@ -6,12 +6,14 @@ import SearchTopbar from "../layout/SearchTopbar";
 import Products from "./Products";
 import Loader from "../Loader";
 import Image from "next/image";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 const FridgeCarousel = ({ shopId }) => {
   const [loading, setLoading] = useState(false);
   const [apires, apiReasponse] = useState("");
   const [apicategory, apiCategory] = useState(0);
   const [categoryindex, setcategoryindex] = useState(0);
+  const [indexedCategory, setIndexedCategory] = useState(0);
   const getCategory = useCallback(() => {
     let Collected_data = "is_fridge=1&shop_id=" + shopId;
     CategoryService.get(Collected_data)
@@ -25,7 +27,8 @@ const FridgeCarousel = ({ shopId }) => {
       });
   }, [shopId, categoryindex]);
   const getCategoryData = (index) => {
-    console.log(apires[index].id)
+    // console.log('function', index+1, apires[index].id)
+    setIndexedCategory(apires[index].id);
     apiCategory(apires[index].id);
   };
 
@@ -41,7 +44,7 @@ const FridgeCarousel = ({ shopId }) => {
       items: 8,
       slidesToSlide: 8, // optional, default to 1.
     },
-    
+
     tablet: {
       breakpoint: { max: 1024, min: 568 },
       items: 4,
@@ -64,8 +67,9 @@ const FridgeCarousel = ({ shopId }) => {
       {loading && <Loader />}
       <div className="producttop top-head">
         <SearchTopbar></SearchTopbar>
-        <div className="categories p-0 food-category fridge-cat">
-          <Carousel className="fridge-cate"
+        <div className="container p-0 food-category fridge-cat">
+          <Carousel
+            className="fridge-cate"
             responsive={responsive}
             // removeArrowOnDeviceType={["desktop","tablet", "mobile"]}
             showDots={false}
