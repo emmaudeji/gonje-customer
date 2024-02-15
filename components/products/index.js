@@ -218,32 +218,33 @@ export default function Product({ shopId }) {
 
         <hr className="my-2" />
 
-        <div className="categories md:pt-3 space-y-4">
+        <div className="categories md:pt-3 space-y-6 lg:space-y-8">
           {apicategory.length > 0 &&
             apicategory.map((catresult, catindex) => {
               return (
                 <div className="" key={catindex}>
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center my-2">
                     <h1 className="py-[3px] px-3 whitespace-nowrap text-2xl font-semibold">
                       {catresult.name.substring(0, 50)}
                     </h1>
                     <div className="flex gap-x-2">
-                      <button
+                      <div
                         onClick={() => handleScroll("left", catindex)}
                         aria-label="scroll right"
                         title="scroll left"
-                        className="bg-gonje text-gonje-green h-10 w-10 flex items-center justify-center text-lg rounded-full cursor-pointer"
+                        className="bg-gray-300 h-10 w-10 flex items-center justify-center text-lg rounded-full cursor-pointer"
                       >
                         <ChevronLeft />
-                      </button>
-                      <button
+                      </div>
+        
+                      <div
                         onClick={() => handleScroll("right", catindex)}
                         aria-label="scroll right"
                         title="scroll left"
-                        className="bg-gonje text-gonje-green h-10 w-10 flex items-center justify-center text-lg rounded-full cursor-pointer"
+                        className="bg-gray-300 h-10 w-10 flex items-center justify-center text-lg rounded-full cursor-pointer"
                       >
                         <ChevronRight />
-                      </button>
+                      </div>
                     </div>
                   </div>
 

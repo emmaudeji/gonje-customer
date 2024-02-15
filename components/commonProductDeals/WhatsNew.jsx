@@ -51,34 +51,33 @@ export default function WhatsNew({ shopId, action }) {
   }, [shopId, page, getProducts]);
 
   return (
-    <>
-      {loading && <Loader />}
-      <div className="bg-white categories top-deal pt-3">
-        <div className="fruits row justify-content-center">
-          <InfiniteScroll
-            dataLength={apiproduct.length}
-            next={(e) => (onload ? handleLoadMore(e) : "")}
-            hasMore={true}
-            loader={loaderdata ? <h4>Loading...</h4> : ""}
-          >
-            {apiproduct.length ? (
-              apiproduct.map((productresult, productindex) => (
-                <div>
-                  <SingleProduct
-                    productindex={productindex}
-                    productresult={productresult}
-                    key={productindex}
-                  />
-                </div>
-              ))
-            ) : (
-              <div className="container py-4 h-full">
-                <EmptyState />
-              </div>
-            )}
-          </InfiniteScroll>
+    <div className="container">
+    <div className="flex flex-wrap md:gap-x-6 gap-y-2 xl:gap-x-8 justify-between md:gap-y-4">
+      {/* <InfiniteScroll
+        dataLength={apiproduct.length}
+        next={(e) => (onload ? handleLoadMore(e) : "")}
+        hasMore={true}
+        loader={loaderdata ? <h4>Loading...</h4> : ""}
+        className=""
+      >
+
+      </InfiniteScroll> */}
+      {apiproduct.length ? (
+        apiproduct.map((productresult, productindex) => (
+          <div>
+            <SingleProduct
+              productindex={productindex}
+              productresult={productresult}
+              key={productindex}
+            />
+          </div>
+        ))
+      ) : (
+        <div className="container py-4 h-full">
+          <EmptyState />
         </div>
-      </div>
-    </>
+      )}
+    </div>
+  </div>
   );
 }
