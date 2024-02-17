@@ -292,29 +292,4 @@ export function SingleProductSkelenton() {
     </div>
   );
 }
-{
-  /* <div>
-<div className="hidden md:block absolute right-0 top-0 xl:right-1 xl:top-1 rounded-full bg-gonje-green z-10">
-  <div
-    className="flex justify-center items-center gap-x-1 px-[9.5px] py-2 font-medium cursor-pointer z-10"
-    onClick={() => {
-      productSlugs(slug);
-      // onOpenProductModal();
-    }}
-  >
-    <Plus color="#fff" size={20} />
-    <p className="text-base text-white">Add</p>
-  </div>
-</div>
-<button
-  onClick={() => {
-    productSlugs(slug);
-    // onOpenProductModal();
-  }}
-  className="md:hidden flex  items-center justify-center gap-x-4 w-full h-8 font-bold bg-gonje-green rounded-md px-4 text-sm md:text-base transition hover:scale-105"
->
-  <BsCartFill color="#fff" />
-  <span className="text-white">Add</span>
-</button>
-</div> */
-}
+
